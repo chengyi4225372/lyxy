@@ -53,4 +53,11 @@ class Login extends BasicMobile {
         $this->assign('title', '登录');
 		return $this->fetch();
 	}
+
+	//手机端注册
+    public function register(){
+	    return $this->fetch();
+    }
+
+
 }
