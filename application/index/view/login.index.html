@@ -1,0 +1,143 @@
+<html style="font-size: 72.5521px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <title>乐育学院-登录</title>
+    <link rel="shortcut icon" href="__STATIC__/index/static/frontend/index/url_logo.png"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/toastr.min.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/app.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/layui/css/layui.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css">
+    <script src="__STATIC__/index/plugins/jquery-2.1.4.js"></script>
+    <script async="" charset="UTF-8" src="https://static.meiqia.com/dist/meiqia.js?_=t"></script>
+    <link href="https://static.geetest.com/static/wind/style_https.1.5.0.css" rel="stylesheet">
+    <link href="__STATIC__/index/static/css/login.css" rel="stylesheet">
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.all.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/static/js/gt.js"></script>
+    <style type="text/css">
+        .geetest_holder.geetest_wind{
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body id="app"><!--v-start-->
+<!--v-component-->
+<div id="router-view" style="height: 100%;height: auto;margin-top: 80px;">
+    <div class="box" _v-0dee26bc="" style="height: 945px;">
+        <img src="__STATIC__/index/static/frontend/Loginbg.jpg" alt="" class="bac"
+             _v-0dee26bc="" style="height: 945px;">
+        <div class="login_cont" _v-0dee26bc="">
+            <div class="login_title" _v-0dee26bc=""><img src="__STATIC__/index/static/frontend/head_logo.png" alt="" _v-0dee26bc="">
+                <p _v-0dee26bc="">培训企业最需要的前端工程师!</p></div>
+            <div class="login_box" _v-0dee26bc="">
+                <div class="zi" _v-0dee26bc="">
+                    <span _v-0dee26bc="" class="loginthis">密码登录</span>
+                </div>
+                <div class="inp" _v-0dee26bc="">
+                    <form action="" id="post_form">
+                        <span class="error" _v-0dee26bc=""></span>
+                        <input name="name" id="username" type="text" class="user" placeholder="用户名 / 手机号码" _v-0dee26bc="">
+                        <input name="pass" id="password" type="password" class="pwd" placeholder="密码" _v-0dee26bc="">
+                        <div id="embed-captcha"></div>
+                        <p id="wait" class="show">正在加载验证码......</p>
+                        <p id="notice" class="hide">请先完成验证</p>
+                    </form>
+                    <!--<div class="mima" _v-0dee26bc="">-->
+                        <!--<p _v-0dee26bc="">-->
+                            <!--<span class="no" _v-0dee26bc=""></span>记住密码</p>-->
+                        <!--<p _v-0dee26bc="">忘记密码</p></div>-->
+                    <button id="login_btn" class="login_btn" _v-0dee26bc="" onclick="do_login()">登录</button>
+                    <div class="mima" _v-0dee26bc="">
+                        <p class="go_login" _v-0dee26bc="">没有账号 <span _v-0dee26bc="" onclick="goregist()">立即注册</span></p>
+                        <p _v-0dee26bc=""><a href="{:url('psd')}">忘记密码</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--v-component-->
+</div>
+<script>
+    var handlerEmbed = function (captchaObj) {
+        $("#login_btn").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                layer.tips('请先完成验证!', '#embed-captcha');
+                e.preventDefault();
+            }
+        });
+        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.onReady(function () {
+            $("#wait")[0].className = "hide";
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        url: "{:url('login/start_captcha')}?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                new_captcha: data.new_captcha,
+                product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+            }, handlerEmbed);
+        }
+    });
+</script>
+<script>
+    function do_login() {
+        var name = $("#username").val();
+        var pass = $("#password").val();
+        if (name == '') {
+            layer.tips('请输入用户名!', "#name");
+            return false;
+        }
+        if (pass == '') {
+            layer.tips('请输入密码!', '#password');
+            return false;
+        }
+        var url = "{:url('index')}";
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: $('#post_form').serialize(),
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg,{icon: 1});
+                    setTimeout(function () {
+                        window.location.href = "{:url('member/index/index')}";
+                    }, 2000);
+                } else {
+                    layer.msg(msg.msg,{anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+    }
+    function goregist() {
+        window.location.href="{:url('login/regist')}";
+    }
+</script>
+</body>
+</html>

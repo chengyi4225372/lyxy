@@ -1,0 +1,77 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">教材名称</label>
+        <div class="layui-input-block">
+            <input name="name" value='{$vo.name|default=""}' required="required"
+                   title="教材名称" placeholder="教材名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">教材类型</label>
+        <div class='layui-input-block'>
+            <select name="type_id" id="type_id">
+                <option value="{$vo.type_id|default=''}">{$vo.type_name|default='请选择教材类型'}</option>
+                {empty name='type'}<option value="">暂无教材类型</option>{/empty}
+                {foreach $type as $val}
+                {notempty name='vo.type_id'}
+                {if condition="$vo.type_id neq $val.id"}
+                <option value="{$val.id}">{$val.name}</option>
+                {/if}
+                {/notempty}
+                {empty name='vo.type_id'}
+                <option value="{$val.id}">{$val.name}</option>
+                {/empty}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">教材简介</label>
+        <div class="layui-input-block">
+            <input name="content" value='{$vo.content|default=""}' required="required"
+                   title="教材简介" placeholder="教材简介" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">教材页数</label>
+        <div class="layui-input-block">
+            <input name="page" value='{$vo.page|default=""}' required="required"
+                   title="教材页数" placeholder="教材页数" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">教材主图</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.imgurl|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="imgurl" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.imgurl|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="imgurl">上传图片</a>
+            <p>建议上传轮播图的尺寸为140*220px。</p>
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+    <script>window.form.render();</script>
+</form>

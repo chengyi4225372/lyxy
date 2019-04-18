@@ -1,0 +1,129 @@
+﻿{extend name="public/content" /}
+
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/course.css"/>
+<!--<script type="text/javascript" charset="utf-8" async="" src="/static/js/63.a8c62e0c8a78a0022296.js"></script>-->
+<style type="text/css">
+    #sel_form{
+        float: right;
+        width: 450px;
+        padding-right: 40px;
+        background: #e2e2e2;
+        border-radius: 10px;
+        position: relative;
+    }
+    .sel_key{
+        float: left;
+        width: 100%;
+        border: 0;
+        padding: 0 16px;
+        color: #1c1f21;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+        background: unset;
+    }
+    .sel_btn{
+        display: none;
+    }
+    .sel_div{
+        width: 24px;
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        color: #9199a1;
+        text-align: right;
+        position: absolute;
+        display: inline-block;
+        right: 8px;
+        top: 6px;
+        cursor: pointer;
+    }
+    .sel_search{
+        float: left;
+        width: 100%;
+    }
+</style>
+{/block}
+
+{block name='body'}
+<!--v-component-->
+<div id="router-view">
+    <div class="course" _v-d422088a="" style="min-height: 737px;">
+        <div class="coursebox" _v-d422088a="">
+            <div class="screening" _v-d422088a="">
+                <span _v-d422088a="" class="{empty name='Think.get.tid'}color1{/empty}" onclick="sel_type('')">全部</span> <!--v-for-start-->
+                {foreach $type as $val}
+                <span _v-d422088a="" onclick="sel_type('{$val.id}')" class="{eq name='Think.get.tid' value='$val.id'}color1{/eq}">{$val.name}</span>
+                {/foreach}
+                <!--v-for-end-->
+                <img src="/static/img/loading-green.785bf00.gif" alt="" class="loading" _v-d422088a=""
+                    style="display: none;">
+                <form method="get" action="{:url('index/course/index')}" id="sel_form">
+                    <input type="text" name="key" placeholder="搜索感兴趣的课程" value="{$Think.get.key|default=''}" class="sel_key">
+                    <button type="submit" class="sel_btn"></button>
+                    <div class="sel_div">
+                        <img src="/static/index/static/img/search.svg" class="sel_search" onclick="sel_on()">
+                    </div>
+                </form>
+            </div>
+            <script type="text/javascript">
+                function sel_type(id){
+                    window.location.href="{:url('index/course/index')}?tid="+id;
+                }
+                function sel_on() {
+                    $(".sel_btn").click();
+                }
+            </script>
+            <div class="courselist" _v-d422088a="">
+                {foreach $course as $val}
+                <section _v-d422088a="" onclick="buy('{$val.id}')">
+                    <div class="head" _v-d422088a="">
+                        {eq name='val.is_free' value='1'}
+                        <img src="__STATIC__/index/static/frontend/index/time_free.png" alt="" class="free"
+                             _v-d422088a="">
+                        {/eq}
+                        <img src="{$val.imgurl}" alt="" class="bacimg" _v-d422088a="">
+                        <b class="mask" style="background: rgba(<?=rand(100,200);?>,<?=rand(100,200);?>,<?=rand(100,200);?>,0.8);" _v-d422088a="">
+                        </b>
+                        <p _v-d422088a="">{$val.name}</p></div>
+                    <div class="content" _v-d422088a="">
+                        <p class="p1" _v-d422088a="">{$val.content}</p>
+                        <div class="div1" _v-d422088a="">
+                            <div class="div2" _v-d422088a="">
+                                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTFweCIgaGVpZ2h0PSIxMnB4IiB2aWV3Qm94PSIwIDAgMTEgMTIiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ4LjIgKDQ3MzI3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5TaGFwZTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJSZWN0YW5nbGUtMiIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE3LjAwMDAwMCwgLTkxLjAwMDAwMCkiPgogICAgICAgIDxnIGlkPSLkuKrkurrkuK3lv4MiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE3LjAwMDAwMCwgOTEuMDAwMDAwKSIgZmlsbD0iIzlCOUI5QiIgZmlsbC1ydWxlPSJub256ZXJvIj4KICAgICAgICAgICAgPHBhdGggZD0iTTYuNzU4MjMwODEsNi42MjU2MzEwOCBMNC4yNDEzMzM5Miw2LjYyNTYzMTA4IEMxLjkwMjMxNTc1LDYuNjI1NjMxMDggMCw4LjQxNDM0Nzg0IDAsMTAuNjEzNjY4OSBMMCwxMC44NTAyOTE3IEMwLDEyIDEuODcxODkwNjUsMTIgNC4yNDEzMzM5MiwxMiBMNi43NTgyNDUzMiwxMiBDOS4wMzQ0NTQ2MSwxMiAxMSwxMiAxMSwxMC44NTAyOTE3IEwxMSwxMC42MTM2Njg5IEMxMSw4LjQxNDc3MDM2IDkuMDk3MTkwOTUsNi42MjU2MzEwOCA2Ljc1ODIzMDgxLDYuNjI1NjMxMDggWiBNNS4zNzQwNDEyNiw2LjMyMTI0MjAyIEM3LjIyNjIxNDM2LDYuMzIxMjQyMDIgOC43MzMxOTI0Nyw0LjkwMzU2Mjg4IDguNzMzMTkyNDcsMy4xNjA2Mjc4MiBDOC43MzMxOTI0NywxLjQxNzc3NDU0IDcuMjI2MjE0MzYsMCA1LjM3NDA0MTI2LDAgQzMuNTIxOTI2MiwwIDIuMDE0ODAzLDEuNDE4MDc0MzkgMi4wMTQ4MDMsMy4xNjA2OTU5NyBDMi4wMTQ4MDMsNC45MDMxODEyNSAzLjUyMTkyNjIsNi4zMjEyNDIwMiA1LjM3NDA0MTI2LDYuMzIxMjQyMDIgWiIgaWQ9IlNoYXBlIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K" alt="" _v-d422088a="">
+                                <span class="span1" _v-d422088a="">{$val.stu_num}</span>
+                                <span class="span2" _v-d422088a="">
+                                    {eq name='val.level' value='1'}初级{/eq}
+                                    {eq name='val.level' value='2'}中级{/eq}
+                                    {eq name='val.level' value='3'}高级{/eq}
+                                </span></div>
+                            <div class="div3" _v-d422088a="">
+                                {eq name='val.is_free' value='0'}
+                                <span class="span4" _v-d422088a="">￥{$val.price}</span>
+                                {/eq}
+                                {eq name='val.is_free' value='1'}
+                                <span class="span3" _v-d422088a="">原价￥{$val.price}</span>
+                                <span class="span4" _v-d422088a="">免费</span>
+                                {/eq}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/foreach}
+            </div><!--v-if-->
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    function buy(id) {
+        window.location.href = "{:url('detail')}?cid=1&id="+id;
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

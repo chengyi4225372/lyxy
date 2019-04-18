@@ -1,0 +1,127 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<style>
+    .swiper-container {
+        width: 100%;
+        height: auto;
+    }
+</style>
+<div id="app" class="">
+    <div data-v-e9bfc2ba="" class="home default_app">
+        <div data-v-e1f652b6="" data-v-e9bfc2ba="">
+
+            <div data-v-e1f652b6="" class="swiper-container">
+                <div data-v-e1f652b6="" class="swiper-wrapper">
+                    {foreach $banner as $val}
+                    <div data-v-e1f652b6="" class="swiper-slide">
+                        <a href="{$val.web_url}" target="_blank">
+                            <img data-v-e1f652b6="" alt="" src="{$val.imgurl}">
+                        </a>
+                    </div>
+                    {/foreach}
+                </div>
+
+                <div data-v-e1f652b6="" class="swiper-pagination">
+
+                </div>
+            </div>
+            <!---->
+            <div data-v-e1f652b6="" class="vux-x-dialog">
+                <div class="weui-mask" style="display: none;"></div>
+                <div class="weui-dialog" style="width: 100%; height: 1.7rem; line-height: 100%; display: none;">
+                    <div data-v-e1f652b6="" id="video" class="video"></div>
+                </div>
+            </div>
+        </div>
+
+        <div data-v-5718f384="" data-v-e9bfc2ba="" class="degree">
+
+            <p data-v-5718f384="" class="model">学位课程</p>
+            <div data-v-5718f384="">
+                {foreach name='degree' item='vo'}
+                {notempty name='vo.degree'}
+                <div data-v-5718f384="" class="degree-course">
+                    <img data-v-5718f384="" alt="" class="img1" src="{$vo.imgurl}">
+                    <div data-v-5718f384="" class="course-module">
+                        {foreach name='vo.degree' item='voo'}
+                        <dl data-v-5718f384="" onclick="go_degree('{$voo.id}')">
+                            <dt data-v-5718f384="">
+                                <img data-v-5718f384="" src="{$voo.imgurl}" alt="">
+                            </dt>
+                            <dd data-v-5718f384="">
+                                <p data-v-5718f384="" class="name">{$voo.name}</p>
+                                <p data-v-5718f384="" class="salary">
+                                    <span data-v-5718f384="">就业薪资{$voo.target}</span>
+                                    <img data-v-5718f384="" src="/static/mobile/frontend/comment/left.svg" alt="">
+                                </p>
+                            </dd>
+                        </dl>
+                        {/foreach}
+                    </div>
+                </div>
+                {/notempty}
+                {/foreach}
+
+            </div>
+        </div>
+
+        <div data-v-2dd47a53="" data-v-e9bfc2ba="">
+            <div data-v-2dd47a53="" class="subject">
+                <p data-v-2dd47a53="" class="model">爆款小课</p>
+                {foreach name='course' item='vo'}
+                <div data-v-2dd47a53="" class="list" onclick="go_course('{$vo.id}')">
+                    <dl data-v-2dd47a53="">
+                        <dt data-v-2dd47a53="">
+                            <img data-v-2dd47a53="" src="{$vo.imgurl}" alt="">
+                        <p data-v-2dd47a53="" class="course-num">{$vo.class_num}课程 | 更新完成</p>
+                        </dt>
+                        <dd data-v-2dd47a53="">
+                            <div data-v-2dd47a53="">
+                                <p data-v-2dd47a53="" class="active">限时</p>
+                                <p data-v-2dd47a53="" class="price">¥{$vo.price}</p>
+                                <p data-v-2dd47a53="" class="original-price">¥{$vo.old_price}</p> <!---->
+                            </div>
+                            <p data-v-2dd47a53="" class="num">
+                                <img data-v-2dd47a53="" src="" alt="">{$vo.stu_num}人已加入学习
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+
+    {include file="public:foot" /}
+
+</div>
+{/block}
+{block name="js"}
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+//        direction: 'vertical', // 垂直切换选项
+        loop: true, // 循环模式选项
+        speed: 500,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true,
+        },
+        //分页器
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        autoplay: {
+            delay: 2000,//1秒切换一次
+            disableOnInteraction: false,
+        }
+    });
+
+    function go_degree(id) {
+        window.location.href = "{:url('degree/index')}?id=" + id;
+    }
+    function go_course(id) {
+        window.location.href = "{:url('course/detail')}?cid=" + id;
+    }
+</script>
+{/block}

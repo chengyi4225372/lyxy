@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html style="font-size: 71.6667px;">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="Keywords" content="{:sysconf('seo_keywords')}"/>
+    <meta name="Description" content="{:sysconf('seo_description')}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{$title}</title>
+    {block name="cssjs"}
+    <link rel="shortcut icon" href="__STATIC__/index/static/frontend/url_logo.png"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/toastr.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/aliplayer-min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/app.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/freemask.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/home.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper-contain.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/layui/css/layui.css"/>
+    <script src="__STATIC__/index/plugins/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.all.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/static/js/index_nav.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/meiqia.css"/>
+    <script type="text/javascript" src="__STATIC__/index/static/js/big_img.js?ver={:date('ymd')}"></script>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/big_img.css?ver={:date('ymd')}">
+    <script type="text/javascript" src="__STATIC__/index/static/js/player.js?ver={:date('ymd')}"></script>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/player.css?ver={:date('ymd')}">
+    <script type="text/javascript" src="__STATIC__/hivideo/hivideo.js?ver={:date('ymd')}"></script>
+    <link rel="stylesheet" href="__STATIC__/hivideo/hivideo.css?ver={:date('ymd')}">
+    {/block}
+</head>
+<body id="app">
+<!--v-start-->
+<div class="header" _v-319a3b1b="">
+    <div class="header_cont" _v-319a3b1b="">
+        <img class="oldboy" src="__STATIC__/index/static/frontend/head_logo.png" _v-319a3b1b=""/>
+        <nav class="nav" _v-319a3b1b="">
+            <a class="{eq name='nav' value='1'}active{/eq}" _v-319a3b1b="" href="{:url('index/index/index')}">首页</a>
+            <a class="{eq name='nav' value='2'}active{/eq}" _v-319a3b1b="" href="{:url('index/course/index')}">免费课程</a>
+            <a class="{eq name='nav' value='4'}active{/eq} span3" _v-319a3b1b="" href="{:url('index/camp/index')}">七天训练营<b _v-319a3b1b="">New</b></a>
+     <a class="{eq name='nav' value='8'}active{/eq} span3" _v-319a3b1b="" href="{:url('index/job/index')}">轻课<b _v-319a3b1b="">New</b></a>
+            <a class="{eq name='nav' value='3'}active{/eq}" _v-319a3b1b="" href="{:url('index/micro/index')}">学位课程</a>
+            <a class="{eq name='nav' value='5'}active{/eq} span5" _v-319a3b1b="" href="{:url('index/open/index')}">公开课<b _v-319a3b1b="">Hot</b></a>
+            <a class="{eq name='nav' value='6'}active{/eq}" _v-319a3b1b="" href="{:url('index/about/index')}">乐育故事</a>
+            <a class="{eq name='nav' value='7'}active{/eq}" _v-319a3b1b="" href="{:url('index/material/index')}">内部教材</a>
+        </nav>
+        <div class="header_right_box" _v-319a3b1b="">
+            {empty name='Think.session.member_info'}
+            <div class="register" _v-319a3b1b="" style="">
+                <span _v-319a3b1b="" onclick="gologin()">登录</span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <span _v-319a3b1b="" onclick="goregist()">注册</span>
+            </div>
+            {/empty}
+            {notempty name='Think.session.member_info'}
+            <div class="nav_right_box" _v-319a3b1b="" style="">
+                <div class="nav_right" _v-319a3b1b="">
+                    <div class="nav_study" _v-319a3b1b="" onclick="go_study()">
+                        学习中心
+                    </div>
+                    <div class="nav_img account_nav" _v-319a3b1b="" data-layerid="my_account">
+                        <span _v-319a3b1b="">{$Think.session.member_info.name}</span>
+                        <img alt="" _v-319a3b1b=""
+                             src="{$Think.session.member_info.imgurl|default='__STATIC__/index/static/frontend/default.png'}"/>
+                    </div>
+                    <ul class="my_account account_nav" id="my_account" _v-319a3b1b="" data-layerid="my_account">
+                        <li _v-319a3b1b="" onclick="go_member(1)">我的账户 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <li _v-319a3b1b="" onclick="go_member(2)">我的订单 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <li _v-319a3b1b="" onclick="go_member(3)">我的优惠券 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <!--<li _v-319a3b1b="" onclick="go_member(1)">-->
+                            <!--<span _v-319a3b1b="">我的消息<b _v-319a3b1b=""></b></span>-->
+                            <!--<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>-->
+                        <!--<li _v-319a3b1b="" onclick="go_member(1)">-->
+                            <!--<span _v-319a3b1b="">购物车</span>-->
+                            <!--<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>-->
+                        <li _v-319a3b1b="" onclick="do_logout()">退出<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                    </ul>
+                </div>
+            </div>
+            {/notempty}
+        </div>
+    </div>
+</div>
+<div>
+    <!--<div class="mbox" _v-ba19f640="">-->
+        <!--<div class="mask" _v-ba19f640="">-->
+            <!--<img alt="" class="guan" _v-ba19f640="" src="__STATIC__/index/static/frontend/close_1528115521.9777012.png"/>-->
+            <!--<img alt="" class="popup" _v-ba19f640="" src="__STATIC__/index/static/frontend/w1_1538127278.9954007.png"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--v-component-->
+</div>
+<script>
+    function go_study() {
+        window.location.href = "{:url('member/index/study')}";
+    }
+    function go_member(index) {
+        switch (index) {
+            case 1:
+                window.location.href = "{:url('member/index/index')}";
+                break;
+            case 2:
+                window.location.href = "{:url('member/order/index')}";
+                break;
+            case 3:
+                window.location.href = "{:url('member/index/coupon')}";
+                break;
+            case 4:
+                window.location.href = "{:url('member/profile/index')}";
+                break;
+            case 5:
+                window.location.href = "{:url('member/index/safe')}";
+                break;
+        }
+    }
+    function do_logout() {
+        window.location.href = "{:url('login/logout')}";
+    }
+    $('.guan').click(function () {
+        $('.mbox').css('display','none');
+    })
+    function gologin() {
+        window.location.href="{:url('login/index')}";
+    }
+    function goregist() {
+        window.location.href="{:url('login/regist')}";
+    }
+</script>
+{block name="body"}{/block}
+{block name="js"}{/block}
+{block name="footer"}
+<!-- 暂时 -->
+
+<div class="footWrap" _v-30d33f5b="">
+    <div class="box" _v-30d33f5b="">
+        <ul class="foot-link" _v-30d33f5b="">
+            <!--v-for-start-->
+       
+            <li _v-30d33f5b="">友情链接:</li>
+              {volist name="company" id="vv"}
+            <li _v-30d33f5b=""><a href="{$vv.url}" style="color: #fff;">{$vv.name}</a></li>
+              {/volist}
+        
+            <!--v-for-end-->
+        </ul>
+        <ul class="foot-link" _v-30d33f5b="">
+            <!--v-for-start-->
+            <li _v-30d33f5b="" key="[object Object]">
+             <a  href="{:url('index/about/index')}" style="color: #fff;"> 关于我们</a></li>
+
+            <li _v-30d33f5b="" key="[object Object]">
+            <a  href="{:url('index/about/index')}" style="color: #fff;">联系我们</a></li>
+
+            <li _v-30d33f5b="" key="[object Object]">
+            <a  href="{:url('index/about/index')}" style="color: #fff;">商务合作</a></li>
+
+            <li _v-30d33f5b="" key="[object Object]">
+            <a  href="{:url('index/about/bangzhu')}" style="color: #fff;">帮助中心</a></li>
+
+            <li _v-30d33f5b="" key="[object Object]"><a  href="{:url('index/about/bangzhu')}" style="color: #fff;">意见反馈</a></li>
+            <li _v-30d33f5b="" key="[object Object]"><a  href="{:url('index/about/bangzhu')}" style="color: #fff;">新手指南</a></li>
+            <!--v-for-end-->
+        </ul>
+        <p class="base-style" _v-30d33f5b="">Copyright &copy; lyxy.com版权所有 | xxxx备xxxxxx号-1</p>
+    </div>
+</div>
+<!-- 结束 -->
+
+
+<div id="msg-bin-holder" style="display: block; z-index: 2147483647;">
+    <div id="msg-bin" onclick="msg()">
+        <span id="msg-bin-icon" class="msg-bin-icon"></span>
+    </div>
+</div>
+<div id="msg-panel-holder">
+    <div id="pageMsg">
+        <div class="header">
+            <div class="pull-left">
+                <div class="title">给我们留言</div>
+            </div>
+            <div class="pull-right" onclick="msg_close()">
+                <a id="btnHideTicket" name="btnHidePanel">
+                    <i class="icon icon-angel-down"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="body">
+            <div id="ticketForm">
+                <div id="ticketV2" class="active">
+                    <form method="post" action="" id="msg_form">
+                        <div class="form-group">
+                            <div class="group-title"> 手机</div>
+                            <div class="group-content">
+                                <input name="tel" id="ticketTel" type="text" placeholder=" 请输入手机号"></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="group-title">留言内容<span>*</span></div>
+                            <div class="group-content">
+                                <textarea name="msg" id="ticketContent" placeholder="请输入留言内容"></textarea></div>
+                        </div>
+                    </form>
+                    <div class="btn-group"><a id="ticketSubmit">提交</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function msg(){
+        $("#msg-panel-holder").css('visibility','visible');
+        $("#msg-panel-holder").css('z-index','999999');
+        $("#msg-bin-holder").css('display','none');
+    }
+    function msg_close() {
+        $("#msg-panel-holder").css('visibility','hidden');
+        $("#msg-panel-holder").css('z-index','-1');
+        $("#msg-bin-holder").css('display','block');
+    }
+    $("#ticketSubmit").click(function () {
+//        var tel = $("#ticketTel").val();
+//        var msg = $("#ticketContent").val();
+        $.ajax({
+            url:"{:url('index/index/msg')}",
+            type:"post",
+            data:$('#msg_form').serialize(),
+            dataType: "json",
+            success:function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg,{icon: 1});
+                    msg_close();
+                } else {
+                    layer.msg(msg.msg,{anim: 6, icon: 2});
+                }
+                return false;
+            }
+        })
+    })
+</script>
+{/block}
+</body>
+</html>

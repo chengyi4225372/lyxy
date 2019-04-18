@@ -1,0 +1,65 @@
+.course-scroll-line[_v-2e2ed5f8] {
+    display: block;
+    width: 122px;
+    border-top: 1px solid #eee
+}
+
+.img-box[_v-2e2ed5f8] {
+    height: 290px;
+    position: absolute;
+    left: 0;
+    clear: both
+}
+
+.img-box .range-img[_v-2e2ed5f8], .img-box .tmp-img[_v-2e2ed5f8] {
+    float: left;
+    width: 350px;
+    height: 236px;
+    margin-right: 62px;
+    border-radius: 3px
+}
+
+small[_v-2e2ed5f8] {
+    display: block
+}
+
+li[_v-2e2ed5f8] {
+    list-style: none
+}
+
+.circle-btn-area[_v-2e2ed5f8] {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.circle-btn-box[_v-2e2ed5f8] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.circle-btn-box > li[_v-2e2ed5f8] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 17px
+}
+
+.circle-btn-box > li img[_v-2e2ed5f8] {
+    width: 10px;
+    height: 10px
+}
+
+.circle-btn-box > li .w17[_v-2e2ed5f8] {
+    width: 17px;
+    height: 17px
+}
+
+.scale[_v-2e2ed5f8] {
+    transform-origin: 50% 50%;
+    transform: scale(1.143)
+}

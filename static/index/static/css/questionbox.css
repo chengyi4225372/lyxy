@@ -1,0 +1,355 @@
+.question_box[_v-56bec03e] {
+    width: 100%;
+    height: auto;
+    background: #f7f7f7
+}
+
+.question_box .head_count[_v-56bec03e] {
+    width: 100%;
+    height: auto;
+    background: url(/static/img/banner.a74defe.jpg) no-repeat;
+    background-size: 100% 100%
+}
+
+.question_box .head_count .top_cont[_v-56bec03e] {
+    width: 12rem;
+    height: auto;
+    margin: 0 auto;
+    color: #fff;
+    padding-top: .8rem;
+    padding-bottom: .64rem
+}
+
+.question_box .head_count .top_cont .top_cont1[_v-56bec03e] {
+    margin-bottom: 1rem;
+    overflow: hidden
+}
+
+.question_box .head_count .top_cont .top_cont1 .user_info[_v-56bec03e] {
+    color: #fff;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    float: left
+}
+
+.question_box .head_count .top_cont .top_cont1 .user_info img[_v-56bec03e] {
+    width: 1.33rem;
+    height: 1.33rem;
+    border-radius: 100%;
+    margin-right: .25rem
+}
+
+.question_box .head_count .top_cont .top_cont1 .user_info .name[_v-56bec03e] {
+    font-size: .3rem;
+    margin-bottom: .2rem
+}
+
+.question_box .head_count .top_cont .top_cont1 .user_info .ranking[_v-56bec03e] {
+    font-size: .18rem
+}
+
+.question_box .head_count .top_cont .top_cont1 .more_choice[_v-56bec03e] {
+    width: auto;
+    height: auto;
+    font-size: .16rem;
+    color: #e9e9e9;
+    text-align: right;
+    padding-top: .3rem;
+    float: right
+}
+
+.question_box .head_count .top_cont .top_cont1 .more_choice .switch_cls[_v-56bec03e] {
+    padding-right: .15rem;
+    font-size: .18rem;
+    color: #fff
+}
+
+.question_box .head_count .top_cont .top_cont1 .more_choice span[_v-56bec03e] {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: .2rem;
+    margin-bottom: .2rem;
+    border-radius: .3rem;
+    padding: .03rem .12rem;
+    border: 1px solid #e9e9e9
+}
+
+.question_box .head_count .top_cont .top_cont1 .more_choice .choose[_v-56bec03e] {
+    color: #fff;
+    border: 2px solid #fff
+}
+
+.question_box .head_count .top_cont .top_cont1 .more_choice span[_v-56bec03e]:last-child {
+    margin-right: 0
+}
+
+.question_box .head_count .top_cont .top_cont2[_v-56bec03e] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between
+}
+
+.question_box .head_count .top_cont .top_cont2 .Chart_Box[_v-56bec03e] {
+    width: 2rem;
+    height: 2rem;
+    margin-left: -.3rem;
+    position: relative
+}
+
+.question_box .head_count .top_cont .top_cont2 .Chart_Box .myChart[_v-56bec03e] {
+    width: 2rem !important;
+    height: 2rem !important
+}
+
+.question_box .head_count .top_cont .top_cont2 .Chart_Box .num[_v-56bec03e] {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: .46rem;
+    margin-left: -.9rem;
+    text-align: center;
+    font-size: 10px;
+    position: absolute;
+    left: 50%;
+    top: 0
+}
+
+.question_box .head_count .top_cont .top_cont2 .Chart_Box .num > span[_v-56bec03e]:first-of-type {
+    font-size: .4rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item[_v-56bec03e] {
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: .3rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item div[_v-56bec03e] {
+    width: 1.51rem;
+    height: 1.43rem;
+    background: hsla(0, 0%, 100%, .25);
+    margin-right: .2rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item div p[_v-56bec03e] {
+    margin-top: .28rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item div p b[_v-56bec03e] {
+    display: block;
+    font-size: .4rem;
+    font-weight: 400;
+    margin-bottom: .05rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item div p span[_v-56bec03e] {
+    font-size: .12rem
+}
+
+.question_box .head_count .top_cont .top_cont2 .data_item div[_v-56bec03e]:last-child {
+    margin-right: 0
+}
+
+.question_box .main[_v-56bec03e] {
+    padding-top: 1rem;
+    padding-bottom: 1rem
+}
+
+.question_box .main header[_v-56bec03e] {
+    text-align: center;
+    font-size: .36rem;
+    color: #4a4a4a;
+    margin-bottom: .6rem
+}
+
+.question_box .main header p[_v-56bec03e] {
+    font-size: .18rem;
+    margin-bottom: .04rem
+}
+
+.question_box .main .loading[_v-56bec03e] {
+    text-align: center;
+    padding: .4rem 0
+}
+
+.question_box .main .loading img[_v-56bec03e] {
+    width: .5rem;
+    height: .5rem
+}
+
+.question_box .main main[_v-56bec03e] {
+    width: 12rem;
+    margin: 0 auto;
+    overflow: hidden
+}
+
+.question_box .main main .mask_box[_v-56bec03e]:hover {
+    box-shadow: 0 2px 4px 0 #e9e9e9, 0 4px 16px 0 #e9e9e9, 0 4px 16px 0 #d0d0d0
+}
+
+.question_box .main main .mask_box:hover .ovrly[_v-56bec03e] {
+    top: 0
+}
+
+.question_box .main main .mask_box .ovrly[_v-56bec03e] {
+    transition: all .5s
+}
+
+.question_box .main main .mask_box[_v-56bec03e] {
+    width: 3.5rem;
+    height: 3.7rem;
+    background: #fff;
+    margin-top: .1rem;
+    margin-bottom: .5rem;
+    margin-right: .3rem;
+    border-radius: 2px;
+    float: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative
+}
+
+.question_box .main main .mask_box .imgbac[_v-56bec03e] {
+    width: .85rem;
+    height: .85rem;
+    border-radius: 100%;
+    background: #56cbc4;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: .62rem
+}
+
+.question_box .main main .mask_box .imgbac img[_v-56bec03e] {
+    width: 40%;
+    height: auto
+}
+
+.question_box .main main .mask_box .forthcoming[_v-56bec03e] {
+    background: #909cb7
+}
+
+.question_box .main main .mask_box p[_v-56bec03e]:first-of-type {
+    font-size: .18rem;
+    color: #4a4a4a;
+    padding-top: .3rem;
+    padding-bottom: .18rem
+}
+
+.question_box .main main .mask_box p[_v-56bec03e]:nth-of-type(2) {
+    font-size: .16rem;
+    color: #5d6870
+}
+
+.question_box .main main .mask_box p[_v-56bec03e]:first-of-type:hover {
+    color: #56cbc4
+}
+
+.question_box .main main .mask_box[_v-56bec03e]:first-of-type, .question_box .main main .mask_box[_v-56bec03e]:nth-of-type(4) {
+    margin-left: .3rem
+}
+
+.question_box .main main .hoverp[_v-56bec03e] {
+    padding: 0 .3rem;
+    box-sizing: border-box
+}
+
+.question_box .maskbox[_v-56bec03e] {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 0;
+    top: 0
+}
+
+.question_box .maskbox .box[_v-56bec03e] {
+    width: 4.8rem;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .2);
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -2.4rem;
+    margin-top: -1rem;
+    color: #666;
+    padding: .5rem;
+    box-sizing: border-box;
+    animation: x0ppop .45s ease
+}
+
+.question_box .maskbox .box img[_v-56bec03e] {
+    width: .24rem;
+    height: .24rem;
+    margin-right: .16rem
+}
+
+.question_box .maskbox .box .p1[_v-56bec03e] {
+    font-size: .2rem;
+    font-family: PingFangSC-Medium;
+    padding-bottom: .1rem
+}
+
+.question_box .maskbox .box .p2[_v-56bec03e], .question_box .maskbox .box .p3[_v-56bec03e] {
+    font-size: .18rem;
+    margin-left: .4rem;
+    margin-bottom: .1rem
+}
+
+.question_box .maskbox .box button[_v-56bec03e] {
+    width: 1rem;
+    height: .34rem;
+    border: 1px solid #979797;
+    border-radius: .03rem;
+    text-align: center;
+    line-height: .34rem;
+    font-size: .14rem;
+    color: #5e5e5e;
+    margin-left: .66rem;
+    margin-top: .25rem
+}
+
+.question_box .maskbox .box button[_v-56bec03e]:nth-of-type(2) {
+    margin-left: .16rem
+}
+
+.question_box .maskbox .closes[_v-56bec03e] {
+    width: .24rem;
+    height: .24rem;
+    position: absolute;
+    right: 6.9rem;
+    top: 50%;
+    margin-top: -1.3rem;
+    cursor: pointer
+}
+
+@keyframes x0ppop {
+    0% {
+        transform: scale(.9);
+        opacity: .3
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: .7
+    }
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}

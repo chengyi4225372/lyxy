@@ -1,0 +1,196 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.min.js"></script>
+
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程类型</label>
+        <div class='layui-input-block'>
+            <select name="type_id" id="type_id">
+                <option value="{$vo.type_id|default=''}">{$vo.type_name|default='请选择课程类型'}</option>
+                {empty name='type'}<option value="">暂无课程类型</option>{/empty}
+                {foreach $type as $val}
+                {notempty name='vo.type_id'}
+                {if condition="$vo.type_id neq $val.id"}
+                <option value="{$val.id}">{$val.name}</option>
+                {/if}
+                {/notempty}
+                {empty name='vo.type_id'}
+                <option value="{$val.id}">{$val.name}</option>
+                {/empty}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">任课老师</label>
+        <div class='layui-input-block'>
+            <select name="teacher_id" class="layui-select">
+                <option value="{$vo.teacher_id|default=''}">{$vo.teacher_name|default='请选择任课老师'}</option>
+                {empty name='teacher'}<option value="">暂无任课老师</option>{/empty}
+                {foreach $teacher as $val}
+                {notempty name='vo.teacher_id'}
+                {if condition="$vo.teacher_id neq $val.id"}
+                <option value="{$val.id}">{$val.teacher_name}</option>
+                {/if}
+                {/notempty}
+                {empty name='vo.teacher_id'}
+                <option value="{$val.id}">{$val.teacher_name}</option>
+                {/empty}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程名称</label>
+        <div class="layui-input-block">
+            <input name="name" value='{$vo.name|default=""}' required="required"
+                   title="课程名称" placeholder="课程名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程题标</label>
+        <div class="layui-input-block">
+            <input name="title" value='{$vo.title|default=""}' required="required"
+                   title="课程题标" placeholder="课程题标" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程编号</label>
+        <div class="layui-input-block">
+            <input name="class_code" value='{$vo.class_code|default=""}' required="required"
+                   title="课程编号" placeholder="课程编号" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程分析</label>
+        <div class="layui-input-block">
+            <input name="worry" value='{$vo.worry|default=""}' required="required"
+                   title="课程分析" placeholder="课程分析" class="layui-input">
+        </div>
+        <div class="layui-input-block">
+            <textarea id="analysis" name="analysis" style="width:100%;height:300px;">{$vo.analysis|default=""}</textarea>
+        </div>
+    </div>
+
+    <!--课程主图-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程主图</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.imgurl|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="imgurl" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.imgurl|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="imgurl">上传图片</a>
+        </div>
+    </div>
+
+    <!--课程安排-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程安排</label>
+        <div class="layui-input-block">
+            <textarea id="arrange1" name="arrange1" style="width:100%;height:150px;">{$vo.arrange1|default=""}</textarea>
+        </div>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.arrange2|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="arrange2" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.arrange2|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="arrange2">上传图片</a>
+        </div>
+    </div>
+
+    <!--作业对比-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">作业对比</label>
+        <div class='layui-input-block' style="">
+            <textarea id="homework" name="homework" style="width:100%;height:150px;">{$vo.homework|default=""}</textarea>
+        </div>
+        <div class='layui-input-block'>
+            <!--图片1-->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.homework1|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="homework1" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.homework1|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="homework1">上传图片</a>
+            <!--图片2-->
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.homework2|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="homework2" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.homework2|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="homework2">上传图片</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">学员总数/已报名</label>
+        <div class="layui-input-block">
+            <input name="member_num" value='{$vo.member_num|default=""}' required="required"
+                   title="学员总数" placeholder="学员总数" class="layui-input">
+            <input name="enroll" value='{$vo.enroll|default=""}' required="required"
+                   title="已报名数量" placeholder="已报名数量" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <label class="layui-form-label">开课时间</label>
+        <div class="layui-input-inline">
+            <input name="start_date" id='start_date' value="{$vo.start_date|default=''}"
+                   placeholder="请选择开课时间" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程价格</label>
+        <div class="layui-input-block">
+            <input name="price" type="number" step="0.01"
+                   value='{$vo.price|default=""}' title="请输入课程价格" placeholder="请输入课程价格" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程简介</label>
+        <div class="layui-input-block">
+            <textarea id="content" name="content" style="width:100%;height:300px;">{$vo.content|default=""}</textarea>
+            <!--<input name="content" value='{$vo.content|default=""}' required="required"-->
+            <!--title="课程简介" placeholder="课程简介" class="layui-input">-->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = "/static/ueditor/";
+        var ue1 = UE.getEditor('analysis');
+        var ue2 = UE.getEditor('content');
+        var ue3 = UE.getEditor('arrange1');
+        var ue4 = UE.getEditor('homework');
+    </script>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <!-- <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button> -->
+        <button data-open='{:url("index")}' data-title="取消编辑" class='layui-btn layui-btn-danger' data-close>取消编辑</button>
+    </div>
+    <script>
+        window.laydate.render({elem: '#start_date', format: 'yyyy-MM-dd'});
+        window.form.render();
+    </script>
+
+</form>

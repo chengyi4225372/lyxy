@@ -1,0 +1,94 @@
+.swiper-container1 {
+    position: relative
+}
+
+.swiper-container1, .swiper-wrapper {
+    width: 100%;
+    height: auto
+}
+
+.swiper-slide {
+    font-size: 18px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.banner, .index_banner {
+    width: 100%;
+    height: auto
+}
+
+.swiper-pagination1 {
+    position: absolute;
+    left: 0;
+    bottom: .4rem !important
+}
+
+.swiper-pagination1 .swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: #fff !important
+}
+
+.swiper-pagination1 .swiper-pagination-bullet {
+    width: 80px;
+    height: 4px;
+    border-radius: 100px;
+    opacity: .3;
+    background: #000
+}
+
+.swiper-container4 {
+    width: 100%;
+    height: 100%;
+    position: relative
+}
+
+.swiper-slide4 {
+    background-position: 50%;
+    background-size: cover;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -ms-flex-pack: distribute !important;
+    justify-content: space-around !important
+}
+
+.swiper-container4 .swiper-slide-active, .swiper-slide4 {
+    width: 340px !important;
+    height: 465px !important
+}
+
+.swiper-container4 .swiper-slide-active li {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 8px !important;
+    transition: all .2s ease
+}
+
+.swiper-container4 .swiper-pagination-bullets {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.swiper-container4 .swiper-pagination-bullet {
+    width: 8px !important;
+    height: 8px !important;
+    opacity: 1 !important;
+    background: rgba(255, 223, 67, .6) !important
+}
+
+.swiper-container4 .swiper-pagination-bullet-active {
+    width: 10px !important;
+    height: 10px !important;
+    background: #fccf37 !important
+}

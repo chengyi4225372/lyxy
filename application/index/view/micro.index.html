@@ -1,0 +1,87 @@
+{extend name="public/content" /}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/micro.css"/>
+<!--<script src="__STATIC__/index/static/js/aliplayer-hls-min.js"></script>-->
+{/block}
+<!--v-component-->
+{block name='body'}
+<div id="router-view">
+    <div class="box" _v-395fd228="">
+        <div class="micro-box" _v-395fd228="">
+            <div class="header-bar" _v-395fd228="">
+                <!--<div class="micro-course addborder" _v-395fd228="">-->
+                    <!--<p _v-395fd228="">-->
+                        <!--<img src="__STATIC__/index/static/img/xw1.svg" alt="" _v-395fd228="">-->
+                        <!--Python全栈开发 · 中级 </p> <span _v-395fd228="">学完目标薪资：8-12K</span></div>-->
+                {foreach name='micro' item="vo"}
+                <div class="micro-course" _v-395fd228="" onclick="change_micro('{$vo.id}')">
+                    <p _v-395fd228="">
+                        <img src="__STATIC__/index/static/img/xw1.svg" alt="" _v-395fd228="">
+                        {$vo.name}</p> <span _v-395fd228="">学完目标薪资：{$vo.target}</span></div>
+                {/foreach}
+            </div>
+            <script type="text/javascript">
+                function change_micro(id) {
+                    window.location.href="{:url('index/micro/index')}?did="+id;
+                }
+            </script>
+            <div _v-395fd228=""> <!--fragment-start-->
+                <div class="box" _v-650b75d2="" _v-395fd228="">
+                    <nav _v-650b75d2="">
+                        <ul _v-650b75d2="" class="video-controll">
+                            <li onclick="go_nav(this,0)" _v-650b75d2="" class="borderbottom">
+                                <a class="nav-underline" _v-650b75d2="">课程详情</a></li>
+                            <li onclick="go_nav(this,1)" _v-650b75d2="">
+                                <a class="nav-underline" _v-650b75d2="">课程章节
+                                <span _v-650b75d2="">(试听)</span></a></li>
+                            <li onclick="go_nav(this,2)" _v-650b75d2="">
+                                <a class="nav-underline" _v-650b75d2="">师资力量</a></li>
+                            <!--
+                            <li onclick="go_nav(this,3)" _v-650b75d2="">
+                                <a class="nav-underline" _v-650b75d2="">学员故事</a></li>
+                            <li onclick="go_nav(this,4)" _v-650b75d2="">
+                                 <a class="nav-underline" _v-650b75d2="">我的同学
+                                <span _v-650b75d2="">(92+)</span>
+                                </a></li>   -->
+                            
+                            <li onclick="go_nav(this,5)" _v-650b75d2="">
+                                <a class="nav-underline" _v-650b75d2="">就业喜报</a></li>
+                            <li onclick="go_nav(this,6)" _v-650b75d2="">
+                                <a class="nav-underline" _v-650b75d2="">常见问题</a></li>
+                        </ul>
+                    </nav>
+                    <main id="nav_main" _v-650b75d2>
+                    {include file="micro:detail" /}
+                    {include file="micro:chapter" /}
+                    {include file="micro:teacher" /}
+                    {include file="micro:story" /}
+                    {include file="micro:student" /}
+                    {include file="micro:news" /}
+                    {include file="micro:problem" /}
+                    </main>
+                </div>
+            </div>
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script>
+    function go_nav(obj,id) {
+        $('.borderbottom').removeClass('borderbottom');
+        $(obj).addClass('borderbottom');
+        $(".main_box").css("display",'none');
+        $(".main_box").eq(id).css("display",'block');
+        $(".side-bar").css("position",'');
+        $(".side-bar").removeClass("height");
+        if (id==0){
+            $(".side-bar").children("p").removeClass("bac");
+            $(".side-bar").children("p:nth-child(2)").addClass("bac");
+        }
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

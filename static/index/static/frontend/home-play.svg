@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="49px" viewBox="0 0 49 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>播放</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2" transform="translate(-512.000000, -2733.000000)" fill="#FFFFFF">
+            <g id="播放" transform="translate(512.000000, 2733.000000)">
+                <circle id="Oval" fill-opacity="0.5" cx="24.1400482" cy="24.2098214" r="24"></circle>
+                <path d="M24.3058239,15.437506 L30.6906188,27.2755807 C30.9527894,27.7616723 30.7712656,28.3682587 30.285174,28.6304293 C30.1836253,28.6851989 30.0733644,28.7219819 29.9592718,28.73915 L16.8376465,30.7136243 C16.2915102,30.7958041 15.7821593,30.419693 15.6999795,29.8735566 C15.6698351,29.6732276 15.7012457,29.4684674 15.7900528,29.2863858 L22.5268832,15.4738367 C22.7689889,14.9774464 23.3676582,14.7713081 23.8640484,15.0134138 C24.0520334,15.1051002 24.2065389,15.2534212 24.3058239,15.437506 Z" id="Triangle-2" transform="translate(23.160833, 22.359753) rotate(-26.000000) translate(-23.160833, -22.359753) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

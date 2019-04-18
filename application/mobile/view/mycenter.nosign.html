@@ -1,0 +1,64 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div class="app">
+    <div data-v-2edcfcfa="" class="my default_app">
+        <div data-v-2edcfcfa="" class="title">
+            <div data-v-2edcfcfa="" class="user" onclick="go_login()"><!---->
+                <p data-v-2edcfcfa="" class="NotLogin">登录／注册</p>
+            </div>
+        </div>
+        <div data-v-2edcfcfa="" class="myMessage">
+            <ul data-v-2edcfcfa="">
+                <li data-v-2edcfcfa="" class="">
+                    <div data-v-2edcfcfa="" class="front">
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/order.png" alt="">
+                        <p data-v-2edcfcfa="">我的订单</p>
+                    </div>
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_login()">
+                </li>
+                <li data-v-2edcfcfa="" class="">
+                    <div data-v-2edcfcfa="" class="front">
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/conpon.png" alt="">
+                        <p data-v-2edcfcfa="">优惠券</p>
+                    </div>
+                    <div data-v-2edcfcfa="" class="behind-box"><!---->
+                        <!--<span data-v-2edcfcfa="" class="canuse">0张可用</span>-->
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_login()">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div data-v-2edcfcfa="" class="myMessage">
+            <ul data-v-2edcfcfa="">
+                <li data-v-2edcfcfa="" class="">
+                    <section data-v-2edcfcfa="">
+                        <div data-v-2edcfcfa="" class="front">
+                            <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/safe.png" alt="">
+                            <p data-v-2edcfcfa="">账号安全</p>
+                        </div>
+                        <div data-v-2edcfcfa="" class="behind-box"><!---->
+                            <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_login()">
+                        </div>
+                    </section>
+                </li>
+                <li data-v-2edcfcfa="" class="">
+                    <div data-v-2edcfcfa="" class="front">
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/ques.png" alt="">
+                        <p data-v-2edcfcfa="">常见问题</p>
+                    </div>
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_login()">
+                </li>
+            </ul>
+        </div>
+    </div>
+    {include file="public:foot" /}
+</div>
+{/block}
+{block name="js"}
+<script>
+    function go_login() {
+        window.location.href='{:url("login/login")}';
+    }
+</script>
+{/block}

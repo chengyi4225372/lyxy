@@ -1,0 +1,59 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-6eeb7b57="" class="study default_app">
+    <div data-v-6eeb7b57="">
+        <div data-v-4cd57836="" data-v-6eeb7b57="" class="header">
+            <div data-v-4cd57836=""></div>
+            <div data-v-4cd57836="" class="return" style="display: none;">
+                <img data-v-4cd57836="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTFweCIgaGVpZ2h0PSIxOXB4IiB2aWV3Qm94PSIwIDAgMTEgMTkiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT7ov5Tlm548L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iTS0iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CiAgICAgICAgPGcgaWQ9IuW/q+aNt+eZu+W9lSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTE5LjAwMDAwMCwgLTUzLjAwMDAwMCkiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSIjMUUxRTFFIiBzdHJva2Utd2lkdGg9IjEuNSI+CiAgICAgICAgICAgIDxwb2x5bGluZSBpZD0i6L+U5ZueIiBwb2ludHM9IjI4LjY1OTE2NjMgNTQgMjAgNjIuNjU5MTY2MyAyOC42NTkxNjYzIDcxLjI0MTU4NDkiPjwvcG9seWxpbmU+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4="
+                     alt="" style="display: none;">
+            </div>
+            <span data-v-4cd57836="">学习中心</span>
+        </div>
+        <ul data-v-602072a1="" data-v-6eeb7b57="" class="StudyData">
+            <li data-v-602072a1="">
+                <p data-v-602072a1="">0</p>
+                <p data-v-602072a1="">今日学习(h)</p>
+            </li>
+            <li data-v-602072a1="">
+                <p data-v-602072a1="">0</p>
+                <p data-v-602072a1="">累计学习(h)</p>
+            </li>
+            <!--<li data-v-602072a1=""><p data-v-602072a1="">0</p>-->
+                <!--<p data-v-602072a1="">奖学金余额(贝里)</p></li>-->
+        </ul>
+        <div data-v-611ce6d2="" data-v-6eeb7b57="" class="StudyCourse">
+            <div data-v-611ce6d2="" class="sel">
+                <div data-v-611ce6d2="" class="degreeNull">学位课程</div>
+            </div>
+            <div data-v-611ce6d2="" class="selected course pad" style="display: none;" onclick="course_tab(this,1)">学位课程</div>
+            <div data-v-611ce6d2="" class="course" onclick="course_tab(this,2)">专题课程</div>
+        </div>
+
+        {include file="study:degree" /}
+        {include file="study:course" /}
+
+    </div>
+    {include file="public:foot" /}
+</div>
+{/block}
+{block name="js"}
+<script>
+    function course_tab(obj,ind) {
+        if (ind===1){
+            $(obj).css('display','none');
+            $(".sel").css('display','block');
+            $(".course").removeClass('active');
+            $('#course').css('display','none');
+            $('#degree').css('display','block');
+        }else {
+            $(obj).addClass('active');
+            $(".sel").css('display','none');
+            $(".selected").css('display','block');
+            $('#degree').css('display','none');
+            $('#course').css('display','block');
+        }
+    }
+</script>
+{/block}

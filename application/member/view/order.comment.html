@@ -1,0 +1,206 @@
+{extend name='index@public/content'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/comment.css"/>
+{/block}
+{block name='body'}
+<div id="router-view">
+    <main class="older-evaluation-wrap" _v-c72f8ef0="">
+        <div class="older-evaluation-header" _v-c72f8ef0="">
+            <h3 class="older-evaluation-tit" _v-c72f8ef0="">评价订单</h3>
+            <span class="older-num" _v-c72f8ef0="">订单号：
+                <span class="older-number" _v-c72f8ef0="">{$order.order_code}</span>
+            </span>
+            <span class="older-time older-num" _v-c72f8ef0="">{$order.finish_at}</span>
+        </div>
+        <ul class="older-evaluation-main" _v-c72f8ef0=""> <!--v-for-start-->
+            <li _v-c72f8ef0="" id="3864" class="older-evaluation-detail courseItem-0">
+                <div class="older-course-ceil" _v-c72f8ef0="">
+                    <img class="older-course-cover" width="170" height="115" alt="" _v-c72f8ef0=""
+                         src="{$course.imgurl}">
+                    <h3 class="older-course-tit" _v-c72f8ef0="">{$course.name}</h3>
+                    <input type="hidden" id="cid" value="{$course.id}">
+                </div>
+                <ul class="user-evaluation-wrap BOX" _v-c72f8ef0="">
+                    <li class="star00" style="list-style: none; display: flex; align-items: center" _v-c72f8ef0="">
+                        <span class="evaluation-label" _v-c72f8ef0="">内容实用</span>
+                        <ul class="evaluation-cont star_UL" sid="0" style="display: flex" _v-c72f8ef0="">
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,1)">
+                                <a href="javascript:;" _v-c72f8ef0="">1</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,2)">
+                                <a href="javascript:;" _v-c72f8ef0="">2</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,3)">
+                                <a href="javascript:;" _v-c72f8ef0="">3</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,4)">
+                                <a href="javascript:;" _v-c72f8ef0="">4</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,5)">
+                                <a href="javascript:;" _v-c72f8ef0="">5</a></li>
+                        </ul>
+                        <span class="star_result_span content-fen" _v-c72f8ef0="">
+                            <span class="fenshu" _v-c72f8ef0="">
+                            </span>&nbsp;&nbsp;
+                            <a _v-c72f8ef0=""></a>
+                            <i class="about_course-tip" _v-c72f8ef0=""></i>
+                            <input type="hidden" id="nr">
+                        </span>
+                    </li>
+                    <li class="star01" style="list-style: none; margin-top: 20px; display: flex; align-items: center"
+                        _v-c72f8ef0="">
+                        <span class="evaluation-label" _v-c72f8ef0="">讲解清晰</span>
+                        <ul class="evaluation-cont star_UL" sid="0" style="display: flex" _v-c72f8ef0="">
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,1)">
+                                <a href="javascript:;" _v-c72f8ef0="">1</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,2)">
+                                <a href="javascript:;" _v-c72f8ef0="">2</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,3)">
+                                <a href="javascript:;" _v-c72f8ef0="">3</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,4)">
+                                <a href="javascript:;" _v-c72f8ef0="">4</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,5)">
+                                <a href="javascript:;" _v-c72f8ef0="">5</a></li>
+                        </ul>
+                        <span class="star_result_span speak-fen" _v-c72f8ef0="">
+                            <span class="fenshu" _v-c72f8ef0=""></span>&nbsp;&nbsp;
+                            <a _v-c72f8ef0=""></a>
+                            <i class="about_teacher-tip" _v-c72f8ef0=""></i>
+                            <input type="hidden" id="jj">
+                        </span>
+                    </li>
+                    <li class="star02" style="list-style: none; margin-top: 20px; display: flex;
+                        align-items: center; margin-bottom: 35px" _v-c72f8ef0="">
+                        <span class="evaluation-label" _v-c72f8ef0="">通俗易通</span>
+                        <ul class="evaluation-cont star_UL" sid="0" style="display: flex" _v-c72f8ef0="">
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,1)">
+                                <a href="javascript:;" _v-c72f8ef0="">1</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,2)">
+                                <a href="javascript:;" _v-c72f8ef0="">2</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,3)">
+                                <a href="javascript:;" _v-c72f8ef0="">3</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,4)">
+                                <a href="javascript:;" _v-c72f8ef0="">4</a></li>
+                            <li style="list-style: none" _v-c72f8ef0="" class="" onmouseover="do_on(this,5)">
+                                <a href="javascript:;" _v-c72f8ef0="">5</a></li>
+                        </ul>
+                        <span class="star_result_span understand-fen" _v-c72f8ef0="">
+                            <span class="fenshu" _v-c72f8ef0=""></span>&nbsp;&nbsp;
+                            <a _v-c72f8ef0=""></a>
+                            <i class="about_video-tip" _v-c72f8ef0=""></i>
+                            <input type="hidden" id="ts">
+                        </span>
+                    </li>
+                    <li class="evaluation-list tags" _v-c72f8ef0="">
+                        <span class="evaluation-label" _v-c72f8ef0="">学员印象</span>
+                        <ul _v-c72f8ef0="" class="evaluation-cont tags-box buyer-impression">
+                            <!--v-for-start-->
+                            <li _v-c72f8ef0="" class="buyer-mark" onclick="do_pl(this)">讲解清晰</li>
+                            <li _v-c72f8ef0="" class="buyer-mark" onclick="do_pl(this)">内容实用</li>
+                            <li _v-c72f8ef0="" class="buyer-mark" onclick="do_pl(this)">通俗易懂</li>
+                            <li _v-c72f8ef0="" class="buyer-mark" onclick="do_pl(this)">老师很帅</li>
+                            <li _v-c72f8ef0="" class="buyer-mark" onclick="do_pl(this)">老司机</li>
+                            <!--v-for-end-->
+                        </ul>
+                        <span id="tags-tip" class="error-tip tags-tip" _v-c72f8ef0="">
+                        </span>
+                    </li>
+                    <li class="evaluation-list" _v-c72f8ef0="">
+                        <span class="evaluation-label" _v-c72f8ef0="">学员评语</span>
+                        <textarea contenteditable="true" tabindex="1" placeholder="课程是否给力，快分享你的心情吧" _v-c72f8ef0="" id="content"
+                             class="evaluation-cont review-box edit-evaluation contenteditable-input" style="resize:none"></textarea>
+                        <span class="error-tip review-tip" _v-c72f8ef0=""></span>
+                    </li>
+                    <li style="list-style: none; position: relative; top: -179px; left: 165px" _v-c72f8ef0=""></li>
+                    <li class="font-num-limit" _v-c72f8ef0="">10~1024字</li>
+                </ul>
+            </li><!--v-for-end-->
+        </ul>
+        <input type="hidden" id="type" value="{$type}">
+        <div style="margin-top: 100px; display: flex; justify-content: center; align-items: center" _v-c72f8ef0="">
+            <button class="older-evaluation-submit-btn" _v-c72f8ef0="" onclick="comment_submit()">提交</button>
+        </div>
+    </main><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script>
+    function do_on(obj,id) {
+        $(obj).addClass("on");
+        $(obj).prevAll("li").addClass("on");
+        $(obj).nextAll("li").removeClass("on");
+        var fs = 1;
+        var pl = '';
+        switch (id) {
+            case 1:
+                fs = 1; pl= '差的离谱';
+                break;
+            case 2:
+                fs = 2; pl= '比较差,低于预估值';
+                break;
+            case 3:
+                fs = 3; pl= '一般,希望努力改进';
+                break;
+            case 4:
+                fs = 4; pl= '不错,挺满意的';
+                break;
+            case 5:
+                fs = 5; pl= '非常好,很满意';
+                break;
+        }
+        $(obj).parent("ul").next("span").children(".fenshu").html(fs+'分');
+        $(obj).parent("ul").next("span").children("a").html(pl);
+        $(obj).parent("ul").next("span").children("input").val(fs);
+    }
+    function do_pl(obj) {
+        if ($(obj).hasClass("pro-mark-active")){
+            $(obj).removeClass("pro-mark-active");
+        } else {
+            $(obj).addClass("pro-mark-active");
+        }
+    }
+    function comment_submit() {
+        var cid = $("#cid").val();
+        var nr = $("#nr").val();
+        var jj = $("#jj").val();
+        var ts = $("#ts").val();
+        var tid = $("#type").val();
+        if (nr==''||jj==''||ts==''){
+            layer.msg("请先评分!");
+            return false;
+        }
+        var pf = nr+'-'+jj+'-'+ts;
+        var pl = '';
+        $(".pro-mark-active").each(function () {
+            pl += $(this).html()+",";
+        });
+        if (pl==''){
+            layer.msg("请先选择印象!");
+            return false;
+        }
+        pl = pl.substr(0,pl.length-1);
+        var content = $("#content").val();
+        if (content==''){
+            layer.msg("请先输入评语!");
+            return false;
+        }
+        $.ajax({
+            url:"{:url('comment')}",
+            type:"post",
+            data:{score:pf,impress:pl,content:content,cid:cid,tid:tid},
+            dataType:"json",
+            success:function (msg) {
+                if (msg.status==200){
+                    layer.msg(msg.msg,{icon:1});
+                    setTimeout(function () {
+                        window.location.href = "{:url('order/index')}";
+                    }, 2000);
+                }else {
+                    layer.msg(msg.msg,{anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

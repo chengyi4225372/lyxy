@@ -1,0 +1,68 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-0fa4538e="" class="discounts subPage_app">
+    <div data-v-0fa4538e="" class="header">
+        <!--<img data-v-0fa4538e="" src="/static/mobile/frontend/study/back.svg" alt="">-->
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-0fa4538e="" class="name">优惠券</span>
+        <span data-v-0fa4538e="" class="right">兑换</span>
+    </div>
+    <div data-v-0fa4538e="" class="vux-tab-wrap CourseTitle">
+        <div class="vux-tab-container">
+            <div class="vux-tab">
+                <div data-v-0fa4538e="" class="vux-tab-item vux-tab-selected" style="border: none; color: rgb(245, 166, 35);">
+                    可使用
+                    <!----></div>
+                <div data-v-0fa4538e="" class="vux-tab-item" style="border: none; color: rgb(155, 155, 155);">
+                    已使用
+                    <!----></div>
+                <div data-v-0fa4538e="" class="vux-tab-item" style="border: none; color: rgb(155, 155, 155);">
+                    已过期
+                    <!----></div>
+                <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-backward" style="display: block; height: 3px; background-color: rgb(245, 166, 35); left: 0%; right: 66.6667%;">
+                    <!----></div>
+            </div>
+        </div>
+    </div>
+    <div data-v-0fa4538e="" class="cont"><!---->
+        <div data-v-d1decd6c="" data-v-0fa4538e="" class="unused">
+            <div data-v-7cf76425="" data-v-d1decd6c="" class="empty">
+                <img data-v-7cf76425="" src="/static/mobile/frontend/course/fill1.svg" alt="">
+                <p data-v-7cf76425="">暂无可使用优惠劵</p>
+            </div>
+        </div> <!----> <!---->
+    </div>
+    <div data-v-9e90a7d2="" data-v-0fa4538e="" class="vux-x-dialog dialog">
+        <div class="weui-mask" style="display: none;"></div>
+        <div class="weui-dialog" style="display: none;">
+            <div data-v-9e90a7d2="" class="box">
+                <p data-v-9e90a7d2="">兑换优惠劵</p>
+                <input data-v-9e90a7d2="" type="text" placeholder="输入兑换码" autocapitalize="off">
+                <p data-v-9e90a7d2="">
+                    <span data-v-9e90a7d2="">取消</span>
+                    <span data-v-9e90a7d2="">兑换</span>
+                </p>
+            </div>
+            <div data-v-9e90a7d2="" class="weui-cell" style="display: none;">
+                <div class="weui-cell__hd"></div>
+                <div class="vux-cell-bd vux-cell-primary">
+                    <p><!----> </p>
+                    <span class="vux-label-desc"></span>
+                </div>
+                <div class="weui-cell__ft">  <!---->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('index')}";
+    })
+</script>
+{/block}

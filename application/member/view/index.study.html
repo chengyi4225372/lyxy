@@ -1,0 +1,171 @@
+{extend name='index@public/content'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/common/deal-warp.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/common/load-box.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/common/icon.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/study-course.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/study.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/need-study.css"/>
+{/block}
+{block name='body'}
+<!--v-component-->
+<div id="router-view">
+    <div class="studyhome" _v-6e8b6836="">
+        <main _v-6e8b6836="">
+            <div class="study-head" _v-6e8b6836="">
+                <ul class="study-data" _v-6e8b6836="">
+                    <li _v-6e8b6836=""><img src="/static/index/static/img/icon0.svg" alt="" _v-6e8b6836="">
+                        <p _v-6e8b6836=""><span _v-6e8b6836="">今日/累计学习（时）</span> <b _v-6e8b6836="">0/0</b></p></li>
+                    <li _v-6e8b6836="">
+                        <img src="/static/index/static/img/icon1.svg" alt="" _v-6e8b6836="">
+                        <p _v-6e8b6836=""><span _v-6e8b6836="">可挑战奖学金余额（贝里）</span> <b _v-6e8b6836="">0</b></p></li>
+                    <li _v-6e8b6836="">
+                        <img src="/static/index/static/img/icon2.svg" alt="" _v-6e8b6836="">
+                        <p _v-6e8b6836=""><span _v-6e8b6836="">作业平均成绩（分）</span> <b _v-6e8b6836="">0</b>
+                            <a _v-6e8b6836="" href="#">查看作业成绩</a></p></li>
+                    <li _v-6e8b6836="">
+                    	<img src="/static/index/static/img/icon3.svg" alt="" _v-6e8b6836="">
+                        <p _v-6e8b6836=""><span _v-6e8b6836="">已获得奖学金余额（贝里）</span> <b _v-6e8b6836="">0</b>
+                            <a _v-6e8b6836="" href="#">查看奖惩详情</a></p>
+                    </li>
+                </ul>
+                <div class="dashboard" _v-6e8b6836=""> <!--v-if-->
+                    <div class="synchronization" _v-6e8b6836=""><p _v-6e8b6836="">全栈前端面授同步班</p>
+                        <p _v-6e8b6836="">火热招生中！</p>
+                        <!-- <p _v-6e8b6836="">每期席位49人</p> -->
+                        <a href="https://www.icketang.com/" target="_blank"><button _v-6e8b6836="">查看详情</button></a>
+                        <img src="/static/index/static/img/computer.svg" alt="" _v-6e8b6836="">
+                    </div><!--v-if-->
+                </div>
+            </div>
+            <nav _v-6e8b6836="">
+                <p _v-6e8b6836="" class="color" onclick="go_mycourse(this,0)" id="tab1">学位课程</p>
+                <p _v-6e8b6836="" onclick="go_mycourse(this,1)" id="tab2">免费课程</p>
+                <p _v-6e8b6836="" onclick="go_mycourse(this,2)" id="tab3">七天课程</p>
+                <!--<p _v-6e8b6836="" onclick="go_mycourse(this,2)">我的提问(0)</p>-->
+            </nav>
+            <div _v-6e8b6836="" class="mycourse">
+                <div _v-53719935="" _v-6e8b6836=""> <!--fragment-start-->
+                    <div class="deal-wrap" _v-0053c4b0="" _v-53719935="">
+                        {empty name='course'}
+                        <img src="/static/index/static/frontend/not_find.png" width="272" height="185" alt="" _v-0053c4b0="">
+                        <span class="null-text" _v-53719935=""> 您还未报名任何学位课程,去看看心仪的
+                            <a style="color: #4990E2" _v-3ec27500="" href="{:url('index/micro/index')}">课程</a>吧~
+                            <!--<a _v-53719935="" href="#">什么是学位课程？</a>-->
+                        </span>
+                        {/empty}
+                        {include file="study:degree" /}
+                    </div><!--v-component--><!--fragment-end--><!--v-if-->
+                </div><!--v-component-->
+            </div>
+            <div _v-6e8b6836="" style="display: none;" class="mycourse">
+                <div _v-3ec27500="" _v-6e8b6836=""> <!--fragment-start-->
+                    <div class="deal-wrap" _v-0053c4b0="" _v-3ec27500="">
+                        {empty name='course'}
+                            <img src="/static/index/static/frontend/not_find.png" width="272" height="185" alt="" _v-0053c4b0="">
+                            <span class="null-text" _v-3ec27500="">您还未购买任何课程，去看看心仪的
+                                <a style="color: #4990E2" _v-3ec27500="" href="{:url('index/course/index')}">课程</a>
+                                吧~ </span>
+                        {/empty}
+                        {include file="study:course" /}
+                    </div><!--v-component-->
+                </div><!--v-component-->
+            </div>
+            <div _v-6e8b6836="" style="display: none;" class="mycourse">
+                <div _v-3ec27500="" _v-6e8b6836=""> <!--fragment-start-->
+                    <div class="deal-wrap" _v-0053c4b0="" _v-3ec27500="">
+                        {empty name='course'}
+                        <img src="/static/index/static/frontend/not_find.png" width="272" height="185" alt="" _v-0053c4b0="">
+                        <span class="null-text" _v-3ec27500="">您还未购买七天课程，去看看心仪的
+                                <a style="color: #4990E2" _v-3ec27500="" href="{:url('index/camp/index')}">课程</a>
+                                吧~ </span>
+                        {/empty}
+                        {include file="study:camp" /}
+                    </div><!--v-component-->
+                </div><!--v-component-->
+            </div>
+            <!--<div _v-6e8b6836="" style="display: none;" class="mycourse">-->
+                <!--<div class="my-question" _v-18d1cde2="" _v-6e8b6836="">-->
+                    <!--<div _v-18d1cde2="">-->
+                        <!--<div class="null-ques" _v-18d1cde2="">-->
+                            <!--<img src="/static/index/static/img/questionnull.svg" alt="" _v-18d1cde2="">-->
+                            <!--<span class="null-text" _v-18d1cde2="">暂无提问</span>-->
+                        <!--</div>-->
+                    <!--</div>&lt;!&ndash;v-if&ndash;&gt;  &lt;!&ndash;v-if&ndash;&gt;-->
+                <!--</div>&lt;!&ndash;v-component&ndash;&gt;-->
+            <!--</div>-->
+        </main>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script>
+    window.onload=function () {
+        $('#tab{$Think.session.c_type}').click();
+    }
+</script>
+<script>
+   
+  
+    function go_mycourse(obj,id) {
+        $('.color').removeClass('color');
+        $(obj).addClass('color');
+        $(".mycourse").css("display",'none');
+        $(".mycourse").eq(id).css("display",'block')
+    }
+  
+   /*
+    var video_play = '<div id="player" style="display: none">' +
+        '<div class="main-wrap" style="width: 720px;margin: 0 auto;margin-top: 15%;position: relative;">'+
+        '<img onclick="toSmall()" class="close" src="/static/index/static/frontend/close.png" style="position: absolute;top: -10px;right: -10px;opacity: 0.8;width: 20px;z-index: 999;"/>'+
+        '<video id="video" ishivideo="true" autoplay="true" isrotate="false" autoHide="true" style="width: 720px;">' +
+        '<source type="video/mp4">' +
+        '</video>' +
+        '</div>'+
+        '</div>';
+    $(document.body).append(video_play);
+    hivideo($("#video"));
+
+    function player(video) {
+        $("#player").css('display','block');
+        $("#video").attr('src',video);
+        toVideo();
+    }
+
+    function toVideo() {
+        $("#player").addClass("player");
+        $("#player").show();
+    }
+
+    function toSmall() {
+        $("#player").css('display','none');
+        $("#video").removeAttr('src');
+        document.getElementById("video").pause();
+    } 
+   */  
+
+function player(video) {
+    var player = '<div id="player">'+
+    '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="550" width="600" autoplay="" preload="'+video+'">'+
+        '<source src="'+video+'" type="video/mp4"></source></video></div>';
+    $(document.body).append(player);
+    toVideo();
+}
+
+function toVideo() {
+    $("#player").addClass("player");
+    $("#player").show();
+    /*隐藏*/
+    $("#player").bind("click", clickToSmallImg);
+    function clickToSmallImg() {
+        $("#player").remove();
+    }
+}
+
+
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

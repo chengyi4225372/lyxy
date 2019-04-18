@@ -1,0 +1,254 @@
+.box[_v-0dee26bc] {
+    width: 100%;
+    position: relative;
+    margin-top: -80px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.box .bac[_v-0dee26bc] {
+    width: 100%
+}
+
+.login_cont[_v-0dee26bc] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -238px;
+    margin-top: -300px
+}
+
+.login_title[_v-0dee26bc] {
+    width: 100%;
+    text-align: center
+}
+
+.login_title img[_v-0dee26bc] {
+    width: 190px;
+    height: auto
+}
+
+.login_title p[_v-0dee26bc] {
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: .29px;
+    padding-top: 10px;
+    padding-bottom: 50px
+}
+
+.login_box[_v-0dee26bc] {
+    width: 400px;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+    border-radius: 4px;
+    margin: 0 auto;
+    padding-bottom: 40px
+}
+
+.login_box .zi[_v-0dee26bc] {
+    font-family: PingFangSC-Regular;
+    font-size: 20px;
+    color: #9b9b9b;
+    letter-spacing: .32px;
+    border-bottom: 1px solid #e6e6e6;
+    padding-top: 50px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding-left: 60px;
+    padding-right: 60px
+}
+
+.login_box .zi span[_v-0dee26bc] {
+    padding-bottom: 10px;
+    cursor: pointer
+}
+
+.login_box .zi .loginthis[_v-0dee26bc] {
+    color: #4a4a4a;
+    border-bottom: 2px solid #84cc39
+}
+
+.login_box .inp[_v-0dee26bc] {
+    width: 350px;
+    height: auto;
+    margin: 0 auto
+}
+
+.login_box .inp .geetest_holder .geetest_wind .geetest_detect[_v-0dee26bc] {
+    width: 370px !important
+}
+
+.login_box .inp .geetest_holder.geetest_wind[_v-0dee26bc] {
+    min-width: 370px !important
+}
+
+.login_box .inp .geetest_btn[_v-0dee26bc] {
+    width: 370px !important
+}
+
+.login_box .inp .hide[_v-0dee26bc], .login_box .inp .show[_v-0dee26bc] {
+    font-size: 14px;
+    text-indent: 5px
+}
+
+.login_box .inp .error[_v-0dee26bc] {
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+    color: #fa6240;
+    padding-bottom: 16px;
+    text-indent: 4px
+}
+
+.login_box .inp input[_v-0dee26bc] {
+    width: 100%;
+    height: 45px;
+    border-radius: 4px;
+    border: 1px solid #d9d9d9;
+    text-indent: 20px;
+    font-size: 14px
+}
+
+.login_box .inp [_v-0dee26bc]::-webkit-input-placeholder {
+    color: #9b9b9b
+}
+
+.login_box .inp [_v-0dee26bc]:-moz-placeholder, .login_box .inp [_v-0dee26bc]::-moz-placeholder {
+    color: #9b9b9b
+}
+
+.login_box .inp [_v-0dee26bc]:-ms-input-placeholder {
+    color: #9b9b9b
+}
+
+.login_box .inp .pwd[_v-0dee26bc], .login_box .inp .user[_v-0dee26bc] {
+    margin-bottom: 16px
+}
+
+.login_box .inp .mima[_v-0dee26bc] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    margin-top: 10px
+}
+
+.login_box .inp .mima p[_v-0dee26bc]:first-of-type {
+    /*font-size: 12px;*/
+    color: #4a4a4a;
+    letter-spacing: .19px;
+    /*margin-left: 22px;*/
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.login_box .inp .mima p:first-of-type .no[_v-0dee26bc] {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+    text-align: center;
+    line-height: 13px;
+    border: 1px solid #d9d9d9;
+    color: #fff;
+    font-size: 12px
+}
+
+.login_box .inp .mima p:first-of-type .yes[_v-0dee26bc] {
+    background: #84cc39;
+    border: 1px solid #84cc39
+}
+
+.login_box .inp .mima p[_v-0dee26bc]:nth-of-type(2) {
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: .19px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login_box .inp .mima p[_v-0dee26bc]:nth-of-type(2) a{
+    color: #9b9b9b;
+}
+
+.login_box .inp .login_btn[_v-0dee26bc] {
+    width: 100%;
+    height: 45px;
+    background: #84cc39;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: .26px;
+    margin-top: 30px
+}
+
+.login_box .inp .go_login[_v-0dee26bc] {
+    text-align: center;
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: .26px;
+    padding-top: 20px
+}
+
+.login_box .inp .go_login span[_v-0dee26bc] {
+    color: #84cc39;
+    cursor: pointer
+}
+
+.login_box .inp .SMS[_v-0dee26bc] {
+    width: 100%;
+    height: 45px;
+    position: relative;
+    margin-bottom: 16px
+}
+
+.login_box .inp .SMS button[_v-0dee26bc] {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    color: #84cc39;
+    background: transparent;
+    letter-spacing: .26px;
+    border-left: 1px solid #979797;
+    font-family: PingFangSC-Regular;
+    cursor: pointer;
+    position: absolute;
+    right: 1px;
+    top: 8px
+}
+
+#embed-captcha {
+    display: inline-block;
+    width: 100%
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(.5)
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}

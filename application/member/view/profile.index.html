@@ -1,0 +1,72 @@
+{extend name='public/common'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/profile.css"/>
+{/block}
+{block name='body'}
+<div style="border-top: 1px solid #E9E9E9" _v-f76ea13a="">
+    <div class="info-content" _v-f76ea13a="">
+        <div class="base-info base-info-spec" _v-f76ea13a="">
+            <div class="info-tit-wrap" _v-f76ea13a=""><h5 class="info-tit" _v-f76ea13a="">基本信息</h5>
+                <button class="edit-btn" _v-f76ea13a="">修改</button>
+            </div>
+            <ul class="base-info-wrap" _v-f76ea13a="">
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">用户名</label>
+                    <span class="label-point" _v-f76ea13a="">callmePan</span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">性别</label>
+                    <span class="label-point" _v-f76ea13a="">保密</span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">QQ</label>
+                    <span class="label-point" _v-f76ea13a=""></span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">微信</label>
+                    <span class="label-point" _v-f76ea13a=""></span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">生日</label>
+                    <span class="label-point" _v-f76ea13a="">1996-10-19</span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">现居</label>
+                    <span class="label-point" _v-f76ea13a="">浙江省 | 丽水市</span></li>
+                <li class="base-info-item" _v-f76ea13a=""><label class="label" _v-f76ea13a="">学历</label>
+                    <span class="label-point" _v-f76ea13a="">学历</span></li>
+                <li style="display: flex" _v-f76ea13a=""><label class="label" _v-f76ea13a="">签名</label>
+                    <span class="label-point" _v-f76ea13a=""></span></li>
+            </ul>
+        </div><!--v-if--> <!--v-if-->
+        <div class="base-info" _v-f76ea13a="">
+            <div class="info-tit-wrap" _v-f76ea13a=""><h5 class="info-tit" _v-f76ea13a="">职业信息</h5></div>
+            <div _v-f76ea13a="">
+                <div style="display: flex; margin-bottom: 11px" _v-f76ea13a=""><label class="label"
+                                                                                      _v-f76ea13a="">所属行业</label>
+                    <span class="label-point" _v-f76ea13a="">互联网 | 程序员</span> <span class="modify-text"
+                                                                                    style="cursor: pointer"
+                                                                                    _v-f76ea13a="">修改</span>
+                </div><!--v-if--> <!--v-if-->
+                <div style="" _v-f76ea13a="">
+                    <div style="display: flex" _v-f76ea13a=""><label class="label"
+                                                                     _v-f76ea13a="">感兴趣</label>
+                        <div style="width: 600px;white-space: nowrap" _v-f76ea13a="">
+                            <!--v-for-start--><span class="label-point" style="margin-right: 20px"
+                                                    _v-f76ea13a="" key="0">python  大牛</span><span
+                                class="label-point" style="margin-right: 20px" _v-f76ea13a="" key="1">人工智能 AI</span>
+                            <!--v-for-end--> <span class="modify-text" style="cursor: pointer"
+                                                   _v-f76ea13a="">添加感兴趣的职业方向</span></div>
+                    </div>
+                </div>
+                <div _v-f76ea13a="" style="display: none;">
+                    <div _v-f76ea13a=""><label class="edit-label" _v-f76ea13a="">感兴趣</label>
+                        <ul style="width: 100%; display: flex; flex-wrap: wrap" _v-f76ea13a="">
+                            <!--v-for-start--><!--v-for-end--> </ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px" _v-f76ea13a="">
+                        <button class="modify-btn modify-cancel-btn" _v-f76ea13a="">取消</button>
+                        <button class="modify-btn modify-sure-btn" _v-f76ea13a="">完成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!--v-component-->
+{/block}
+{block name="js"}{/block}
+{block name='footer'}
+{__block__}
+{/block}

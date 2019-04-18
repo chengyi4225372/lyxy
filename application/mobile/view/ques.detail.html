@@ -1,0 +1,32 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-6702b84a="" class="CourseProblem subPage_app">
+    <div data-v-4cd57836="" data-v-6702b84a="" class="header">
+        <div data-v-4cd57836="" style="display: none;"></div>
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-4cd57836="">常见问题</span></div>
+    <div data-v-6702b84a="" class="cont">
+        <p data-v-6702b84a="" class="title">课程购买介绍</p>
+        <ul data-v-6702b84a="">
+            <li data-v-6702b84a="">
+                <p data-v-6702b84a="">1、课程是否可以试听 ？</p>
+                <p data-v-6702b84a="">可以试听,在课程章节目录中标记有"试看"的标签的课程为可以免费观看的课程视频。</p>
+            </li>
+            <li data-v-6702b84a="">
+                <p data-v-6702b84a="">2、如何选择最适合自己的课程 ？</p>
+                <p data-v-6702b84a="">路飞学城的课程大致分为“初级”、“中级”和“高级”三类。</p>
+            </li>
+        </ul>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('mycenter/ques')}";
+    });
+</script>
+{/block}

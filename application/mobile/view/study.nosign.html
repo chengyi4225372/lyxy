@@ -1,0 +1,30 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div id="app" class="">
+    <div data-v-6eeb7b57="" class="study default_app">
+        <div data-v-55bcbc02="" data-v-6eeb7b57="" class="login">
+            <div data-v-55bcbc02="" class="top">
+                <div data-v-55bcbc02="" class="gologin" onclick="go_login()">
+                    <p data-v-55bcbc02="">登录</p>
+                </div>
+                <div data-v-55bcbc02="" class="course">
+                    <p data-v-55bcbc02="">学位课程</p>
+                    <p data-v-55bcbc02="">专题课程</p>
+                </div>
+            </div>
+            <img data-v-55bcbc02="" src="/static/mobile/frontend/study/multi-device.png" alt="" class="img1">
+            <p data-v-55bcbc02="" class="p1"><span onclick="go_login()">登录</span><span data-v-55bcbc02="">后可以多设备同步学习</span>
+            </p>
+        </div>
+    </div>
+    {include file="public:foot" /}
+</div>
+{/block}
+{block name="js"}
+<script>
+    function go_login() {
+        window.location.href="{:url('login/login')}";
+    }
+</script>
+{/block}

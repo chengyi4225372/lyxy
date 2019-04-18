@@ -1,0 +1,38 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-59045368="" class="security subPage_app">
+    <div data-v-4cd57836="" data-v-59045368="" class="header">
+        <div data-v-4cd57836="" style="display: none;">
+
+        </div>
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-4cd57836="">账户安全</span>
+    </div>
+    <ul data-v-59045368="">
+        <li data-v-59045368="">
+            <p data-v-59045368="" class="left">密码</p>
+            <div data-v-59045368="" class="right"><!---->
+                <p data-v-59045368="" class="set">******</p>
+                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" onclick="window.location.href='{:url(\'safe/forget\')}';">
+            </div>
+        </li>
+        <li data-v-59045368="">
+            <p data-v-59045368="" class="left">手机号</p>
+            <div data-v-59045368="" class="right">
+                <p data-v-59045368="" class="set">153****9656</p>
+                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" onclick="window.location.href='{:url(\'safe/change\')}';">
+            </div>
+        </li>
+    </ul>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('index')}";
+    });
+</script>
+{/block}

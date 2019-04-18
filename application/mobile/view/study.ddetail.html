@@ -1,0 +1,97 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<link href="http://sdk-release.qnsdk.com/qiniuplayer-0.3.9.min.css" rel="stylesheet">
+<script src="http://sdk-release.qnsdk.com/qiniuplayer-0.3.9.min.js"></script>
+<style>
+    .module{
+        height: .48rem;
+        background: #72d9c2;
+        border: 1px solid #e1e1e1;
+        font-size: .14rem;
+        color: #fff;
+        line-height: .48rem;
+        padding-left: .2rem;
+    }
+</style>
+<div data-v-7e0d6691="" class="videopage subPage_app">
+    <div data-v-7e0d6691="" class="title">
+        <img data-v-7e0d6691="" src="/static/mobile/frontend/study/back.svg" alt="">
+        <span data-v-7e0d6691="">{$course.name}</span>
+    </div>
+    <div data-v-7e0d6691="" class="video">
+        <video class="video-js vjs-big-play-centered" id="video-player">
+        </video>
+    </div>
+    <div data-v-7e0d6691="" class="box">
+        <p data-v-7e0d6691="" class="log">课程目录</p>
+        <div data-v-074c8094="" data-v-7e0d6691="" class="spinner" style="display: none;">
+            <div data-v-074c8094="" class="bounce1"></div>
+            <div data-v-074c8094="" class="bounce2"></div>
+            <div data-v-074c8094="" class="bounce3"></div>
+        </div>
+        <div data-v-7e0d6691="" class="catalog">
+            {foreach name='course.module' item='val' key='kk'}
+            <p class="module">{$val.name}</p>
+                {foreach name='val.chapter' item='voo' key='key'}
+                <div data-v-7e0d6691="" class="chapter">
+                    <p data-v-7e0d6691="" class="num">第{$key+1}章-{$voo.name}</p>
+                    <ul data-v-7e0d6691="" class="list">
+                        {foreach name='voo.content' item='vv' key='k'}
+                        {if condition="($kk == 0) and ($key == 0) and ($k == 0)"}
+                        <li data-v-7e0d6691="" class="liElement onColor" onclick="play_video('{$vv.video_url}',this)">
+                            <p data-v-7e0d6691="">{$key+1}-{$k+1} {$vv.name}</p>
+                            <!--<p data-v-7e0d6691="" class="onColor">09:25</p>-->
+                            <img data-v-7e0d6691="" src="/static/mobile/frontend/study/combined-shape.svg" alt="" class="videoIcon">
+                        </li>
+                        {else/}
+                        <li data-v-7e0d6691="" class="liElement" onclick="play_video('{$vv.video_url}',this)">
+                            <p data-v-7e0d6691="">{$key+1}-{$k+1} {$vv.name}</p>
+                            <!--<p data-v-7e0d6691="" class="onColor">09:25</p>-->
+                            <img data-v-7e0d6691="" src="/static/mobile/frontend/study/oval5.svg" alt="" class="videoIcon">
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                    <div data-v-7e0d6691="" class="more">查看更多</div>
+                </div>
+                {/foreach}
+            {/foreach}
+        </div>
+    </div>
+    <div data-v-7e0d6691="" class="weui-cell" style="display: none;">
+        <div class="weui-cell__hd"></div>
+        <div class="vux-cell-bd vux-cell-primary">
+            <p><!----> </p>
+            <span class="vux-label-desc"></span>
+        </div>
+        <div class="weui-cell__ft">  <!----></div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.title img').on('click', function () {
+        window.location.href = "{:url('index')}";
+    });
+    var options = {
+        engineOrder : ['html5','flash'],
+        controls: true,
+        url: "{$course.video_content.video_url}",
+        poster: "{$course.imgurl}",
+        type: 'mp4',
+        autoplay: true // 如为 true，则视频将会自动播放
+    };
+    var player = new QiniuPlayer('video-player', options);
+
+    function play_video(video,obj) {
+        player.src({type: 'video/mp4', src: video}, function () {
+            player.play();
+        });
+        $('.catalog').find('.liElement').removeClass('onColor');
+        $('.catalog').find('.liElement').children('img').attr('src','/static/mobile/frontend/study/oval5.svg');
+        $(obj).addClass('onColor');
+        $(obj).children('img').attr('src','/static/mobile/frontend/study/combined-shape.svg');
+    }
+</script>
+{/block}

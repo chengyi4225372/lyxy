@@ -1,0 +1,22 @@
+{foreach name='course' item='vo'}
+<dl data-v-0216b961="" onclick="go_course('{$vo.id}')">
+    <dt data-v-0216b961="">
+        <img data-v-0216b961="" src="{$vo.imgurl}" alt="">
+    <p data-v-0216b961="" class="course-num">{$vo.class_num}课程 | 更新完成</p>
+    </dt>
+    <dd data-v-0216b961="">
+        <div data-v-0216b961="">
+            {eq name='vo.has_buy' value='1'}
+            <p data-v-0216b961="" class="buy">已购买</p>
+            {/eq}
+            {eq name='vo.has_buy' value='0'}
+            <p data-v-0216b961="" class="active">限时</p>
+            <p data-v-0216b961="" class="price">¥{$vo.price}</p>
+            <p data-v-0216b961="" class="original-price">{$vo.old_price}</p>
+            {/eq}
+        </div>
+        <p data-v-0216b961="" class="person">
+            <img data-v-0216b961="" src="" alt="">{$vo.stu_num}人已加入学习</p>
+    </dd>
+</dl>
+{/foreach}

@@ -1,0 +1,83 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<link rel="stylesheet" href="/static/mobile/layer_mobile/need/layer.css">
+<div id="app" class="">
+    <div data-v-ea25c97a="" class="login default_app">
+        <img data-v-ea25c97a="" src="/static/mobile/frontend/index/close.svg" alt="" class="close">
+        <div data-v-ea25c97a="" class="loginBox">
+            <div data-v-ea25c97a="" class="loginFrom">
+                <p data-v-ea25c97a="" class="lufei">乐育学院</p>
+                <p data-v-ea25c97a="" class="fromItem">
+                    <input data-v-ea25c97a="" type="text" placeholder="手机号／用户名" id="user" autocapitalize="off"> <!---->
+                </p>
+                <p data-v-ea25c97a="" class="fromItem">
+                    <input data-v-ea25c97a="" type="password" placeholder="密码" id="pwd"> <!---->
+                    <img data-v-ea25c97a="" src="/static/mobile/frontend/study/close-eyes.svg" alt="" class="eyes">
+                </p>
+                <div data-v-ea25c97a="" class="fromRemember">
+                    <p data-v-ea25c97a="">忘记密码</p>
+                    <p data-v-ea25c97a="">手机号快捷登录(注册)</p>
+                </div>
+                <button data-v-ea25c97a id="login-btn" disabled="disabled" class="" onclick="login()">登录</button>
+            </div>
+            <p data-v-ea25c97a="" class="foot">登录代表您已阅读并同意
+                <span data-v-ea25c97a="">《用户协议》</span>
+            </p>
+        </div>
+    </div> <!---->
+</div>
+{/block}
+{block name="js"}
+<script src="/static/mobile/layer_mobile/layer.js"></script>
+<script>
+    $('.close').on('click',function () {
+        window.location.href = "{:url('mycenter/index')}";
+    });
+    $('#pwd').keyup(function (e) {
+        $("#login-btn").removeAttr('disabled');
+        $("#login-btn").addClass('change');
+        if (e.keyCode == 13) {
+            login();
+        }
+    });
+    $('.eyes').on('click',function () {
+        if ($(this).attr('src') == '/static/mobile/frontend/study/close-eyes.svg'){
+            $(this).attr('src','/static/mobile/frontend/study/open-eyes.svg');
+            $("#pwd").attr('type','text');
+        }else {
+            $(this).attr('src','/static/mobile/frontend/study/close-eyes.svg');
+            $("#pwd").attr('type','password');
+        }
+    });
+    function login() {
+        var pass = $("#pwd").val();
+        var username = $("#user").val();
+        $.ajax({
+            url:"{:url('')}",
+            type:"post",
+            data:{user:username,pass:pass},
+            dataType:"json",
+            success:function (t) {
+                if (t.status === 404){
+                    layer.open({
+                        content: t.msg
+                        ,skin: 'msg'
+                        ,time: 3 //x秒后自动关闭
+                    });
+                } else {
+                    //loading带文字
+                    var c = t.msg+'正在跳转';
+                    layer.open({
+                        type: 2
+                        ,content: c
+                    });
+                    setTimeout(function () {
+                        window.location.href = "{:url('mycenter/index')}";
+                    },2000);
+                }
+            }
+        })
+    }
+</script>
+{/block}

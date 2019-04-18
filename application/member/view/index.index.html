@@ -1,0 +1,94 @@
+{extend name='public/common'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/index.css"/>
+{/block}
+{block name='body'}
+<!--v-component-->
+<div class="deal-wrap" _v-a55c6432="">
+    <div _v-a55c6432="">
+        <ul class="balance-out-wrap" _v-a55c6432="">
+            <li class="balance-item" _v-a55c6432="">
+                <span class="my-balance" _v-a55c6432="">我的账户余额：</span>
+                <span class="balance-num" _v-a55c6432="">0
+                                <span style="font-size: 14px" _v-a55c6432="">贝里</span>
+                            </span>
+                <!--<button class="cash-btn" _v-a55c6432="">提现</button>-->
+                <a class="what-bei" _v-a55c6432="" href="#">什么是贝里？</a>
+            </li>
+            <li class="balance-item" _v-a55c6432=""><span class="my-balance" _v-a55c6432="">我的优惠券：</span>
+                <ul style="padding: 0; margin-top: 31px; display: flex" _v-a55c6432="">
+                    <li style="width: 189px; height: 110px; background: #FFFFFF" _v-a55c6432="">
+                        <span class="can-use" _v-a55c6432="">可使用优惠券</span>
+                        <a class="can-use-num" _v-a55c6432="" href="#">0</a>
+                    </li>
+                    <li style="width: 141px; height: 110px; background: #FFFFFF; margin-left: 16px"
+                        _v-a55c6432=""><span class="can-use" _v-a55c6432="">即将过期</span>
+                        <a class="can-use-num" _v-a55c6432="" href="#">0</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="balance-item" _v-a55c6432=""><span class="my-balance" _v-a55c6432="">提醒事项：</span>
+                <ul style="padding: 0; width: 340px; margin: 15px auto 0" _v-a55c6432="">
+                    <li class="tip-wrap" _v-a55c6432=""><a class="tip-num" _v-a55c6432="">0</a> <a
+                            class="tip-item" _v-a55c6432="">待支付的订单</a></li>
+                    <li class="tip-wrap" _v-a55c6432=""><a class="tip-num" _v-a55c6432="">0</a> <a
+                            class="tip-item" _v-a55c6432="">即将过期的课程</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="list" _v-a55c6432="">
+            <p class="p1" _v-a55c6432="">
+                <span class="sp bac" _v-a55c6432="">贝里交易记录</span>
+                <!--<span class="sp" _v-a55c6432="">提现记录</span>-->
+            </p>
+            <div class="list_title" _v-a55c6432="">
+                <span _v-a55c6432="">交易流水号</span>
+                <span _v-a55c6432="">发生时间</span>
+                <span _v-a55c6432="">类型</span>
+                <span _v-a55c6432="">金额</span>
+                <span _v-a55c6432="">余额</span>
+                <span _v-a55c6432="">详情</span>
+            </div>
+            <!--<div class="list_title" _v-a55c6432="" style="display: none;">-->
+                <!--<span _v-a55c6432="">提现申请时间</span>-->
+                <!--<span _v-a55c6432="">提现方式</span>-->
+                <!--<span _v-a55c6432="">提现账号</span>-->
+                <!--<span _v-a55c6432="">提现数量</span>-->
+                <!--<span _v-a55c6432="">状态</span>-->
+                <!--<span _v-a55c6432="">提现完成时间</span>-->
+                <!--<span _v-a55c6432="">说明</span>-->
+            <!--</div>-->
+            <div class="list_item" _v-a55c6432=""> <!--v-for-start--><!--v-for-end-->
+            </div>
+            <div class="list_item" _v-a55c6432="" style="display: none;"> <!--v-for-start-->
+                <!--v-for-end--> </div>
+        </div>
+        <div class="deal-wrap" style="text-align: center" _v-a55c6432="">
+            <img style="margin-top: 92px" src="__STATIC__/index/static/frontend/not_find.png"
+                 width="272" height="185" alt="" _v-a55c6432="">
+            <span class="null" _v-a55c6432="">您的账户没有贝里交易记录哦</span>
+        </div>
+        <div class="deal-wrap" style="text-align: center; display: none;" _v-a55c6432="">
+            <img style="margin-top: 92px" src="__STATIC__/index/static/frontend/not_find.png"
+                 width="272" height="185" _v-a55c6432="">
+            <span class="null" _v-a55c6432="">您的账户没有提现记录哦</span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="certification" _v-a55c6432="" style="display: none;"></div>
+<div class="cer_box" _v-a55c6432="" style="display: none;">
+    <p _v-a55c6432=""><img src="" _v-a55c6432="">您的账户还没有实名认证</p>
+    <p _v-a55c6432="">为了您的资金安全，您需要先完成实名认证才可以进行提现</p>
+    <p _v-a55c6432="">
+        <button _v-a55c6432="">取消</button>
+        <button _v-a55c6432="">去认证</button>
+    </p>
+</div>
+</div>
+{/block}
+{block name="js"}{/block}
+{block name='footer'}
+{__block__}
+{/block}

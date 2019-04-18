@@ -1,0 +1,35 @@
+public function daoru() {
+        require_once '/extend/PHPExcel/PHPExcel.php';
+         $objPHPExcel = new \PHPExcel();
+         $file = request()->file('excel');
+        $info = $file->validate(['size'=>15678,'ext'=>'xlsx,xls,csv'])->move('static/excel/');
+		if($info){
+            $exclePath = $info->getSaveName();  //获取文件名
+            $file_name = 'static/excel/'.$exclePath;   //上传文件的地址
+            $objReader =\PHPExcel_IOFactory::createReader('Excel2007');
+            $obj_PHPExcel =$objReader->load($file_name, $encode = 'utf-8');  //加载文件内容,编码utf-8
+            echo "<pre>";
+            $excel_array=$obj_PHPExcel->getsheet(0)->toArray();   //转换为数组格式
+            array_shift($excel_array);  //删除第一个数组(标题);
+            $data = [];
+			$i=0;
+            foreach($excel_array as $k=>$v) {
+                $data[$k]['name'] = $v[0];
+                $data[$k]['address'] = $v[1];
+                $data[$k]['huzhao'] = $v[2];
+                $data[$k]['beizhu'] = $v[3];
+                $data[$k]['wxqq'] = $v[4];
+                $data[$k]['identify'] = $v[5];
+                $data[$k]['time'] = time();
+		$i++;
+            }
+           $success=Db::name('blacklist')->insertAll($data); //批量插入数据
+		   //$i=
+		   $error=$i-$success;
+            echo "总{$i}条，成功{$success}条，失败{$error}条。";
+           // Db::name('t_station')->insertAll($city); //批量插入数据
+		}else{
+			// 上传失败获取错误信息
+			echo $file->getError();
+		}
+    }

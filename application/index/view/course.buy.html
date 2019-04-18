@@ -1,0 +1,257 @@
+{extend name="public/content" /}
+
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/course_buy.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/coupon.css"/>
+<!--<script type="text/javascript" charset="utf-8" async="" src="/static/js/63.a8c62e0c8a78a0022296.js"></script>-->
+<style>
+    .project .module .info[_v-1663bd96], .project .module[_v-1663bd96] {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .project .module .info[_v-1663bd96] {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 802px;
+        margin-left: 30px;
+        font-family: PingFangSC-Regular;
+    }
+    .project .module .validPeriod[_v-1663bd96] {
+        width: 80px;
+        text-align: center;
+    }
+    .project .module .courseDiscountPrice[_v-1663bd96] {
+        -ms-flex: 1;
+        flex: 1;
+        text-align: right;
+        margin-right: 45px;
+    }
+    .product-fonts[_v-1663bd96] {
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        color: #333;
+        letter-spacing: .36px;
+    }
+    .project .module .courseDiscountPrice span[_v-1663bd96] {
+        display: block;
+        font-size: 16px;
+        font-family: PingFangSC-Regular;
+    }
+    .project .module .courseDiscountPrice .price[_v-1663bd96] {
+        color: #333;
+        margin-bottom: 10px;
+    }
+    .project .module .courseDiscountPrice .original[_v-1663bd96] {
+        color: #9b9b9b;
+        letter-spacing: .36px;
+        text-decoration: line-through;
+    }
+</style>
+<style>
+    .coupon-app{
+        padding: 0;
+        background: none;
+    }
+    .wrapper{
+        border: 1px solid #fff;
+        padding: 5px;
+        width: 350px;
+        margin: 0;
+    }
+    .title{
+        font-size: 16px;
+    }
+    .time{
+        margin-top: 10px;
+        font-size: 12px;
+    }
+    .tip{
+        flex: 0 0 100px;
+        padding: 20px;
+    }
+    .money{
+        font-size: 16px;
+    }
+    .pay-line {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .coupon-active{
+        border: 1px solid #78c63f;
+    }
+</style>
+{/block}
+
+{block name='body'}
+<div id="router-view">
+    <div class="purchase-wrap" _v-dcd4ed56="">
+        <div _v-dcd4ed56=""></div>
+        <ul class="purchase-head-wrap" _v-dcd4ed56="">
+            <li class="purchase-item1" _v-dcd4ed56="">课程</li>
+            <li class="purchase-item2" _v-dcd4ed56="">有效期</li>
+            <li class="purchase-item3" _v-dcd4ed56="">价格</li>
+            <!--<li class="purchase-item4" _v-dcd4ed56="">优惠券</li>-->
+            <!--<li class="purchase-item4" _v-dcd4ed56="">折后价</li>-->
+        </ul>
+        <div class="older-detail-list" _v-dcd4ed56="">
+            <div class="project_list" _v-dcd4ed56="">
+
+                <!--v-for-start-->
+                <div class="project" _v-dcd4ed56="" id="56" key="0">
+                    <div class="module" _v-1663bd96="">
+                        <div class="info" _v-1663bd96="">
+                            <img width="170" height="127" alt="" _v-1663bd96="" src="{$vo.imgurl}">
+                            <p _v-1663bd96="">
+                                <span class="product-fonts name" _v-1663bd96="">{$vo.name}</span>
+                                <span class="activity" _v-1663bd96="">限时折扣</span>
+                                <!--v-if--> </p></div>
+                        <div class="validPeriod" _v-1663bd96="" id="10000">永久有效</div>
+                        <div class="product-fonts courseDiscountPrice" _v-1663bd96="">
+                            <span class="price" _v-1663bd96="">¥{$vo.price}</span>
+                            <span class="original" _v-1663bd96="">原价¥{$vo.price}</span><!--v-if-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="text-align: right; margin-top: 30px;box-shadow: 0px 1px 0px 0px #E8E8E8" _v-dcd4ed56="">
+                <div id="accordion" _v-dcd4ed56="">
+                    <div style="text-align: left; display: flex;padding-left:30px" _v-dcd4ed56="">
+                        <div style="display: flex" _v-dcd4ed56="">
+                            <span class="select-coupon" _v-dcd4ed56="">使用优惠券</span>
+                            <a onclick="yhq()" _v-dcd4ed56="" class="collapsed" aria-expanded="false">
+                                <img style="margin-left: 10px" src="__STATIC__/index/static/frontend/index/select.png" width="24" height="21" alt="" _v-dcd4ed56="">
+                            </a>
+                            <span class="coupon-num" _v-dcd4ed56="">有{$coupon_num}张可用</span>
+                        </div>
+                        <span class="sum-price-wrap" style="margin-right: 50px" _v-dcd4ed56="">课程总价格：
+                            <span class="sum-price" _v-dcd4ed56="">¥{$vo.price}</span>
+                        </span>
+                    </div>
+
+                    <div style="text-align: left; margin-top: 30px;" id="collapseOne"
+                         class="panel-collapse out collapse" _v-dcd4ed56="" aria-expanded="false"> <!--v-if-->
+                        <div class="coupon-list" style="width: 100%; display: block !important; align-items: center;justify-content: center" _v-dcd4ed56="">
+                            {empty name='coupon'}
+                            <span style="font-size: 14px; color: #9D9D9D; letter-spacing: 0.31px" _v-dcd4ed56="">
+                                你目前没有可用的优惠券哦
+                            </span>
+                            {/empty}
+                            {notempty name='coupon'}
+                            <div class="coupon-app">
+                                {foreach name='coupon' item='voo'}
+                                <div class="wrapper" onclick="use_coupon(this,'{$voo.id}',{$voo.discount})">
+                                    <div class="content">
+                                        <div class="title">
+                                            {$voo.name}({$voo.course_type})
+                                        </div>
+                                        <div class="time">
+                                            有效期至: {$voo.expiration}
+                                        </div>
+                                    </div>
+                                    <div class="split-line"></div>
+                                    <div class="tip">
+                                        <div class="money">
+                                            ¥{$voo.discount}
+                                        </div>
+                                        <div class="pay-line">
+                                            {$voo.condition}
+                                        </div>
+                                    </div>
+                                </div>
+                                {/foreach}
+                                <div style="clear: both"></div>
+                            </div>
+                            {/notempty}
+                        </div><!--v-if-->
+                    </div>
+                </div>
+                <!--<div style="height: 30px; margin-top: 40px; display: flex; align-items: center; justify-content: flex-end"-->
+                     <!--_v-dcd4ed56="">-->
+                    <!--<input style="margin-right: 10px; width: 16px; height: 16px" type="checkbox"-->
+                           <!--_v-dcd4ed56="">-->
+                    <!--<span class="discount-num" style="color:#9B9B9B" _v-dcd4ed56="">使用我的贝里</span>-->
+                    <!--<span class="discount-num" style="margin-right: 50px" _v-dcd4ed56="">-->
+                        <!--<span style="color: rgb(245, 166, 35);" _v-dcd4ed56="">(当前订单可用贝里为0)</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <span class="sun-coupon-num" style="margin-right: 50px;margin-bottom:20px;margin-top: 20px;" _v-dcd4ed56="">
+                    优惠券抵扣：0元
+                </span>
+            </div>
+
+            <ul class="pad-left" _v-dcd4ed56="">
+                <span class="bot-font bot-font-big" style="margin-left: 30px;margin-right:20px" _v-dcd4ed56="">
+                    请选择支付方式：</span>
+                <div class="paytype" _v-dcd4ed56="">
+                    <li class="payment bor" _v-dcd4ed56="">
+                        <div class="payment_div" _v-dcd4ed56="">
+                            <img src="__STATIC__/index/static/frontend/index/ali_pay.svg" width="21" height="21" alt="" _v-dcd4ed56="">
+                            <span class="bot-font bot-font-mid" style="margin-left: 10px" _v-dcd4ed56="">支付宝</span>
+                        </div>
+                    </li>
+                </div>
+                <li class="pay" _v-dcd4ed56="">
+                    <form action="{:url('alipay/alipay/pay')}" id="buy_form" method="post">
+                        <span class="bot-font-small" _v-dcd4ed56="">应付款
+                        <span class="true-price" _v-dcd4ed56="" id="true-price">¥{$vo.price}</span>
+                        <input type="hidden" name="pay_type" value="0">
+                        <input type="hidden" name="course" value="{$Think.get.id}">
+                        <input type="hidden" name="course_type" value="{$type}">
+                        <input type="hidden" name="price" value="{$vo.price}" id="order_price">
+                        {notempty name='vo.package_id'}<input type="hidden" name="package_id" value="{$vo.package_id}">{/notempty}
+                        <input type="hidden" name="coupon" id="coupon_id" value="">
+                            <!--v-if--> <!--v-if--> </span>
+                        <button class="go-buy-btn" _v-dcd4ed56="" type="submit">立即支付</button>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    function yhq() {
+        if ($("#collapseOne").css('display')=='none'){
+            $("#collapseOne").css('display','block');
+        }else {
+            $("#collapseOne").css('display','none')
+        }
+    }
+    function use_coupon(obj,id,discount) {
+        var price = $("#order_price").val();
+        console.log(price);
+        if ($(obj).hasClass('coupon-active')){
+            console.log(1);
+            $(obj).removeClass('coupon-active');
+            var now_price1 = parseFloat(price)+parseInt(discount);
+            now_price1 = now_price1.toFixed(2);
+            $("#true-price").html("¥"+now_price1);
+            $("#order_price").val(now_price1);
+            $("#coupon_id").val("");
+        }else {
+            console.log(2);
+            $(obj).addClass('coupon-active');
+            var now_price2 = parseFloat(price)-parseInt(discount);
+            now_price2 = now_price2.toFixed(2);
+            $("#true-price").html("¥"+now_price2);
+            $("#order_price").val(now_price2);
+            $("#coupon_id").val(id);
+        }
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

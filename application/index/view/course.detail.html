@@ -1,0 +1,479 @@
+{extend name="public/content" /}
+
+{block name="cssjs"}
+{__block__}
+<link href="__STATIC__/index/static/css/course.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/warp.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/cont-head.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/course-list.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/freemask.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/course-scroll-line.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/deal-warp.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/question-main.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/how-help-spec.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/common/need-study-course.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/course-item.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/item.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/item-side.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/coupon-list.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/chapter.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/comment.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/question.css" rel="stylesheet"/>
+
+<style type="text/css">
+    .main-wrap{
+        margin: 0 auto;
+        margin-top: 150px;
+        width: 890px;
+        /*height: 500px;*/
+        position: relative;
+        /*max-width: 640px;*/
+    }
+
+    .main-wrap video{
+        width: 100%;
+    }
+
+    .box .content .course-content .course2 .service[_v-4df1b779] > p {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    #player .main-wrap .close {
+        width: 30px;
+        position: absolute;
+        opacity: 1;
+        z-index: 99999;
+        right: -15px;
+        top: -15px;
+    }
+  
+ .try{
+     width: 86px;
+    height: 28px;
+    color: #fff;
+    border-radius: 6px;
+    background: #fd7b4d;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+   }
+
+
+</style>
+<style type="text/css">
+    .singles-video .prism-info-display{
+        z-index:1!important}
+    .singles-video .prism-big-play-btn{
+        position:absolute;
+        left:50%!important;
+        bottom:50%!important;
+        margin-left:-31.5px!important;
+        margin-bottom:-31.5px!important;
+        cursor:pointer!important;
+        z-index:2!important}
+    video::-webkit-media-text-track-container{transform: translateY(-65px) !important;}
+</style>
+
+
+{/block}
+{block name='body'}
+<div id="router-view">
+    <div _v-1b9e012a="" class="courseitem">
+        <div _v-1b9e012a="" class="head-wrap">
+            <div _v-1b9e012a="" class="head-video">
+                <div _v-1b9e012a="" class="videos">
+                    <img src="{$vo.imgurl}" style="width: 690px;height: 388px;">
+                    </img>
+                </div>
+                <div _v-1b9e012a="" class="item">
+                    <p _v-1b9e012a="" class="name">
+                        {$vo.name}
+                    </p>
+                    <p _v-1b9e012a="" class="data">
+                        {$vo.stu_num}人在学    课程总时长：{$course_time}课时/{$vo.class_time}小时    难度：{eq name='vo.level' value='1'}初级{/eq}{eq name='vo.level' value='2'}中级{/eq}
+                        {eq name='vo.level' value='3'}高级{/eq}
+                    </p>
+                    <!--v-if-->
+                    <p _v-1b9e012a="" class="price">
+                        <span _v-1b9e012a="">
+                            价格
+                        </span>
+                        <span _v-1b9e012a="" class="sp1">
+                            {eq name='vo.is_free' value='1'}免费{/eq}
+                            {neq name='vo.is_free' value='1'}¥{$vo.price}{/neq}
+                        </span>
+                        <!--v-if-->
+                    </p>
+                    <!--v-if-->
+                    <div _v-1b9e012a="" class="bottom">
+                        <p _v-1b9e012a="" class="btns">
+                            {eq name='is_buy' value='1'}
+                           <!-- <button _v-1b9e012a="" class="btn2" onclick="watch()"> -->
+                            <button _v-1ed7ee52="" class="try" onclick="go_tab(this,2)" >
+                                前往观看
+                            </button>
+                            {/eq}
+                            {eq name='is_buy' value='2'}
+                            <button _v-1b9e012a="" class="btn1" onclick="buy({$vo.id})">
+                                立即购买
+                            </button>
+                            {/eq}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div _v-1b9e012a="" class="tab">
+            <ul _v-1b9e012a="">
+                <li _v-1b9e012a="" class="this active" onclick="go_tab(this,1)">
+                    详情介绍
+                </li>
+                <li _v-1b9e012a="" onclick="go_tab(this,2)">
+                    课程章节
+                    <span _v-1b9e012a="">
+                        (试学)
+                    </span>
+                </li>
+                <li _v-1b9e012a="" onclick="go_tab(this,3)">
+                    用户评论
+                </li>
+               <!--
+                <li _v-1b9e012a="" onclick="go_tab(this,4)">
+                    常见问题
+                </li>
+           -->
+            </ul>
+        </div>
+        <script type="text/javascript">
+            function go_tab(obj,id){
+                $(obj).siblings('li').removeClass('this active');
+                $(obj).addClass('this active');
+                $('#item').children().children('section').css('display','none');
+                $('#score').css('display','none');
+                if (id==1) {
+                    $('#course_item').css('display','block');
+                }
+                if (id==2) {
+                    $('#chapter').css('display','block');
+                }
+                if (id==3) {
+                    $('#comment').css('display','block');
+                    $('#score').css('display','block');
+                }
+                if (id==4) {
+                    $('#question').css('display','block');
+                }
+            }
+            function watch(){
+                window.location.href="{:url('member/index/study')}";
+            }
+        </script>
+        <!--v-component-->
+        <div _v-1b9e012a="" _v-7ec84d5e="" class="item" id="item" style="background: #FAFAFA;overflow:hidden;padding-bottom: 40px">
+            <div _v-7ec84d5e="">
+                <!--v-if-->
+                <!--v-if-->
+                <section _v-7ec84d5e="" class="course_item" id="course_item">
+                    {$vo.detail|html_entity_decode=###}
+                </section>
+                <section _v-1ed7ee52="" id="chapter" style="display: none;">
+                    <div _v-1ed7ee52="" class="title">
+                        <p _v-1ed7ee52="">
+                            课程章节
+                        </p>
+                        <p _v-1ed7ee52="">
+                            共{$chapter_num}章 {$course_time}个课时
+                        </p>
+                    </div>
+                    {foreach name='chapter' item='val' key='key'}
+                    <div _v-1ed7ee52="" class="module">
+                        <p _v-1ed7ee52="" class="module-name">
+                            <img _v-1ed7ee52="" alt="" src="/static/index/static/img/chapter.svg">
+                                <span _v-1ed7ee52="">
+                                    第{$key+1}章·{$val.name}
+                                </span>
+                            </img>
+                        </p>
+                        <ul _v-1ed7ee52="">
+                            <!--v-for-start-->
+                            {foreach name='val.content' item='vv' key='kk'}
+                            <li _v-1ed7ee52="">
+                                <p _v-1ed7ee52="" class="name">
+                                    <span _v-1ed7ee52="" class="index">
+                                        {$key+1}-{$kk+1}
+                                    </span>
+                                    {$vv.name}
+                                    {if $vv.is_free eq 1}
+                                    <span _v-1ed7ee52="" class="free">
+                                        免费
+                                    </span>
+                                    {/if}
+                                </p>
+                                <p _v-1ed7ee52="" class="time">
+                                    {notempty name='vv.video_url'}
+                                    <img _v-1ed7ee52="" alt="" src="/static/index/static/img/play-vedio.svg"/>
+                                    {/notempty}
+                                </p>
+                                <!--v-if-->
+                                {eq name='is_buy' value='2'}
+                                {if $vv.is_free eq 0}
+                                <button _v-1ed7ee52="" class="buy" onclick="buy({$vo.id})">
+                                    立即购买
+                                </button>
+                                {elseif $vv.is_free eq 1}
+                                {notempty name='vv.video_url'}
+                                 <button _v-1ed7ee52="" class="try" onclick="player('{$vv.video_url}')">
+                                    免费试学
+                                </button>
+                                {/notempty}
+                                {/if}
+                                {/eq}
+                                {eq name='is_buy' value='1'}
+                              <!--  <button _v-1ed7ee52="" class="try" onclick="watch()"> -->
+                                    {notempty name='vv.video_url'}
+                                <button _v-1ed7ee52="" class="try" onclick="player('{$vv.video_url}')">
+                                    前往观看
+                                </button>
+                                       {/notempty}
+                                {/eq}
+                            </li>
+                            {/foreach}
+                            <!--v-for-end-->
+                        </ul>
+                    </div>
+                    {/foreach}
+                </section>
+
+                <script type="text/javascript">
+                    function buy(id) {
+                        window.location.href = "{:url('buy')}?cid=1&id="+id;
+                    }
+                </script>
+                <script>
+                    /*
+                    var video_play = '<div id="player" style="display: none">' +
+                        '<div class="main-wrap">'+
+                        '<img onclick="toSmall()" class="close" src="/static/index/static/frontend/close.png"/>'+
+                        '<video id="video" ishivideo="false" autoplay="true" isrotate="false" autoHide="true" preload="auto">' +
+                        '<source type="video/mp4">' +
+                        '</video>' +
+                        '</div>'+
+                        '</div>';
+
+                    function player(video) {
+                        $(document.body).append(video_play);
+                        $("#player").css('display','block');
+                        $("#video").attr('src',video);
+                        toVideo();
+                    }
+
+                    function toVideo() {
+                        $("#player").addClass("player");
+                        $("#player").show();
+                    }
+
+                    function toSmall() {
+                        $("#player").remove();
+                        // $("#video").removeAttr('src');
+                    }
+                    */
+                    function player(video) {
+                        var player = '<div id="player">'+
+                            '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="550" width="650" autoplay="" preload="'+video+'">'+
+                            '<source src="'+video+'" type="video/mp4"></source></video></div>';
+                        $(document.body).append(player);
+                        toVideo();
+                    }
+
+                    function toVideo() {
+                        $("#player").addClass("player");
+                        $("#player").show();
+                        /*隐藏*/
+                        $("#player").bind("click", clickToSmallImg);
+                        function clickToSmallImg() {
+                            $("#player").remove();
+                        }
+                    }
+                </script>
+
+                <section _v-7e660764="" id="comment" style="display: none;">
+                    <!--v-if-->
+                    <div _v-7e660764="" class="item-all">
+                        <p _v-7e660764="" class="all">
+                            全部评论
+                        </p>
+                        <!--v-for-start-->
+                        {foreach name='comment' item='vv'}
+                        <dl _v-7e660764="">
+                            <dt _v-7e660764="">
+                                <img _v-7e660764="" alt=" " src="{$vv.member_info.imgurl}"/>
+                            </dt>
+                            <dd _v-7e660764="">
+                                <p _v-7e660764="">
+                                    <span _v-7e660764="">
+                                        {$vv.member_info.real_name}
+                                    </span>
+                                    <span _v-7e660764="">
+                                        {$vv.create_at}
+                                    </span>
+                                </p>
+                                <p _v-7e660764="">
+                                    {$vv.content}
+                                </p>
+                            </dd>
+                        </dl>
+                        {/foreach}
+                        <!--v-for-end-->
+                    </div>
+                    <!--v-if-->
+                </section>
+                <section _v-174c9b31="" id="question" style="display: none;">
+                    <p _v-174c9b31="" class="title">
+                        常见问题
+                    </p>
+                    <ul _v-174c9b31="">
+                        <!--v-for-start-->
+                        {foreach name='problem' item='vv'}
+                        <li _v-174c9b31="">
+                            <p _v-174c9b31="">
+                                {$key+1}.{$vv.question}
+                            </p>
+                            <p _v-174c9b31="">
+                                {$vv.answer}
+                            </p>
+                        </li>
+                        {/foreach}
+                        <!--v-for-end-->
+                    </ul>
+                </section>
+            </div>
+            <div _v-69d8a2cc="" _v-7ec84d5e="" class="item-side">
+                <div id="score" style="display:none;">
+                    <div _v-7c5fa6f6="" class="score">
+                        <div _v-7c5fa6f6="" class="num">
+                            <p _v-7c5fa6f6="">
+                                综合评分
+                            </p>
+                            <p _v-7c5fa6f6="">
+                                6人评价
+                            </p>
+                        </div>
+                        <div _v-7c5fa6f6="" class="results">
+                            <p _v-7c5fa6f6="">
+                                10.0
+                            </p>
+                            <ul _v-7c5fa6f6="">
+                                <!--v-for-start-->
+                                <li _v-7c5fa6f6="" class="star">
+                                </li>
+                                <li _v-7c5fa6f6="" class="star">
+                                </li>
+                                <li _v-7c5fa6f6="" class="star">
+                                </li>
+                                <li _v-7c5fa6f6="" class="star">
+                                </li>
+                                <li _v-7c5fa6f6="" class="star">
+                                </li>
+                                <!--v-for-end-->
+                            </ul>
+                        </div>
+                        <div _v-7c5fa6f6="" class="list">
+                            <section _v-7c5fa6f6="">
+                                <p _v-7c5fa6f6="">
+                                    通俗易通
+                                </p>
+                                <p _v-7c5fa6f6="">
+                                    10.0分
+                                </p>
+                            </section>
+                            <section _v-7c5fa6f6="">
+                                <p _v-7c5fa6f6="">
+                                    内容实用
+                                </p>
+                                <p _v-7c5fa6f6="">
+                                    10.0分
+                                </p>
+                            </section>
+                            <section _v-7c5fa6f6="">
+                                <p _v-7c5fa6f6="">
+                                    讲解清晰
+                                </p>
+                                <p _v-7c5fa6f6="">
+                                    10.0分
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                    <div _v-7c5fa6f6="" class="labels">
+                        <p _v-7c5fa6f6="" class="title">
+                            <span _v-7c5fa6f6="">
+                                热门标签
+                            </span>
+                        </p>
+                        <ul _v-7c5fa6f6="">
+                            <!--v-for-start-->
+                            <li _v-7c5fa6f6="" key="0">
+                                讲解清晰
+                            </li>
+                            <li _v-7c5fa6f6="" key="1">
+                                内容实用
+                            </li>
+                            <li _v-7c5fa6f6="" key="2">
+                                通俗易懂
+                            </li>
+                            <li _v-7c5fa6f6="" key="3">
+                                老师很帅
+                            </li>
+                            <li _v-7c5fa6f6="" key="4">
+                                老司机
+                            </li>
+                            <!--v-for-end-->
+                        </ul>
+                    </div>
+                    <!--v-if-->
+                </div>
+                <div _v-69d8a2cc="" class="teacher">
+                    <p _v-69d8a2cc="" class="title">
+                        <span _v-69d8a2cc="">
+                            授课老师
+                        </span>
+                    </p>
+                    <div _v-69d8a2cc="" class="content">
+                        <div _v-69d8a2cc="" class="cont1">
+                            <img _v-69d8a2cc="" alt=" " src="{$teacher.imgurl}">
+                                <div _v-69d8a2cc="" class="name">
+                                    <p _v-69d8a2cc="">
+                                        {$teacher.teacher_name}
+                                    </p>
+                                    <p _v-69d8a2cc="">
+                                        {$teacher.position}
+                                    </p>
+                                </div>
+                            </img>
+                        </div>
+                        <p _v-69d8a2cc="" class="narrative">
+                            {$teacher.desc}
+                        </p>
+                    </div>
+                </div>
+                <!--v-if-->
+            </div>
+            <!--v-component-->
+        </div>
+        <!--v-component-->
+    </div>
+    <!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script></script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

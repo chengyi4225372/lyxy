@@ -1,0 +1,850 @@
+.swiper-wrapper3 {
+    margin-bottom: 20px !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    margin-top: 100px !important
+}
+
+.swiper-pagination3 .swiper-pagination-bullet {
+    background: #c1d0f6 !important;
+    opacity: 1 !important
+}
+
+.swiper-pagination3 .swiper-pagination-bullet-active {
+    width: 10px !important;
+    height: 10px !important;
+    border-radius: 50% !important;
+    background: #2755ff !important
+}
+
+.ccH5Poster img {
+    width: 100% !important;
+    height: 100% !important
+}
+
+.prism-player .prism-big-play-btn {
+    width: 90px !important;
+    height: 90px !important;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNThweCIgaGVpZ2h0PSI1N3B4IiB2aWV3Qm94PSIwIDAgNTggNTciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ5LjMgKDUxMTY3KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT7mkq3mlL48L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iOOaciOS7vea0u+WKqDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC02NTMuMDAwMDAwLCAtMzMzNS4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IuaSreaUviIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjUzLjAwMDAwMCwgMzMzNS4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxlbGxpcHNlIGlkPSJPdmFsIiBmaWxsLW9wYWNpdHk9IjAuOCIgY3g9IjI5IiBjeT0iMjguNSIgcng9IjI5IiByeT0iMjguNSI+PC9lbGxpcHNlPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTIyLjkyMjcxMjQsMTcuMTYwMDgyIEw0Mi4zNDA0MzY5LDI3LjcyMzI2NCBDNDIuOTYyMjY4MiwyOC4wNjE1MzgzIDQzLjE4MzU0NDksMjguODI0NTQzOSA0Mi44MzQ2NzIyLDI5LjQyNzQ4NDcgQzQyLjcyMTY4MjcsMjkuNjIyNzU5NCA0Mi41NTY3NDM5LDI5Ljc4NTA3NDUgNDIuMzU3MDQ3MSwyOS44OTc1MTI0IEwyMi45MzkzMjI2LDQwLjgzMDUxODUgQzIyLjMyMjcyNzgsNDEuMTc3Njg3NyAyMS41MzI2MjUxLDQwLjk3NDQ1OTggMjEuMTc0NTc4OSw0MC4zNzY1OTY0IEMyMS4wNjAyMjk3LDQwLjE4NTY1NjggMjEsMzkuOTY4Nzg4IDIxLDM5Ljc0Nzk5MSBMMjEsMTguMjUxODAyOSBDMjEsMTcuNTYwNDUxMiAyMS41NzgwMTA1LDE3IDIyLjI5MTAyMjYsMTcgQzIyLjUxMjI1MzUsMTcgMjIuNzI5NzcyOCwxNy4wNTUxMjM1IDIyLjkyMjcxMjQsMTcuMTYwMDgyIFoiIGlkPSJUcmlhbmdsZSI+PC9wYXRoPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=) no-repeat !important;
+    background-size: 70px 70px !important;
+    background-position-x: 10px !important;
+    background-position-y: 9px !important;
+    border: 1px solid #fff !important;
+    border-radius: 50% !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    left: 300px !important;
+    bottom: 145px !important
+}
+
+.swiper-container[_v-027913fd] {
+    width: 100% !important;
+    height: auto;
+    padding-bottom: 50px
+}
+
+.swiper-wrapper[_v-027913fd] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.swiper-slide[_v-027913fd] {
+    background-position: 50%;
+    background-size: cover;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    -ms-flex-pack: distribute !important;
+    justify-content: space-around !important
+}
+
+.swiper-slide-active[_v-027913fd], .swiper-slide[_v-027913fd] {
+    width: 320px !important;
+    height: 504px !important
+}
+
+.swiper-slide-active .module[_v-027913fd] {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 0 160px 160px !important;
+    transition: all .2s ease
+}
+
+.next[_v-027913fd], .prev[_v-027913fd] {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 0
+}
+
+.next img[_v-027913fd], .prev img[_v-027913fd] {
+    width: 100%;
+    height: 100%
+}
+
+.prev[_v-027913fd] {
+    position: absolute;
+    left: 50px;
+    top: 300px;
+    transform: rotate(180deg)
+}
+
+.next[_v-027913fd] {
+    position: absolute;
+    right: 50px;
+    top: 300px
+}
+
+.programming-contest[_v-027913fd] {
+    width: 100%;
+    height: 100%;
+    background: #f4f6f9;
+    overflow: hidden;
+    position: relative
+}
+
+.programming-contest .head[_v-027913fd] {
+    width: 100%;
+    min-width: 1920px;
+    height: 1100px;
+    background: url("//hcdn1.luffycity.com/static/frontend/activity/wechat-bannerbg_1534155214.9534242.png") no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+    border-top: 1px solid transparent;
+    margin-bottom: 140px;
+    position: relative;
+    left: 50%;
+    top: 0;
+    margin-left: -960px
+}
+
+.programming-contest .head .text1[_v-027913fd] {
+    text-align: center;
+    font-size: 68px;
+    margin-top: 180px;
+    margin-bottom: 25px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .head .text2[_v-027913fd] {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 75px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .head .data[_v-027913fd] {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 100px
+}
+
+.programming-contest .head .data span[_v-027913fd]:first-of-type {
+    margin-bottom: 15px;
+    font-family: PingFangSC-Light;
+    font-size: 26px
+}
+
+.programming-contest .head .data span[_v-027913fd]:nth-of-type(2) {
+    font-family: PingFangSC-Regular;
+    font-size: 36px
+}
+
+.programming-contest .head .data span[_v-027913fd] {
+    text-align: center;
+    display: block
+}
+
+.programming-contest .head .data span b[_v-027913fd] {
+    display: inline-block;
+    font-size: 24px;
+    text-decoration: line-through;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .head .btns[_v-027913fd] {
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 0 150px;
+    margin-bottom: 160px
+}
+
+.programming-contest .head .btns button[_v-027913fd] {
+    width: 274px;
+    height: 72px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: PingFangSC-Medium
+}
+
+.programming-contest .head .btns button[_v-027913fd]:first-of-type {
+    background: #41d8fc;
+    font-size: 24px
+}
+
+.programming-contest .head .btns button[_v-027913fd]:nth-of-type(2) {
+    background: #41d8fc;
+    font-size: 24px;
+    color: #fff
+}
+
+.programming-contest .head .video-box[_v-027913fd] {
+    width: 1100px;
+    height: 430px;
+    margin: 0 auto;
+    background: #6e5ffa;
+    border-radius: 8px;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 22px;
+    box-sizing: border-box
+}
+
+.programming-contest .head .video-box .people[_v-027913fd] {
+    position: absolute;
+    left: 30px;
+    top: -110px
+}
+
+.programming-contest .head .video-box .video-playing[_v-027913fd] {
+    width: 687px;
+    height: 100%;
+    margin-right: 28px;
+    z-index: 1;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative
+}
+
+.programming-contest .head .video-box .video-playing .video-img[_v-027913fd] {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 9;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    padding: 10px;
+    margin-left: -45px;
+    margin-top: -45px;
+    cursor: pointer;
+    opacity: 1
+}
+
+.programming-contest .head .video-box .video-playing .contest-video[_v-027913fd] {
+    width: 100%;
+    height: 100%
+}
+
+.programming-contest .head .video-box .video-list[_v-027913fd] {
+    width: 343px;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px
+}
+
+.programming-contest .head .video-box .video-list .list-title[_v-027913fd] {
+    font-size: 24px;
+    color: #5e5e5e;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #e9e9e9;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .head .video-box .video-list ul li[_v-027913fd] {
+    font-size: 18px;
+    color: #666;
+    font-family: PingFangSC-Regular;
+    padding-top: 24px;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.programming-contest .head .video-box .video-list ul li p[_v-027913fd] {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.programming-contest .head .video-box .video-list ul li span[_v-027913fd] {
+    display: inline-block;
+    font-size: 16px;
+    color: #fa6240;
+    padding: 0 4px;
+    border: 1px solid #fa6240;
+    border-radius: 4px;
+    margin-left: 10px;
+    white-space: nowrap
+}
+
+.programming-contest .head .video-box .video-list .clickthis[_v-027913fd], .programming-contest .head .video-box .video-list li:hover p[_v-027913fd] {
+    color: #56cbc4
+}
+
+.programming-contest .text[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 270px;
+    font-size: 28px;
+    color: #5e5e5e;
+    text-align: center;
+    line-height: 50px;
+    padding-bottom: 90px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .text .p2[_v-027913fd] {
+    margin-bottom: 40px
+}
+
+.programming-contest .title1[_v-027913fd] {
+    width: 100%;
+    height: auto;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    font-size: 36px;
+    color: #50487c;
+    margin-bottom: 40px;
+    font-family: PingFangSC-Medium
+}
+
+.programming-contest .title1 p[_v-027913fd], .programming-contest .title1[_v-027913fd] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.programming-contest .title1 span[_v-027913fd] {
+    width: 112px;
+    height: 3px;
+    display: block;
+    background: #50487c;
+    margin: 0 20px
+}
+
+.programming-contest .title2[_v-027913fd] {
+    width: 100%;
+    height: auto;
+    text-align: center
+}
+
+.programming-contest .title2 .name[_v-027913fd] {
+    font-family: PingFangSC-Medium;
+    font-size: 28px;
+    color: #6050fa;
+    z-index: 2
+}
+
+.programming-contest .title2 .name span[_v-027913fd] {
+    display: inline-block;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .title2 .num[_v-027913fd] {
+    font-family: Arial-BoldMT;
+    font-size: 120px;
+    color: #e0e8f4;
+    letter-spacing: 1px;
+    margin-bottom: -110px;
+    z-index: 1
+}
+
+.programming-contest .content[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto
+}
+
+.programming-contest .content .swiper[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 70px
+}
+
+.programming-contest .content .swiper .module[_v-027913fd] {
+    width: 280px;
+    height: 440px;
+    background-image: linear-gradient(-180deg, #2c5eff, #7baffd 90%);
+    border-radius: 0 0 140px 140px;
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer
+}
+
+.programming-contest .content .swiper .module p[_v-027913fd]:first-of-type {
+    font-size: 28px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .content .swiper .module p[_v-027913fd]:nth-of-type(2) {
+    padding: 0 38px;
+    box-sizing: border-box;
+    font-size: 20px;
+    line-height: 34px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .content .swiper .module img[_v-027913fd] {
+    width: 30px;
+    height: auto;
+    margin-right: 18px
+}
+
+.programming-contest .content .materials[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 160px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-bottom: 80px
+}
+
+.programming-contest .course-arrange[_v-027913fd] {
+    width: 100%;
+    min-width: 1920px;
+    height: 1300px;
+    background: url("//hcdn1.luffycity.com/static/frontend/activity/wechat-bannerbg3_1534155215.2312143.png") no-repeat;
+    background-size: 100% auto;
+    color: #fff;
+    border-top: 1px solid transparent;
+    position: relative;
+    left: 50%;
+    top: 0;
+    margin-left: -960px;
+    text-align: center
+}
+
+.programming-contest .course-arrange .arrange[_v-027913fd] {
+    font-size: 28px;
+    color: #fff;
+    font-family: PingFangSC-Medium;
+    margin-top: 160px;
+    margin-bottom: 30px
+}
+
+.programming-contest .course-arrange .arrange-text[_v-027913fd] {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 50px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .homework[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 120px
+}
+
+.programming-contest .homework .tip[_v-027913fd] {
+    text-align: center;
+    font-size: 20px;
+    color: #5e5e5e;
+    line-height: 32px;
+    margin-top: 45px;
+    margin-bottom: 54px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .homework .Beforeandafter[_v-027913fd] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-align: center
+}
+
+.programming-contest .homework .Beforeandafter span[_v-027913fd] {
+    font-family: PingFangSC-Regular;
+    font-size: 24px;
+    color: #5e5e5e;
+    display: block;
+    margin-top: 20px; 
+}
+
+.programming-contest .homework .Beforeandafter p:first-of-type img[_v-027913fd] {
+    width: 540px;
+    height: 410px;
+    display: block;
+    /*margin-top: 14px*/
+}
+
+.programming-contest .homework .Beforeandafter p:first-of-type span[_v-027913fd] {
+    margin-top: 20px
+}
+
+.programming-contest .homework .Beforeandafter p:nth-of-type(2) img[_v-027913fd] {
+    width: 540px;
+    height: 410px;
+    display: block
+}
+
+.programming-contest .evaluation[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 95px;
+    margin-bottom: 135px
+}
+
+.programming-contest .evaluation .evaluation-box[_v-027913fd] {
+    width: 100%;
+    height: 605px;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.programming-contest .evaluation .evaluation-box section[_v-027913fd] {
+    width: 522px;
+    height: 273px;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    box-shadow: 2px 10px 20px 0 #e9e9e9;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: all .2s linear;
+    cursor: pointer
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head[_v-027913fd] {
+    display: -ms-flexbox;
+    display: flex
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head img[_v-027913fd] {
+    width: 55px;
+    height: 55px;
+    margin-right: 18px
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head p[_v-027913fd] {
+    color: #5e5e5e
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head p span[_v-027913fd] {
+    display: block
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head p span[_v-027913fd]:first-of-type {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-head p span[_v-027913fd]:nth-of-type(2) {
+    font-size: 16px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .evaluation .evaluation-box section .evaluation-text[_v-027913fd] {
+    font-size: 17px;
+    color: #5e5e5e;
+    line-height: 30px;
+    margin-top: 16px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .evaluation .evaluation-box section[_v-027913fd]:hover {
+    transform: translate3d(0, -3px, 0)
+}
+
+.programming-contest .evaluation .heightauto[_v-027913fd] {
+    height: auto
+}
+
+.programming-contest .evaluation .lookmore[_v-027913fd] {
+    text-align: center;
+    font-size: 24px;
+    color: #4a90e2;
+    margin-top: 15px;
+    cursor: pointer;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .places[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-top: 145px;
+    margin-bottom: 100px
+}
+
+.programming-contest .places .left[_v-027913fd] {
+    width: 395px;
+    height: 482px;
+    background: #fff;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 20px 20px 0 #e9e9e9;
+    border-radius: 8px;
+    text-align: center
+}
+
+.programming-contest .places .left .left-top[_v-027913fd] {
+    width: 100%;
+    height: 174px;
+    color: #fff;
+    background: #547bea;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .places .left .left-top p[_v-027913fd]:first-of-type {
+    font-size: 26px;
+    margin-top: 40px
+}
+
+.programming-contest .places .left .left-top p[_v-027913fd]:nth-of-type(2) {
+    font-size: 38px;
+    margin-top: 20px
+}
+
+.programming-contest .places .left ul {
+    padding: 50px 22px 15px;
+    box-sizing: border-box;
+    padding-left: 50px;
+}
+
+.programming-contest .places .left ul li {
+    text-align: left;
+    font-size: 20px;
+    color: #505050;
+    padding-bottom: 20px;
+    font-family: PingFangSC-Regular;
+    list-style-type: square;
+}
+
+.programming-contest .places .left button[_v-027913fd] {
+    width: 290px;
+    height: 58px;
+    color: #fff;
+    font-size: 20px;
+    background-image: linear-gradient(-180deg, #6589ef 3%, #547bea);
+    border-radius: 8px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .places .right[_v-027913fd] {
+    width: auto;
+    height: auto;
+    padding-right: 140px
+}
+
+.programming-contest .places .right .right-top[_v-027913fd] {
+    color: #5e5e5e;
+    margin-bottom: 38px
+}
+
+.programming-contest .places .right .right-top p[_v-027913fd]:first-of-type {
+    font-size: 26px;
+    margin-bottom: 18px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .places .right .right-top p[_v-027913fd]:nth-of-type(2) {
+    width: 296px;
+    font-size: 20px;
+    line-height: 34px;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .places .right .right-top p:nth-of-type(2) span[_v-027913fd] {
+    color: #ec6730
+}
+
+.programming-contest .places .right .right-code[_v-027913fd] {
+    width: 252px;
+    height: 252px
+}
+
+.programming-contest .places .right .right-code img[_v-027913fd] {
+    width: 252px;
+    height: 252px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #979797;
+    margin-bottom: 15px
+}
+
+.programming-contest .places .right .right-code p[_v-027913fd] {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    font-family: PingFangSC-Light
+}
+
+.programming-contest .problemlist[_v-027913fd] {
+    width: 100%;
+    height: auto;
+    position: relative
+}
+
+.programming-contest .problemlist .bgimg[_v-027913fd] {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+.programming-contest .problemlist .problem-box[_v-027913fd] {
+    width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 100px
+}
+
+.programming-contest .problemlist .problem-box .problem-title[_v-027913fd] {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    font-family: PingFangSC-Regular
+}
+
+.programming-contest .problemlist .problem-box ul[_v-027913fd] {
+    width: 100%;
+    height: auto
+}
+
+.programming-contest .problemlist .problem-box ul li[_v-027913fd] {
+    padding-bottom: 40px;
+    color: #fff
+}
+
+.programming-contest .problemlist .problem-box ul li p[_v-027913fd]:first-of-type {
+    font-size: 28px;
+    font-family: PingFangSC-Regular;
+    padding-bottom: 10px
+}
+
+.programming-contest .problemlist .problem-box ul li p[_v-027913fd]:nth-of-type(2) {
+    font-size: 20px;
+    line-height: 34px;
+    font-family: PingFangSC-Light
+}
+
+button[_v-027913fd]:hover {
+    animation-name: hvr-wobble-horizontal;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1
+}
+
+@keyframes hvr-wobble-horizontal {
+    16.65% {
+        transform: translateX(8px)
+    }
+    33.3% {
+        transform: translateX(-6px)
+    }
+    49.95% {
+        transform: translateX(4px)
+    }
+    66.6% {
+        transform: translateX(-2px)
+    }
+    83.25% {
+        transform: translateX(1px)
+    }
+    to {
+        transform: translateX(0)
+    }
+}
+
+@media screen and (min-width: 2300px) {
+    .programming-contest .head[_v-027913fd] {
+        height: 1100px;
+        background: url("//hcdn1.luffycity.com/static/frontend/activity/wechat-bannerbg_1534155214.9534242.png") no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 140px
+    }
+
+    .programming-contest .course-arrange[_v-027913fd], .programming-contest .head[_v-027913fd] {
+        width: 100%;
+        color: #fff;
+        border-top: 1px solid transparent;
+        position: relative;
+        left: 0;
+        top: 0;
+        margin-left: 0
+    }
+
+    .programming-contest .course-arrange[_v-027913fd] {
+        height: 1300px;
+        background: url("//hcdn1.luffycity.com/static/frontend/activity/wechat-bannerbg3_1534155215.2312143.png") no-repeat;
+        background-size: 100% 100%
+    }
+}

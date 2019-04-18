@@ -1,0 +1,133 @@
+.item[_v-1ed7ee52] {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto
+}
+.item .loading[_v-1ed7ee52] {
+    width: 880px;
+    height: auto;
+    float: left;
+    text-align: center
+}
+.item .loading img[_v-1ed7ee52] {
+    width: 30px;
+    height: 30px;
+    margin-top: 20px
+}
+.item section[_v-1ed7ee52] {
+    width: 880px;
+    height: auto;
+    background: #fff;
+    float: left;
+    padding-bottom: 20px;
+    box-shadow: 0 2px 4px 0 #f0f0f0
+}
+.item section .title[_v-1ed7ee52] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 25px 20px 11px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    font-family: PingFangSC-Regular;
+    border-bottom-color: rgba(51, 51, 51, .05)
+}
+.item section .title p[_v-1ed7ee52]:first-of-type {
+    font-size: 17px;
+    color: #4a4a4a
+}
+.item section .title p[_v-1ed7ee52]:nth-of-type(2) {
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: .19px
+}
+.item section .module[_v-1ed7ee52] {
+    padding-left: 20px;
+    padding-right: 20px
+}
+.item section .module .module-name[_v-1ed7ee52] {
+    padding: 12px;
+    background: #eee;
+    border-radius: 2px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #4a4a4a;
+    letter-spacing: .26px
+}
+.item section .module .module-name img[_v-1ed7ee52] {
+    width: 18px;
+    height: 18px;
+    margin-right: 7px
+}
+.item section .module ul li[_v-1ed7ee52] {
+    padding: 15px 20px 15px 36px;
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative
+}
+.item section .module ul li .name[_v-1ed7ee52] {
+    font-size: 14px;
+    color: #666;
+    font-family: PingFangSC-Light
+}
+.item section .module ul li .name .index[_v-1ed7ee52] {
+    margin-right: 5px
+}
+.item section .module ul li .name .free[_v-1ed7ee52] {
+    font-family: PingFangSC-Light;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: .19px;
+    background: #f5a623;
+    border-radius: 100px;
+    padding: 1px 9px;
+    margin-left: 10px
+}
+.item section .module ul li .time[_v-1ed7ee52] {
+    font-family: PingFangSC-Light;
+    font-size: 14px;
+    color: #666;
+    letter-spacing: .23px;
+    opacity: 1;
+    transition: all .15s ease-in-out
+}
+.item section .module ul li .time img[_v-1ed7ee52] {
+    margin-left: 15px
+}
+.item section .module ul li .buy[_v-1ed7ee52], .item section .module ul li .try[_v-1ed7ee52] {
+    width: 86px;
+    height: 28px;
+    background: #fa6240;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    font-family: PingFangSC-Light;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    opacity: 0;
+    transition: all .2s ease-in-out
+}
+.item section .module ul li[_v-1ed7ee52]:hover {
+    background: #f9f1e7
+}
+.item section .module ul li:hover .name[_v-1ed7ee52], .item section .module ul li:hover .time[_v-1ed7ee52] {
+    color: #333;
+    font-family: PingFangSC-Regular
+}
+.item section .module ul li:hover button[_v-1ed7ee52] {
+    opacity: 1
+}

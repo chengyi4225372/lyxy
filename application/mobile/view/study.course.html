@@ -1,0 +1,48 @@
+<div id="course" style="display: none;">
+    <div data-v-7cf76425="" data-v-6eeb7b57="" class="empty" style="display: none;">
+        <img data-v-7cf76425="" src="/static/mobile/frontend/study/empty.svg" alt="">
+        <p data-v-7cf76425="">还未购买过专题课程~</p>
+    </div>
+    <div data-v-879d608a="" data-v-6eeb7b57="" class="StudyList">
+        <div data-v-879d608a="" class="weui-cell" style="display: none;">
+            <div class="weui-cell__hd"></div>
+            <div class="vux-cell-bd vux-cell-primary">
+                <p><!----> </p>
+                <span class="vux-label-desc"></span>
+            </div>
+            <div class="weui-cell__ft">  <!---->
+            </div>
+        </div>
+        {foreach name='course' item='vo'}
+        <div data-v-879d608a="" class="list" onclick="course_detail('{$vo.id}')">
+            <p data-v-879d608a="" class="title">
+                <span data-v-879d608a="">{$vo.name}</span>
+                <span data-v-879d608a="" class="sp study">
+                    <span data-v-879d608a="" class="normal">永久有效</span>
+                </span>
+            </p>
+            <dl data-v-879d608a="">
+                <dt data-v-879d608a="">
+                    <img data-v-879d608a="" src="{$vo.imgurl}" alt="">
+                <div data-v-879d608a="">
+                    <!--<p data-v-879d608a="" class="masking"></p>-->
+                    <!--<p data-v-879d608a="" class="p2">已学习：0%</p>-->
+                    <!--<p data-v-879d608a="" class="p3">-->
+                        <!--<span data-v-879d608a="" style="width: 0%;"></span></p>-->
+                </div>
+                </dt>
+                <dd data-v-879d608a="">
+                    <p data-v-879d608a="" style="margin-top: .17rem;">开始学习</p>
+                    <p data-v-879d608a=""></p>
+                    <img data-v-879d608a="" src="/static/mobile/frontend/study/right.png" alt="">
+                </dd>
+            </dl>
+        </div>
+        {/foreach}
+    </div>
+</div>
+<script>
+    function course_detail(id) {
+        window.location.href="{:url('cdetail')}?id="+id;
+    }
+</script>

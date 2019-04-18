@@ -1,0 +1,142 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-28fbf53a="" class="CourseBox subPage_app">
+    <div data-v-28fbf53a="" id="CourseItem" class="CourseItem">
+        <div data-v-28fbf53a="" class="back">
+            <img data-v-28fbf53a="" src="/static/mobile/frontend/course/back.svg" alt="">
+        </div>
+        <div data-v-28fbf53a="" class="video">
+            <div data-v-28fbf53a="" id="tryVideo" class="tryVideo prism-player">
+                <div class="prism-cover" id="tryVideo_component_6938135E-877E-4D5C-8C49-8B34FDF6748F" style="background-image: url({$vo.imgurl});height: 240px;">
+                </div>
+            </div>
+        </div>
+        <div data-v-745847a6="" data-v-28fbf53a="" class="infomation">
+            <p data-v-745847a6="" class="name">
+                <span data-v-745847a6="">{$vo.name}</span>
+                <span data-v-745847a6="">{$vo.stu_num}人在学</span>
+            </p>
+            <p data-v-745847a6="" class="time">
+                <img data-v-745847a6="" src="" alt="">
+                <span data-v-745847a6="">{$course_time}课时</span>|<span data-v-745847a6="">约{$course_time*20}分钟</span>
+                <span data-v-745847a6="">难度：
+                    {switch name="vo.level" }
+                        {case value="1"}低级{/case}
+                        {case value="2"}中级{/case}
+                        {case value="3"}高级{/case}
+                    {/switch}
+                </span>
+            </p>
+        </div>
+        <div data-v-6631adf4="" data-v-28fbf53a="" class="avtice">
+            <div data-v-6631adf4="" class="price">
+                <p data-v-6631adf4="">
+                    <span data-v-6631adf4="" class="symbol">¥</span>
+                    <span data-v-6631adf4="" class="number">{$vo.price}</span>
+                    <!--<span data-v-6631adf4="" class="number2">.25</span>-->
+                </p>
+                <p data-v-6631adf4="">
+                    <span data-v-6631adf4="" class="original-price">原价¥{$vo.old_price}</span>
+                    <span data-v-6631adf4="" class="tip">限时折扣</span>
+                </p>
+            </div>
+            <!--<div data-v-6631adf4="" class="time">-->
+            <!--<p data-v-6631adf4="">距离结束仅剩</p>-->
+            <!--<p data-v-6631adf4="">-->
+            <!--<span data-v-6631adf4="" class="days">08天</span>-->
+            <!--<span data-v-6631adf4="" class="hours">09</span>:-->
+            <!--<span data-v-6631adf4="" class="minutes">07</span>:-->
+            <!--<span data-v-6631adf4="" class="secouds">27</span>-->
+            <!--</p>-->
+            <!--</div>-->
+        </div>
+        <div data-v-28fbf53a="" id="isFixed" class="tab">
+            <p data-v-28fbf53a="" class="router-link-exact-active active" onclick="go_tab(this,1)">
+                简介
+                <i data-v-28fbf53a></i>
+            </p>
+            <p data-v-28fbf53a="" class="" onclick="go_tab(this,2)">
+                目录<span data-v-28fbf53a class="try">试学</span>
+            </p>
+            <p data-v-28fbf53a="" class="" onclick="go_tab(this,3)">
+                评价
+            </p>
+            <p data-v-28fbf53a="" class="" onclick="go_tab(this,4)">
+                常见问题
+            </p>
+        </div>
+
+        <div data-v-09c7809a="" data-v-28fbf53a="" class="item">
+            <div data-v-09c7809a="" class="teacher">
+                <img data-v-09c7809a="" alt="" src="{$teacher.imgurl}">
+                <p data-v-09c7809a="">
+                    <span data-v-09c7809a="">{$teacher.teacher_name}</span>
+                    <span data-v-09c7809a="">{$teacher.position}</span>
+                </p>
+            </div>
+            <div data-v-09c7809a="" id="IntroduceImg" class="ItemContent">
+                {$vo.detail|html_entity_decode=###}
+            </div>
+        </div>
+
+        {include file="course:catalog" /}
+        {include file="course:comment" /}
+        {include file="course:issue" /}
+
+        <div data-v-28fbf53a="" class="vux-toast">
+            <div class="weui-mask_transparent" style="display: none;"></div>
+            <div class="weui-toast weui-toast_text vux-toast-middle" style="width: 2rem; display: none;"><i
+                    class="weui-icon-success-no-circle weui-icon_toast" style="display: none;"></i>
+                <p class="weui-toast__content"></p></div>
+        </div>
+    </div>
+    <div data-v-5e31dde6="" data-v-28fbf53a="" class="buy">
+        <button data-v-5e31dde6="">
+            <p data-v-5e31dde6="" class="price">
+                ¥ <span data-v-5e31dde6="">{$vo.price}</span>
+            </p>
+            <p data-v-5e31dde6="" class="go" onclick="go_buy()">立即购买</p>
+        </button>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $(".back").on('click',function () {
+       window.location.href="{:url('index')}";
+    });
+    function go_tab(obj,index) {
+        var i = "<i data-v-28fbf53a></i>";
+        if ($(obj).hasClass("router-link-exact-active active")){
+            return false;
+        }else {
+            $(".item").css('display','none');
+            $(".catalog").css('display','none');
+            $(".evaluate").css('display','none');
+            $(".issue").css('display','none');
+
+            $('.try').css('display','block');
+
+            $(obj).siblings('p').find('i').remove();
+            $(obj).siblings('p').removeClass('router-link-exact-active active');
+            $(obj).addClass('router-link-exact-active active');
+            $(obj).append(i);
+            switch (index){
+                case 1:
+                    $(".item").css('display','block');break;
+                case 2:
+                    $('.try').css('display','none');
+                    $(".catalog").css('display','block');break;
+                case 3:
+                    $(".evaluate").css('display','block');break;
+                case 4:
+                    $(".issue").css('display','block');break;
+            }
+        }
+    }
+    function go_buy() {
+        window.location.href = "{:url('buy/buy')}?type=1&cid={$Think.get.cid}";
+    }
+</script>
+{/block}

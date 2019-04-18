@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>下拉</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="适配M页2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="课程详情目录" transform="translate(-342.000000, -741.000000)" fill="#9D9D9D" fill-rule="nonzero">
+            <polygon id="下拉" transform="translate(347.675155, 744.000000) rotate(90.000000) translate(-347.675155, -744.000000) " points="344.645363 739.352467 345.354637 738.647533 350.704947 744.030779 345.415817 749.352467 344.706544 748.647533 349.295053 744.030779"></polygon>
+        </g>
+    </g>
+</svg>

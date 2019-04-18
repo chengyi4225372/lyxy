@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="__STATIC__/index/static/css/job.css"/>
+<div class="main_box" _v-362977f8="" _v-650b75d2="" style="display: none">
+    <div class="box" _v-362977f8="">
+        <div class="main">
+            <div class="luffy-home" _v-b2c567ce="">
+                <div class="title slideanim slide" _v-b2c567ce="" style="margin-bottom: 20px;">
+                    <p _v-b2c567ce="">真实数据说话，用高薪换口碑</p>
+                    <!--<span _v-b2c567ce="">通过系统科学的实战项目训练，零基础6个月炼成为行业抢手技术人才</span>-->
+                </div>
+            </div>
+            <div class="page_main">
+                <div class="page_warp" style="margin: 20px 25px 4px;">
+                    <font>就业信息 | JOB INFO</font>
+                    <ul class="jiuye">
+                        <li class="jiuye_one"><h1>姓名</h1>
+                            <h2>性别</h2>
+                            <h3>入职单位</h3><h4>薪资</h4><h5>学历</h5><span>福利待遇</span></li>
+                        {foreach name='news' item='vo'}
+                        <li><h1>{$vo.stu_name}</h1>
+                            <h2>
+                                {eq name='vo.sex' value='1'}男{/eq}
+                                {eq name='vo.sex' value='0'}女{/eq}
+                            </h2>
+                            <h3>{$vo.company}</h3><h4>{$vo.wages}</h4><h5>{$vo.education}</h5><span>{$vo.welfare}</span></li>
+                        {/foreach}
+                    </ul>
+                    <font>有图有真相 | PICTURE TRUTH</font>
+                    <ul class="jiuye_tu">
+                        {foreach name='news' item='vo'}
+                        <li><img src="{$vo.imgurl}"></li>
+                        {/foreach}
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

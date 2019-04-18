@@ -1,0 +1,83 @@
+{extend name='public/common'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/order.css"/>
+{/block}
+{block name='body'}
+<!--v-component-->
+<div class="information older-info-wrap" _v-5acec5ce="">
+    <ul class="table-head" _v-5acec5ce="">
+        <li class="older-info" style="width: 317px" _v-5acec5ce="">订单信息</li>
+        <li class="buyer-limit-date" _v-5acec5ce=""></li>
+        <li class="discount" style="font-size: 13px;color: #333333" _v-5acec5ce="">优惠</li>
+        <li class="per-price" style="width: 130px" _v-5acec5ce="">单价（元）</li>
+        <li class="course-discount" style="width: 120px" _v-5acec5ce="">抵扣</li>
+        <li class="course-discount" style="width: 145px" _v-5acec5ce="">实付金额</li>
+        <li class="course-discount" style="width: 130px" _v-5acec5ce="">交易状态</li>
+        <li class="handle" _v-5acec5ce="">交易操作</li>
+    </ul>
+    {foreach name='order' item='val'}
+    <div class="table-main" _v-5acec5ce="" id="10719" key="0">
+        <div class="table-older-ceil" _v-5acec5ce=""><span class="my-older-num my-older-time" _v-5acec5ce="">{$val.create_at}</span>
+            <span class="my-older-num my-older-code" _v-5acec5ce="">订单号：
+                    <span class="my-older-number" _v-5acec5ce="">{$val.order_code}</span>
+                </span>
+        </div>
+        <div style="display: flex; align-items: center" _v-5acec5ce="">
+            <div class="left-wrap" style="border-right: 1px solid #E9E9E9; border-bottom: 1px solid #E9E9E9;
+                    border-left: 1px solid #E9E9E9" _v-5acec5ce=""> <!--v-for-start-->
+                <ul class="older-info course-inf" _v-5acec5ce="" id="56" key="0"
+                    style="border-top: 1px solid #E9E9E9; width: 600px; height: 126px; display: flex; align-items: center; margin: 0">
+                    <li class="older-course-detail" _v-5acec5ce="">
+                        <div style="width: 133px; height: 75px; overflow: hidden" _v-5acec5ce="">
+                            <img width="100%" alt="" _v-5acec5ce=""
+                                 src="//hcdn1.luffycity.com/static/frontend/course/56/288144_1533643181.5055923.png">
+                        </div>
+                        <h3 class="my-older-course-tit" _v-5acec5ce="">{$val.course_name}</h3></li>
+                    <li class="buyer-limit-date buyer-limit-date-font" _v-5acec5ce=""></li>
+                    <li class="discount" style="font-size: 12px;color: #4A4A4A" _v-5acec5ce="">—</li>
+                    <li class="per-price" _v-5acec5ce="">
+                        <!--<span style="display: block;font-size: 14px;color: #D0D0D0; text-decoration: line-through" _v-5acec5ce="">-->
+                        <!--9.9</span>-->
+                        <span _v-5acec5ce="">{$val.price}</span>
+                    </li>
+                </ul><!--v-for-end-->
+            </div>
+            <ul class="right-wrap-order" _v-5acec5ce="">
+                <li class="course-discount"
+                    style="width: 135px; text-align: center;padding: 15px; height: 100%; display: flex; align-items: center; border-right: 1px solid #E9E9E9"
+                    _v-5acec5ce=""> - <br _v-5acec5ce=""> -
+                </li>
+                <li class="course-discount"
+                    style="width: 135px; height: 100%; display: flex; align-items: center; justify-content: center; border-right: 1px solid #E9E9E9"
+                    _v-5acec5ce="">{$val.cost}
+                </li>
+                <li class="course-discount"
+                    style="width: 135px; height: 100%; display: flex; align-items: center;
+                    justify-content: center; border-right: 1px solid #E9E9E9" _v-5acec5ce="">
+                    {if condition="$val.is_finish==1"}交易成功{elseif condition="$val.is_finish==0"/}待支付{else/}超时取消{/if}
+                </li>
+                <li class="handle" _v-5acec5ce="">
+                    <button class="charge-btn" _v-5acec5ce="" 
+                    {neq name='val.is_comment' value='1'}onclick="go_order('{$val.id}','{$val.course_type}')"{/neq}>
+                        {if condition="$val.is_finish==1 && $val.is_comment==0"}去评价{elseif condition="$val.is_finish==0"/}去支付{elseif condition="$val.is_comment==1"/}已评价{else /}{/if}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {/foreach}
+    <!--v-for-end-->
+</div>
+<!--v-component-->
+{/block}
+{block name="js"}
+<script>
+function go_order(id,type) {
+    window.location.href="{:url('comment')}?id="+id+'&type='+type;
+}
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

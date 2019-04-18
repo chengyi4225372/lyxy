@@ -1,0 +1,89 @@
+.internalmaterial[_v-0ae51379] {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    overflow: hidden
+}
+
+.internalmaterial .banner[_v-0ae51379] {
+    width: 100%;
+    height: 300px;
+    background: #171e31;
+    overflow: hidden
+}
+
+.internalmaterial .banner .bannercont[_v-0ae51379] {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+.internalmaterial .banner .bannercont img[_v-0ae51379] {
+    position: absolute;
+    left: 30px;
+    bottom: 40px
+}
+
+.internalmaterial .banner .bannercont .text[_v-0ae51379] {
+    font-family: PingFangSC-Regular;
+    position: absolute;
+    left: 610px;
+    top: 70px
+}
+
+.internalmaterial .banner .bannercont .text .p1[_v-0ae51379] {
+    font-size: 28px;
+    color: #687696;
+    letter-spacing: .38px;
+    margin-bottom: 20px
+}
+
+.internalmaterial .banner .bannercont .text .p2[_v-0ae51379], .internalmaterial .banner .bannercont .text .p3[_v-0ae51379] {
+    font-size: 34px;
+    color: #fff;
+    letter-spacing: .46px
+}
+
+.internalmaterial .headbox[_v-0ae51379] {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    background: #fafafa;
+    box-shadow: 0 2px 4px 0 #e8e8e8;
+    overflow: hidden;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 50px
+}
+
+.internalmaterial .headbox .head[_v-0ae51379] {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #7f7f7f;
+    font-family: PingFangSC-Regular
+}
+
+.internalmaterial .headbox .head span[_v-0ae51379] {
+    margin-right: 20px;
+    cursor: pointer
+}
+
+.internalmaterial .headbox .head .spancolor[_v-0ae51379] {
+    color: #01b4e4
+}
+
+.internalmaterial .headbox .head .loading[_v-0ae51379] {
+    width: 55px;
+    height: auto
+}
+
+.internalmaterial .content[_v-0ae51379] {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto
+}

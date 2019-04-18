@@ -1,0 +1,265 @@
+<html style="font-size: 49.5833px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="renderer" content="webkit">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>乐育学院-注册</title>
+    <link rel="shortcut icon" href="__STATIC__/index/static/frontend/url_logo.png"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/toastr.min.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/app.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/layui/css/layui.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css">
+    <script src="__STATIC__/index/plugins/jquery-2.1.4.js"></script>
+    <script async="" charset="UTF-8" src="https://static.meiqia.com/dist/meiqia.js?_=t"></script>
+    <link href="https://static.geetest.com/static/wind/style_https.1.5.0.css" rel="stylesheet">
+    <link href="__STATIC__/index/static/css/regist.css" rel="stylesheet">
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.all.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/static/js/gt.js"></script>
+    <style type="text/css">
+        .geetest_holder.geetest_wind {
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body id="app"><!--v-start-->
+<!--v-component-->
+<div id="router-view">
+    <div class="box" _v-5982aec0="" style="height: 945px;">
+        <img src="__STATIC__/index/static/frontend/Loginbg.jpg" alt="" class="bac" _v-5982aec0=""
+             style="height: 945px;">
+        <div class="reg_cont" _v-5982aec0="">
+            <div class="reg_box" _v-5982aec0="">
+                <div class="zi" _v-5982aec0="">注册乐育学院</div>
+                <div class="inp" _v-5982aec0=""><span class="error" _v-5982aec0=""></span>
+                    <div class="step1" _v-5982aec0="">
+                        <select name="" class="phone_select" _v-5982aec0=""
+                                style="border: 1px solid rgb(217, 217, 217);">
+                            <option value="86" selected="" _v-5982aec0="">中国 (+86)</option> <!--v-for-start-->
+                            <option _v-5982aec0="" value="886" key="0">中国台湾 (+886)</option>
+                            <option _v-5982aec0="" value="852" key="1">中国香港 (+852)</option>
+                            <option _v-5982aec0="" value="853" key="2">中国澳门 (+853)</option>
+                            <!--v-for-end-->
+                        </select>
+                        <form action="" id="regist_form">
+                            <input name="phone" type="text" class="phone" placeholder="输入手机号码" _v-5982aec0=""
+                                   id="input_phone">
+                            <div id="embed-captcha"></div>
+                            <p id="wait" class="show">正在加载验证码......</p>
+                            <p id="notice" class="hide">请先完成验证</p>
+                        </form>
+                        <div class="verify_box phone" _v-5982aec0="">
+                            <input type="text" class="verify" id="input_verify" placeholder="输入验证码" _v-5982aec0="">
+                            <p class="divide" _v-5982aec0=""></p>
+                            <button class="layui-btn layui-btn-sm layui-btn-disabled get_verify"
+                                    id="btn1" _v-5982aec0="" onclick="getCodeAfter()">获取验证码
+                            </button>
+                        </div>
+                        <button class="next_one" _v-5982aec0="" onclick="go_next()">下一步</button>
+                        <p class="go_login" _v-5982aec0="">已有账号
+                            <span _v-5982aec0="" onclick="gologin()">直接登录</span>
+                        </p>
+                    </div>
+                    <div class="step2" _v-5982aec0="" style="display: none;">
+                        <form action="" method="post" id="member_info">
+                            <input type="hidden" name="tel" id="return_tel">
+                            <input name="name" type="text" class="phone" placeholder="用户名一旦确认不可更改" _v-5982aec0="">
+                            <input name="password" id="pass" type="password" class="phone" placeholder="密码至少6位且不能全数字"
+                                   _v-5982aec0="">
+                            <input name="repass" id="repass" type="password" class="phone" placeholder="确认密码"
+                                   _v-5982aec0="">
+                            <div class="address" _v-5982aec0="" data-toggle="distpicker">
+                                <select name="province" class="province" _v-5982aec0="" data-province="---- 选择省 ----">
+                                    <!--v-for-end--> </select>
+                                <select id="city" name="city" class="city" _v-5982aec0="" data-city="---- 选择市 ----">
+                                    <!--v-for-end--> </select>
+                            </div>
+                        </form>
+                        <button class="next_one next_two" _v-5982aec0="" onclick="finish()">完成注册</button>
+                    </div>
+                    <div class="step3" _v-5982aec0="" style="display: none;">
+                        <input id="birthdays" type="text" placeholder="请选择出生年月" class="age_select" readonly=""
+                               _v-5982aec0="">
+                        <div class="address" _v-5982aec0=""><select name="" class="industry" _v-5982aec0="">
+                            <option value="请选择行业" selected="" _v-5982aec0="">请选择行业</option> <!--v-for-start-->
+                            <!--v-for-end--> </select><select name="" class="profession" _v-5982aec0="">
+                            <option value="请选择职业" selected="" _v-5982aec0="">请选择职业</option> <!--v-for-start-->
+                            <!--v-for-end--> </select></div>
+                        <div class="interested" _v-5982aec0=""><p _v-5982aec0="">感兴趣的技术</p>
+                            <div class="int_span" _v-5982aec0=""> <!--v-for-start--><!--v-for-end--> </div>
+                        </div>
+                        <button class="next_one next_two" _v-5982aec0="">完成</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--v-component-->
+</div>
+<script src="__STATIC__/index/Distpicker/js/distpicker.data.js"></script>
+<script src="__STATIC__/index/Distpicker/js/distpicker.js"></script>
+<script src="__STATIC__/index/Distpicker/js/main.js"></script>
+<script>
+    var handlerEmbed = function (captchaObj) {
+//        $("#btn1").click(function (e) {
+//            var validate = captchaObj.getValidate();
+//            if (!validate) {
+//                layer.msg('请先完成验证！',{anim: 6, icon: 2});
+//            }
+//        });
+        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.onReady(function () {
+            $("#wait")[0].className = "hide";
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        url: "{:url('login/start_captcha')}?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                new_captcha: data.new_captcha,
+                product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+            }, handlerEmbed);
+        }
+    });
+    function getCodeAfter() {
+        var sec = 60;
+        var intervalQueue;
+        var tel = $('#input_phone');
+        if (tel.val().length < 1) {
+            layer.tips('请输入手机号！', '#input_phone');
+            return false;
+        }
+        reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+        if (!reg.test(tel.val())) {
+            layer.tips('请输入正确的手机号码', '#input_phone');
+            return false;
+        }
+        $("#btn1").removeAttr('onclick');
+        $("#btn1").addClass('get_verify_disable');
+        $("#btn1").text('请等待' + sec + '秒');
+        $.ajax({
+            url: "{:url('get_verify')}",
+            type: 'post',
+            data: $('#regist_form').serialize(),
+            dataType: 'json',
+            success: function (msg) {
+                console.log(msg);
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1});
+                    return false;
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                    clearInterval(intervalQueue);
+                    $("#btn1").text("获取验证码");
+                    $("#btn1").removeClass('get_verify_disable');
+                    $("#btn1").attr('onclick', 'getCodeAfter()');
+                    return false;
+                }
+            }
+        });
+        intervalQueue = setInterval(function () {
+            sec--;
+            $("#btn1").text('请等待' + sec + '秒');
+            if (sec <= 0) {
+                clearInterval(intervalQueue);
+                $("#btn1").text("获取验证码");
+                $("#btn1").removeClass('get_verify_disable');
+                $("#btn1").attr('onclick', 'getCodeAfter()');
+            }
+        }, 1000);
+    }
+    function go_next() {
+        var phone = $('#input_phone').val();
+        var code = $('#input_verify').val();
+        if (code == '') {
+            layer.tips('请输入验证码!', '#input_verify');
+            return false;
+        }
+        var url = "{:url('Login/regist')}";
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {phone: phone, code: code},
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    console.log(msg.data);
+                    $("#return_tel").val(msg.data);
+                    $('.step1').css('display', 'none');
+                    $('.step2').css('display', 'block');
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+        return false;
+    }
+    function finish() {
+        var psd = $("#pass").val();
+        var repsd = $("#repass").val();
+        var patrn = /^[a-zA-Z]\w{5,15}$/;
+        var city = $("#city").val();
+        if (!patrn.test(psd)) {
+            layer.tips('密码格式错误!请输入6-16位带字母密码', '#pass');
+            return false;
+        }
+        if (psd != repsd) {
+            layer.tips('两次密码不一致!', '#repass');
+            return false;
+        }
+        if (city == '') {
+            layer.tips('请选择区域!', '#city');
+            return false;
+        }
+        var form_data = new FormData($("#member_info")[0]);
+        var url = "{:url('finish')}";
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: form_data,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg);
+                    setTimeout(function () {
+                        window.location.href = "{:url('member/index/index')}";
+                    }, 2000);
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+    }
+    function gologin() {
+        window.location.href = "{:url('login/index')}";
+    }
+</script>
+</body>
+</html>

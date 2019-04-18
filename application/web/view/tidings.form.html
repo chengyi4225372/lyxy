@@ -1,0 +1,71 @@
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">学员姓名</label>
+        <div class="layui-input-block">
+            <input name="stu_name" value='{$vo.stu_name|default=""}' required="required"
+                   title="学员姓名" placeholder="学员姓名" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="1" title="男" {notempty name="$vo.sex"}{eq name='$vo.sex' value='1'}checked{/eq}{/notempty}>
+            <input type="radio" name="sex" value="0" title="女" {notempty name="$vo.sex"}{eq name='$vo.sex' value='0'}checked{/eq}{/notempty}>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">就职单位</label>
+        <div class="layui-input-block">
+            <input name="company" value='{$vo.company|default=""}' required="required"
+                   title="就职单位" placeholder="就职单位" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">就职工资</label>
+        <div class="layui-input-block">
+            <input name="wages" value='{$vo.wages|default=""}' required="required"
+                   title="就职工资" placeholder="就职工资" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">学员学历</label>
+        <div class="layui-input-block">
+            <input name="education" value='{$vo.education|default=""}' required="required"
+                   title="学员学历" placeholder="学员学历" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">福利待遇</label>
+        <div class="layui-input-block">
+            <input name="welfare" value='{$vo.welfare|default=""}' required="required"
+                   title="福利待遇" placeholder="福利待遇" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">喜报截图</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.imgurl|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="imgurl" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.imgurl|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="imgurl">上传图片</a>
+            <!--<p>建议上传喜报的尺寸为手机截图。</p>-->
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+    <script>window.form.render();</script>
+</form>

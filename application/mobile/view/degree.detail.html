@@ -1,0 +1,173 @@
+<style>
+    .box p {
+        max-width: 100% !important;
+    }
+
+    .box p.p1 {
+        font-size: 16px !important;
+    }
+
+    .box span {
+        font-size: 16px !important;
+    }
+
+    .box img {
+        width: 15px;
+        vertical-align: middle;
+    }
+
+    .swiper-scrollbar-drag {
+        background: #00c1de !important;
+    }
+
+    /*.swiper-slide {*/
+    /*width: 2.8rem;*/
+    /*!*height: auto;*!*/
+    /*}*/
+</style>
+<div id="detail">
+    <div data-v-6f06d1fa="" data-v-1107b0b2="">
+        <div data-v-caf03fa6="" data-v-6f06d1fa="" class="price">
+            <p data-v-caf03fa6="" class="p1">
+                <span data-v-caf03fa6="">{$detail.name}</span>
+                <span data-v-caf03fa6="">￥ {$detail.price}</span>
+            </p>
+            <p data-v-caf03fa6="" class="p2">编程小白到前端大牛的转变</p>
+            <p data-v-caf03fa6="" class="p3">
+                <span data-v-caf03fa6="">难度：中级</span>
+                <span data-v-caf03fa6="">学习周期：6个月</span>
+                <span data-v-caf03fa6="">预期工资：{$detail.target}k</span>
+            </p>
+        </div>
+        <div data-v-71fac62a="" data-v-6f06d1fa="" class="message">
+            <div data-v-71fac62a="" class="box">
+                <p data-v-71fac62a="" class="p1">基本信息</p>
+                <!--<p data-v-efc746ce="" class="title" style="position: unset;">-->
+                <!--<span data-v-efc746ce="">基本信息</span>-->
+                <!--</p>-->
+                {$detail.content|html_entity_decode=###}
+                <!--<table data-v-71fac62a="" border="1">-->
+                <!--<tr data-v-71fac62a="">-->
+                <!--<th data-v-71fac62a="" width="30%" align="center">基本信息</th>-->
+                <!--<td data-v-71fac62a="">Python开发中级 (10个阶段，共24章节)</td>-->
+                <!--</tr>-->
+                <!--<tr data-v-71fac62a="">-->
+                <!--<th data-v-71fac62a="" width="30%" align="center">学习时间</th>-->
+                <!--<td data-v-71fac62a="">2-4个小时 / 天 (大约5~6个月)</td>-->
+                <!--</tr>-->
+                <!--<tr data-v-71fac62a="">-->
+                <!--<th data-v-71fac62a="" width="30%" align="center">难度</th>-->
+                <!--<td data-v-71fac62a="">中级</td>-->
+                <!--</tr>-->
+                <!--<tr data-v-71fac62a="">-->
+                <!--<th data-v-71fac62a="" width="30%" align="center">预计工资</th>-->
+                <!--<td data-v-71fac62a="">8-15k</td>-->
+                <!--</tr>-->
+                <!--<tr data-v-71fac62a="">-->
+                <!--<th data-v-71fac62a="" width="30%" align="center">入学条件</th>-->
+                <!--<td data-v-71fac62a="">掌握计算机日常使用，具备至少专科或以上学历</td>-->
+                <!--</tr>-->
+                <!--</table>-->
+            </div>
+        </div>
+        <div data-v-efc746ce="" data-v-6f06d1fa="" class="service">
+            <p data-v-efc746ce="" class="title">
+                <span data-v-efc746ce="">我们的服务</span>
+            </p>
+            <div data-v-efc746ce="" class="box">
+                <p data-v-efc746ce="" class="p1" style="position: unset;">独家特色</p>
+                <!--<p data-v-efc746ce="" class="p2">-->
+                <!--根据一线互联网企业实际需求制作的独家顶尖课程<br>-->
+                <!--2年内视频有效期<br>6个月导师全程陪同辅导<br>-->
+                <!--技术专家逐行审阅代码后为你提供的个性化反馈<br>-->
+                <!--班主任+导师+小组长多维度帮扶、劝学机制<br>-->
+                <!--高额奖学金激励制度<br>工作推荐、就业咨询等职业发展支持<br></p>-->
+                {$detail.service|html_entity_decode=###}
+            </div>
+        </div>
+        <div data-v-5dfa0346="" data-v-6f06d1fa="" class="swiper-container box" id="teacher">
+            <p data-v-5dfa0346="" class="title">
+                <span data-v-5dfa0346="">讲师团队</span>
+            </p>
+            <div data-v-5dfa0346="" class="swiper-wrapper teacher">
+                {foreach name='team' item='vo'}
+                <div data-v-5dfa0346="" class="swiper-slide module">
+                    <img data-v-5dfa0346="" src="{$vo.imgurl}" alt="">
+                    <p data-v-5dfa0346="" class="p1">{$vo.teacher_name}</p>
+                    <p data-v-5dfa0346="" class="p2">{$vo.position}</p>
+                    <p data-v-5dfa0346="" class="p3">{$vo.desc}</p>
+                </div>
+                {/foreach}
+            </div>
+            <div data-v-5dfa0346="" class="drag">
+                <!--<div data-v-5dfa0346="" class="plan"></div>-->
+            </div>
+        </div>
+
+        <!--<div data-v-7e53079a="" data-v-6f06d1fa="" class="tutor"><p data-v-7e53079a="" class="title">-->
+        <!--<span data-v-7e53079a="">导师团队</span></p>-->
+        <!--<div data-v-7e53079a="" class="box">-->
+        <!--<dl data-v-7e53079a="">-->
+        <!--<dt data-v-7e53079a=""><img data-v-7e53079a=""-->
+        <!--src="//hcdn1.luffycity.com/static/frontend/degree_course_detail/libisheng_1508405136.8277516.png"-->
+        <!--alt=""></dt>-->
+        <!--<dd data-v-7e53079a=""><p data-v-7e53079a="">李必胜</p>-->
+        <!--<p data-v-7e53079a="">路飞学院导师</p></dd>-->
+        <!--</dl>-->
+        <!--</div>-->
+        <!--</div>-->
+
+    </div>
+
+    <div data-v-00aef108="" data-v-1107b0b2="" class="model">
+        <div data-v-00aef108="" class="banner">
+            <p data-v-00aef108="" class="p1">选择适合你的学习模式</p>
+        </div>
+        <div data-v-00aef108="" class="swiper-container box" id="packages">
+            <div data-v-00aef108="" class="swiper-wrapper bigbox">
+                {foreach name='package' item='vo'}
+                <div data-v-00aef108="" class="swiper-slide course">
+                    <p data-v-00aef108="" class="p1">{$vo.name}</p>
+                    <p data-v-00aef108="" class="p2">¥ {$vo.price}</p>
+                    {foreach name='vo.list' item='voo'}
+                    <ul data-v-00aef108="">
+                        <li data-v-00aef108="">{$voo}</li>
+                    </ul>
+                    {/foreach}
+                </div>
+                {/foreach}
+            </div>
+            <div data-v-00aef108="" class="dragbox">
+                <!--<div data-v-00aef108="" class="haul"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper1 = new Swiper('#teacher', {
+//        width: "2.8rem",
+        freeMode: true,
+        freeModeMomentum: false,
+//        centeredSlides : true,
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        scrollbar: {
+            el: '.drag',
+            draggable: true,
+            snapOnRelease: false,
+        }
+    });
+    var mySwiper2 = new Swiper('#packages', {
+//        width: "2.8rem",
+        freeMode: true,
+        freeModeMomentum: false,
+//        centeredSlides : true,
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        scrollbar: {
+            el: '.dragbox',
+            draggable: true,
+            snapOnRelease: false,
+        }
+    });
+</script>

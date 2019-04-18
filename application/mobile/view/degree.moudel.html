@@ -1,0 +1,31 @@
+<div data-v-62f03312="" data-v-1107b0b2="" class="catalog" style="display: none;" id="catalog">
+
+    {foreach name='module' item='vo'}
+    <div data-v-62f03312="" class="courselist">
+        <p data-v-62f03312="" class="StageTitle">{$vo.name}</p>
+        <div data-v-62f03312="" class="StageList">
+            <p data-v-62f03312="" class="Stagep1">第{$key+1}阶段 - 学习目标</p>
+            {$vo.content|html_entity_decode=###}
+
+            <p data-v-62f03312="" class="Stagep3">{$vo.chapter_num}个章节 <span data-v-62f03312="">查看更多</span></p>
+            <ul data-v-62f03312="">
+
+                {foreach name='vo.chapter' item='voo' key="k"}
+                <li data-v-62f03312="" class="section">
+                    <p data-v-62f03312="" class="SectionList">
+                        <span data-v-62f03312="">第{$k+1}章：{$voo.name}</span>
+                        <span data-v-62f03312=""></span>
+                    </p>
+                    <div data-v-62f03312="" class="SectionCont">
+                        {foreach name='voo.content' item='val'}
+                        <span data-v-62f03312="">{$val.name}</span>
+                        {/foreach}
+                    </div>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+    {/foreach}
+
+</div>

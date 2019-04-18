@@ -1,0 +1,82 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">优惠券名称</label>
+        <div class="layui-input-block">
+            <input name="name" value="{$vo.name|default=''}" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">过期时间</label>
+        <div class="layui-input-inline">
+            <select name="validity" class="layui-select">
+                {notempty name='vo.validity'}
+                    <option value="0" {eq name="vo.validity" value="0"}selected{/eq}>不限</option>
+                    {for start="1" end="31"}
+                    <option value="{$i}" {eq name="vo.validity" value="$i"}selected{/eq}>{$i}天</option>
+                    {/for}
+                {/notempty}
+                {empty name='vo.validity'}
+                    <option value="0">不限</option>
+                    {for start="1" end="31"}
+                    <option value="{$i}">{$i}天</option>
+                    {/for}
+                {/empty}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <label class="layui-form-label">课程类型</label>
+        <div class="layui-input-inline">
+            {notempty name='vo.course_type'}
+            <select name="course_type" class="layui-select">
+                <option value="0" {eq name="vo.course_type" value="0"}selected{/eq}>不限</option>
+                <option value="1" {eq name="vo.course_type" value="1"}selected{/eq}>免费课程</option>
+                <option value="2" {eq name="vo.course_type" value="2"}selected{/eq}>学位课程</option>
+                <option value="3" {eq name="vo.course_type" value="3"}selected{/eq}>七天课程</option>
+            </select>
+            {/notempty}
+            {empty name='vo.course_type'}
+            <select name="course_type" class="layui-select">
+                <option value="0">不限</option>
+                <option value="1">免费课程</option>
+                <option value="2">学位课程</option>
+                <option value="3">七天课程</option>
+            </select>
+            {/empty}
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">优惠券编号</label>
+        <div class="layui-input-block">
+            <input name="code" value="{$vo.code|default=''}" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">优惠价格</label>
+        <div class="layui-input-block">
+            <input name="discount" value="{$vo.discount|default=''}" class="layui-input">
+        </div>
+    </div>
+
+    <div class="hr-line-dashed"></div>
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+    <script>window.form.render();</script>
+</form>

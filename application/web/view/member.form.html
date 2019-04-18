@@ -1,0 +1,91 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">登陆账号</label>
+        <div class="layui-input-block">
+            {if $vo and isset($vo.name)}
+            <input readonly="readonly" disabled="disabled" name="name" value='{$vo.name|default=""}'
+                   required="required" title="请输入登陆账号" placeholder="请输入登陆账号" class="layui-input layui-disabled">
+            {else}
+            <input name="name" value='{$vo.name|default=""}' required="required" pattern="^.{4,}$"
+                   title="请输入登陆账号" placeholder="请输入4位及以上字符登陆账号" class="layui-input">
+            {/if}
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block">
+            <input name="real_name" value='{$vo.real_name|default=""}' required="required"
+                   title="请输入姓名" placeholder="请输入姓名" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号</label>
+        <div class='layui-input-block'>
+            <input name="tel" value='{$vo.tel|default=""}' required="required" pattern="^1[3-9][0-9]{9}$"
+                   title="请输入联系手机" placeholder="请输入联系手机" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">头像</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.imgurl|default='__STATIC__/index/static/frontend/default.png'}"/>
+            <input type="hidden" name="imgurl" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.imgurl|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="imgurl">上传图片</a>
+            <p>建议上传轮播图的尺寸为120*120px。</p>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">学员视频</label>
+        <div class='layui-input-block'>
+            <input name="video_url" value="{$vo.video_url|default=''}" class="layui-input">
+            <button type='button' data-file='one' data-field='video_url' data-type='mp4,avi,wmv,wkv'>上传视频</button>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">简介标题</label>
+        <div class="layui-input-block">
+            <input name="title" value='{$vo.title|default=""}' title="请输入简介标题" placeholder="请输入简介标题" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">简介内容</label>
+        <div class="layui-input-block">
+            <input name="content" value='{$vo.content|default=""}' title="请输入简介内容" placeholder="请输入简介内容" class="layui-input">
+        </div>
+    </div>
+
+    <!-- <div class="layui-form-item">
+        <label class="layui-form-label">余额</label>
+        <div class="layui-input-block">
+            <input type="number" step="0.01" name="account" value='{$vo.account|default=""}'
+                   title="请输入余额" placeholder="请输入余额" class="layui-input">
+        </div>
+    </div> -->
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button>
+    </div>
+    <script>window.form.render();</script>
+</form>

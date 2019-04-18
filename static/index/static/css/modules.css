@@ -1,0 +1,85 @@
+.modules[_v-f56c50de] {
+    width: 100%;
+    height: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-bottom: 50px
+}
+
+.modules section[_v-f56c50de] {
+    height: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding: 30px;
+    padding-right: 60px;
+    transition: all .2s linear
+}
+
+.modules section img[_v-f56c50de] {
+    width: 142px;
+    height: auto
+}
+
+.modules section .content[_v-f56c50de] {
+    width: 230px;
+    font-family: PingFangSC-Regular;
+    margin-left: 60px
+}
+
+.modules section .content .p1[_v-f56c50de] {
+    font-size: 18px;
+    color: #5e5e5e;
+    letter-spacing: .24px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2
+}
+
+.modules section .content .p2[_v-f56c50de] {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: .19px;
+    margin: 12px 0
+}
+
+.modules section .content .p3[_v-f56c50de] {
+    height: 40px;
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: .19px;
+    margin-bottom: 18px;
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2
+}
+
+.modules section .content button[_v-f56c50de] {
+    width: 117px;
+    height: 36px;
+    background: #fa6240;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: .19px;
+    transition: all .3s;
+    transition-duration: .3s
+}
+
+.modules section .content button[_v-f56c50de]:hover {
+    background: #c25036
+}
+
+.modules section[_v-f56c50de]:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1), 0 2px 10px rgba(0, 0, 0, .1);
+    transform: translate3d(0, -3px, 0)
+}

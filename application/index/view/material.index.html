@@ -1,0 +1,61 @@
+﻿{extend name="public/content" /}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/material.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/modules.css"/>
+{/block}
+{block name='body'}
+<!--v-component-->
+<div id="router-view">
+    <div class="internalmaterial" _v-0ae51379="">
+        <div class="banner" _v-0ae51379="">
+            <div class="bannercont" _v-0ae51379="">
+                <img src="/static/index/static/img/banner-material.jpg" alt="" _v-0ae51379="">
+                <div class="text" _v-0ae51379=""><p class="p1" _v-0ae51379="">[ 热 烈 庆 祝 ] </p>
+                    <p class="p2" _v-0ae51379="">javascript设计模式书籍</p>
+                    <p class="p3" _v-0ae51379="">京东销售总计7万册</p></div>
+            </div>
+        </div>
+        <div class="headbox" _v-0ae51379="">
+            <p class="head" _v-0ae51379="">
+                <span _v-0ae51379="" class="{empty name='Think.get.tid'}spancolor{/empty}" onclick="sel_type('')">全部</span>
+                <!--v-for-start-->
+               <!--
+                {foreach $type as $val}
+                <span _v-0ae51379="" onclick="sel_type('{$val.id}')" class="{eq name='Think.get.tid' value='$val.id'}spancolor{/eq}">{$val.name} 
+                </span>
+                {/foreach}
+                -->
+                <!--v-for-end-->
+                <img src="/static/index/static/img/loading-green.gif" alt="" class="loading" _v-0ae51379=""
+                     style="display: none;">
+            </p>
+        </div>
+        <script type="text/javascript">
+            function sel_type(id){
+                window.location.href="{:url('')}?tid="+id;
+            }
+        </script>
+        <div class="content" _v-0ae51379="">
+            <div class="modules" _v-f56c50de="" _v-0ae51379="">
+                <!--v-for-start-->
+                {foreach $material as $vo}
+                <section _v-f56c50de="" key="0">
+                    <img alt="" _v-f56c50de="" src="{$vo.imgurl}"/>
+                    <div class="content" _v-f56c50de=""><p class="p1" _v-f56c50de="">{$vo.name}</p>
+                        <p class="p2" _v-f56c50de="">页数：{$vo.page}</p>
+                        <p class="p3" _v-f56c50de="">{$vo.content}</p>
+                        <!--<button _v-f56c50de="">立即领取</button>-->
+                    </div>
+                </section>
+                {/foreach}
+                <!--v-for-end-->
+            </div><!--v-component-->
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}{/block}
+{block name='footer'}
+{__block__}
+{/block}

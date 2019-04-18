@@ -1,0 +1,232 @@
+{extend name="public/content" /}
+
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper-wrapper3.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper-contain.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/home-ns.css"/>
+<style type="text/css">
+    .video-playing .hi-video-wrapper{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+{/block}
+
+{block name='body'}
+<div id="router-view">
+    <div class="programming-contest" _v-027913fd="">
+        <div class="head" _v-027913fd=""><p class="text1" _v-027913fd="">{$camp.name}</p>
+            <p class="text2" _v-027913fd="">{$camp.title}</p>
+            <div class="data" _v-027913fd="">
+                <p _v-027913fd="">
+                    <span _v-027913fd="">本期已报名</span>
+                    <span _v-027913fd="">{$camp.enroll}人</span></p>
+                <p _v-027913fd="">
+                    <span _v-027913fd="">剩余席位</span>
+                    <span _v-027913fd="">{$camp.surplus}人</span></p>
+                <p _v-027913fd="">
+                    <span _v-027913fd="">本期开课时间</span>
+                    <span _v-027913fd="">{$camp.start_date}</span></p>
+                <p _v-027913fd="">
+                    <span _v-027913fd="">课程价格</span>
+                    <span _v-027913fd="">{$camp.price}元<b _v-027913fd="">原价399元</b></span></p>
+            </div>
+            <div class="btns" _v-027913fd="">
+                <button _v-027913fd="" onclick="buy('{$camp.id}')">我要报名</button>
+            </div>
+            <div class="video-box" _v-027913fd="">
+                <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTA1cHgiIGhlaWdodD0iMTkycHgiIHZpZXdCb3g9IjAgMCAxMDUgMTkyIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OS4zICg1MTE2NykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+R3JvdXAgMTU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSIgaWQ9ImxpbmVhckdyYWRpZW50LTEiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRTREOEZGIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM5QzdDRTUiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJsaW5lYXJHcmFkaWVudC0yIj4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0Q4QzVGRiIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjQjA4Q0ZGIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIiBpZD0ibGluZWFyR3JhZGllbnQtMyI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNEOEM5RkIiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0JBOUJGRiIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSIgaWQ9ImxpbmVhckdyYWRpZW50LTQiPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjNTIyOTg2IiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMzMzBGNzAiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiIGlkPSJsaW5lYXJHcmFkaWVudC01Ij4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iIzUzMkE4NyIgb2Zmc2V0PSIwJSI+PC9zdG9wPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjMzIwRTcwIiBvZmZzZXQ9IjEwMCUiPjwvc3RvcD4KICAgICAgICA8L2xpbmVhckdyYWRpZW50PgogICAgICAgIDxsaW5lYXJHcmFkaWVudCB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIiBpZD0ibGluZWFyR3JhZGllbnQtNiI+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNEQUNERkMiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgICAgICAgPHN0b3Agc3RvcC1jb2xvcj0iI0ExODJFQyIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICAgICAgPC9saW5lYXJHcmFkaWVudD4KICAgICAgICA8bGluZWFyR3JhZGllbnQgeDE9IjUwJSIgeTE9IjAlIiB4Mj0iNTAlIiB5Mj0iMTAwJSIgaWQ9ImxpbmVhckdyYWRpZW50LTciPgogICAgICAgICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRTNEOEZGIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgICAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiM5ODc2RTkiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iOOaciOS7vea0u+WKqDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NDEuMDAwMDAwLCAtODAwLjAwMDAwMCkiPgogICAgICAgICAgICA8ZyBpZD0iR3JvdXAtMTUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ0MS4wMDAwMDAsIDgwMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik05LjAxMDMwNDM4LDExMC43MTY2NzIgQy00LjIwNjcyMjg1LDYwLjgwNjk4OTMgLTEuMDY3NjQ3OTUsMzMuMTI1MSAxOC40Mjc1MjkxLDI3LjY3MTAwMzcgQzM3LjkyMjcwNjEsMjIuMjE2OTA3NSA1OS4zODMwNTI5LDIxLjUzOTE2NjcgODIuODA4NTY5NSwyNS42Mzc3ODE1IEM5OC43MTk4NTU5LDMwLjY1NjM0MTkgMTA1Ljc0MjI1Miw0My4yNzg4MzggMTAzLjg3NTc1OSw2My41MDUyNjk4IEMxMDIuMDA5MjY1LDgzLjczMTcwMTUgOTkuNDk0NDE2OCw5OS40Njg4MzU1IDk2LjMzMTIxNDIsMTEwLjcxNjY3MiBMOS4wMTAzMDQzOCwxMTAuNzE2NjcyIFoiIGlkPSJQYXRoLTMwLUNvcHkiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMSkiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9IiIgaWQ9IlBhdGgtMzEtQ29weSIgc3Ryb2tlPSIjOTc5Nzk3Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMTcuNjg2NTgzNiwyOC4yOTI0Mjg0IEMtNC40MzA0ODQ0NSwzNy43NDg4MjcgMjQuOTAzMzAyNCw5MC43ODA4NjYgMzMuOTI3NjY2NywxMDEuOTU0MzQgQzMzLjkyNzY2NjcsMTAxLjk1NDM0IDQ5LjU5OTI2MjgsMTE1LjIwNjQyOCA3MC44MDU0MjMxLDEwMy4wMzA0NzEgQzc0LjIzMjM3MjUsMTAwLjc2MDc2NiA4Mi44NDEzNjU1LDg5LjgxNjI3MjMgODIuODQxMzY1NSw1OC42MTc2MTg2IEM4Mi44NDEzNjU1LDU2LjE1MDE3NTIgODcuMjEzNzI4NSw0Ny43ODk5MDg2IDk1Ljk1ODQ1NDQsMzMuNTM2ODE4OSBDODkuNTg2OTcyMSwyNy4xMzE0Nzg0IDgwLjQ0NjQxOTgsMjMuOTI4ODA4MiA2OC41MzY3OTc4LDIzLjkyODgwODIgQzUwLjY3MjM2NDcsMjMuOTI4ODA4MiAzMS45NDYzNzI1LDIyLjE5NTQ5NyAxNy42ODY1ODM2LDI4LjI5MjQyODQgWiIgaWQ9IlBhdGgtMzItQ29weSIgZmlsbC1vcGFjaXR5PSIwLjQiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMikiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMS43NDUzMTEyLDU4LjkwNDk5MzkgQzIxLjczMjkzNDksODkuNTIxNjEyMiAyMC4zNzE1NDA1LDEwNi44MTUxMyAxNy42NjExMjc5LDExMC43ODU1NDYgQzE3LjY2MTEyNzksMTEwLjc4NTU0NiAxNC42NTUxNzY2LDExMC43ODU1NDYgOC42NDMyNzM5OSwxMTAuNzg1NTQ2IEMyLjIwOTUyMTk2LDg0LjMzNjI2NDUgLTAuNjMyNDM0NDIyLDY2Ljg1MTI4NTIgMC4xMTc0MDQ4MzksNTguMzMwNjA4MSBDMC44NjcyNDQxLDQ5LjgwOTkzMSAzLjk4NzQ2MjAxLDQxLjM2NjM5NSA5LjQ3ODA1ODU3LDMzIiBpZD0iUGF0aC0zMy1Db3B5LTIiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xMDQuNzQ1MzExLDU4LjkwNDk5MzkgQzEwNC43MzI5MzUsODkuNTIxNjEyMiAxMDMuMzcxNTQsMTA2LjgxNTEzIDEwMC42NjExMjgsMTEwLjc4NTU0NiBDMTAwLjY2MTEyOCwxMTAuNzg1NTQ2IDk3LjY1NTE3NjYsMTEwLjc4NTU0NiA5MS42NDMyNzQsMTEwLjc4NTU0NiBDODUuMjA5NTIyLDg0LjMzNjI2NDUgODIuMzY3NTY1Niw2Ni44NTEyODUyIDgzLjExNzQwNDgsNTguMzMwNjA4MSBDODMuODY3MjQ0MSw0OS44MDk5MzEgODYuOTg3NDYyLDQxLjM2NjM5NSA5Mi40NzgwNTg2LDMzIiBpZD0iUGF0aC0zMy1Db3B5LTMiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtMykiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzLjg3MjY1NiwgNzEuODkyNzczKSBzY2FsZSgtMSwgMSkgdHJhbnNsYXRlKC05My44NzI2NTYsIC03MS44OTI3NzMpICI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgtMzUtQ29weSIgZmlsbD0iI0ZGQ0VENiIgcG9pbnRzPSI4NyAxMTAuNjk4MTEgODcgMTIyLjQ2NDUxMSA5OS40OTE3NjI0IDEyMC43NDEyNjkgOTkuNDkxNzYyNCAxMTIuNDE0OTc0IDk3LjE5MDQzNDYgMTEwIj48L3BvbHlnb24+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0zNC1Db3B5IiBmaWxsPSIjRkZDRUQ2IiBwb2ludHM9IjE4LjA2NDMwNzcgMTIzLjA4MTU2MiA3LjI3NzUwNjYgMTIxLjYxODkgNiAxMTkuOTIzMzAxIDYgMTEyLjY1Mzc5IDguNzQyMTU5NjEgMTExIDE4LjA2NDMwNzcgMTExIj48L3BvbHlnb24+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNDMuNzM2MTA3NiwxNzkuMzg0MDkxIEwzNi41NDY5ODA2LDE3OS4zODQwOTEgQzI0Ljg0ODk5MzUsMTQ4Ljc4ODA3MSAxOSwxMjguODY4NDc5IDE5LDExOS42MjUzMTYgQzE5LDEwNS43NjA1NzEgMjQuMjkxMTY2Niw5Ni45MjQ5MzkzIDI2LjYzNjE1OTMsOTQuOTQxMjMzNiBDMjguOTgxMTUxOSw5Mi45NTc1Mjc4IDQwLjI0MjcwNDQsOTEuODExMDQ0MSA0My43MzYxMDc2LDk0Ljk0MTIzMzYgQzQ3LjIyOTUxMDcsOTguMDcxNDIzIDUzLjA2ODg3LDEwNi44NDM0NjggNTEuODE1NDQ1NCwxMTUuODQzODQ3IEM1MC45Nzk4MjksMTIxLjg0NDA5OSA0OC4yODY3MTY0LDE0My4wMjQxOCA0My43MzYxMDc2LDE3OS4zODQwOTEgWiIgaWQ9IlBhdGgtMzYtQ29weS0yIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTQpIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNzcuNzM2MTA3NiwxNzkuMzg0MDkxIEw3MC41NDY5ODA2LDE3OS4zODQwOTEgQzU4Ljg0ODk5MzUsMTQ4Ljc4ODA3MSA1MywxMjguODY4NDc5IDUzLDExOS42MjUzMTYgQzUzLDEwNS43NjA1NzEgNTguMjkxMTY2Niw5Ni45MjQ5MzkzIDYwLjYzNjE1OTMsOTQuOTQxMjMzNiBDNjIuOTgxMTUxOSw5Mi45NTc1Mjc4IDc0LjI0MjcwNDQsOTEuODExMDQ0MSA3Ny43MzYxMDc2LDk0Ljk0MTIzMzYgQzgxLjIyOTUxMDcsOTguMDcxNDIzIDg3LjA2ODg3LDEwNi44NDM0NjggODUuODE1NDQ1NCwxMTUuODQzODQ3IEM4NC45Nzk4MjksMTIxLjg0NDA5OSA4Mi4yODY3MTY0LDE0My4wMjQxOCA3Ny43MzYxMDc2LDE3OS4zODQwOTEgWiIgaWQ9IlBhdGgtMzYtQ29weS0zIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTUpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2OS40OTQzNjgsIDEzNi4xOTIwNDUpIHNjYWxlKC0xLCAxKSB0cmFuc2xhdGUoLTY5LjQ5NDM2OCwgLTEzNi4xOTIwNDUpICI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlBhdGgtMzctQ29weS0yIiBmaWxsPSJ1cmwoI2xpbmVhckdyYWRpZW50LTYpIiBwb2ludHM9IjM2LjM3MDY3MDEgMTgwIDI5IDE4OC43MDk0ODcgMjkgMTkxLjEwMTM4OSAzMy44NDUzOTU5IDE5MS4xMDEzODkgNDMuNjk5MTk4MyAxODUuNTUwNjk0IDQzLjY5OTE5ODMgMTgwIj48L3BvbHlnb24+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0zNy1Db3B5LTMiIGZpbGw9InVybCgjbGluZWFyR3JhZGllbnQtNykiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4LjM0OTU5OSwgMTg1LjU1MDY5NCkgc2NhbGUoLTEsIDEpIHRyYW5zbGF0ZSgtNjguMzQ5NTk5LCAtMTg1LjU1MDY5NCkgIiBwb2ludHM9IjY4LjM3MDY3MDEgMTgwIDYxIDE4OC43MDk0ODcgNjEgMTkxLjEwMTM4OSA2NS44NDUzOTU5IDE5MS4xMDEzODkgNzUuNjk5MTk4MyAxODUuNTUwNjk0IDc1LjY5OTE5ODMgMTgwIj48L3BvbHlnb24+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMzkuMzIzNDk5NiwxMy45MTE0NDAxIEwzNiw4LjU1OTI0MDY1IEMzNiw0LjcyOTIwNDMxIDM2LDIuMjc3MDEzOTMgMzYsMS4yMDI2Njk1MSBDMzYsMC4xMjgzMjUwOTUgMzcuMTA3ODMzMiwtMC4yMjYyMzU1OTQgMzkuMzIzNDk5NiwwLjEzODk4NzQ0NSBMNTQuMDUwNjA4MSwxLjIwMjY2OTUxIEM2MC4zMDIzNDk1LDQuNjEzNzIwNTQgNjMuNjM5MDY0NCw3LjM2MTE1MjkgNjQuMDYwNzUyOSw5LjQ0NDk2NjU5IEM2NC4wNjA3NTI5LDkuNDQ0OTY2NTkgNzAuMDc2NTcxLDguNDY1MDgxNTkgNzEuMDEwMDUyMywxMy45MTE0NDAxIEM3MS4wMTAwNTIzLDEzLjkxMTQ0MDEgNzAuNzg3OTQ1LDE4LjgzNTE5MzMgNjguNzkxMjMyMiwyMC4zOTEyOTU4IiBpZD0iUGF0aC00MS1Db3B5IiBmaWxsPSIjQjU3OTgxIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNDEuNDQ1OTUyMiwxNi4zMTQwODI1IEw0MC41OTM4MDM0LDM2LjMyMjQzMzkgQzQxLjExNzQ1MzcsMzkuNDI2MjM2NiA0MS44NjU2NzY3LDQxLjM3NDM2OCA0Mi44Mzg0NzI1LDQyLjE2NjgyODMgQzQ0LjI5NzY2NjEsNDMuMzU1NTE4NiA1NC4zNzM1OTUsNTAuMTc3Nzg4NiA2Ni43NzQyMDEsNDIuMTY2ODI4MyBDNjYuNzc0MjAxLDQyLjE2NjgyODMgNjYuNzc0MjAxLDQyLjE2NjgyODMgNjYuNzc0MjAxLDQyLjE2NjgyODMgTDY2Ljc3NDIwMSw0Mi4xNjY4MjgzIEM2OC4xOTQ3MDg4LDQwLjE2MTgxNzEgNjguOTA4NzU3NSwzNy43NDE2NDg4IDY4LjgwNDEzMTksMzUuMjg2NjYwOCBMNjguMjIzMjM0OSwyMS42NTYyMDQ0IEM3MC4xNzY4Njk1LDE1LjIxODczNDggNjguNjcwMDUyMSwxMiA2My43MDI3ODI1LDEyIEM1OC43MzU1MTMsMTIgNTUuNzc1MjkzMywxMi40NDQ0ODg5IDU0LjgyMjEyMzUsMTMuMzMzNDY2OCBMNDUuNTA0NzcxLDEzLjMzMzQ2NjggQzQxLjk2NTM2OTIsMTIuNDQ0NDg4OSAzOS44NzI0NjE0LDEyIDM5LjIyNjA0NzUsMTIgQzM4LjU3OTYzMzYsMTIgMzkuMzE5NjAxOCwxMy40MzgwMjc1IDQxLjQ0NTk1MjIsMTYuMzE0MDgyNSBaIiBpZD0iUGF0aC0zOS1Db3B5IiBmaWxsPSIjOUY2QjcyIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNDEuMDU3NzU0NSwyNC43ODQ2Mzk3IEMzOC41NzE1MzE0LDIyLjE4Mjc5ODkgMzguNjU2NDEzOSwyMC4wMDAyMTA4IDQxLjMxMjQwMTgsMTguMjM2ODc1NCIgaWQ9IlBhdGgtNDIiIGZpbGw9IiNGMUFGQkEiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik02OS44MDMxMDcyLDI1LjU0Nzc2NDMgQzY3LjMxNjg4NDEsMjIuOTQ1OTIzNiA2Ny40MDE3NjY2LDIwLjc2MzMzNTUgNzAuMDU3NzU0NSwxOSIgaWQ9IlBhdGgtNDItQ29weSIgZmlsbD0iI0YxQUZCQSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjkuMDI4ODc3LCAyMi4yNzM4ODIpIHNjYWxlKC0xLCAxKSB0cmFuc2xhdGUoLTY5LjAyODg3NywgLTIyLjI3Mzg4MikgIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNNDMuMjc1Njc2NCwyNy4yNzU0MTQ5IEM0NS41MDQwMDkzLDI5LjY5ODQ4NTEgNDcuNzg0Mjg2MiwzMC4xMDgxNDg0IDUwLjExNjUwNywyOC41MDQ0MDQ5IEM1MC4xMTY1MDcsMjguNTA0NDA0OSA1MC44MTA5MTU4LDI4LjA5NDc0MTYgNTIuMTk5NzMzMywyNy4yNzU0MTQ5IEM1My42MjU5ODQxLDI1LjYzNzE4MjMgNTUuMjI2NTczMiwyNS42MzcxODIzIDU3LjAwMTUwMDUsMjcuMjc1NDE0OSBDNTguNzc2NDI3OCwyOC45MTM2NDc2IDYxLjI1NjY5OTQsMjkuMzIzMzEwOSA2NC40NDIzMTU0LDI4LjUwNDQwNDkgQzY1Ljk3NDU1NzEsMjcuMzY2Njg0OSA2Ni43NDA2NzgsMjYuNDMzNzk2NiA2Ni43NDA2NzgsMjUuNzA1NzM5OSBDNjYuNzQwNjc4LDI0LjYxMzY1NDkgNjcuMTg5MjQ2NywxNiA2Mi4wOTUzNzM2LDE2IEM1OC42OTk0NTgyLDE2IDUzLjM4MTE5NTYsMTYgNDYuMTQwNTg1NywxNiBDNDMuMzgwMTk1MiwxNy4wNDM1MDU4IDQyLDE4LjYxMDQ0NyA0MiwyMC43MDA4MjM1IEM0MiwyMi43OTExOTk5IDQyLjQyNTIyNTUsMjQuOTgyNzMwNCA0My4yNzU2NzY0LDI3LjI3NTQxNDkgWiIgaWQ9IlBhdGgtNDAtQ29weSIgZmlsbD0iI0ZGQ0VENiI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBvbHlsaW5lIGlkPSJQYXRoLTM4LUNvcHktMiIgc3Ryb2tlPSIjQ0VCOUZGIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgcG9pbnRzPSIzMyA3NS4xMjA4MjEyIDQyLjY5NTU2NzMgNjguNjY0NzI0OCA1MS45OTA3Njk4IDc0LjE2NjQ1NjcgNjEuMzI3MDkzOSA2OC42NjQ3MjQ4IDcxLjc4Mjg0MDIgNzUuMTIwODIxMiI+PC9wb2x5bGluZT4KICAgICAgICAgICAgICAgIDxwb2x5bGluZSBpZD0iUGF0aC0zOC1Db3B5LTMiIHN0cm9rZT0iI0NFQjlGRiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHBvaW50cz0iMzcgODYuMjg5NjI4NSA0NC45NDM4MDE3IDgxIDUyLjU1OTU3NTMgODUuNTA3Njk1NyA2MC4yMDkwNDA3IDgxIDY4Ljc3NTY3NDYgODYuMjg5NjI4NSI+PC9wb2x5bGluZT4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    alt="" class="people" _v-027913fd="">
+                <div class="video-playing" _v-027913fd="">
+                    <video id="video" ishivideo="true" autoplay="false" isrotate="false" autoHide="true" preload="auto" style="margin-top: 0;">
+                        <source src="{$video}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video-list" _v-027913fd="">
+                    <p class="list-title" _v-027913fd="">免费试听课程</p>
+                    <ul _v-027913fd="">
+                        {foreach name='content' item='vo'}
+                            <li _v-027913fd="" onclick="{eq name='vo.is_free' value='0'}buy('{$camp.id}'){/eq}{eq name='vo.is_free' value='1'}change('{$vo.video_url}'){/eq}">
+                                <p _v-027913fd="">{$key+1}.{$vo.name}</p>
+                                {eq name='vo.is_free' value='1'}
+                                <span _v-027913fd="">免费</span>
+                                {/eq}
+                            </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content_info gray_back">
+            <div class="content_title">“{$camp.worry}”</div>
+            <div class="content_1_1 mp_content border-radius-3">
+                <div class="mp_data more_change_data">
+                    {$camp.analysis|html_entity_decode=###}
+                </div>
+            </div>
+            <!--<a class="ws_btn1 border-radius-6" href="#"-->
+               <!--target="_blank">暖石COO：我为什么要转行做运营？</a>-->
+        </div>
+
+        <div class="content_info">
+            <div class="content_title">“我在乐育学院能学什么？怎么学？”</div>
+            <div class="all_fuwu_wrap cf">
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-zhiye.png" width="40"></div>
+                    <div>职业规划</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-shipin.png" width="40"></div>
+                    <div>视频课程</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-dayi.png" width="40"></div>
+                    <div>干货问答</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-bi.png" width="40"></div>
+                    <div>实操作业</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-xiangmu.png" width="40"></div>
+                    <div>项目实战</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-jianlizuanxie.svg" width="40"></div>
+                    <div>简历撰写</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-banzhuren.png" width="40"></div>
+                    <div>班主任</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-weixin.png" width="40"></div>
+                    <div>班级微信群</div>
+                </div>
+                <div class="one_vip_type_fuwu_item fl">
+                    <div class="img_div">
+                        <img src="/static/index/static/frontend/camp/icon-xinli.png" width="40"></div>
+                    <div>心理辅导</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-arrange" _v-027913fd=""><p class="arrange" _v-027913fd="">实训班课程安排</p>
+            <p class="arrange-text" _v-027913fd="">{$camp.arrange1|html_entity_decode=###}</p>
+            <img src="{$camp.arrange2}" alt="" _v-027913fd="">
+        </div>
+
+
+        <div class="title2" _v-027913fd=""><p class="num" _v-027913fd="">03</p>
+            <p class="name" _v-027913fd="">学员作业</p></div>
+        <div class="homework" _v-027913fd="">
+            {$camp.homework|html_entity_decode=###}
+            <div class="Beforeandafter" _v-027913fd="">
+                <p _v-027913fd="">
+                    <img alt="" _v-027913fd="" src="{$camp.homework1}">
+                    <span _v-027913fd="">导师批改前代码</span></p>
+                <p _v-027913fd="">
+                    <img src="{$camp.homework2}" alt="" _v-027913fd="">
+                    <span _v-027913fd="">导师批改后代码</span>
+                </p></div>
+        </div>
+
+
+        <div class="title2" _v-027913fd=""><p class="num" _v-027913fd="">04</p>
+            <p class="name" _v-027913fd="">上期学员评价</p></div>
+        <div class="evaluation" _v-027913fd="">
+            <div class="evaluation-box" _v-027913fd="">
+                <section _v-027913fd="">
+                    <div class="evaluation-head" _v-027913fd="">
+                        <img src="/static/index/static/frontend/camp/home-head1.png" alt="" _v-027913fd="">
+                        <p _v-027913fd=""><span _v-027913fd="">李艾</span> <span _v-027913fd="">应届毕业生</span></p></div>
+                    <div class="evaluation-text" _v-027913fd="">
+                        在群里看到别人推荐，奔着张容铭老师来的，写了本书我看了京东评价都挺好的，我觉得花钱能提高我的学习效率，这钱不白花。
+                    </div>
+                </section>
+                <section _v-027913fd="">
+                    <div class="evaluation-head" _v-027913fd="">
+                        <img src="/static/index/static/frontend/camp/home-head2.png" alt="" _v-027913fd="">
+                        <p _v-027913fd=""><span _v-027913fd="">张萌萌</span> <span _v-027913fd="">机械转行</span></p>
+                    </div>
+                    <div class="evaluation-text" _v-027913fd="">
+                        通过7天的学习，我觉得前端还是比较容易上手的，特别是对有些编程基础的同学而言。感谢我的导师在每次有问题的时候都能及时解答，还有一大群可爱的小伙伴一起学习，让自己学习不再那么孤单。
+                    </div>
+                </section>
+                <section _v-027913fd="">
+                    <div class="evaluation-head" _v-027913fd="">
+                        <img src="/static/index/static/frontend/camp/home-head3.png" alt="" _v-027913fd="">
+                        <p _v-027913fd=""><span _v-027913fd="">杨凌</span> <span _v-027913fd="">建筑转行</span></p>
+                    </div>
+                    <div class="evaluation-text" _v-027913fd="">
+                        每天在工地搬完砖回来，我都会花3小时左右来看视频，老师讲的很详细，答疑也比较及时，目前很满意！！
+                    </div>
+                </section>
+                <section _v-027913fd="">
+                    <div class="evaluation-head" _v-027913fd="">
+                        <img src="/static/index/static/frontend/camp/head4.png" alt="" _v-027913fd="">
+                        <p _v-027913fd=""><span _v-027913fd="">吉康</span> <span _v-027913fd="">销售转行</span></p>
+                    </div>
+                    <div class="evaluation-text" _v-027913fd="">
+                        课程总的来说适合零基础吧，因为我之前本书就是做销售的，对这个一窍不通，最起码这个课程让我基本上入门了算是，感觉很好。
+                    </div>
+                </section>
+            </div>
+            <p class="lookmore" _v-027913fd=""></p></div>
+
+
+        <div class="title2" _v-027913fd=""><p class="num" _v-027913fd="">05</p>
+            <p class="name" _v-027913fd="">名额有限！抢完即止</p></div>
+        <div class="places" _v-027913fd="">
+            <div class="left" _v-027913fd="">
+                <div class="left-top" _v-027913fd=""><p _v-027913fd="">{$camp.name}</p>
+                    <p _v-027913fd="">¥{$camp.price}</p></div>
+                    {$camp.content|html_entity_decode=###}
+                <button _v-027913fd="">立即抢占名额</button>
+            </div>
+        </div>
+        <div class="problemlist" _v-027913fd=""><img alt="" class="bgimg" _v-027913fd=""
+                                                     src="/static/index/static/frontend/footbg.jpg">
+            <div class="problem-box" _v-027913fd=""><p class="problem-title" _v-027913fd="">常见问题</p>
+                <ul _v-027913fd="">
+                    <li _v-027913fd="">
+                        <p _v-027913fd="">Q：学完能够达到什么程度？</p>
+                        <p _v-027913fd="">
+                            A：学完课程之后知道怎样才是专业程序员，1周课程只是让你对前端有个整体的认知和感受。</p>
+                    </li>
+                    <li _v-027913fd="">
+                        <p _v-027913fd="">Q：是否肯定能拿到书？</p>
+                        <p _v-027913fd="">A：跟着课程表完成提交2次作业即可获得乐育学院书籍免费邮寄。</p>
+                    </li>
+                    <li _v-027913fd=""><p _v-027913fd="">Q：购买之后是否可以退费？</p>
+                        <p _v-027913fd="">A：不能。因为课程购买之后即能观看，为虚拟内容产品，一经售出不接受退款，请大家理解。</p></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    function buy(id) {
+        window.location.href = "{:url('buy')}?id="+id;
+    }
+    function change(video) {
+        $("#video").children("source").attr('src',video);
+        $("#video").attr('src',video);
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

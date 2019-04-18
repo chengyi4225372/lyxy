@@ -1,0 +1,267 @@
+.need-study-course[_v-35610538] {
+    list-style: none;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 31px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ededed
+}
+
+.need-study-course[_v-35610538]:last-child {
+    border-bottom: none
+}
+
+.hot-course-tag[_v-35610538] {
+    list-style: none;
+    width: 130px;
+    height: 42px;
+    background: #fafafa;
+    border-radius: 2px;
+    font-size: 14px;
+    color: #9b9b9b;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-right: 26px;
+    margin-bottom: 21px
+}
+
+.hot-course-tag[_v-35610538]:nth-child(2n) {
+    margin-right: 0
+}
+
+.course-evaluate-reply[_v-35610538] {
+    width: 100%;
+    padding: 24px 22px;
+    background: #f6f6f6;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: .19px;
+    margin-top: 30px
+}
+
+.course-action-agree[_v-35610538], .course-action-disagree[_v-35610538] {
+    cursor: pointer;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 12px;
+    color: #999
+}
+
+.course-action-disagree[_v-35610538] {
+    margin-left: 30px
+}
+
+.course-action-num[_v-35610538] {
+    display: inline-block;
+    margin-left: 5px
+}
+
+.course-evaluate-list[_v-35610538] {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 30px 0 22px
+}
+
+.course-action-wrap[_v-35610538] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: auto
+}
+
+.course-evaluate-user-name[_v-35610538] {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: .22px
+}
+
+.course-evaluate-detail[_v-35610538] {
+    margin: 10px 0 20px;
+    font-size: 14px;
+    color: #4a4a4a;
+    letter-spacing: .22px
+}
+
+.course-evaluate-date[_v-35610538] {
+    font-size: 12px;
+    color: #999;
+    letter-spacing: .19px
+}
+
+.hot-evaluate-icon[_v-35610538] {
+    position: relative;
+    margin-left: -11px;
+    width: 72px;
+    height: 60px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA7BAMAAAAqddEbAAAAFVBMVEUAAAD/mQX/nAT/mgP/mgP/////mQNxV/8IAAAABnRSTlMAZz70mAEpEsjWAAAAiklEQVRIx+3TsQmAMBBG4bOwt7J2hgzhBC4ggvuPIDwOLEJ8bcD8bR5fdQl2N8fziP4QHe1oidy8t6NToKQMghIoKYOgEjIKSCggp4CMWj0qMWlzbQElUEAZBCUQlEFQBkEJJBSQU1vX/25EfUbV9ZVob3qP9mOrQVACJWUQVEJCARkFpBSQUTX0ANz2NNjagayIAAAAAElFTkSuQmCC) no-repeat;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.hot-evaluate-text[_v-35610538] {
+    display: block;
+    margin-top: 6px;
+    width: 28px;
+    height: 40px;
+    font-size: 14px;
+    color: #fff
+}
+
+.atar_Show[_v-35610538] {
+    height: 10px;
+    width: 80px;
+    position: relative;
+    margin: 0 auto;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKCAMAAACKYC6uAAAATlBMVEUAAADX19fp6en////R0dHR0dHR0dHS0tLW1tbX19fS0tLR0dHR0dHS0tLS0tLU1NTU1NTe3t7R0dHQ0NDS0tLS0tLT09PR0dHS0tLV1dWxSZVmAAAAGnRSTlMADAUCsnNoYBgSj4B+eD4pIA/AiWtaUT05MEu7W8kAAABSSURBVAjXZYxZDoAgDERboFSQRdy9/0VNCkaJ76edl8lAIzvo0CaoLqeVd60fh4s3BX2IVxPDPMkZZae+CFCM6AqfSmULL3RQTPQRlh1u0vhzA7fXAhLdXAAWAAAAAElFTkSuQmCC) repeat-x
+}
+
+.atar_Show p[_v-35610538] {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAKBAMAAABPkMOvAAAALVBMVEUAAAD/zAL/zQP/zAH/zQH/zAL/zgX/zwX/zwf/zDP/zQL/zAL/zgP/zQP/zAFIU6sCAAAADnRSTlMAg17evH02MCUFnpJOTGzVU3AAAAA1SURBVAjXY0AGTApQxmRLCH3U70ksmCH37t1DMIPx3TsBMIPt3bsEiKZX+yDa2Bs4CpAMAwAe+w0Wynu/WgAAAABJRU5ErkJggg==) repeat-x;
+    height: 10px;
+    left: 0
+}
+
+.evaluate-head[_v-35610538] {
+    width: 100%;
+    height: 175px;
+    background: #fafafa
+}
+
+.evaluate-head-list[_v-35610538], .evaluate-head[_v-35610538] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.evaluate-head-list[_v-35610538] {
+    height: 105px;
+    -ms-flex-pack: center;
+    justify-content: center
+}
+
+.evaluate-item-wrap[_v-35610538] {
+    width: 299px
+}
+
+.evaluate-item-tit[_v-35610538] {
+    display: block;
+    font-size: 14px;
+    color: #333
+}
+
+.evaluate-item-tit-special[_v-35610538] {
+    font-size: 24px
+}
+
+.evaluate-item-score-item[_v-35610538] {
+    display: block;
+    color: #ffcc01;
+    margin: 17px auto;
+    font-size: 16px
+}
+
+.evaluate-item-score[_v-35610538] {
+    font-size: 30px;
+    display: inline
+}
+
+.evaluate-item-score-special[_v-35610538] {
+    font-size: 40px;
+    display: inline
+}
+
+.evaluate-item-gap[_v-35610538] {
+    display: block;
+    height: 105px;
+    border-left: 1px solid #dcdcdc
+}
+
+.evaluate-content[_v-35610538] {
+    margin: 40px 0 65px
+}
+
+.evaluate-list[_v-35610538] {
+    padding: 30px 0;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: 1px solid hsla(0, 0%, 95%, .5)
+}
+
+.evaluate-cont[_v-35610538] {
+    width: 1107px;
+    margin-left: 21px;
+    text-align: left;
+    margin-right: 30px
+}
+
+.evaluate-user-wrap[_v-35610538] {
+    display: -ms-flexbox;
+    display: flex
+}
+
+.evaluate-user-name[_v-35610538] {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    letter-spacing: .22px
+}
+
+.evaluate-time[_v-35610538] {
+    margin-left: 36px;
+    font-size: 14px;
+    color: #999;
+    letter-spacing: .22px
+}
+
+.evaluate-detail[_v-35610538] {
+    font-size: 12px;
+    color: #999;
+    letter-spacing: .19px;
+    margin-top: 2px
+}
+
+.reply[_v-35610538] {
+    background: #f1f1f1;
+    padding: 12px 11px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: .19px
+}
+
+.like-detail-wrap[_v-35610538] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: right;
+    justify-content: right
+}
+
+.evaluate-like-wrap[_v-35610538] {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    height: 17px;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: auto
+}
+
+.eva-like-icon[_v-35610538] {
+    margin-left: 30px
+}
+
+.eva-like-num[_v-35610538], .eva-unlike-num[_v-35610538] {
+    font-size: 12px;
+    color: #999;
+    margin-left: 6px
+}

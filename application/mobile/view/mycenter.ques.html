@@ -1,0 +1,46 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-859663b0="" class="question subPage_app">
+    <div data-v-4cd57836="" data-v-859663b0="" class="header">
+        <div data-v-4cd57836="" style="display: none;"></div>
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-4cd57836="">常见问题</span></div>
+    <div data-v-859663b0="" class="list">
+        <ul data-v-859663b0="">
+
+            <li data-v-859663b0="" class="">
+                <div data-v-859663b0="">
+                    <p data-v-859663b0="">如何购买观看</p>
+                    <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="" onclick="detail(2)">
+                </div>
+            </li>
+            <li data-v-859663b0="" class="margin">
+                <div data-v-859663b0="">
+                    <p data-v-859663b0="">学位作业要求</p>
+                    <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="" onclick="detail(3)">
+                </div>
+            </li>
+
+            <li data-v-859663b0="" class="">
+                <div data-v-859663b0="">
+                    <p data-v-859663b0="">版权提示</p>
+                    <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="" onclick="detail(4)">
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('index')}";
+    });
+    function detail(id) {
+        window.location.href = "{:url('ques/detail')}?id="+id;
+    }
+</script>
+{/block}

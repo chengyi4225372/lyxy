@@ -1,0 +1,26 @@
+<div class="main_box box" _v-046fb1b5="" _v-650b75d2="" style="display: none">
+    <div _v-046fb1b5="">
+        <div class="evaluation" _v-046fb1b5=""> 
+            <!--v-for-start-->
+            {foreach name='comment' item='vo'}
+            <div class="evaluation-list" _v-046fb1b5="" key="0">
+                <div class="left" _v-046fb1b5="">
+                    <img alt="" _v-046fb1b5="" src="{$vo.member_info.imgurl}">
+                    <p class="p1" _v-046fb1b5="">{$vo.member_info.real_name} | {$vo.member_info.before}</p>
+                    <p class="p2" _v-046fb1b5="">就职于：{$vo.member_info.position}</p>
+                    <!-- <p class="p3" _v-046fb1b5="">报名时间：{$vo.member_info.position}</p></div> -->
+                </div>
+                <ul class="right" _v-046fb1b5="" style="padding: 10px;padding-top: 20px;text-indent: 2em;font-size: 14px;line-height: 24px;">
+                        <li _v-046fb1b5="">
+                            {$vo.content}
+                        </li>
+                    </ul>
+            </div>
+            {/foreach}
+            <!--v-for-end--> 
+        </div>
+        <!-- <div class="loading" _v-046fb1b5="" style="display: none;">
+            <imgsrc="__STATIC__/index/static/img/load.gif" alt="" _v-046fb1b5=""></div>
+        <p class="lookmore" _v-046fb1b5="">查看更多</p></div> -->
+    </div>
+</div>

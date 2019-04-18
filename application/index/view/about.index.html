@@ -1,0 +1,193 @@
+﻿{extend name="public/content" /}
+{block name="cssjs"}
+{__block__}
+<link href="http://static.geetest.com/static/wind/style.1.5.0.css" rel="stylesheet">
+    <link href="http://static.geetest.com/static/ant/style.1.2.0.css" rel="stylesheet">
+        <link href="__STATIC__/index/static/css/about.css" rel="stylesheet"/>
+        {/block}
+{block name='body'}
+        <!--v-component-->
+        <div id="router-view">
+            <main _v-35ea5591="">
+                <div _v-35ea5591="" class="top" style="position: absolute;width: 100%;">
+                    <div _v-35ea5591="" class="about-banner">
+                    </div>
+                    <header _v-35ea5591="" class="about-head">
+                        <ul _v-35ea5591="" class="header-list">
+                            <li _v-35ea5591="" class="header-item" id="about">
+                                关于我们
+                            </li>
+                            <li _v-35ea5591="" class="header-item" id="team">
+                                团队介绍
+                            </li>
+                            <li class="header-item" _v-35ea5591="" id="contact">联系我们</li>
+                        </ul>
+                    </header>
+                    <script>
+                        $(document).ready(function() {
+                    $("#about").click(function() {
+                        $("html, body").animate({
+                            scrollTop: $("#about_div").offset().top }, {duration: 500,easing: "swing"});
+                        return false;
+                    });
+                    $("#team").click(function() {
+                        $("html, body").animate({
+                            scrollTop: $("#team_div").offset().top }, {duration: 500,easing: "swing"});
+                        return false;
+                    });
+                   $("#contact").click(function() {
+                       $("html, body").animate({
+                           scrollTop: $("#contact_div").offset().top }, {duration: 500,easing: "swing"});
+                       return false;
+                   });
+                });
+                    </script>
+                </div>
+                <div _v-35ea5591="" class="about-main">
+                    <div _v-35ea5591="" class="about-item about-us-wrap" id="about_div">
+                        <h3 _v-35ea5591="" class="about-tit">
+                            关于我们
+                        </h3>
+                        <em _v-35ea5591="" style="display: block; border-top: 2px solid #78C63F; width: 63px; margin: 30px auto 37px">
+                        </em>
+                        <p _v-35ea5591="" class="about-dec">
+                            乐育学院作为一个专门做在线前端培训的公司，是由前百度高级工程师，《javascript设计模式》作者，网易资深签约讲师，张容铭老师携手一线互联网大咖发起的在线前端学习模式，我们相信人一定可以通过学习改变命运，我们为上班族和想转行但距离比较远的学员提供一站式解决方案。
+                            <br _v-35ea5591="">
+                                <br _v-35ea5591="">
+                                    目前我们的线下培训爱创课堂已经培养数千名前端互联网开发人才，正因为我们只专注不忽悠的教学态度，让数千名前端人员顺利转行。
+                                </br>
+                            </br>
+                        </p>
+                        <ul _v-35ea5591="" class="about-us-list about-img-mar">
+                            <li _v-35ea5591="" class="about-us-item">
+                                <img _v-35ea5591="" alt="" height="240" src="__STATIC__/index/static/frontend/about/about_img1.png" width="380"/>
+                            </li>
+                            <li _v-35ea5591="" class="about-us-item">
+                                <img _v-35ea5591="" alt="" height="240" src="__STATIC__/index/static/frontend/about/about_img2.png" width="380"/>
+                            </li>
+                            <li _v-35ea5591="" class="about-us-item">
+                                <img _v-35ea5591="" alt="" height="240" src="__STATIC__/index/static/frontend/about/about_img3.png" width="380"/>
+                            </li>
+                        </ul>
+                        <ul _v-35ea5591="" class="about-us-list about-text-mar">
+                            <li _v-35ea5591="" class="about-us-item">
+                                <h4 _v-35ea5591="" class="about-text-tit">
+                                    我们的愿景
+                                </h4>
+                                <p _v-35ea5591="" class="us-hope">
+                                    帮助更多零基础学员转行前端。
+                                </p>
+                            </li>
+                            <li _v-35ea5591="" class="about-us-item">
+                                <h4 _v-35ea5591="" class="about-text-tit">
+                                    价值观
+                                </h4>
+                                <p _v-35ea5591="" class="us-hope">
+                                    秉承纯干货不忽悠的态度专注前端培训。
+                                </p>
+                            </li>
+                            <li _v-35ea5591="" class="about-us-item">
+                                <h4 _v-35ea5591="" class="about-text-tit">
+                                    为何取名为乐育学院？
+                                </h4>
+                                <p _v-35ea5591="" class="us-hope">
+                                    旨在培养企业需要的前端人才
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div _v-35ea5591="" class="about-item about-service" style="background: unset;height: unset;">
+                        <img src="/static/index/static/frontend/about/about-service-bkg.png" style="width: 100%;min-width:1000px;">
+                        <!-- <h3 _v-35ea5591="" class="about-service-tit">
+                            我们的服务
+                        </h3>
+                        <em _v-35ea5591="" style="display: block; border-top: 2px solid #78C63F; width: 63px; margin: 23px auto">
+                        </em>
+                        <p _v-35ea5591="" class="about-service-dec">
+                            乐育学院提供最前沿的前端课程，在线“VIP一对一的全新模式。依据学员的学习情况提供视频课程，一对一答疑服务，作业批改，答疑，项目指导，简历指导，模拟面试等一系列”服务，帮助更多零基础学员顺利转行
+                        </p> -->
+                    </div>
+                    <div _v-35ea5591="" class="about-item about-team" id="team_div">
+                        <h3 _v-35ea5591="" class="about-team-tit">
+                            我们的团队
+                        </h3>
+                        <em _v-35ea5591="" style="display: block; border-top: 2px solid #78C63F; width: 63px; margin: 21px auto 57px">
+                        </em>
+                        <p _v-35ea5591="" class="about-team-dec">
+                            爱创课堂由前百度工程师，《javaScript设计模式》张容铭老师创立，公司秉承纯干货，不忽悠的态度专注前端培训，让每个零基础的学员都能真正的从入门到精通
+                        </p>
+                        <ul _v-35ea5591="" class="team-member-list">
+                            {foreach name='team' item='vo'}
+                            <li _v-35ea5591="" class="team-member-item">
+                                <div _v-35ea5591="" class="team-member-img">
+                                    <img _v-35ea5591="" alt="" src="{$vo.imgurl}" width="100%"/>
+                                </div>
+                                <div _v-35ea5591="" class="team-member-bout">
+                                    <span _v-35ea5591="" class="team-member-name">
+                                        {$vo.teacher_name}
+                                    </span>
+                                    <span _v-35ea5591="" class="team-member-profession">
+                                        {$vo.position}
+                                    </span>
+                                    <p _v-35ea5591="" class="team-member-dec">
+                                        {$vo.desc}
+                                    </p>
+                                </div>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                    <div _v-35ea5591="" class="about-item user-feedback-wrap" id="contact_div">
+                        <div _v-35ea5591="" class="feedback-main">
+                            <h3 _v-35ea5591="" class="feedback-tit">
+                                联系我们
+                            </h3>
+                            <div _v-35ea5591="" class="feedback-info">
+                                <div _v-35ea5591="" class="" style="display: flex; justify-content: space-between">
+                                    <div _v-35ea5591="" class="tip-main">
+                                        <span _v-35ea5591="" class="tip-dec tip-font">
+                                            您也可以通过以下方式联系我们
+                                        </span>
+                                        <span _v-35ea5591="" class="our-emil tip-font">
+                                            邮箱：ickt@icketang.com
+                                        </span>
+                                        <span _v-35ea5591="" class="our-emil tip-font">
+                                            电话：18612643772
+                                        </span>
+                                        <address _v-35ea5591="" class="our-address tip-font">
+                                            地址：北京市昌平区北七家镇北清路北创空间二层C30
+                                        </address>
+                                    </div>
+                                    <div _v-35ea5591="">
+                                        <img _v-35ea5591="" alt="" src="/static/index/static/frontend/about/weixin.png" width="110">
+                                            <span _v-35ea5591="" class="erweima-dec">
+                                                微信公众号
+                                            </span>
+                                        </img>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!--v-component-->
+        </div>
+        {/block}
+{block name="js"}
+        <script>
+            window.onload = function () {
+        var pad_top = $('.top').css('height');
+        $('.about-main').css('padding-top',pad_top);
+    }
+    window.onresize = function () {
+        var pad_top = $('.top').css('height');
+        $('.about-main').css('padding-top',pad_top);
+    };
+        </script>
+        {/block}
+{block name='footer'}
+{__block__}
+{/block}
+    </link>
+</link>

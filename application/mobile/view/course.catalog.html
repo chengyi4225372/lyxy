@@ -1,0 +1,64 @@
+<div data-v-3851df12="" data-v-28fbf53a="" class="catalog" style="display: none;">
+    <div data-v-3851df12="" class="vux-x-dialog">
+        <div class="weui-mask" style="display: none;">
+        </div>
+        <div class="weui-dialog" style="display: none;">
+            <div data-v-3851df12="" class="tip-box">
+                <p data-v-3851df12="">请先付费购买，才可观看～</p>
+                <p data-v-3851df12="">确定</p>
+            </div>
+        </div>
+    </div>
+
+    {foreach name='chapter' item='vv'}
+    <div data-v-3851df12="" class="chapter">
+
+        <div data-v-3851df12="" class="title" onclick="look_list(this)">
+            <p data-v-3851df12="" class="num">第{$key+1}章·{$vv.name}</p>
+            <img data-v-3851df12="" src="/static/mobile/frontend/course/drop-down.svg" alt="" class="img1"
+                 style="transform: rotate(0);">
+            <!--<img data-v-3851df12="" src="/static/mobile/frontend/course/drop-down.svg" alt="" class="img2"-->
+                 <!--style="display: none;">-->
+        </div>
+
+        <ul data-v-3851df12="" class="list" style="display: none;">
+            {foreach name='vv.content' item='vvo'}
+            <li data-v-3851df12="">
+                <div data-v-3851df12="" class="left">
+                    {eq name='vvo.is_free' value='1'}
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt="" class="play">
+                    {/eq}
+                    {neq name='vvo.is_free' value='1'}
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt="" class="play"
+                         style="display: none;">
+                    {/neq}
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play"
+                         style="display: none;">
+                    <p data-v-3851df12="" class="name">{$vvo.name}</p></div>
+                <div data-v-3851df12="" class="right">
+                    {eq name='vvo.is_free' value='1'}
+                    <span data-v-3851df12="" class="try">试学</span>
+                    {/eq}
+                    {neq name='vvo.is_free' value='1'}
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/lock.svg" alt="">
+                    {/neq}
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+
+    </div>
+    {/foreach}
+
+</div>
+<script>
+    function look_list(obj) {
+        if ($(obj).next("ul").css('display') == 'block') {
+            $(obj).next("ul").css('display', 'none');
+            $(obj).children('.img1').css('transform','rotate(0)');
+        } else {
+            $(obj).next("ul").css('display', 'block');
+            $(obj).children('.img1').css('transform','rotate(180deg)');
+        }
+    }
+</script>

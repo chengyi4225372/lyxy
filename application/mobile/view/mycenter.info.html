@@ -1,0 +1,89 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<link rel="stylesheet" href="/static/mobile/layer_mobile/need/layer.css">
+<div data-v-0889b102="" class="information subPage_app">
+    <div data-v-4cd57836="" data-v-0889b102="" class="header">
+        <div data-v-4cd57836="" style="display: none;"></div>
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-4cd57836="">我的资料</span>
+    </div>
+    <div data-v-0889b102="" class="box"><!---->
+        <ul data-v-0889b102="" class="cont">
+            <li data-v-0889b102="" class="li1">
+                <span data-v-0889b102="" class="type">头像</span>
+                <img data-v-0889b102="" alt="" src="{$Think.session.member_info.imgurl}">
+            </li>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">用户名</span>
+                <span data-v-0889b102="" class="user">{$Think.session.member_info.real_name}</span>
+            </li>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">性别</span>
+                <span data-v-0889b102="" class="user">保密</span>
+            </li>
+            <li data-v-0889b102=""><span data-v-0889b102="" class="type">生日</span>
+                <span data-v-0889b102="" class="user"> - - </span>
+            </li>
+        </ul>
+        <ul data-v-0889b102="" class="cont auto">
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">Q Q</span>
+                <span data-v-0889b102="" class="user"></span>
+            </li>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">微信</span>
+                <span data-v-0889b102="" class="user"></span>
+            </li>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">现居</span>
+                <span data-v-0889b102="" class="user"> 省 |  市</span>
+            </li>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">学历</span>
+                <span data-v-0889b102="" class="user">学历</span>
+            </li>
+        </ul>
+        <div data-v-0889b102="" class="exit">
+            退出当前账号
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script src="/static/mobile/layer_mobile/layer.js"></script>
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('index')}";
+    });
+    $('.exit').on('click', function () {
+        //询问框
+        layer.open({
+            content: '确定要退出当前账号吗？'
+//            ,shade: false
+            ,shadeClose: false
+            ,btn: ['确定', '取消']
+            ,yes: function(index){
+                //loading带文字
+                layer.open({
+                    type: 2
+                    ,content: '退出中'
+                });
+                $.ajax({
+                    url:"{:url('logout')}",
+                    type:"post",
+                    dataType:"json",
+                    success:function (t) {
+                        window.location.href = "{:url('index')}";
+                    }
+                });
+            }
+            ,no: function (index) {
+                layer.close(index);
+            }
+        });
+    });
+</script>
+{/block}

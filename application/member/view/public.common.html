@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html style="font-size: 71.6667px;">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta name="renderer" content="webkit"/>
+    <meta name="Keywords" content="{:sysconf('seo_keywords')}"/>
+    <meta name="Description" content="{:sysconf('seo_description')}"/>
+    <title>{$title}</title>
+    {block name="cssjs"}
+    <link rel="shortcut icon" href="__STATIC__/index/static/frontend/url_logo.png"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/plugins/toastr.min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/aliplayer-min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/app.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/freemask.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/home.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/swiper-contain.css"/>
+    <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/app.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/layui/css/layui.css"/>
+    <script src="__STATIC__/index/plugins/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.all.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/layui/layui.js"></script>
+    <script type="text/javascript" src="__STATIC__/index/static/js/index_nav.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/meiqia.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/deal-warp.css"/>
+    <link rel="stylesheet" href="__STATIC__/index/static/css/common/load-box.css"/>
+    {/block}
+</head>
+<body id="app">
+<!--v-start-->
+<div class="header" _v-319a3b1b="">
+    <div class="header_cont" _v-319a3b1b="">
+        <img class="oldboy" src="__STATIC__/index/static/frontend/head_logo.png" _v-319a3b1b=""/>
+        <nav class="nav" _v-319a3b1b="">
+            <a _v-319a3b1b="" href="{:url('index/index/index')}">首页</a>
+            <a _v-319a3b1b="" href="{:url('index/course/index')}">免费课程</a>
+            <a class="span3" _v-319a3b1b="" href="{:url('index/camp/index')}">七天训练营<b _v-319a3b1b="">New</b></a>
+            <!--<a class="span3" _v-319a3b1b="" href="{:url('index/job/index')}">轻课<b _v-319a3b1b="">New</b></a>-->
+            <a _v-319a3b1b="" href="{:url('index/micro/index')}">学位课程</a>
+            <a class="span5" _v-319a3b1b="" href="{:url('index/open/index')}">公开课<b _v-319a3b1b="">Hot</b></a>
+            <a _v-319a3b1b="" href="{:url('index/about/index')}">乐育故事</a>
+            <a _v-319a3b1b="" href="{:url('index/material/index')}">内部教材</a>
+        </nav>
+        <div class="header_right_box" _v-319a3b1b="">
+            <div class="nav_right_box" _v-319a3b1b="" style="">
+                <div class="nav_right" _v-319a3b1b="">
+                    <div class="nav_study" _v-319a3b1b="" onclick="go_study()">
+                        学习中心
+                    </div>
+                    <div class="nav_img account_nav" _v-319a3b1b="" data-layerid="my_account">
+                        <span _v-319a3b1b="">{$Think.session.member_info.name}</span>
+                        <img alt="" _v-319a3b1b=""
+                             src="{$Think.session.member_info.imgurl|default='__STATIC__/index/static/frontend/default.png'}"/>
+                    </div>
+                    <ul class="my_account account_nav" id="my_account" _v-319a3b1b="" data-layerid="my_account">
+                        <li _v-319a3b1b="" onclick="go_member(1)">我的账户 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <li _v-319a3b1b="" onclick="go_member(2)">我的订单 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <li _v-319a3b1b="" onclick="go_member(3)">我的优惠券 <i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                        <!--<li _v-319a3b1b="" onclick="go_member(1)">-->
+                            <!--<span _v-319a3b1b="">我的消息<b _v-319a3b1b=""></b></span>-->
+                            <!--<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>-->
+                        <!--<li _v-319a3b1b="" onclick="go_member(1)">-->
+                            <!--<span _v-319a3b1b="">购物车</span>-->
+                            <!--<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>-->
+                        <li _v-319a3b1b="" onclick="do_logout()">退出<i class="fa fa-angle-right sec-arrow-icon" _v-319a3b1b=""></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <!--<div class="mbox" _v-ba19f640="">-->
+    <!--<div class="mask" _v-ba19f640="">-->
+    <!--<img alt="" class="guan" _v-ba19f640="" src="__STATIC__/index/static/frontend/close_1528115521.9777012.png"/>-->
+    <!--<img alt="" class="popup" _v-ba19f640="" src="__STATIC__/index/static/frontend/w1_1538127278.9954007.png"/>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--v-component-->
+</div>
+<div id="router-view">
+    <main class="information" _v-67c9b315="">
+        <div _v-6d94aab5="" _v-a55c6432="">
+            <div class="my-banner" _v-6d94aab5=""></div>
+            <div class="profile-wrap" _v-6d94aab5="">
+                <div style="text-align: center; margin-top: -80px" _v-6d94aab5="">
+                    <div style="width: 120px; height: 120px; border-radius: 60px;
+                            overflow: hidden; margin: 0 auto" _v-6d94aab5="">
+                        <img class="newImg" width="100%" alt="" _v-6d94aab5=""
+                             src="{$Think.session.member_info.imgurl|default='__STATIC__/index/static/frontend/default.png'}">
+                        <div class="camera-icon" _v-6d94aab5="" style="display: none;"></div>
+                    </div>
+                    <span class="user-name" _v-6d94aab5="">{$Think.session.member_info.name}</span>
+                    <span class="user-job" _v-6d94aab5="">{$Think.session.member_info.trand}</span>
+                    <p class="user-word" _v-6d94aab5=""></p></div>
+            </div>
+        </div>
+
+        <div class="wrapper" _v-a55c6432="">
+            <ul class="my-item-wrap" _v-a55c6432="">
+                <li class="{eq name='my_nav' value='1'}my-active active{/eq}" _v-a55c6432="" onclick="go_member(1)">
+                    我的账户
+                </li>
+                <li class="{eq name='my_nav' value='2'}my-active active{/eq}" _v-a55c6432="" onclick="go_member(2)">
+                    我的订单
+                </li>
+                <li class="{eq name='my_nav' value='3'}my-active active{/eq}" _v-a55c6432="" onclick="go_member(3)">
+                    我的收藏
+                </li>
+                <li class="{eq name='my_nav' value='4'}my-active active{/eq}" _v-a55c6432="" onclick="go_member(4)">
+                    个人资料
+                </li>
+                <li class="{eq name='my_nav' value='5'}my-active active{/eq}" _v-a55c6432="" onclick="go_member(5)">
+                    账号安全
+                </li>
+            </ul>
+            {block name="body"}{/block}
+        </div>
+    </main><!--v-component-->
+</div>
+<script>
+    function go_study() {
+        window.location.href = "{:url('member/index/study')}";
+    }
+    function go_member(index) {
+        switch (index) {
+            case 1:
+                window.location.href = "{:url('@member/index/index')}";
+                break;
+            case 2:
+                window.location.href = "{:url('@member/order/index')}";
+                break;
+            case 3:
+                window.location.href = "{:url('@member/index/coupon')}";
+                break;
+            case 4:
+                window.location.href = "{:url('@member/profile/index')}";
+                break;
+            default:
+                window.location.href = "{:url('@member/index/safe')}";              
+        }
+    }
+    function do_logout() {
+        window.location.href = "{:url('@index/login/logout')}";
+    }
+</script>
+{block name="js"}{/block}
+{block name="footer"}
+<div class="footWrap" _v-30d33f5b="">
+    <div class="box" _v-30d33f5b="">
+        <ul class="foot-link" _v-30d33f5b="">
+            <!--v-for-start-->
+            <li _v-30d33f5b="">友情链接:</li>
+            {foreach name='company' item='vv'}
+            <li _v-30d33f5b="">
+                <a target="_blank" href="{$vv.url}" style="color: #fff;">{$vv.name}</a></li>
+            {/foreach}
+            <!--v-for-end-->
+        </ul>
+        <ul class="foot-link" _v-30d33f5b="">
+            <!--v-for-start-->
+            <li _v-30d33f5b="" key="[object Object]">关于我们</li>
+            <li _v-30d33f5b="" key="[object Object]">联系我们</li>
+            <li _v-30d33f5b="" key="[object Object]">商务合作</li>
+            <li _v-30d33f5b="" key="[object Object]">帮助中心</li>
+            <li _v-30d33f5b="" key="[object Object]">意见反馈</li>
+            <li _v-30d33f5b="" key="[object Object]">新手指南</li>
+            <!--v-for-end-->
+        </ul>
+        <p class="base-style" _v-30d33f5b="">Copyright &copy; lyxy.com版权所有 | xxxx备xxxxxx号-1</p>
+    </div>
+</div>
+<div id="msg-bin-holder" style="display: block; z-index: 2147483647;">
+    <div id="msg-bin">
+        <span id="msg-bin-icon" class="msg-bin-icon"></span>
+    </div>
+</div>
+<div id="msg-panel-holder">
+    <div id="pageMsg">
+        <div class="header">
+            <div class="pull-left">
+                <div class="title">给我们留言</div>
+            </div>
+            <div class="pull-right">
+                <a id="btnHideTicket" name="btnHidePanel">
+                    <i class="icon icon-angel-down"></i></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="body">
+            <div id="ticketForm">
+                <div id="ticketV2" class="active">
+                    <div class="form-group">
+                        <div class="group-title"> 手机</div>
+                        <div class="group-content"><input id="ticketTel" type="text" placeholder=" 请输入手机号"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="group-title">留言内容<span>*</span></div>
+                        <div class="group-content"><textarea id="ticketContent" placeholder="请输入留言内容"></textarea></div>
+                    </div>
+                    <div class="btn-group"><a id="ticketSubmit">提交</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#msg-bin").click(function () {
+        $("#msg-panel-holder").css('visibility','visible');
+        $("#msg-panel-holder").css('z-index','999999');
+        $("#msg-bin-holder").css('display','none');
+    })
+    $("#btnHideTicket").click(function () {
+        $("#msg-panel-holder").css('visibility','hidden');
+        $("#msg-panel-holder").css('z-index','-1');
+        $("#msg-bin-holder").css('display','block');
+    })
+</script>
+{/block}
+</body>
+</html>
+
+

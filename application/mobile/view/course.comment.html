@@ -1,0 +1,42 @@
+<div data-v-23dc3424="" data-v-28fbf53a="" class="evaluate" style="display: none;">
+    <div data-v-23dc3424="" class="grade">
+        <p data-v-23dc3424="" class="starlevel">
+            <span data-v-23dc3424="">9.9</span>
+            <span data-v-23dc3424="">16人评价</span>
+        </p>
+        <ul data-v-23dc3424="">
+            <li data-v-23dc3424="">
+                <p data-v-23dc3424="">通俗易通</p>
+                <p data-v-23dc3424="">9.9分</p></li>
+            <li data-v-23dc3424="">
+                <p data-v-23dc3424="">内容实用</p>
+                <p data-v-23dc3424="">9.9分</p></li>
+            <li data-v-23dc3424="">
+                <p data-v-23dc3424="">讲解清晰</p>
+                <p data-v-23dc3424="">9.9分</p></li>
+        </ul>
+    </div>
+    <div data-v-23dc3424="" class="comment">
+
+        {foreach name='comment' item='vv'}
+        <div data-v-23dc3424="" class="commList">
+            <dl data-v-23dc3424="">
+                <dt data-v-23dc3424="">
+                <p data-v-23dc3424="" class="left">
+                    <img data-v-23dc3424="" src="{$vv.member_info.imgurl}" alt=" ">
+                    <span data-v-23dc3424="" class="name">{$vv.member_info.name}</span>
+                </p>
+                <p data-v-23dc3424="" class="time">{$vv.pass_day}</p>
+                </dt>
+                <dd data-v-23dc3424="">{$vv.impress}</dd>
+                <div data-v-23dc3424="" class="reply-box" style="display: none;">
+                    <p data-v-23dc3424="" class="content">
+                        <span data-v-23dc3424="" class="reply">[讲师回复]:</span>
+                    </p>
+                </div>
+            </dl>
+        </div>
+        {/foreach}
+
+    </div>
+</div>

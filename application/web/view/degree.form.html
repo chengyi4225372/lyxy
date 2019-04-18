@@ -1,0 +1,230 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.min.js"> </script>
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程名称</label>
+        <div class="layui-input-block">
+            <input name="name" value='{$vo.name|default=""}' required="required"
+                   title="课程名称" placeholder="课程名称" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程类型</label>
+        <div class='layui-input-block'>
+            <select name="type_id" id="type">
+                <option value="{$vo.type_id|default=''}">{$vo.type_name|default='请选择课程类型'}</option>
+                {empty name='type'}<option value="">暂无课程类型</option>{/empty}
+                {foreach $type as $val}
+                {notempty name='vo.type_id'}
+                {if condition="$vo.type_id neq $val.id"}
+                <option value="{$val.id}">{$val.name}</option>
+                {/if}
+                {/notempty}
+                {empty name='vo.type_id'}
+                <option value="{$val.id}">{$val.name}</option>
+                {/empty}
+                {/foreach}
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程主图</label>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.imgurl|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="imgurl" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.imgurl|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="imgurl">上传图片</a>
+        </div>
+        <label class="layui-form-label">套餐详情</label>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.pack_detail|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="pack_detail" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.pack_detail|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="pack_detail">上传图片</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程编号</label>
+        <div class="layui-input-inline">
+            <input name="class_code" value='{$vo.class_code|default=""}' required="required"
+                   title="课程编号" placeholder="课程编号" class="layui-input">
+        </div>
+        <label class="layui-form-label">学员数量</label>
+        <div class="layui-input-inline">
+            <input name="member_num" value='{$vo.member_num|default=""}' required="required"
+                   title="学员数量" placeholder="学员数量" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">目标职位</label>
+        <div class="layui-input-inline">
+            <input name="position" value='{$vo.position|default=""}' required="required"
+                   title="目标职位" placeholder="目标职位" class="layui-input">
+        </div>
+        <label class="layui-form-label">学完目标薪资</label>
+        <div class="layui-input-inline">
+            <input name="target" value='{$vo.target|default=""}' required="required"
+                   title="学完目标薪资" placeholder="学完目标薪资" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">咨询跳转链接</label>
+        <div class="layui-input-block">
+            <input name="web_url" value='{$vo.web_url|default=""}' required="required"
+                   title="咨询跳转链接" placeholder="咨询跳转链接" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">课程简介</label>
+        <div class="layui-input-block">
+            <textarea id="content" name="content" style="width:100%;height:300px;">{$vo.content|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">特色服务</label>
+        <div class="layui-input-block">
+            <textarea id="service" name="service" style="width:100%;height:300px;">{$vo.service|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">线下环境</label>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.environment1|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="environment1" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.environment1|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="environment1">上传图片1</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.environment2|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="environment2" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.environment2|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="environment2">上传图片2</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.environment3|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="environment3" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.environment3|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="environment3">上传图片3</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.environment4|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="environment4" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.environment4|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="environment4">上传图片4</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">核心优势</label>
+        <div class='layui-input-inline'>
+            <input name="str1_title" value='{$vo.str1_title|default=""}' required="required"
+                   title="标题1" placeholder="标题1" class="layui-input">
+        </div>
+        <div class='layui-input-inline'>
+            <input name="str2_title" value='{$vo.str2_title|default=""}' required="required"
+                   title="标题2" placeholder="标题2" class="layui-input">
+        </div>
+        <div class='layui-input-inline'>
+            <input name="str3_title" value='{$vo.str3_title|default=""}' required="required"
+                   title="标题3" placeholder="标题3" class="layui-input">
+        </div>
+        <div class='layui-input-inline'>
+            <input name="str4_title" value='{$vo.str4_title|default=""}' required="required"
+                   title="标题4" placeholder="标题4" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">优势图片</label>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.str1_icon|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="str1_icon" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.str1_icon|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="str1_icon">上传图片1</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.str2_icon|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="str2_icon" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.str2_icon|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="str2_icon">上传图片2</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.str3_icon|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="str3_icon" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.str3_icon|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="str3_icon">上传图片3</a>
+        </div>
+        <div class='layui-input-inline'>
+            <img data-tips-image style="height:auto;max-height:32px;min-width:32px"
+                 src="{$vo.str4_icon|default='__STATIC__/theme/default/img/image.png'}"/>
+            <input type="hidden" name="str4_icon" onchange="$(this).prev('img').attr('src', this.value)"
+                   value="{$vo.str4_icon|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="str4_icon">上传图片4</a>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">优势介绍</label>
+        <div class='layui-input-block'>
+        <input name="str1_cont" value='{$vo.str1_cont|default=""}' required="required"
+               title="优势介绍" placeholder="优势介绍" class="layui-input">
+        </div>
+        <div class='layui-input-block'>
+        <input name="str2_cont" value='{$vo.str2_cont|default=""}' required="required"
+               title="优势介绍" placeholder="优势介绍" class="layui-input">
+        </div>
+        <div class='layui-input-block'>
+        <input name="str3_cont" value='{$vo.str3_cont|default=""}' required="required"
+               title="优势介绍" placeholder="优势介绍" class="layui-input">
+        </div>
+        <div class='layui-input-block'>
+        <input name="str4_cont" value='{$vo.str4_cont|default=""}' required="required"
+               title="优势介绍" placeholder="优势介绍" class="layui-input">
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = "/static/ueditor/";
+        var ue1 = UE.getEditor('content');
+        var ue2 = UE.getEditor('service');
+    </script>
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <!-- <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button> -->
+        <button data-open='{:url("index")}' data-title="取消编辑" class='layui-btn layui-btn-danger' data-close>取消编辑</button>
+    </div>
+    <script>
+        window.form.render();
+    </script>
+</form>

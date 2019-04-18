@@ -1,0 +1,117 @@
+{notempty name='course'}
+<div _v-3ec27500="">
+    <div class="loading-wrapp" _v-8106d180="" _v-3ec27500="" style="display: none;">
+        <div class="loading-ball-list" _v-8106d180="">
+            <div class="loading-ball7a" _v-8106d180=""></div>
+            <div class="loading-ball7b" _v-8106d180=""></div>
+            <div class="loading-ball7c" _v-8106d180=""></div>
+            <div class="loading-ball7d" _v-8106d180=""></div>
+        </div>
+    </div><!--v-component-->
+    <div style="padding-top: 33px; background: rgb(255, 255, 255);" _v-3ec27500="">
+        <div style="display: flex; width:967px; margin: 0 auto; justify-content: space-between" _v-3ec27500=""></div>
+        <ul style="width: 967px; margin: 10px auto 0; padding-left: 0; padding-bottom: 65px" _v-3ec27500="">
+            <!--v-for-start-->
+            {foreach name='camp' item='vo'}
+            <li _v-3ec27500="">
+                <div  onclick="course(this)" data-toggle="collapse" _v-3ec27500=""
+                     class="study-course-item" data-target="#course_3864">
+                    <div style="width: 282px; height: 159px; overflow: hidden" _v-3ec27500="">
+                        <img width="282" height="159" alt="" _v-3ec27500="" src="{$vo.imgurl}">
+                        <!--v-if--> </div>
+                    <div class="course" _v-3ec27500="">
+                        <h3 class="study-course-item-tit" _v-3ec27500="" style="margin-top: 60px;">{$vo.name}</h3>
+                        <!--<p class="study-progress" _v-3ec27500="">{$vo.content|html_entity_decode=###}</p>-->
+                        <div style="margin-top: 23px; display: flex" _v-3ec27500="">
+                            <div class="lesson-download" _v-3ec27500="">
+                            </div>
+                            <!--<div class="lesson-test" _v-3ec27500="">-->
+                                <!--<span class="download-text" style="padding-left: 15px" _v-3ec27500="">课堂作业</span>-->
+                            <!--</div>-->
+                        </div>
+                        <!--<div style="margin-top: 30px; display: flex; align-items: center" _v-3ec27500="">-->
+                            <!--<span _v-3ec27500="">-->
+                            <!--<span style="color: #FF5D00" _v-3ec27500="">30天后</span>过期</span>-->
+                            <!--&lt;!&ndash;v-if&ndash;&gt;-->
+                        <!--</div>-->
+                    </div>
+                    <div _v-3ec27500="">
+                        <span class="go-on-study" style="margin-top: 138px" _v-3ec27500="">继续学习&gt;</span><!--v-if--> <!--v-if-->
+                    </div>
+                </div>
+                <ul class="collapse out" style="padding-left: 0" _v-3ec27500=""> <!--v-for-start-->
+                    {foreach name='vo.chapter' item='vv'}
+                    <li _v-3ec27500="">
+                        <div onclick="course(this)" data-toggle="collapse" _v-3ec27500=""
+                             class="study-section-wrap" data-target="#chapter_1_1" id="1">
+                            <h4 class="study-micro-cec-tit" _v-3ec27500="">{$vv.name}</h4>
+                            <div _v-3ec27500="">
+                                <span class="study-micro-sec-look-all" _v-3ec27500="">查看全部课程</span>
+                                <i class="fa fa-angle-right" aria-hidden="true" _v-3ec27500=""></i>
+                            </div>
+                        </div>
+                        <ul class="collapse out" style="padding-left: 0" _v-3ec27500="" id="chapter_1_1">
+                            <!--v-for-start-->
+                            {foreach name='vv.content' item='val'}
+                            <li _v-3ec27500="" id="{$key}">
+                                <div class="course-wrap" _v-3ec27500="">
+                                    <div class="course_introduction" _v-3ec27500="">
+                                        <p class="study-micro-sec-course-tit" _v-3ec27500="">{$val.name}</p>
+                                        {notempty name="val.video_url"}
+                                        <span class="center" _v-3ec27500="">
+                                        <img class="play" src="/static/index/static/img/play-vedio.svg" alt="" _v-3ec27500=""
+                                             onclick="player('{$val.video_url}')">
+                                        </span>
+                                        {/notempty}
+                                    </div>
+                                </div><!--v-if-->
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </li>
+                    {/foreach}
+                </ul>
+            </li>
+            {/foreach}
+            <!--v-for-end-->
+        </ul>
+    </div>
+</div>
+<script>
+    function course(obj) {
+        if ($(obj).next("ul .collapse").css('display')=='block') {
+            $(obj).next("ul .collapse").css('display', 'none');
+        } else {
+            $(obj).next("ul .collapse").css('display', 'block');
+        }
+    }
+//    var video_play = '<div id="player" style="display: none">' +
+//        '<div class="main-wrap" style="width: 720px;margin: 0 auto;margin-top: 15%;position: relative;">'+
+//        '<img onclick="toSmall()" class="close" src="/static/index/static/frontend/close.png" style="position: absolute;top: -10px;right: -10px;opacity: 0.8;width: 20px;z-index: 999;"/>'+
+//        '<video id="video" ishivideo="true" autoplay="true" isrotate="false" autoHide="true" style="width: 720px;">' +
+//        '<source type="video/mp4">' +
+//        '</video>' +
+//        '</div>'+
+//        '</div>';
+//    $(document.body).append(video_play);
+//    hivideo($("#video"));
+//
+//    function player(video) {
+//        $("#player").css('display','block');
+//        $("#video").attr('src',video);
+//        toVideo();
+//    }
+//
+//    function toVideo() {
+//        $("#player").addClass("player");
+//        $("#player").show();
+//    }
+//
+//    function toSmall() {
+//        $("#player").css('display','none');
+//        $("#video").removeAttr('src');
+//        video.pause();
+////        $("#video").pause();// 暂停
+//    }
+</script>
+{/notempty}

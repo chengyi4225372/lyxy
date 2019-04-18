@@ -1,0 +1,500 @@
+{extend name="public/content" /}
+{block name="cssjs"}
+{__block__}
+<link href="__STATIC__/index/static/css/index.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/company.css" rel="stylesheet"/>
+<link href="__STATIC__/index/video-js-7.3.0/video.js" rel="stylesheet"/>
+<link href="__STATIC__/index/video-js-7.3.0/video-js.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/styles.css" rel="stylesheet"/>
+<style>
+    #player{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background:rgba(0,0,0,0.4);
+        z-index:1000;
+        top: 0;
+        left: 0
+    }
+    #video{
+        z-index: 99999;
+        display: block;
+        margin: auto;
+        margin-top: 5%;
+    }
+</style>
+{/block}
+{block name='body'}
+<!--v-component-->
+<div id="router-view">
+    <div _v-b2c567ce="" class="luffy-home">
+        <div _v-b2c567ce="" class="home-swiper slide">
+            <div _v-b2c567ce="" class="swiper-container swiper-container1 swiper-container-horizontal" style="cursor: -webkit-grab;">
+                <div class="layui-carousel" id="swiper_container">
+                    <div carousel-item="" id="imgH">
+                        {foreach $banner as $val}
+                        <div>
+                            <a href="{$val.web_url}" target="_blank">
+                                <img _v-b2c567ce="" alt="" class="banner" src="{$val.imgurl}"/>
+                            </a>
+                        </div>
+                        {/foreach}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            layui.use('carousel', function(){
+                var carousel = layui.carousel;
+                //建造实例
+                carousel.render({
+                    elem: '#swiper_container'
+                    ,width: '100%' //设置容器宽度
+                    ,height: 'auto'
+                    ,arrow: 'hover' //始终显示箭头
+//                    ,autoplay: false
+                    //,anim: 'updown' //切换动画方式
+                });
+            });
+            //轮播图高度自适应（获取图片实际高度后，赋值给父级容器，窗口大小改变时再执行一次
+            window.onload = function () {
+                var imgHeight = $('.layui-this').css('height');
+                $('#imgH').css('height', imgHeight);
+            };
+            window.onresize = function () {
+                var imgHeight = $('.layui-this').css('height');
+                $('#imgH').css('height', imgHeight);
+            };
+        </script>
+        <div _v-b2c567ce="" class="home-content">
+            <div _v-b2c567ce="" class="title slideanim slide">
+                <p _v-b2c567ce="">
+                    热门学位课程
+                </p>
+                <span _v-b2c567ce="">
+                    不仅有独家前端全栈开发课程,带你逐步提升技能.更有前端进阶课程,带来最极致的成长体验.
+                </span>
+            </div>
+            <ul _v-b2c567ce="" class="luffy-study slideanim slide" style="height: 400px;">
+                <li _v-b2c567ce="" class="module1" style="left: 4%;top: 0;width: 42%;">
+                    <!--<p class="title-p" _v-b2c567ce=""><span _v-b2c567ce="">学</span>-视频学习</p>-->
+                    <div _v-b2c567ce="" style="text-align: center">
+                        <span _v-b2c567ce="">
+                            前端全栈开发课程
+                        </span>
+                        <span _v-b2c567ce="">
+                            本课程从前端框架入手带你深入高级前端方向，顺利实现蜕变
+                        </span>
+                        <span _v-b2c567ce="">
+                            学习周期5-6月
+                        </span>
+                        <span _v-b2c567ce="">
+                            学习方式:在线一对一视频学习
+                        </span>
+                        <span _v-b2c567ce="">
+                            预期薪资:10k-20k(参考一线薪资水平)
+                        </span>
+                        <a onclick="msg()">
+                            <span _v-b2c567ce="" class="more" style="background: #fccf38;">
+                                了解更多
+                            </span>
+                        </a>
+                    </div>
+                </li>
+                <li _v-b2c567ce="" class="module2" style="right: 4%;top: 0;left: unset;width: 42%;">
+                    <!--<p class="title-p" _v-b2c567ce=""><span _v-b2c567ce="">学</span>-视频学习</p>-->
+                    <div _v-b2c567ce="" style="text-align: center">
+                        <span _v-b2c567ce="">
+                            前端框架课程
+                        </span>
+                        <span _v-b2c567ce="">
+                            本课程从angulr,vue,react三大框架入手，由浅到深，满足三年前端发展需求
+                        </span>
+                        <span _v-b2c567ce="">
+                            学习周期2-3月
+                        </span>
+                        <span _v-b2c567ce="">
+                            学习方式:在线一对一视频学习
+                        </span>
+                        <span _v-b2c567ce="">
+                            预期薪资:20k-30k(参考一线薪资水平)
+                        </span>
+                        <a onclick="msg()">
+                            <span _v-b2c567ce="" class="more" style="background: #fccf38;">
+                                了解更多
+                            </span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div _v-b2c567ce="" class="course-system slideanim slide">
+                <div _v-b2c567ce="" class="title">
+                    <p _v-b2c567ce="">
+                        零基础学员故事
+                    </p>
+                    <span _v-b2c567ce="">
+                        “这里一切皆有可能”
+                    </span>
+                </div>
+                <ul _v-b2c567ce="">
+                    {foreach name='student' item='vo'}
+                    <li _v-b2c567ce="">
+                        <a href="javascript:void(0);" id="student1">
+                            <img _v-b2c567ce="" onclick="toBig(this)" src="{$vo.imgurl}">
+                            </img>
+                        </a>
+                        <p _v-b2c567ce="" class="name">
+                            {$vo.real_name}
+                        </p>
+                        <p _v-b2c567ce="" class="text">
+                            转行前:{$vo.before}
+                        </p>
+                        <p _v-b2c567ce="" class="text">
+                            坐标:{$vo.work_place}
+                        </p>
+                        <p _v-b2c567ce="" class="text">
+                            岗位:{$vo.position}
+                        </p>
+                        <p _v-b2c567ce="" class="text">
+                            月薪:{$vo.salary}
+                        </p>
+                    </li>
+                    {/foreach}
+                </ul>
+                <p _v-b2c567ce="" class="look-comment" onclick="msg()">
+                    查看更多学员评价>>>
+                </p>
+            </div>
+            <script type="text/javascript">
+                $(".look-comment").click(function () {
+                    window.location.href="{:url('index/micro/index')}";
+                })
+            </script>
+            <div _v-b2c567ce="" class="luffy-feel slideanim slide" style="margin-bottom: 0;">
+                <div _v-b2c567ce="" class="title">
+                    <p _v-b2c567ce="">
+                        “听老师讲听明白，一做起来就懵逼” “花了好几千，可是感觉没学到什么”
+                    </p>
+                    <span _v-b2c567ce="">
+                        专职老师认真批改作业+答疑，让你学到真本事
+                    </span>
+                </div>
+                <ul _v-b2c567ce="">
+                    <li _v-b2c567ce="">
+                        <img _v-b2c567ce="" alt="" class="img1" src="__STATIC__/index/static/frontend/icon1.png"/>
+                        <div _v-b2c567ce="">
+                            <p _v-b2c567ce="">
+                                1V1批改你的文案作业
+                            </p>
+                        </div>
+                    </li>
+                    <li _v-b2c567ce="">
+                        <img _v-b2c567ce="" alt="" class="img1" src="__STATIC__/index/static/frontend/icon2.png"/>
+                        <div _v-b2c567ce="">
+                            <p _v-b2c567ce="">
+                                1v1简历指导
+                            </p>
+                        </div>
+                    </li>
+                    <li _v-b2c567ce="">
+                        <img _v-b2c567ce="" alt="" class="img1" src="__STATIC__/index/static/frontend/icon3.png"/>
+                        <div _v-b2c567ce="">
+                            <p _v-b2c567ce="">
+                                1v1实时答疑
+                            </p>
+                        </div>
+                    </li>
+                    <li _v-b2c567ce="">
+                        <img _v-b2c567ce="" alt="" class="img1" src="__STATIC__/index/static/frontend/icon4.png"/>
+                        <div _v-b2c567ce="">
+                            <p _v-b2c567ce="">
+                                社群闯关式教学
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div _v-b2c567ce="" class="luffy-teacher slideanim slide">
+                <div _v-b2c567ce="" class="title">
+                    <p _v-b2c567ce="">
+                        名师才能出高徒
+                    </p>
+                    <span _v-b2c567ce="">
+                        “理论，技术兼备的实力讲师”
+                    </span>
+                </div>
+                <div _v-b2c567ce="" class="teacher_box demo-wrapper">
+                    <div _v-b2c567ce="" class="swiper-container swiper-container5">
+                        <ul _v-b2c567ce="" class="swiper-wrapper swiper-wrapper5 portfolio-items">
+                            {foreach name='team' item='vo'}
+                            <li _v-b2c567ce="" class="swiper-slide swiper-slide5 view">
+                                <img _v-b2c567ce="" alt="" class="teacher-img" src="{$vo.imgurl}">
+                                    <p _v-b2c567ce="">
+                                        {$vo.teacher_name} {$vo.position}
+                                    </p>
+                                    <p _v-b2c567ce="">
+                                        {$vo.desc}
+                                    </p>
+                                   <!--  <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],0,17,'utf-8');?>
+                                   </p>
+                                   <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],17,17,'utf-8');?>
+                                   </p>
+                                   <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],34,17,'utf-8');?>
+                                   </p>
+                                   <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],51,17,'utf-8');?>
+                                   </p>
+                                   <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],68,17,'utf-8');?>
+                                   </p>
+                                   <p _v-b2c567ce="">
+                                       <?= mb_substr($vo['desc'],85,17,'utf-8');?>
+                                   </p> -->
+                                    <button _v-b2c567ce="" onclick="msg()">
+                                        立即试听
+                                    </button>
+                                </img>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script src="/static/index/static/js/modernizr-1.5.min.js">
+                </script>
+                <script src="/static/index/static/js/jquery.mousewheel.js">
+                </script>
+                <script src="/static/index/static/js/scripts.js">
+                </script>
+            <script type="text/javascript">
+                function audition() {
+                    window.location.href="{:url('micro/index')}"
+                }
+                // function player(video) {
+                //         var player = '<div id="player"><video id="video" class="video-js vjs-default-skin" controls="" height="720" width="600" autoplay=""'+
+                //                      'preload="'+video+'"><source src="'+video+'" type="video/mp4"></source></video></div>';
+                //         $(document.body).append(player);
+                //         toVideo();
+                //     }
+
+                //     function toVideo() {
+                //         $("#player").addClass("player");
+                //         $("#player").show();
+                //         /*隐藏*/
+                //         $("#player").bind("click", clickToSmallImg);
+                //         function clickToSmallImg() {
+                //             $("#player").remove();
+                //         }
+                //     }
+            </script>
+            <div _v-b2c567ce="" class="luffy-experience slideanim slide">
+                <div _v-b2c567ce="" class="title">
+                    <p _v-b2c567ce="">
+                        如何体验乐育的课程
+                    </p>
+                    <span _v-b2c567ce="">
+                        在家打开电脑／手机，一对一辅导只需三步
+                    </span>
+                </div>
+                <ul _v-b2c567ce="">
+                    <li _v-b2c567ce="">
+                        <p _v-b2c567ce="">
+                            1
+                        </p>
+                        <p _v-b2c567ce="">
+                            <span _v-b2c567ce="">
+                                注册成功免费领取试听课程
+                            </span>
+                            <!-- <span _v-b2c567ce="">
+                                注册成功免费领取600元课程优惠券
+                            </span> -->
+                        </p>
+                    </li>
+                    <li _v-b2c567ce="">
+                        <p _v-b2c567ce="">
+                            2
+                        </p>
+                        <p _v-b2c567ce="">
+                            <span _v-b2c567ce="">
+                                预约席位
+                            </span>
+                            <span _v-b2c567ce="">
+                                与课程顾问预约试听席位
+                            </span>
+                        </p>
+                    </li>
+                    <li _v-b2c567ce="">
+                        <p _v-b2c567ce="">
+                            3
+                        </p>
+                        <p _v-b2c567ce="">
+                            <span _v-b2c567ce="">
+                                在线学习
+                            </span>
+                            <span _v-b2c567ce="">
+                                报名即可立即开通学习
+                            </span>
+                        </p>
+                    </li>
+                    <button _v-b2c567ce="" onclick="msg()">
+                        预约1v1名师开启学习
+                    </button>
+                </ul>
+                <script>
+                    function appo() {
+//                        $("#MEIQIA-BTN-HOLDER").click();
+                        $("#MEIQIA-BTN").click();
+                    }
+                </script>
+                <div _v-b2c567ce="" class="process">
+                    <div _v-b2c567ce="" class="steps steps1">
+                        <p _v-b2c567ce="">
+                            课前
+                        </p>
+                        <p _v-b2c567ce="">
+                            提前试听课程
+                            <br _v-b2c567ce=""/>
+                            课件下载
+                            <br _v-b2c567ce=""/>
+                            预览作业
+                        </p>
+                    </div>
+                    <div _v-b2c567ce="" class="steps steps2">
+                        <p _v-b2c567ce="">
+                            课中
+                        </p>
+                        <p _v-b2c567ce="">
+                            按时完成作业
+                            <br _v-b2c567ce=""/>
+                            题库练习
+                            <br _v-b2c567ce=""/>
+                            直播答疑课
+                        </p>
+                    </div>
+                    <div _v-b2c567ce="" class="steps steps3">
+                        <p _v-b2c567ce="">
+                            课后
+                        </p>
+                        <p _v-b2c567ce="">
+                            作业批改
+                            <br _v-b2c567ce=""/>
+                            1v1辅导
+                            <br _v-b2c567ce=""/>
+                            直播考核
+                        </p>
+                    </div>
+                    <div _v-b2c567ce="" class="steps4">
+                        全程 1对1 VIP服务
+                    </div>
+                </div>
+            </div>
+            <div class="box15 lazy" style="display: block;">
+                <div class="box15_s">
+                    <div _v-b2c567ce="" class="title">
+                        <p _v-b2c567ce="">
+                            优秀企业内推合作
+                        </p>
+                        <!--<span _v-b2c567ce="">在家打开电脑／手机，一对一辅导只需三步</span>-->
+                    </div>
+                    <!--<p class="revealOnScroll animated move" data-animation="move"-->
+                    <!--style="line-height:24px; margin-top:4px;">专业才能成就不同的人生，爱创课堂将是你前端的起点<br>培养一线前端互联网人才才是我们的初衷！</p>-->
+                    <div class="con revealOnScroll animated move" data-animation="move">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301025833302.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301025833302.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301025944700.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301025944700.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030003288.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030003288.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030020938.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030020938.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030047583.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030047583.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030106378.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030106378.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030120429.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030120429.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030153267.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030153267.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030206755.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030206755.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030224749.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030224749.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030243746.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030243746.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030256674.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030256674.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030314665.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030314665.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030327821.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030327821.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img class="lazy" data-original="http://www.icketang.com/uploadfile/2018/0301/20180301030340148.png" src="http://www.icketang.com/uploadfile/2018/0301/20180301030340148.png" style="display: inline;"/>
+                                </a>
+                            </li>
+                            <div style="clear: both">
+                            </div>
+                        </ul>
+                    </div>
+                    <a class="doubt revealOnScroll animated move" data-animation="move" style="margin:0 auto;" onclick="msg()">
+                        查看更多企业>>>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!--v-if-->
+    </div>
+    <!--v-component-->
+</div>
+{/block}
+{block name="js"}{/block}
+{block name='footer'}
+
+{__block__}
+{/block}

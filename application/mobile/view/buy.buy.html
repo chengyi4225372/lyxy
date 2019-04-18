@@ -1,0 +1,91 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-c343945e="" class="subPage_app">
+    <div data-v-c343945e="" class="buy">
+        <div data-v-c343945e="" class="buyCont">
+            <div data-v-4cd57836="" data-v-c343945e="" class="header">
+                <div data-v-4cd57836="" style="display: none;"></div>
+                <div data-v-4cd57836="" class="return" style="" onclick="javascript :history.back(-1);">
+                    <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+                </div>
+                <span data-v-4cd57836="">提交订单</span>
+            </div>
+
+            <div data-v-c343945e="" class="list">
+                <dl data-v-c343945e="">
+                    <dt data-v-c343945e="">
+                        <img data-v-c343945e="" src="{$course.imgurl}"
+                             alt="">
+                    </dt>
+                    <dd data-v-c343945e="">
+                        <div data-v-c343945e="">
+                            <p data-v-c343945e="" class="name">{$course.name}</p>
+                            <p data-v-c343945e="" class="discount-price isPromotion">
+                                ¥<span data-v-c343945e="">{$course.price}</span>
+                            </p>
+                        </div>
+                        <div data-v-c343945e="">
+                            <p data-v-c343945e="" class="time">
+                                <span data-v-c343945e="">有效期：</span>
+                                <span data-v-c343945e="">永久有效</span>
+                            </p> <!---->
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div data-v-c343945e="" class="pre"><p data-v-c343945e="" class="title">优惠信息</p>
+                <ul data-v-c343945e="">
+                    <li data-v-c343945e="" tag="li">
+                        <p data-v-c343945e="">优惠券</p>
+                        <p data-v-c343945e="">
+                            <span data-v-c343945e="">0张可用</span>
+                            <span data-v-c343945e="" style="display: none;">已选择1张</span>
+                            <img data-v-c343945e="" src="/static/mobile/frontend/study/right.png" alt="">
+                        </p>
+                    </li>
+                    <li data-v-c343945e="" style="display: none;"></li>
+                    <li data-v-c343945e="">
+                        <p data-v-c343945e="">优惠券抵扣 ￥0</p>
+                        <p data-v-c343945e="">总计
+                            <b data-v-c343945e="">￥{$course.price}</b>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div data-v-c343945e="" class="pay">
+                <div data-v-c343945e="" class="Method">
+                    <p data-v-c343945e="">
+                        <img data-v-c343945e="" src="/static/mobile/frontend/course/zhifubao.svg" alt="">支付宝</p>
+                    <p data-v-c343945e="" class="this-hook hook">
+                        <img data-v-c343945e="" src="/static/mobile/frontend/course/check-yes.svg" alt="" class="hook-img"></p>
+                </div>
+            </div>
+        </div>
+        <div data-v-c343945e="" class="foot">
+            <div data-v-c343945e="">
+                <span data-v-c343945e="">实付款￥{$course.price}</span>
+                <span data-v-c343945e="" onclick="go_pay()">去支付</span>
+            </div>
+            <form action="{:url('alipay/alipay/pay')}" id="buy_form" method="post">
+                <input type="hidden" name="pay_type" value="0">
+                <input type="hidden" name="price" value="{$course.price}">
+                <input type="hidden" name="course" value="{$Think.get.cid}">
+                <input type="hidden" name="course_type" value="{$course_type}">
+                {notempty name='vo.package_id'}<input type="hidden" name="package_id" value="{$vo.package_id}">{/notempty}
+                <input type="hidden" name="coupon" id="coupon_id" value="">
+            </form>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+//    $('.return').on('click',function () {
+//       window.location.href =
+//    });
+    function go_pay() {
+        $("#buy_form").submit();
+    }
+</script>
+{/block}

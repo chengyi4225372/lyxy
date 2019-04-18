@@ -1,0 +1,147 @@
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+</style>
+
+<style>
+    .upload-option-button {
+        float: right;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        display: none
+    }
+
+    .upload-option-button:hover {
+        text-decoration: none;
+        color: #fff
+    }
+
+    .uploadimagemtl:hover a {
+        display: inline-block
+    }
+</style>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/static/plugs/require/require.js"></script>
+
+
+<form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">第一屏标题</label>
+        <div class="layui-input-block">
+            <input name="one_title" value='{$vo.one_title|default=""}' required="required" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">第二屏标题</label>
+        <div class="layui-input-block">
+            <input name="two_title" value='{$vo.two_title|default=""}'  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">早鸟价</label>
+        <div class="layui-input-block">
+            <input name="price" value='{$vo.price|default=""}' class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">原价</label>
+        <div class="layui-input-block">
+            <input name="old_price" value='{$vo.old_price|default=""}'  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">限制人数</label>
+        <div class="layui-input-block">
+            <input name="human" value='{$vo.human|default=""}' type="number" placeholder="请填写数字！"  class="layui-input">
+        </div>
+    </div>
+
+    <!--线下实拍图 -->
+    <div class="layui-form-item">
+        <label class="layui-form-label">线下实拍图1</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:80px;min-width:80px" src="{$vo.img1|default=''}"/>
+            <input type="hidden" name="img1" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.img1|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="img1">上传图片</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">线下实拍图2</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:80px;min-width:80px" src="{$vo.img2|default=''}"/>
+            <input type="hidden" name="img2" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.img|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="img2">上传图片</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">线下实拍图3</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:80px;min-width:80px" src="{$vo.img3|default=''}"/>
+            <input type="hidden" name="img3" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.img3|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="img3">上传图片</a>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">线下实拍图4</label>
+        <div class='layui-input-block'>
+            <img data-tips-image style="height:auto;max-height:80px;min-width:80px" src="{$vo.img4|default=''}"/>
+            <input type="hidden" name="img4" onchange="$(this).prev('img').attr('src', this.value)" value="{$vo.img4|default=''}" class="layui-input">
+            <a class="btn btn-link" data-file="one" data-type="jpg,jpeg,png" data-field="img4">上传图片</a>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">第一屏内容</label>
+        <div class="layui-input-block">
+            <textarea name="one_content"  id="one_content" style="width:100%;height:300px;">{$vo.one_content|default=""}</textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">第二屏内容</label>
+        <div class="layui-input-block">
+            <textarea name="two_content"  id="two_content"  style="width:100%;height:300px;">{$vo.two_content|default=""}</textarea>
+        </div>
+    </div>
+
+
+
+    <div class="hr-line-dashed"></div>
+
+    <div class="layui-form-item text-center">
+        {if isset($vo['id'])}<input type='hidden' value='{$vo.id}' name='id'/>{/if}
+        <button class="layui-btn" type='submit'>保存数据</button>
+        <!-- <button class="layui-btn layui-btn-danger" type='button' data-confirm="确定要取消编辑吗？" data-close>取消编辑</button> -->
+        <button data-open='{:url("index")}' data-title="取消编辑" class='layui-btn layui-btn-danger' data-close>取消编辑</button>
+    </div>
+
+
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = "/static/ueditor/";
+        var ue = UE.getEditor('one_content');
+        var u2 = UE.getEditor('two_content');
+    </script>
+
+    <script>
+        window.form.render();
+    </script>
+</form>

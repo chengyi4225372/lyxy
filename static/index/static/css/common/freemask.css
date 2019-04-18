@@ -1,0 +1,63 @@
+.freemask[_v-02bb3811] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(41, 41, 41, .9);
+    width: 100%;
+    height: 100%;
+    z-index: 101
+}
+
+.freemask .wrapper[_v-02bb3811] {
+    width: 14.5rem;
+    height: 8rem;
+    position: absolute;
+    left: 0;
+    top: -30px;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    animation: x0ppop .45s ease
+}
+
+.freemask .wrapper p[_v-02bb3811] {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+    font-family: PingFangSC-Regular
+}
+
+.freemask .wrapper img[_v-02bb3811] {
+    position: absolute;
+    right: -20px;
+    top: 10px;
+    width: 15px;
+    height: 15px;
+    cursor: pointer
+}
+
+.freemask .wrapper .videoBox[_v-02bb3811] {
+    width: 98%;
+    height: 100%
+}
+
+.freemask .wrapper .videoBox embed[_v-02bb3811], .freemask .wrapper .videoBox object[_v-02bb3811] {
+    width: 100% !important;
+    height: 100% !important
+}
+
+@keyframes x0ppop {
+    0% {
+        transform: scale(.9);
+        opacity: .3
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: .7
+    }
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
+}

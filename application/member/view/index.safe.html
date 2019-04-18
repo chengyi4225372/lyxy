@@ -1,0 +1,60 @@
+{extend name='public/common'}
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/member/profile.css"/>
+{/block}
+{block name='body'}
+<div style="border-top: 1px solid #E9E9E9" _v-67c9b315="">
+    <div class="info-content" _v-67c9b315="">
+        <div class="base-info base-info-spec" _v-67c9b315="">
+            <div class="info-tit-wrap" _v-67c9b315=""><h5 class="info-tit" _v-67c9b315="">认证信息</h5></div>
+            <ul class="base-info-wrap" _v-67c9b315="">
+                <li class="base-info-item" _v-67c9b315=""><label class="label" _v-67c9b315="">实名认证</label>
+                    <span class="label-point certification" _v-67c9b315=""
+                          style="color: rgb(102, 102, 102);"></span></li>
+            </ul>
+        </div>
+        <div class="base-info" _v-67c9b315="">
+            <div class="info-tit-wrap" _v-67c9b315=""><h5 class="info-tit" _v-67c9b315="">账户安全</h5></div>
+            <div _v-67c9b315="">
+                <div style="display: flex; margin-bottom: 11px" _v-67c9b315="">
+                    <label class="label" _v-67c9b315="">手机</label>
+                    <span class="label-point" _v-67c9b315=""><?=substr($tel,0,3)?>***<?=substr($tel,-3)?></span>
+                    <span class="modify-text" style="cursor: pointer;margin-left: auto" _v-67c9b315="">
+                        <!-- <span _v-67c9b315="">修改</span> -->
+                    </span>
+                </div>
+                <!--<div style="display: flex; margin-bottom: 11px" _v-67c9b315="">-->
+                    <!--<label class="label" style="display: inline-block; margin-right: 23px" _v-67c9b315="">-->
+                        <!--邮箱</label>-->
+                    <!--<span class="label-point" _v-67c9b315=""></span>-->
+                    <!--<span class="modify-text" style="cursor: pointer; margin-left: auto" _v-67c9b315="">-->
+                        <!--<span _v-67c9b315="">绑定</span>&lt;!&ndash;v-if&ndash;&gt; </span>-->
+                <!--</div>-->
+                <div style="display: flex; margin-bottom: 11px" _v-67c9b315="">
+                    <label class="label" style="display: inline-block; margin-right: 23px" _v-67c9b315="">
+                        登录密码</label>
+                    <span class="label-point" _v-67c9b315="">************</span>
+                    <span class="modify-text" style="cursor: pointer; margin-left: auto" _v-67c9b315="">
+                        <span _v-67c9b315="" onclick="go_psd()">修改</span><!--v-if--> 
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="shadow-wrap login-shadow" _v-67c9b315="" style="display: none;">
+    <!--v-if-->
+    <!--v-if-->
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    function go_psd(){
+        window.location.href="{:url('index/login/psd')}";
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

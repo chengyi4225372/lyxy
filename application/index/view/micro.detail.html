@@ -1,0 +1,384 @@
+<style type="text/css">
+
+    .main-wrap{
+        margin: 0 auto;
+        margin-top: 150px;
+        width: 890px;
+        height: 500px;
+        position: relative;
+        /*max-width: 640px;*/
+    }
+
+    .main-wrap video{
+        width: 100%;
+    }
+
+    .box .content .course-content .course2 .service[_v-4df1b779] > p {
+        display: block;
+        width: 100%;
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    #player .main-wrap .close {
+        width: 30px;
+        position: absolute;
+        opacity: 1;
+        z-index: 99999;
+        right: -15px;
+        top: -15px;
+    }
+</style>
+<script>
+    $(function () {
+        
+        $(".video-controll li").each(function (i) {
+            $(this).on("click",function(){
+                if(i==0){
+                    $("#video1").get(0).play();
+                }else{
+                    $("#video1").get(0).pause();
+                }
+            })
+
+    })
+</script>
+<div class="main_box box" _v-4df1b779="" _v-650b75d2="" style="">
+    <div class="package" _v-4df1b779="">
+        <div class="package-left" _v-4df1b779="">
+            <p class="package-1" _v-4df1b779="">{$detail.position}</p>
+            {if condition="count($package) neq 1"}
+            <div class="package-2" _v-4df1b779="">
+                {foreach name="package" item="vo"}
+                    <p _v-4df1b779="" class="{$key==0?'pacKagebac':''}" onclick="package(this,{$key})">{$vo.name}</p>
+                {/foreach}
+                <!--<p _v-4df1b779="" class="pacKagebac" onclick="package(this,0)">Deluxe套餐</p>-->
+                <!--<p _v-4df1b779="" onclick="package(this,1)">SVIP套餐</p>-->
+                <!--<p _v-4df1b779="" onclick="package(this,2)">VVIP套餐</p>-->
+            </div>
+            {/if}
+            <div class="package-3" _v-4df1b779="">
+                {foreach name="package" item="vo"}
+                <div class="package-details" _v-4df1b779="" style="display: {$key==0?'block':'none'}">
+                    <div class="package-details-1" _v-4df1b779="">
+                        {foreach name="vo.list" item="val"}
+                            {notempty name='val'}
+                            <p class="{in name='$key' value='0,3,4,7'}bac{/in}" _v-4df1b779="">
+                            <img src="__STATIC__/index/static/img/icon4.svg" alt="" _v-4df1b779="">{$val}
+                            </p>
+                            {/notempty}
+                        {/foreach}
+                    </div>
+                    <div class="package-details-2" _v-4df1b779="">
+                        <!--<a class="look-details" _v-4df1b779="">查看套餐详细对比&gt;&gt;&gt;</a>-->
+                        <p class="price" _v-4df1b779="">
+                            <span _v-4df1b779="">¥</span>{$vo.price}</p>
+                        <p class="zi" _v-4df1b779="">编程小白到前端大牛的转变</p>
+                        <p class="consulting" _v-4df1b779="" onclick="consult('{$detail.web_url}')">
+                            <img src="__STATIC__/index/static/img/icon5.svg" alt="" _v-4df1b779="">
+                            立即咨询</p>
+                        <p class="buy" _v-4df1b779="" onclick="buy('{$detail.id}','{$vo.price}','{$vo.id}')">
+                            <img src="__STATIC__/index/static/img/icon6.svg" alt="" _v-4df1b779="">
+                            立即购买</p>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+            <script type="text/javascript">
+                function buy(id,price,pid) {
+                    window.location.href = "{:url('buy')}?id="+id+"&price="+price+"&pid="+pid;
+                }
+                function consult(url) {
+                    window.open(url);
+                }
+            </script>
+        </div>
+        <script>
+            function package(obj,id) {
+                if (!$(obj).hasClass('pacKagebac')){
+                    $(obj).siblings("p").removeClass("pacKagebac");
+                    $(obj).addClass("pacKagebac");
+                    $(".package-details").each(function () {
+                        $(this).css("display","none");
+                    });
+                    $(".package-details").eq(id).css("display","block");
+                }
+            }
+        </script>
+        <div class="video" _v-4df1b779="">
+            <p class="title" _v-4df1b779="" style="padding-left:230px;">正在播放：{$detail.video_name}</p>
+            <!--<img src="__STATIC__/index/static/img/icon7.svg" alt="" class="start" _v-4df1b779="">-->
+            <div class="main-wrap" style="margin-top: 0;">
+                <video ishivideo="true"  autoplay="false" id="video1" isrotate="false" autoHide="true" preload="auto">
+                    <source src="{$detail.video_url}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+    <div class="content" id="content" _v-4df1b779="">
+        <div class="side-bar" _v-4df1b779="" style="z-index: 999;top: 88px;">
+            <p _v-4df1b779="" style="display: none;" onclick="scroll_to(1)">回到顶部</p>
+            <p _v-4df1b779="" class="bac" onclick="scroll_to(2)">课程简介</p>
+            <p _v-4df1b779="" onclick="scroll_to(3)">特色服务</p>
+            <p _v-4df1b779="" onclick="scroll_to(4)">课程安排</p>
+            <p _v-4df1b779="" onclick="scroll_to(5)">实战项目</p>
+            <!--<p _v-4df1b779="" onclick="scroll_to(6)">内部教材</p>-->
+            <p _v-4df1b779="" onclick="scroll_to(7)">套餐详情</p>
+            <!--<p _v-4df1b779="" onclick="scroll_to(8)">就业合同</p>-->
+        </div>
+        <script>
+            $(document).ready(function() {
+                $(window).on('scroll',function() {
+                    var h = $(this).scrollTop();//获得滚动条距top的高度
+                    var topH = $("#content").offset().top;//获取元素距离顶部的距离
+                    var c2 = $("#course2").offset().top;//获取元素距离顶部的距离
+                    var c3 = $("#course3").offset().top;//获取元素距离顶部的距离
+                    var c4 = $("#course4").offset().top;//获取元素距离顶部的距离
+//                    var c5 = $("#course5").offset().top;//获取元素距离顶部的距离
+                    var c6 = $("#course6").offset().top;//获取元素距离顶部的距离
+//                    var c7 = $("#course7").offset().top;//获取元素距离顶部的距离
+                    h = h+80;
+                    if (h>=topH) {
+                        $(".side-bar").css("position", "fixed");
+                        $(".side-bar").addClass("height");
+                        $(".side-bar").children("P:first-child").css("display", "block");
+                        if (h < c2) {
+                            $(".side-bar").children("p").removeClass("bac");
+                            $(".side-bar").children("p:nth-child(2)").addClass("bac");
+                        }
+                        if (h >= c2) {
+                            $(".side-bar").children("p").removeClass("bac");
+                            $(".side-bar").children("p:nth-child(3)").addClass("bac");
+                        }
+                        if (h >= c3) {
+                            $(".side-bar").children("p").removeClass("bac");
+                            $(".side-bar").children("p:nth-child(4)").addClass("bac");
+                        }
+                        if (h >= c4) {
+                            $(".side-bar").children("p").removeClass("bac");
+                            $(".side-bar").children("p:nth-child(5)").addClass("bac");
+                        }
+//                        if (h >= c5) {
+//                            $(".side-bar").children("p").removeClass("bac");
+//                            $(".side-bar").children("p:nth-child(6)").addClass("bac");
+//                        }
+                        if (h >= c6) {
+                            $(".side-bar").children("p").removeClass("bac");
+                            $(".side-bar").children("p:nth-child(6)").addClass("bac");
+                        }
+//                        if (h >= c7) {
+//                            $(".side-bar").children("p").removeClass("bac");
+//                            $(".side-bar").children("p:nth-child(8)").addClass("bac");
+//                        }
+                    }else {
+                        $(".side-bar").css("position",'');
+                        $(".side-bar").removeClass("height");
+                        $(".side-bar").children("P:first-child").css("display", "none");
+                    }
+
+                })
+            });
+            function scroll_to(id) {
+                switch (id){
+                    case 1:
+                        $("html, body").animate({scrollTop: $("html").offset().top}, {duration: 500, easing: "swing"});
+                        return false;
+                    case 2:
+                        $("html, body").animate({scrollTop: $("#course1").offset().top-80}, {duration: 500, easing: "swing"});
+                        return false;
+                    case 3:
+                        $("html, body").animate({scrollTop: $("#course2").offset().top-80}, {duration: 500, easing: "swing"});
+                        return false;
+                    case 4:
+                        $("html, body").animate({scrollTop: $("#course3").offset().top-80}, {duration: 500, easing: "swing"});
+                        return false;
+                    case 5:
+                        $("html, body").animate({scrollTop: $("#course4").offset().top-80}, {duration: 500, easing: "swing"});
+                        return false;
+//                    case 6:
+//                        $("html, body").animate({scrollTop: $("#course5").offset().top-79}, {duration: 500, easing: "swing"});
+//                        return false;
+                    case 7:
+                        $("html, body").animate({scrollTop: $("#course6").offset().top-79}, {duration: 500, easing: "swing"});
+                        return false;
+//                    case 8:
+//                        $("html, body").animate({scrollTop: $("#course7").offset().top-79}, {duration: 500, easing: "swing"});
+//                        return false;
+                }
+
+            }
+        </script>
+        <div class="course-content" _v-4df1b779="">
+            <div class="course1" id="course1" _v-4df1b779="">
+                <p class="title" _v-4df1b779=""><span _v-4df1b779="">课程简介</span></p>
+                <div class="course-introduce" _v-4df1b779=""><b class="pipe" _v-4df1b779=""></b>
+                    {$detail.content|html_entity_decode=###}
+                </div>
+            </div>
+            <div class="course2" id="course2" _v-4df1b779=""><p class="title" _v-4df1b779=""><span
+                    _v-4df1b779="">特色服务</span></p>
+                <div class="service" _v-4df1b779="">
+                    {$detail.service|html_entity_decode=###}
+                </div>
+                <div class="course2-advantage" _v-4df1b779="">
+                    <p class="title" _v-4df1b779="">
+                        <span _v-4df1b779="">核心优势</span></p>
+                    <div class="advantage" _v-4df1b779="">
+                        <div class="advantage-module" _v-4df1b779="">
+                            <div class="advantage-top" _v-4df1b779="">
+                                <img src="{$detail.str1_icon}" alt="" _v-4df1b779="">
+                                <p _v-4df1b779="">{$detail.str1_title}</p></div>
+                            <p class="advantage-p1" _v-4df1b779="">
+                                {$detail.str1_cont}
+                            </p>
+                        </div>
+                        <div class="advantage-module" _v-4df1b779="">
+                            <div class="advantage-top" _v-4df1b779="">
+                                <img src="{$detail.str2_icon}" alt="" _v-4df1b779="">
+                                <p _v-4df1b779="">{$detail.str2_title}</p></div>
+                            <p class="advantage-p1" _v-4df1b779="">
+                                {$detail.str2_cont}
+                            </p>
+                        </div>
+                        <div class="advantage-module" _v-4df1b779="">
+                            <div class="advantage-top" _v-4df1b779="">
+                                <img src="{$detail.str3_icon}" alt="" _v-4df1b779="">
+                                <p _v-4df1b779="">{$detail.str3_title}</p></div>
+                            <p class="advantage-p1" _v-4df1b779="">
+                                {$detail.str3_cont}
+                            </p>
+                        </div>
+                        <div class="advantage-module" _v-4df1b779="">
+                            <div class="advantage-top" _v-4df1b779="">
+                                <img src="{$detail.str4_icon}" alt="" _v-4df1b779="">
+                                <p _v-4df1b779="">{$detail.str4_title}</p></div>
+                            <p class="advantage-p1" _v-4df1b779="">
+                                {$detail.str4_cont}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="course3" id="course3" _v-4df1b779=""><p class="title" _v-4df1b779=""><span
+                    _v-4df1b779="">课程安排</span></p>
+                <div class="arrange" _v-4df1b779=""><b class="pipe" _v-4df1b779=""></b>
+                    <div class="moduleH" _v-4df1b779="">
+                        {foreach name='module' item='vo'}
+                        <div class="arrange-module" _v-4df1b779="">
+                            <b _v-4df1b779=""></b>
+                            <p class="phase" _v-4df1b779="">第{$key+1}阶段：{$vo.name}<span _v-4df1b779="">学习周期：{$vo.learn_day}</span></p>
+                            <div class="arrange-content" _v-4df1b779="" style="display: block;">
+                                {$vo.content|html_entity_decode=###}
+                            </div>
+                        </div>
+                        {/foreach}
+                    </div>
+                    <p class="more" _v-4df1b779="" style="color: #fff;" onclick="look_more()">查看更多课程大纲&gt;&gt;&gt;</p>
+                    <button _v-4df1b779="">获取更详细的课程大纲</button>
+                </div>
+            </div>
+            <script>
+                function look_more() {
+                    $(".moduleH").css('max-height','unset');
+                }
+            </script>
+            <div class="course4" id="course4" _v-4df1b779=""><p class="title" _v-4df1b779="">
+                <span _v-4df1b779="">实战项目</span></p>
+                <div class="actual-combat" _v-4df1b779=""><b class="pipe" _v-4df1b779=""></b>
+                    {foreach name='project' item='vo'}
+                    <div class="combat-module" _v-4df1b779="">
+                        <img alt="" _v-4df1b779="" src="{$vo.imgurl}">
+                        <div _v-4df1b779="">
+                            <p class="num" _v-4df1b779="">项目{$key+1}</p>
+                            <p class="name" _v-4df1b779="">{$vo.name}</p>
+                            <p class="text" _v-4df1b779="">
+                                {$vo.content}
+                        </div>
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
+            <div class="course6" id="course6" _v-4df1b779=""><p class="title" _v-4df1b779=""><span
+                    _v-4df1b779="">服务套餐</span></p>
+                <div class="table-box" _v-4df1b779="">
+                    <img src="{$detail.pack_detail}" alt="" style="width: 1001px;">
+                </div>
+            </div>
+            <div class="offline-training" _v-4df1b779=""><p class="title" _v-4df1b779=""><span
+                    _v-4df1b779="">线下实训</span></p>
+                <div class="training-box" _v-4df1b779=""><img alt="" _v-4df1b779=""
+                                                              src="//hcdn1.luffycity.com/static/frontend/degreecourse/1/bg1_1533112740.666515.png">
+                    <div class="training-content" _v-4df1b779=""><p class="p1" _v-4df1b779="">除了线上还可以选择线下学习</p>
+                        <div class="training-module" _v-4df1b779="">
+                            <div class="module1" _v-4df1b779="">
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">1</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">关于乐育学院</p>
+                                        <p _v-4df1b779="">乐育学院-享誉业内的中高端IT培训机构</p></div>
+                                </div>
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">2</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">学习环境</p>
+                                        <p _v-4df1b779="">集中封闭式半军事化管理，学习氛围浓厚</p></div>
+                                </div>
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">3</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">全国环境</p>
+                                        <p _v-4df1b779="">目前全国分校陆续开通中</p></div>
+                                </div>
+                            </div>
+                            <div class="module2" _v-4df1b779="">
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">4</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">我们的优势</p>
+                                        <p _v-4df1b779="">我们专注于前端培训，由《javascript设计模式》作者亲自授课，目前学员平均薪资12K</p></div>
+                                </div>
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">5</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">师资团队</p>
+                                        <p _v-4df1b779="">前百度高级工程师创始人亲自授课</p></div>
+                                </div>
+                                <div class="module" _v-4df1b779=""><p class="num" _v-4df1b779="">6</p>
+                                    <div _v-4df1b779=""><p _v-4df1b779="">教学模式</p>
+                                        <p _v-4df1b779="">4个老师对一个学生(专业讲师、助教老师、班主任老师、就业老师)</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="environment" _v-4df1b779=""><p class="title" _v-4df1b779=""><span _v-4df1b779="">线下环境</span></p>
+                <div class="environment-img" _v-4df1b779="">
+                    <img alt="" _v-4df1b779="" src="{$detail.environment1}">
+                    <img alt="" _v-4df1b779="" src="{$detail.environment2}">
+                    <img alt="" _v-4df1b779="" src="{$detail.environment3}">
+                    <img alt="" _v-4df1b779="" src="{$detail.environment4}">
+                </div>
+            </div>
+            <!--<div class="course7" id="course7" _v-4df1b779=""><p class="title" _v-4df1b779=""><span-->
+                    <!--_v-4df1b779="">协议合同</span></p>-->
+                <!--<div class="contract" _v-4df1b779=""><b class="pipe" _v-4df1b779=""></b>-->
+                    <!--<div class="package-contract" _v-4df1b779="">-->
+                        <!--<div class="contract-module" _v-4df1b779=""><img-->
+                                <!--src="__STATIC__/index/static/img/contract.svg" alt="" _v-4df1b779="">-->
+                            <!--<div _v-4df1b779=""><p _v-4df1b779="">Python全栈开发Deluxe套餐合同</p>-->
+                                <!--<p _v-4df1b779="">点击查看</p></div>-->
+                        <!--</div>-->
+                        <!--<div class="contract-module" _v-4df1b779=""><img-->
+                                <!--src="__STATIC__/index/static/img/contract.svg" alt="" _v-4df1b779="">-->
+                            <!--<div _v-4df1b779=""><p _v-4df1b779="">Python全栈开发SVIP套餐合同</p>-->
+                                <!--<p _v-4df1b779="">点击查看</p></div>-->
+                        <!--</div>-->
+                        <!--<div class="contract-module" _v-4df1b779=""><img-->
+                                <!--src="__STATIC__/index/static/img/contract.svg" alt="" _v-4df1b779="">-->
+                            <!--<div _v-4df1b779=""><p _v-4df1b779="">7天无理由退款协议</p>-->
+                                <!--<p _v-4df1b779="">点击查看</p></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="signature" _v-4df1b779=""><p _v-4df1b779="">签署入学合同</p>-->
+                        <!--<p _v-4df1b779="">我们不玩"包就业"、"保就业"这样的文字游戏，只要你踏实肯学我们全力内推你进入名企。</p>-->
+                        <!--<button _v-4df1b779="">了解如何推荐就业</button>-->
+                        <!--<br _v-4df1b779=""> <img alt="" _v-4df1b779=""-->
+                                                 <!--src="//hcdn1.luffycity.com/static/frontend/degreecourse/1/micro-signature (1)_1533180498.638398.png">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!--v-component-->
+</div>

@@ -1,0 +1,177 @@
+{extend name='index@public/content'}
+
+{block name="cssjs"}
+{__block__}
+<link rel="stylesheet" href="__STATIC__/index/static/css/ck_reset.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/sub_tip.css"/>
+<link rel="stylesheet" href="__STATIC__/index/static/css/coupon.css"/>
+{/block}
+
+{block name='body'}
+<div id="router-view">
+    <div class="coupon-wrap" _v-60a757c2="">
+        <div class="coupon-tit-wrap" _v-60a757c2="">
+            <h3 class="coupon-tit" _v-60a757c2="">我的优惠券</h3>
+        </div>
+
+        <div style="padding: 45px 0 45px 58px; display: flex; border-bottom: 1px solid #E9E9E9; align-items: center"
+             _v-60a757c2="">
+            <span class="coupon-label" _v-60a757c2="">激活优惠券：</span>
+            <div class="coupon-input-wrap" _v-60a757c2="">
+                <input id="coupon-input" class="coupon-input" type="text" placeholder="请输入优惠券编码" _v-60a757c2="">
+                <button class="coupon-live-btn" _v-60a757c2="" onclick="coupon_live()">激活</button>
+            </div>
+            <div class="sub-tip-wrap" style="margin-left: 580px" _v-60a757c2="">
+                <div class="sub-tip" _v-60a757c2="">
+                    <img style="margin-left: 17px" src="" width="14" height="14" alt="" _v-60a757c2="">
+                    <span class="sub-text" _v-60a757c2=""></span>
+                </div>
+            </div>
+            <div class="sub-warn-wrap" style="margin-left: 580px" _v-60a757c2="">
+                <div class="sub-tip" _v-60a757c2="">
+                    <img style="margin-left: 17px" src="" width="14" height="14" alt="" _v-60a757c2="">
+                    <span class="warn-text" _v-60a757c2=""></span>
+                </div>
+            </div>
+        </div>
+
+        <div style="height: 111px; width: 100%; display: flex; border-bottom: 1px solid #E9E9E9; align-items: center"
+             _v-60a757c2="">
+            <span class="coupon-sec-item" _v-60a757c2="">可用优惠券：共 {$is_used0} 张（ 提示：优惠券一旦使用就会失效，无法退回 ）</span>
+        </div>
+        <div style="padding-top: 34px; padding-left: 58px" _v-60a757c2="">
+            <div class="coupon-btn-wrap" _v-60a757c2="">
+                <button _v-60a757c2="" class="coupon-btn able-btn" onclick="coupon_look(this,0)">可用&nbsp;({$is_used0})</button>
+                <button _v-60a757c2="" class="coupon-btn disable-btn" onclick="coupon_look(this,1)">已使用&nbsp;({$is_used1})</button>
+                <button _v-60a757c2="" class="coupon-btn disable-btn" onclick="coupon_look(this,2)">已过期&nbsp;({$is_used2})</button>
+            </div> <!--v-if-->
+            <div id="coupon_list">
+                <ul style="display: flex; flex-wrap: wrap; padding: 40px 0 0 0 !important" _v-60a757c2="">
+                    <div class="coupon-app">
+                        {foreach name='coupon' item='vo'}
+                        {eq name='$vo.is_used' value='0'}
+                        <div class="wrapper">
+                            <div class="content">
+                                <div class="title">
+                                    {$vo.name}({$vo.course_type})
+                                </div>
+                                <div class="time">
+                                    有效期至: {$vo.expiration}
+                                </div>
+                            </div>
+                            <div class="split-line"></div>
+                            <div class="tip">
+                                <div class="money">
+                                    ¥{$vo.discount}
+                                </div>
+                                <div class="pay-line">
+                                    {$vo.condition}
+                                </div>
+                            </div>
+                        </div>
+                        {/eq}
+                        {/foreach}
+                    </div>
+                    <!--v-for-start--><!--v-for-end-->
+                </ul>
+                <ul style="display: none; flex-wrap: wrap; padding: 40px 0 0 0 !important" _v-60a757c2="">
+                    <div class="coupon-app">
+                        {foreach name='coupon' item='vo'}
+                        {eq name='$vo.is_used' value='1'}
+                        <div class="wrapper">
+                            <div class="content">
+                                <div class="title">
+                                    {$vo.name}({$vo.course_type})
+                                </div>
+                                <div class="time">
+                                    有效期至: {$vo.expiration}
+                                </div>
+                            </div>
+                            <div class="split-line"></div>
+                            <div class="tip">
+                                <div class="money">
+                                    ¥{$vo.discount}
+                                </div>
+                                <div class="pay-line">
+                                    {$vo.condition}
+                                </div>
+                            </div>
+                        </div>
+                        {/eq}
+                        {/foreach}
+                    </div>
+                </ul>
+                <ul style="display: none; flex-wrap: wrap; padding: 40px 0 0 0 !important" _v-60a757c2="">
+                    <div class="coupon-app">
+                        {foreach name='coupon' item='vo'}
+                        {eq name='$vo.is_used' value='2'}
+                        <div class="wrapper">
+                            <div class="content">
+                                <div class="title">
+                                    {$vo.name}({$vo.course_type})
+                                </div>
+                                <div class="time">
+                                    有效期至: {$vo.expiration}
+                                </div>
+                            </div>
+                            <div class="split-line"></div>
+                            <div class="tip">
+                                <div class="money">
+                                    ¥{$vo.discount}
+                                </div>
+                                <div class="pay-line">
+                                    {$vo.condition}
+                                </div>
+                            </div>
+                        </div>
+                        {/eq}
+                        {/foreach}
+                    </div>
+                </ul>
+            </div>
+            <!--v-if--> <!--v-if-->
+        </div>
+    </div><!--v-component-->
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    function coupon_live() {
+        var code = $("#coupon-input").val();
+        if (code == '') {
+            layer.msg("请输入优惠券编码！");
+            return false;
+        }
+        $.ajax({
+            url: "{:url('coupon_live')}",
+            type: 'post',
+            data: {code: code},
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1});
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        })
+    }
+    function coupon_look(obj,index) {
+        $(obj).siblings(".coupon-btn").removeClass('able-btn');
+        $(obj).siblings(".coupon-btn").addClass('disable-btn');
+        $(obj).removeClass('disable-btn').addClass('able-btn');
+        $("#coupon_list").children('ul').each(function () {
+            $(this).css('display','none');
+        });
+//        alert($("#coupon_list").children('ul').eq(index));
+        $("#coupon_list").children('ul').eq(index).css('display','flex');
+    }
+</script>
+{/block}
+{block name='footer'}
+{__block__}
+{/block}

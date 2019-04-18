@@ -1,0 +1,128 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<style>
+    .swiper-container {
+        line-height: .4rem;
+        width: 100%;
+        text-align: center;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+
+    .swiper-slide {
+        height: .4rem !important;
+        line-height: .4rem !important;
+        box-sizing: border-box;
+        text-align: center;
+        /*margin-right: .28rem;*/
+        font-family: PingFangTC-Medium !important;
+        flex: none;
+        width: auto !important;
+        background: none !important;
+        font-size: .14rem !important;
+        /*color: #000!important;*/
+        /*font-size: .16rem!important*/
+    }
+
+    .swiper-slide.swiper-slide-active {
+        font-size: .18rem !important;
+        color: #4b9ff9;
+    }
+</style>
+<div id="app" class="">
+    <div data-v-0e8f6123="" class="course default_app">
+        <div data-v-0e8f6123="" class="tab-box">
+            <div data-v-0e8f6123="" class="scroll-tab">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {foreach name='ctype' item='vo'}
+                        <div data-v-0e8f6123="" class="swiper-slide" style="border: none;">{$vo.name}<!---->
+                            <input type="hidden" value="{$vo.id}">
+                        </div>
+                        {/foreach}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-v-074c8094="" data-v-0e8f6123="" class="spinner loading" style="display: none;">
+            <div data-v-074c8094="" class="bounce1"></div>
+            <div data-v-074c8094="" class="bounce2"></div>
+            <div data-v-074c8094="" class="bounce3"></div>
+        </div>
+        <!--<div data-v-21a147cd="" data-v-0e8f6123="" class="error error" style="display: none;">-->
+        <!--<img data-v-21a147cd="" src="/static/img/error-500.83cefe9.svg" alt="">-->
+        <!--<p data-v-21a147cd="">糟糕 发生错误了</p>-->
+        <!--</div>-->
+        <div data-v-0e8f6123="" class="cont" style=""><!---->
+            <div data-v-0216b961="" data-v-0e8f6123="" class="box">
+                <div data-v-0216b961="" class="list">
+                    {foreach name='course' item='vo'}
+                    <dl data-v-0216b961="" onclick="go_course('{$vo.id}')">
+                        <dt data-v-0216b961="">
+                            <img data-v-0216b961="" src="{$vo.imgurl}" alt="">
+                        <p data-v-0216b961="" class="course-num">{$vo.class_num}课程 | 更新完成</p>
+                        </dt>
+                        <dd data-v-0216b961="">
+                            <div data-v-0216b961="">
+                                {eq name='vo.has_buy' value='1'}
+                                <p data-v-0216b961="" class="buy">已购买</p>
+                                {/eq}
+                                {eq name='vo.has_buy' value='0'}
+                                <p data-v-0216b961="" class="active">限时</p>
+                                <p data-v-0216b961="" class="price">¥{$vo.price}</p>
+                                <p data-v-0216b961="" class="original-price">{$vo.old_price}</p>
+                                {/eq}
+                            </div>
+                            <p data-v-0216b961="" class="person">
+                                <img data-v-0216b961="" src="" alt="">{$vo.stu_num}人已加入学习</p>
+                        </dd>
+                    </dl>
+                    {/foreach}
+                </div>
+            </div>
+        </div>
+    </div>
+    {include file="public:foot" /}
+</div>
+{/block}
+{block name="js"}
+<script src="/static/mobile/js/vendor.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        spaceBetween: 50,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        slidesPerView: 'auto',
+        freeModeSticky: true,
+        direction: 'horizontal',
+        loop: false,
+        initialSlide: 0,
+        on: {
+            slideChangeTransitionStart: function () {
+                $(".cont").css('display', 'none');
+                $(".loading").css('display', 'block');
+            },
+            slideChangeTransitionEnd: function () {
+                var ctype = $(".swiper-slide-active").children('input').val();
+                console.log(ctype);
+                $.ajax({
+                    url: "{:url('course')}",
+                    data: {ctype: ctype},
+                    type: "post",
+                    dataType: 'json',
+                    success: function (res) {
+                        $(".list")[0].innerHTML = res;
+                        $(".loading").css('display', 'none');
+                        $(".cont").css('display', 'block');
+                    }
+                })
+                console.log(this.activeIndex);//切换结束时，告诉我现在是第几个slide
+            }
+        }
+    })
+    function go_course(cid) {
+        window.location.href = "{:url('detail')}?cid=" + cid;
+    }
+</script>
+{/block}

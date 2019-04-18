@@ -1,0 +1,105 @@
+.courselist[_v-c286ac0c] {
+    width: 100%;
+    background: #fff;
+    padding-bottom: 200px
+}
+
+.courselist .ul1[_v-c286ac0c] {
+    width: 1200px;
+    margin: 76px auto 0;
+    padding: 0
+}
+
+.courselist .ul1 .li1[_v-c286ac0c] {
+    width: 100%
+}
+
+.courselist .ul1 .li1 .title[_v-c286ac0c] {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 90px;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid hsla(0, 0%, 95%, .5)
+}
+
+.courselist .ul1 .li1 .title .section-tit[_v-c286ac0c] {
+    font-size: 20px;
+    color: #78c63f;
+    letter-spacing: .32px;
+    margin: 0 0 0 26px
+}
+
+.courselist .ul1 .li1 .ul2[_v-c286ac0c] {
+    width: 100%;
+    padding: 0
+}
+
+.courselist .ul1 .li1 .ul2 .project_li[_v-c286ac0c] {
+    cursor: pointer;
+    width: 100%;
+    height: 64px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 1px 0 0 #f2f2f2;
+    border-bottom: 1px solid #f8f8f8
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .section-period[_v-c286ac0c] {
+    font-size: 18px;
+    color: #666;
+    letter-spacing: .29px;
+    padding: 0;
+    margin-left: 81px
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .free[_v-c286ac0c] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border: 1px solid #7ed321;
+    border-radius: 1px;
+    color: #7ed321;
+    font-size: 12px;
+    margin-left: 25px;
+    width: 70px;
+    height: 30px;
+    transition: all .3s linear
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .free[_v-c286ac0c]:hover {
+    color: #fff;
+    background: #7ed321
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .progress-wrap[_v-c286ac0c] {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 65px
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .progress-wrap i[_v-c286ac0c] {
+    margin-right: 10px;
+    color: #ccc
+}
+
+.courselist .ul1 .li1 .ul2 .project_li .progress-wrap .period-time[_v-c286ac0c] {
+    width: 60px;
+    font-size: 18px;
+    color: #999;
+    letter-spacing: .29px
+}
+
+.courselist .ul1 .li1 .ul2 .project_li[_v-c286ac0c]:hover {
+    background: #ebeef5
+}

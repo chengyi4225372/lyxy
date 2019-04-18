@@ -1,0 +1,69 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-2edcfcfa="" class="my default_app">
+    <div data-v-2edcfcfa="" class="title">
+        <div data-v-2edcfcfa="" class="user">
+            <div data-v-2edcfcfa="" class="head">
+                <img data-v-2edcfcfa="" src="{$Think.session.member_info.imgurl}" alt="" class="head-portrait">
+                <span data-v-2edcfcfa="" class="name">{$Think.session.member_info.real_name}</span>
+                <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="right">
+            </div> <!---->
+        </div>
+    </div>
+    <div data-v-2edcfcfa="" class="myMessage">
+        <ul data-v-2edcfcfa="">
+            <li data-v-2edcfcfa="" class="">
+                <div data-v-2edcfcfa="" class="front">
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/order.png" alt="">
+                    <p data-v-2edcfcfa="">我的订单</p>
+                </div>
+                <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_behind('order')">
+            </li>
+            <li data-v-2edcfcfa="" class="">
+                <div data-v-2edcfcfa="" class="front">
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/conpon.png" alt="">
+                    <p data-v-2edcfcfa="">优惠券</p>
+                </div>
+                <div data-v-2edcfcfa="" class="behind-box"><!---->
+                    <span data-v-2edcfcfa="" class="canuse">{$coupon_num}张可用</span>
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_behind('coupon')">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div data-v-2edcfcfa="" class="myMessage" style="margin-top: .2rem;">
+        <ul data-v-2edcfcfa="">
+            <li data-v-2edcfcfa="" class="">
+                <section data-v-2edcfcfa="">
+                    <div data-v-2edcfcfa="" class="front">
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/safe.png" alt="">
+                        <p data-v-2edcfcfa="">账号安全</p>
+                    </div>
+                    <div data-v-2edcfcfa="" class="behind-box"><!---->
+                        <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_behind('safe')">
+                    </div>
+                </section>
+            </li>
+            <li data-v-2edcfcfa="" class="">
+                <div data-v-2edcfcfa="" class="front">
+                    <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/ques.png" alt="">
+                    <p data-v-2edcfcfa="">常见问题</p>
+                </div>
+                <img data-v-2edcfcfa="" src="/static/mobile/frontend/study/right.png" alt="" class="behind" onclick="go_behind('ques')">
+            </li>
+        </ul>
+    </div>
+    {include file="public:foot" /}
+</div>
+{/block}
+{block name="js"}
+<script>
+    $(".head").on('click',function () {
+        window.location.href='{:url("info")}';
+    });
+    function go_behind(url) {
+        window.location.href='{:url("'+url+'")}';
+    }
+</script>
+{/block}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html style="font-size: 100px;">
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes,minimal-ui"
+      name="viewport">
+<meta content="portrait" name="screen-orientation">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<meta content="yes" name="full-screen">
+<meta content="true" name="x5-fullscreen">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="webkit" name="renderer">
+<meta name="Keywords" content="{:sysconf('seo_keywords')}"/>
+<meta name="Description" content="{:sysconf('seo_description')}"/>
+<title>
+    乐育学院-忘记密码
+</title>
+<link href="__STATIC__/index/static/frontend/index/url_logo.png" rel="shortcut icon"/>
+<link href="__STATIC__/index/plugins/bootstrap.min.css" rel="stylesheet"/>
+<link href="__STATIC__/index/plugins/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="__STATIC__/index/plugins/toastr.min.css" rel="stylesheet"/>
+<link href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css" rel="stylesheet"/>
+<link href="__STATIC__/index/static/css/app.css" rel="stylesheet"/>
+<link href="__STATIC__/index/layui/css/layui.css" rel="stylesheet"/>
+<link href="//g.alicdn.com/de/prismplayer/2.6.0/skins/default/aliplayer-min.css" rel="stylesheet">
+<script src="__STATIC__/index/plugins/jquery-2.1.4.js">
+</script>
+<!-- <script async="" charset="UTF-8" src="https://static.meiqia.com/dist/meiqia.js?_=t"> -->
+<!-- </script> -->
+<link href="https://static.geetest.com/static/wind/style_https.1.5.0.css" rel="stylesheet">
+<link href="__STATIC__/index/static/css/login.css" rel="stylesheet">
+<script src="__STATIC__/index/layui/layui.all.js" type="text/javascript">
+</script>
+<script src="__STATIC__/index/layui/layui.js" type="text/javascript">
+</script>
+<script src="__STATIC__/index/static/js/gt.js" type="text/javascript">
+</script>
+<style type="text/css">
+    .geetest_holder.geetest_wind{
+            width: 100% !important;
+        }
+</style>
+<style type="text/css">
+    .box[_v-00b75412] {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: -80px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center
+    }
+
+    .reg_cont[_v-00b75412] {
+        width: 440px;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -220px;
+        margin-top: -280px
+    }
+
+    .reg_box[_v-00b75412] {
+        width: 440px;
+        height: 460px;
+        background: #fff;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 20px;
+        border-radius: 10px;
+    }
+
+    .reg_box .find_img[_v-00b75412] {
+        width: 160px;
+        /*height: 66px*/
+    }
+
+    .reg_box .zi[_v-00b75412] {
+        font-size: 24px;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 30px;
+        color: #4a4a4a;
+        letter-spacing: .39px
+    }
+
+    .reg_box .inp[_v-00b75412] {
+        width: 350px;
+        height: auto;
+        margin: 0 auto
+    }
+
+    .reg_box .inp .error[_v-00b75412] {
+        width: 100%;
+        height: auto;
+        font-size: 12px;
+        color: #fa6240;
+        padding-bottom: 14px;
+        text-indent: 4px;
+        display: inline-block;
+        text-align: left
+    }
+
+    .reg_box .inp input[_v-00b75412] {
+        width: 100%;
+        height: 42px;
+        border-radius: 4px;
+        border: 1px solid #d9d9d9;
+        text-indent: 20px;
+        font-size: 14px
+    }
+
+    .reg_box .inp [_v-00b75412]::-webkit-input-placeholder {
+        color: #9b9b9b
+    }
+
+    .reg_box .inp [_v-00b75412]:-moz-placeholder, .reg_box .inp [_v-00b75412]::-moz-placeholder {
+        color: #9b9b9b
+    }
+
+    .reg_box .inp [_v-00b75412]:-ms-input-placeholder {
+        color: #9b9b9b
+    }
+
+    .reg_box .inp .phone[_v-00b75412] {
+        margin-bottom: 16px
+    }
+
+    .reg_box .inp .verify_box[_v-00b75412] {
+        line-height: 42px;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 16px;
+        margin-bottom: 16px
+    }
+
+    .reg_box .inp .verify_box input[_v-00b75412] {
+        -ms-flex: 1;
+        flex: 1;
+        margin-right: 22px
+    }
+
+    .reg_box .inp .get_verify[_v-00b75412] {
+        width: 116px;
+        height: 40px;
+        background: #ccc;
+        text-align: center;
+        line-height: 40px;
+        font-size: 14px;
+        color: #4a4a4a;
+        cursor: pointer
+    }
+
+    .reg_box .inp select[_v-00b75412] {
+        width: 100%;
+        height: 42px;
+        background: #f8f8f8;
+        border: 1px solid #686868;
+        border-radius: 4px;
+        margin-bottom: 16px;
+        text-indent: 10px;
+        color: #4a4a4a;
+        font-size: 12px
+    }
+
+    .reg_box .inp .next_one[_v-00b75412] {
+        width: 100%;
+        height: 44px;
+        background: #84cc39;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #fff;
+        letter-spacing: .26px;
+        margin-top: 20px
+    }
+
+    .reg_box .inp .go_login[_v-00b75412] {
+        text-align: center;
+        font-size: 14px;
+        color: #9b9b9b;
+        letter-spacing: .26px;
+        padding-top: 40px;
+        color: #4a90e2;
+        cursor: pointer
+    }
+
+    .reg_box .inp .copyright[_v-00b75412] {
+        font-size: 12px;
+        color: #4a4a4a;
+        letter-spacing: .26px
+    }
+
+    .reg_box .inp .pwd1[_v-00b75412] {
+        margin-bottom: 16px
+    }
+
+    .reg_box .inp .next_two[_v-00b75412] {
+        margin-top: 52px;
+        margin-bottom: 50px
+    }
+</style>
+<body id="app">
+<!--v-start-->
+<div id="router-view">
+    <div _v-00b75412="" class="box" style="height: 945px;">
+        <img src="/static/index/static/frontend/Loginbg.jpg" alt="" class="bac" _v-0dee26bc="" style="height: 945px;">
+        <div _v-00b75412="" class="reg_cont" style="height: 945px;">
+            <div _v-00b75412="" class="reg_box">
+                <img _v-00b75412="" alt="" class="find_img" src="/static/index/static/frontend/head_logo.png"/>
+                <div _v-00b75412="" class="zi">
+                    找回你的密码
+                </div>
+                <div _v-00b75412="" class="inp">
+                    <span _v-00b75412="" class="error"></span>
+                    <div _v-00b75412="" class="step1">
+                        <form id="psd_form" action="">
+                            <input _v-00b75412="" name="phone" id="input_phone" class="phone" placeholder="输入手机号码" type="text"/>
+                        <div _v-00b75412="">
+                            <div id="embed-captcha">
+                            </div>
+                            <p class="show" id="wait">
+                                正在加载验证码......
+                            </p>
+                            <p class="hide" id="notice">
+                                请先完成验证
+                            </p>
+                        </div>
+                        </form>
+                        <!--v-component-->
+                        <div _v-00b75412="" class="verify_box">
+                            <input _v-00b75412="" id="input_verify" class="verify" placeholder="输入验证码" type="text"/>
+                            <button _v-00b75412="" class="get_verify" id="btn1" onclick="getCodeAfter()">
+                                获取验证码
+                            </button>
+                        </div>
+                        <button _v-00b75412="" class="next_one" onclick="go_next()">
+                            下一步
+                        </button>
+                        <p _v-00b75412="" class="">
+                            <a href="{:url('index')}">
+                                已有账号 直接登录
+                            </a>
+                        </p>
+                    </div>
+                    <div _v-00b75412="" class="step2" style="display: none;">
+                        <form action="" method="post" id="change_psd">
+                            <input type="hidden" name="tel" id="return_tel">
+                            <input _v-00b75412="" name="password" class="pwd1" placeholder="新密码至少6位且不能全是数字" type="password"/>
+                            <input _v-00b75412="" name="repsd" class="pwd2" placeholder="再次确认密码" type="password"/>
+                        </form>
+                        <button _v-00b75412="" class="next_one next_two" onclick="finish()">
+                            完成
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var handlerEmbed = function (captchaObj) {
+        $("#login_btn").click(function (e) {
+            var validate = captchaObj.getValidate();
+            if (!validate) {
+                layer.tips('请先完成验证!', '#embed-captcha');
+                e.preventDefault();
+            }
+        });
+        // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+        captchaObj.appendTo("#embed-captcha");
+        captchaObj.onReady(function () {
+            $("#wait")[0].className = "hide";
+        });
+        // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+    };
+    $.ajax({
+        url: "{:url('login/start_captcha')}?t=" + (new Date()).getTime(), // 加随机数防止缓存
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            // 使用initGeetest接口
+            // 参数1：配置参数
+            // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+            initGeetest({
+                gt: data.gt,
+                challenge: data.challenge,
+                new_captcha: data.new_captcha,
+                product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+            }, handlerEmbed);
+        }
+    });
+    function getCodeAfter() {
+        var sec = 60;
+        var intervalQueue;
+        var tel = $('#input_phone');
+        if (tel.val().length < 1) {
+            layer.tips('请输入手机号！', '#input_phone');
+            return false;
+        }
+        reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+        if (!reg.test(tel.val())) {
+            layer.tips('请输入正确的手机号码', '#input_phone');
+            return false;
+        }
+        $("#btn1").removeAttr('onclick');
+        $("#btn1").addClass('get_verify_disable');
+        $("#btn1").text('请等待' + sec + '秒');
+        $.ajax({
+            url: "{:url('psd_verify')}",
+            type: 'post',
+            data: $('#psd_form').serialize(),
+            dataType: 'json',
+            success: function (msg) {
+                console.log(msg);
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1});
+                    return false;
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                    clearInterval(intervalQueue);
+                    $("#btn1").text("获取验证码");
+                    $("#btn1").removeClass('get_verify_disable');
+                    $("#btn1").attr('onclick', 'getCodeAfter()');
+                    // captchaObj.reset();
+                    return false;
+                }
+            }
+        });
+        intervalQueue = setInterval(function () {
+            sec--;
+            $("#btn1").text('请等待' + sec + '秒');
+            if (sec <= 0) {
+                clearInterval(intervalQueue);
+                $("#btn1").text("获取验证码");
+                $("#btn1").removeClass('get_verify_disable');
+                $("#btn1").attr('onclick', 'getCodeAfter()');
+            }
+        }, 1000);
+    }
+    function go_next() {
+        var phone = $('#input_phone').val();
+        var code = $('#input_verify').val();
+        if (code == '') {
+            layer.tips('请输入验证码!', '#input_verify');
+            return false;
+        }
+        var url = "{:url('psd')}";
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: {phone: phone, code: code},
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    console.log(msg.data);
+                    $("#return_tel").val(msg.data);
+                    $('.step1').css('display', 'none');
+                    $('.step2').css('display', 'block');
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+        return false;
+    }
+    function finish() {
+        var psd = $("#pas1").val();
+        var repsd = $("#pas2").val();
+        var patrn = /^[a-zA-Z]\w{5,15}$/;
+        if (!patrn.test(psd)) {
+            layer.tips('密码格式错误!请输入6-16位带字母密码', '#pas1');
+            return false;
+        }
+        if (psd != repsd) {
+            layer.tips('两次密码不一致!', '#pas2');
+            return false;
+        }
+        // var form_data = new FormData($("#change_psd")[0]);
+        var url = "{:url('change_psd')}";
+        $.ajax({
+            url: url,
+            type: 'post',
+            data: $('#change_psd').serialize(),
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg);
+                    setTimeout(function () {
+                        window.location.href = "{:url('index')}";
+                    }, 2000);
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+    }
+</script>
+</body>
+</html>

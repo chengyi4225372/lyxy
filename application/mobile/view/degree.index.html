@@ -1,0 +1,151 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+
+<div data-v-1107b0b2="" class="subPage_app">
+    <div data-v-1107b0b2="" class="python-course">
+        <div data-v-4cd57836="" data-v-1107b0b2="" class="header">
+            <div data-v-4cd57836="" style="display: none;"></div>
+            <div data-v-4cd57836="" class="return" style="">
+                <img data-v-4cd57836="" src="/static/mobile/frontend/course/back.svg" alt="" style="" onclick="go_back()">
+            </div>
+            <span data-v-4cd57836="">路飞学城</span>
+        </div>
+        <img data-v-1107b0b2="" src="{$detail.imgurl}" alt="" class="banner">
+        <div data-v-3d11ece9="" data-v-1107b0b2="" class="description">
+            <p data-v-3d11ece9="" class="t11">学位课程</p>
+            <div data-v-3d11ece9="" class="count">
+                <p data-v-3d11ece9="" class="p11">{$detail.name}</p>
+                <ul data-v-3d11ece9="">
+                    <li data-v-3d11ece9=""><p data-v-3d11ece9="">学习周期</p>
+                        <span data-v-3d11ece9="">5～6个月</span></li>
+                    <li data-v-3d11ece9=""><p data-v-3d11ece9="">难度</p>
+                        <span data-v-3d11ece9="">中级</span></li>
+                    <li data-v-3d11ece9=""><p data-v-3d11ece9="">预期工资</p>
+                        <span data-v-3d11ece9="">{$detail.target}K</span></li>
+                </ul>
+            </div>
+        </div>
+        <div data-v-1107b0b2="" class="vux-tab-wrap CourseTitle">
+            <div class="vux-tab-container">
+                <div class="vux-tab">
+                    <div data-v-1107b0b2="" class="vux-tab-item vux-tab-selected" onclick="go_tab(this,0)">
+                        简介
+                        <!----></div>
+                    <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,1)">
+                        目录
+                        <!----></div>
+                    <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,2)">
+                        评价
+                        <!----></div>
+                    <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,3)">
+                        常见问题
+                        <!----></div>
+                    <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-backward"
+                         style="display: block; height: 2px; background-color: rgb(114, 217, 194); left: 0%; right: 75%;">
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function go_back() {
+                window.location.href="{:url('index/index')}";
+            }
+            function go_tab(obj,id) {
+                $(obj).siblings("div").removeClass("vux-tab-selected");
+//                console.log($(obj).siblings("div"));
+                $(obj).addClass("vux-tab-selected");
+                var left = 25*id;
+                var right = 75-25*id;
+                $(".vux-tab-ink-bar").css('left',left+"%");
+                $(".vux-tab-ink-bar").css('right',right+"%");
+                var arr=['detail','catalog','comment','issue'];
+                for (var i=0;i<arr.length;i++){
+                    console.log(arr[i]);
+                    $("#"+arr[i]).css('display','none');
+                }
+                $("#"+arr[id]).css('display','block');
+
+            }
+        </script>
+
+        {include file="degree:detail" /}
+        {include file="degree:moudel" /}
+        {include file="degree:comment" /}
+        {include file="degree:problem" /}
+
+
+        <div data-v-7e783a0c="" data-v-1107b0b2="" class="box">
+            <div data-v-7e783a0c="" class="buy">
+                <button data-v-7e783a0c="">领取优惠券</button>
+                <button data-v-7e783a0c="">立即购买</button>
+            </div>
+            <div data-v-7e783a0c="" class="vux-popup-dialog popup vux-popup-bottom vux-popup-dialog vux-popup-dialog-m2nsl" style="height: 4.1rem; display: none;">
+                <div data-v-7e783a0c="" class="coupon">
+                    <img data-v-7e783a0c="" src="/static/mobile/frontend/course/packs_close.png" alt="" class="close">
+                    <div data-v-7cf76425="" data-v-7e783a0c="" class="empty">
+                        <img data-v-7cf76425="" src="/static/mobile/frontend/course/fill1.svg" alt="">
+                        <p data-v-7cf76425="">暂无优惠劵可领</p></div>
+                    <div data-v-7e783a0c="" class="ok">完成</div>
+                </div>
+            </div>
+            <div data-v-7e783a0c="" class="vux-popup-dialog popup vux-popup-bottom vux-popup-dialog vux-popup-dialog-50701" style="height: 4.1rem; display: none;">
+                <div data-v-7e783a0c="" class="purchase">
+                    <img data-v-7e783a0c="" src="/static/mobile/frontend/course/packs_close.png" alt="" class="close">
+                    <div data-v-7e783a0c="" class="pricemeal">
+                        <dl data-v-7e783a0c="">
+                            <dt data-v-7e783a0c="">
+                                <img data-v-7e783a0c="" src="{$detail.imgurl}" alt="">
+                            </dt>
+                            <dd data-v-7e783a0c="" id="pricemeal">
+                                <p data-v-7e783a0c="">¥{$package.0.price}元</p>
+                                <p data-v-7e783a0c="">已选择
+                                    <span data-v-7e783a0c="">{$package.0.name}</span>
+                                </p>
+                            </dd>
+                        </dl>
+                        <p data-v-7e783a0c="" class="title">价格套餐</p>
+                        <div data-v-7e783a0c="" class="packagelist">
+                            {foreach name='package' item='vo'}
+                            <span data-v-7e783a0c="" class="{eq name='key' value='0'}onSpan{/eq}" onclick="change_package(this,'{$vo.price}','{$vo.name}','{$vo.id}')">{$vo.name}</span>
+                            {/foreach}
+                        </div>
+                        <input type="hidden" value="{$package.0.id}" id="package_id">
+                        <div data-v-7e783a0c="" class="Confirm">确认购买</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.buy').children().eq(0).on('click',function (){
+        $('.coupon').parent().css('display','block');
+    });
+    $('.buy').children().eq(1).on('click',function (){
+        $('.purchase').parent().css('display','block');
+    });
+    $('.coupon').children('.close').on('click',function () {
+        $('.coupon').parent().css('display','none');
+    });
+    $('.ok').on('click',function () {
+        $('.coupon').parent().css('display','none');
+    });
+    $('.purchase').children('.close').on('click',function () {
+        $('.purchase').parent().css('display','none');
+    });
+    function change_package(obj,price,name,id) {
+        $(obj).addClass('onSpan').siblings('span').removeClass('onSpan');
+        $("#pricemeal").children('p').eq(0).html('¥'+price+'元');
+        $("#pricemeal").children().find('span').html(name);
+        $("#package_id").val(id);
+    }
+    $(".Confirm").on('click',function () {
+        var pid = $("#package_id").val();
+        window.location.href = "{:url('buy/buy')}?type=2&cid={$Think.get.id}&pid="+pid;
+    });
+</script>
+{/block}

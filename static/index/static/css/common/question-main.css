@@ -1,0 +1,20 @@
+.question-main[_v-b2b2bf5e] {
+    padding-top: 43px;
+    text-align: center
+}
+
+.question-tit[_v-b2b2bf5e] {
+    font-family: PingFangSC-Regular;
+    font-size: 18px;
+    color: #4a4a4a;
+    letter-spacing: .14px
+}
+
+.question-answer[_v-b2b2bf5e] {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #9b9b9b;
+    letter-spacing: .1px;
+    margin-top: 18px;
+    text-align: justify
+}

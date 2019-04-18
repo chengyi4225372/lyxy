@@ -1,0 +1,913 @@
+﻿{extend name="public/content" /}
+
+{block name="cssjs"}
+
+{__block__}
+
+<link rel="stylesheet" href="__STATIC__/index/static/css/open.css"/>
+
+<style type="text/css">
+
+a:hover {
+
+    color: #4a4a4a;
+
+    text-decoration: none;
+
+}
+
+
+
+.box[_v-57011751] {
+
+    width: 100%;
+
+    height: auto;
+
+    overflow: hidden;
+
+    background: #f3f3f3
+
+}
+
+
+
+.box .publicclass[_v-57011751] {
+
+    width: 1200px;
+
+    height: auto;
+
+    margin: 0 auto
+
+}
+
+
+
+.box .publicclass .head[_v-57011751] {
+
+    font-size: 16px;
+
+    color: #7f7f7f;
+
+    letter-spacing: 0;
+
+    margin-top: 30px;
+
+    margin-bottom: 30px;
+
+    font-family: PingFangSC-Regular;
+
+    margin-left: 10px
+
+}
+
+
+
+.box .publicclass .head span[_v-57011751] {
+
+    margin-right: 20px;
+
+    cursor: pointer
+
+}
+
+
+
+.box .publicclass .head .spancolor[_v-57011751] {
+
+    color: #01b4e4
+
+}
+
+
+
+.box .publicclass .head .loading[_v-57011751] {
+
+    width: 55px;
+
+    height: auto
+
+}
+
+
+
+.box .publicclass .head span[_v-57011751]:last-child {
+
+    margin-right: 0
+
+}
+
+
+
+.box .publicclass section[_v-57011751] {
+
+    width: 100%;
+
+    height: auto;
+
+    background: #fff;
+
+    border-radius: 14px;
+
+    box-shadow: 0 4px 12px 0 #e8e8e8;
+
+    margin-bottom: 30px
+
+}
+
+
+
+.box .publicclass section .modelshead[_v-57011751] {
+
+    height: 70px;
+
+    padding: 0 38px;
+
+    border-bottom: 1px solid #e3e3e3
+
+}
+
+
+
+.box .publicclass section .modelshead[_v-57011751], .box .publicclass section .modelshead p[_v-57011751]:first-of-type {
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center
+
+}
+
+
+
+.box .publicclass section .modelshead img[_v-57011751] {
+
+    width: 20px;
+
+    height: 20px
+
+}
+
+
+
+.box .publicclass section .modelshead span[_v-57011751]:first-of-type {
+
+    font-size: 16px;
+
+    color: #5e5e5e;
+
+    letter-spacing: .22px;
+
+    font-family: PingFangSC-Regular;
+
+    margin: 0 10px
+
+}
+
+
+
+.box .publicclass section .modelshead .span2[_v-57011751] {
+
+    font-size: 14px;
+
+    color: #fff;
+
+    background: #d0d0d0;
+
+    padding: 2px 4px;
+
+    border-radius: 4px
+
+}
+
+
+
+.box .publicclass section .modelshead .livecolor[_v-57011751] {
+
+    background: #fa6140
+
+}
+
+
+
+.box .publicclass section .content[_v-57011751] {
+
+    padding: 40px;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    padding-bottom: 60px
+
+}
+
+
+
+.box .publicclass section .content .cursor[_v-57011751] {
+
+    cursor: pointer
+
+}
+
+
+
+.box .publicclass section .content .left[_v-57011751] {
+
+    width: 506px;
+
+    height: 341px;
+
+    margin-right: 50px;
+
+    position: relative
+
+}
+
+
+
+.box .publicclass section .content .left .img1[_v-57011751] {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    border-radius: 20px
+
+}
+
+
+
+.box .publicclass section .content .left .img2[_v-57011751] {
+
+    width: 70px;
+
+    height: 70px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    margin-top: -35px;
+
+    margin-left: -35px
+
+}
+
+
+
+.box .publicclass section .content .right[_v-57011751] {
+
+    -ms-flex: 1;
+
+    flex: 1;
+
+    font-family: PingFangSC-Regular
+
+}
+
+
+
+.box .publicclass section .content .right .p1[_v-57011751] {
+
+    font-size: 24px;
+
+    color: #4a4a4a;
+
+    letter-spacing: .32px
+
+}
+
+
+
+.box .publicclass section .content .right .p2[_v-57011751] {
+
+    margin: 30px 0;
+
+    font-size: 16px;
+
+    color: #666;
+
+    letter-spacing: .22px;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between
+
+}
+
+
+
+.box .publicclass section .content .right .p2 b[_v-57011751] {
+
+    color: #fd7b4c;
+
+    font-weight: 400
+
+}
+
+
+
+.box .publicclass section .content .right .p3[_v-57011751] {
+
+    font-size: 15px;
+
+    color: #5e5e5e;
+
+    letter-spacing: .2px;
+
+    line-height: 27px;
+
+    margin-bottom: 48px
+
+}
+
+
+
+.box .publicclass section .content .right .p4[_v-57011751] {
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    -ms-flex-pack: justify;
+
+    justify-content: space-between
+
+}
+
+
+
+.box .publicclass section .content .right .p4 span[_v-57011751] {
+
+    font-size: 16px;
+
+    color: #5e5e5e;
+
+    letter-spacing: .22px;
+
+    font-family: PingFangSC-Regular
+
+}
+
+
+
+.box .publicclass section .content .right .p4 span b[_v-57011751] {
+
+    color: #fa6140
+
+}
+
+
+
+.box .publicclass section .content .right .p4 button[_v-57011751] {
+
+    width: 160px;
+
+    height: 42px;
+
+    color: #fff;
+
+    border-radius: 6px;
+
+    background: #fd7b4d;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    -ms-flex-pack: distribute;
+
+    justify-content: space-around
+
+}
+
+
+
+.box .publicclass section .content .right .p4 button img[_v-57011751] {
+
+    width: 20px;
+
+    height: auto;
+
+    margin-left: 10px;
+
+    margin-top: -3px
+
+}
+
+
+
+.box .publicclass section .content .right .p4 button[_v-57011751]:hover {
+
+    animation-name: hvr-wobble-horizontal;
+
+    animation-duration: 1s;
+
+    animation-timing-function: ease-in-out;
+
+    animation-iteration-count: 1
+
+}
+
+
+
+.box .publicclass .review[_v-57011751] {
+
+    width: 100%;
+
+    height: auto;
+
+    border-top: 1px solid #d0d0d0;
+
+    padding-top: 30px;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    -ms-flex-wrap: wrap;
+
+    flex-wrap: wrap
+
+}
+
+
+
+.box .publicclass .review .reviewbox[_v-57011751] {
+
+    width: 300px;
+
+    height: auto;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    margin-left: 78px;
+
+    margin-bottom: 30px;
+
+    cursor: pointer;
+
+    float: left;
+
+}
+
+
+
+.box .publicclass .review .reviewbox img[_v-57011751] {
+
+    width: 30px;
+
+    height: 16px;
+
+    margin-right: 10px;
+
+    margin-top: 5px
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content[_v-57011751] {
+
+    width: 260px;
+
+    font-family: PingFangSC-Regular
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p1[_v-57011751] {
+
+    font-size: 18px;
+
+    color: #4a4a4a;
+
+    display: -ms-flexbox;
+
+    display: flex;
+
+    -ms-flex-align: center;
+
+    align-items: center;
+
+    box-sizing: border-box
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p1 span[_v-57011751]:first-of-type {
+
+    max-width: 220px;
+
+    display: inline-block;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    overflow: hidden
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p1 span[_v-57011751]:first-of-type:hover {
+
+    box-shadow: 0 1px 0 #000
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p1 span[_v-57011751]:nth-of-type(2) {
+
+    font-size: 15px;
+
+    width: 38px;
+
+    height: 20px;
+
+    color: #fff;
+
+    background: #fa6240;
+
+    padding: 0 2px;
+
+    border-radius: 4px;
+
+    text-align: center;
+
+    line-height: 20px;
+
+    display: inline-block;
+
+    margin-left: 10px
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p2[_v-57011751] {
+
+    font-size: 14px;
+
+    color: #5e5e5e;
+
+    letter-spacing: .19px;
+
+    margin: 8px 0
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p2 span[_v-57011751]:first-of-type {
+
+    margin-right: 30px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    overflow: hidden
+
+}
+
+
+
+.box .publicclass .review .reviewbox .content .p3[_v-57011751] {
+
+    font-size: 14px;
+
+    color: #9b9b9b;
+
+    letter-spacing: .19px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis
+
+}
+
+
+
+@keyframes hvr-wobble-horizontal {
+
+    16.65% {
+
+        transform: translateX(8px)
+
+    }
+
+    33.3% {
+
+        transform: translateX(-6px)
+
+    }
+
+    49.95% {
+
+        transform: translateX(4px)
+
+    }
+
+    66.6% {
+
+        transform: translateX(-2px)
+
+    }
+
+    83.25% {
+
+        transform: translateX(1px)
+
+    }
+
+    to {
+
+        transform: translateX(0)
+
+    }
+
+}</style>
+
+{/block}
+
+{block name='body'}
+
+<!--v-component-->
+
+<div id="router-view">
+
+    <div class="box" _v-57011751="" style="min-height: 737px;">
+
+        <div class="publicclass" _v-57011751="">
+
+            <p class="head" _v-57011751="">
+
+                <span _v-57011751="" class="spancolor" onclick="tab(this,1)">精彩直播</span>
+
+                <span _v-57011751="" onclick="tab(this,2)">往期回顾</span>
+
+            </p>
+
+            <div class="maskbox" _v-202cab1a="" _v-57011751="" style="display: none;">
+
+                <div class="mask" _v-202cab1a="">
+
+                    <img src="" alt="" class="colse" _v-202cab1a="">
+
+                    <h1 _v-202cab1a="">扫码加入直播交流答疑群，获取免费学习资料</h1>
+
+                    <div class="add" _v-202cab1a=""><img alt="" _v-202cab1a="" src="//hcdn1.luffycity.com">
+
+                        <div class="bottom" _v-202cab1a=""><p _v-202cab1a=""> * 入群获得独家试听&amp;学习资料<br _v-202cab1a=""> *
+
+                            导师为你答疑解惑<br _v-202cab1a=""> * 和小伙伴一起互动交流<br _v-202cab1a=""></p>
+
+                            <p _v-202cab1a="">路飞学城PY开发群 <b _v-202cab1a=""></b></p></div>
+
+                    </div>
+
+                </div>
+
+            </div><!--v-component-->
+
+            <div _v-57011751="" id="div1"> <!--v-for-start-->
+
+                {foreach name='open' item='vo'}
+
+                <section _v-57011751="" key="0">
+
+                    <div class="modelshead" _v-57011751="">
+
+                        <img src="/static/index/static/frontend/open/zhibo.png" alt="" _v-57011751="">
+
+                        <span _v-57011751="">适宜人群：{$vo.apply}</span>
+
+                        <span class="span2" _v-57011751="">
+
+                            {eq name='vo.is_finish' value='1'}已结束{/eq}
+
+                            {eq name='vo.is_finish' value='0'}未开始{/eq}
+
+                        </span>
+
+                    </div>
+
+                    <div class="content" _v-57011751="">
+
+                        <div class="left cursor" _v-57011751="">
+
+                            <a href="{$vo.url}" target="_blank">
+
+                            <img alt="" class="img1" _v-57011751="" src="{$vo.imgurl}">
+
+                            <img src="/static/index/static/img/play-vedio.svg" alt="" class="img2" _v-57011751="">
+
+                            </a>
+
+                        </div>
+
+                        <div class="right" _v-57011751="">
+
+                            <p class="p1" _v-57011751="">{$vo.name}</p>
+
+                            <p class="p2" _v-57011751="">
+
+                                <span _v-57011751="">上课老师： {$vo.teacher_name}</span>
+
+                                <span _v-57011751="">预计时长：<b _v-57011751="">{$vo.class_time}</b></span>
+
+                                <span _v-57011751="">预约人数：<b _v-57011751="">{$vo.appointment}</b></span>
+
+                            </p>
+
+                            <p class="p3" _v-57011751="">
+
+                                {$vo.content}
+
+                            </p>
+
+                            <p class="p4" _v-57011751="">
+
+                                <span _v-57011751="">上课时间：<b _v-57011751="">{$vo.open_time}</b></span>
+
+                                <a href="{$vo.url}" target="_blank">
+
+                                    <button _v-57011751="">
+
+                                        <p _v-57011751="">
+
+                                            {eq name='vo.is_finish' value='1'}
+
+                                            已结束
+
+                                            <img src="/static/index/static/frontend/open/huifang.svg" alt="" _v-57011751="">
+
+                                            {/eq}
+
+                                            {eq name='vo.is_finish' value='0'}
+
+                                            未开始
+
+                                            <img src="/static/index/static/frontend/open/zhibo1.svg" alt="" _v-57011751="">
+
+                                            {/eq}
+
+                                            {eq name='vo.is_finish' value='3'}
+
+                                            进行中
+
+                                            <img src="/static/index/static/frontend/open/zhibo1.svg" alt="" _v-57011751="">
+
+                                            {/eq}
+
+                                        </p>
+
+                                    </button>
+
+                                </a>
+
+                            <!--v-if-->
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                {/foreach}
+
+                <!--v-for-end-->
+
+            </div>
+
+            <!--v-if-->
+
+            <div class="review" _v-57011751="" id="div2" style="display: none"> <!--v-for-start-->
+
+                {foreach name='rows' item='vo'}
+
+                <div class="reviewbox" _v-57011751="" key="0">
+
+                    <img src="/static/index/static/frontend/open/zhibo2.svg" alt="" _v-57011751="">
+
+                    <div class="content" _v-57011751="">
+
+                        <p class="p1" _v-57011751="">
+
+                            <span _v-57011751=""><a href="{$vo.url}" target="_blank">{$vo.name}</a></span>
+
+                            {eq name='vo.important' value='1'}
+
+                            <span _v-57011751="">必看</span>
+
+                            {/eq}
+
+                        </p>
+
+                        <p class="p2" _v-57011751="">
+
+                            <span _v-57011751="">日期：<?= substr($vo['open_time'],0,10); ?></span>
+
+                            <span _v-57011751="">时长：{$vo.class_time}</span>
+
+                        </p>
+
+                        <p class="p3" _v-57011751="">{$vo.content}</p></div>
+
+                </div>
+
+                {/foreach}
+
+                <!--v-for-end-->
+
+            </div>
+
+            <!--v-if-->
+
+        </div>
+
+    </div><!--v-component-->
+
+</div>
+
+{/block}
+
+{block name="js"}
+
+<script>
+
+    function tab(obj,id) {
+
+        $(obj).siblings("span").removeClass("spancolor");
+
+        $(obj).addClass("spancolor");
+
+        if (id==1){
+
+            $('#div1').css('display','block');
+
+            $('#div2').css('display','none');
+
+        }else {
+
+            $('#div2').css('display','block');
+
+            $('#div1').css('display','none');
+
+        }
+
+    }
+
+</script>
+
+{/block}
+
+{block name='footer'}
+
+{__block__}
+
+{/block}
