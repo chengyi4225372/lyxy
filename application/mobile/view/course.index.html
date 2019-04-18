@@ -65,6 +65,9 @@
                         </dt>
                         <dd data-v-0216b961="">
                             <div data-v-0216b961="">
+                                {empty name="Think.session.member_info"}
+                                <p data-v-0216b961="" class="buy">购买</p>
+                                 {else /}
                                 {eq name='vo.has_buy' value='1'}
                                 <p data-v-0216b961="" class="buy">已购买</p>
                                 {/eq}
@@ -73,6 +76,7 @@
                                 <p data-v-0216b961="" class="price">¥{$vo.price}</p>
                                 <p data-v-0216b961="" class="original-price">{$vo.old_price}</p>
                                 {/eq}
+                                {/empty}
                             </div>
                             <p data-v-0216b961="" class="person">
                                 <img data-v-0216b961="" src="" alt="">{$vo.stu_num}人已加入学习</p>

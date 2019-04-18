@@ -63,10 +63,17 @@
             </div>
         </div>
         <div data-v-c343945e="" class="foot">
+            {if condition="$Think.session.member_info eq null" }
+            <div data-v-c343945e="">
+                <span data-v-c343945e="">实付款￥{$course.price|}</span>
+                <span data-v-c343945e=""onclick="go_login()">去登录</span>
+            </div>
+            {else /}
             <div data-v-c343945e="">
                 <span data-v-c343945e="">实付款￥{$course.price}</span>
-                <span data-v-c343945e="" onclick="go_pay()">去支付</span>
+                <span data-v-c343945e="" onclick="go_pay() ">去支付</span>
             </div>
+            {/if}
             <form action="{:url('alipay/alipay/pay')}" id="buy_form" method="post">
                 <input type="hidden" name="pay_type" value="0">
                 <input type="hidden" name="price" value="{$course.price}">
@@ -86,6 +93,10 @@
 //    });
     function go_pay() {
         $("#buy_form").submit();
+    }
+
+    function go_login(){
+        window.location.href="{:url('mobile/login/login')}";
     }
 </script>
 {/block}

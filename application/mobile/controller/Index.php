@@ -14,10 +14,10 @@ class Index extends BasicMobile {
 
 	public $banner = 'index_banner';
 	public $msg = 'index_msg';
-    public $type = 'course_type';
-    public $degree = 'index_degree';
-    public $course = 'index_course';
-    public $c_chapter = 'course_chapter';
+    public $type = 'course_type';  //课程分类表
+    public $degree = 'index_degree'; //学位课程表
+    public $course = 'index_course'; //课程表
+    public $c_chapter = 'course_chapter'; //学位课程章节表
     public $c_content = 'chapter_content';
 
 	/**
@@ -27,8 +27,8 @@ class Index extends BasicMobile {
 		$this->assign('title', '乐育学院');
 		$this->assign('nav', '1');
 		$this->assign('banner', $this->_banner());  //轮播图
-		$this->assign('degree', $this->_degree());
-		$this->assign('course', $this->_course());
+		$this->assign('degree', $this->_degree());  //学位课程
+		$this->assign('course', $this->_course());  //课程
 //		print_r($this->_degree());exit;
 		return $this->fetch();
 	}
@@ -72,11 +72,12 @@ class Index extends BasicMobile {
         return $db;
     }
 
+    //课程表
     private function _course() {
         $db = db($this->course)->where(['is_deleted' => '0', 'status' => '1','is_hot'=>1])->limit(3)->select();
         foreach ($db as &$v){
             $v['class_num'] = 0;
-            if ($v['is_free']==1){
+            if ($v['is_free']==1){ //0 收费 1免费
                 $v['price'] = 0;
             }
             $chapter = db($this->c_chapter)->where(['is_deleted' => '0', 'status' => '1','course_id'=>$v['id']])->select();

@@ -96,7 +96,8 @@
             <p data-v-5e31dde6="" class="price">
                 ¥ <span data-v-5e31dde6="">{$vo.price}</span>
             </p>
-            <p data-v-5e31dde6="" class="go" onclick="go_buy()">立即购买</p>
+            <!--<p data-v-5e31dde6="" class="go" onclick="go_buy()">立即购买</p>-->
+            <p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">立即购买</p>
         </button>
     </div>
 </div>
@@ -136,7 +137,7 @@
         }
     }
     function go_buy() {
-        window.location.href = "{:url('buy/buy')}?type=1&cid={$Think.get.cid}";
+        window.location.href = "{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}";
     }
 </script>
 {/block}
