@@ -97,7 +97,8 @@ class Alipay extends Controller {
 //                print_r($data);exit;
                     if (db($this->table)->where('order_code', '=', $data['order_code'])->update($data)) {
 //                    return ['status' => 200, 'msg' => '购买成功!正在跳转!'];
-                        $this->redirect("member/index/study");
+                        //需要判断是不是手机端
+                        isMobile()?$this->redirect("mobile/study/index"):$this->redirect("member/index/study");
                     } else {
 //                    return ['status' => 404, 'msg' => '课程购买失败!请稍后再试!'];
                         echo "<script>alert('课程购买失败!请稍后再试')</script>";

@@ -26,7 +26,7 @@ class Order extends BasicAdmin
     {
         $this->title = '订单管理';
         $get = $this->request->get();
-        $db = Db::name($this->table)->where(['is_deleted' => '0']);
+        $db = Db::name($this->table)->where(['is_deleted' => '0'])->order('create_at desc');
         foreach (['tel'] as $key) {
             (isset($get[$key]) && $get[$key] !== '') && $db->whereLike($key, "%{$get[$key]}%");
         }
