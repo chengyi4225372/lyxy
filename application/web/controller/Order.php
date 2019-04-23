@@ -127,6 +127,7 @@ class Order extends BasicAdmin
      */
     public function out()
     {
+
         //导出
         $path = dirname(__FILE__); //找到当前脚本所在路径
         vendor("PHPExcel.PHPExcel.PHPExcel");
@@ -140,12 +141,20 @@ class Order extends BasicAdmin
         $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
 
+        //修改新的查询方式
+         $data = input('post.create_at');
+         if(empty($data)){
+             return false;
+         }
+         $data = explode('-',$data);
+         $begin_time = strtotime($data['0']);
+         $end_time = strtotime($data['1']);
         //获取上月起始和结束时间
-        $begin_time = strtotime('-1 month');
-        $end_time = strtotime(-date('d').'day');
+        //$begin_time = strtotime('-1 month');
+        //$end_time = strtotime(-date('d').'day');
 
         // 实例化完了之后就先把数据库里面的数据查出来
-        $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
+        $sql = db($this->table)->whereBetween('create_at',"$begin_time,$end_time")->select();
         foreach ($sql as &$v){
             $member = db($this->table_member)->where('id',$v['member_id'])->find();
             $v['member_name'] = $member['name'];
@@ -204,16 +213,13 @@ class Order extends BasicAdmin
             $objPHPExcel->getActiveSheet()->setCellValue('K' . $i, $sql[$i-2]['course_name']);
         }
 
-
         /*--------------下面是设置其他信息------------------*/
 
         $objPHPExcel->getActiveSheet()->setTitle('order_info');      //设置sheet的名称
 //        $objPHPExcel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_TEXT);
         $objPHPExcel->setActiveSheetIndex(0);                   //设置sheet的起始位置
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
-
         $PHPWriter = \PHPExcel_IOFactory::createWriter( $objPHPExcel,"Excel2007");
-
         header('Content-Disposition: attachment;filename="订单信息.xlsx"');
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 

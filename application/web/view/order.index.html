@@ -8,10 +8,8 @@
             <input name="create_at" id='range-date' value="{$Think.get.create_at|default=''}" placeholder="请选择时间" class="layui-input">
         </div>
     </div>
+        <a class='layui-btn layui-btn-small'><i class='fa fa-plus'></i> 导出订单数据</a>
 
-    <a href='' onclick="order_url()" class='layui-btn layui-btn-small'>
-        <i class='fa fa-plus'></i> 导出订单数据
-    </a>
     <button data-update data-field='delete' data-action='{:url("$classuri/del")}' class='layui-btn layui-btn-small layui-btn-danger'>
         <i class='fa fa-remove'></i> 删除订单
     </button>
@@ -138,7 +136,7 @@
         window.laydate.render({range: true, elem: '#range-date', format: 'yyyy/MM/dd'});
         function detail(obj,id) {
             $.ajax({
-                url:"{:url('detail')}",
+                url:"{:url('order/detail')}",
                 type:"post",
                 data:{id:id},
                 dataType: "json",
@@ -153,14 +151,7 @@
             })
         }
 
-    //查询订单时间
-    function order_url(){
-            var create_at = $("#range-date").val();
-            if(create_at =='' || create_at==undefined){alert('请选择查询订单的具体时间！');return false;}
-            //待完成 todo 
-
-
-
+       window.laydate.render({range: true, elem: '#range-dates', format: 'yyyy/MM/dd'});
     </script>
 </form>
 {/block}
