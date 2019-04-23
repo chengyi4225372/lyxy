@@ -6,8 +6,8 @@
             <select name="de_id">
                 <option value=""></option>
                 {volist name="ke" id="list" }
-                   {if isset($list.id)}
-                <option value="{$list.id}" {if condition="$vo.de_id eq $list.id"} selected="">{$list.name}</option>
+                   {if isset($de_id)}
+                <option value="{$list.id}" {if condition="$vo.de_id eq $list.id"} selected="" {/if}>{$list.name}</option>
                   {else /}
                 <option value="{$list.id}">{$list.name}</option>
                  {/if}

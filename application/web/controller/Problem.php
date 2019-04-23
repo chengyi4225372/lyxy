@@ -15,7 +15,8 @@ use think\Db;
 class Problem extends BasicAdmin
 {
     public $table = 'problem';
-    public $table_course = 'index_course';
+    //public $table_course = 'index_course';
+    public $table_degree = 'index_degree'; //学位课程表
 
     public function index()
     {
@@ -35,9 +36,27 @@ class Problem extends BasicAdmin
         return parent::_list($db);
     }
 
+
+    //关联课程类型
+    protected function _data_filter(&$data)
+    {
+        foreach ($data as &$val){
+            $val['type_name'] = db($this->table_degree)->where(['id'=>$val['degree_id']])->value('name');
+        }
+    }
+
+
+
+    /* 免费课程
     private function _course()
     {
         return db($this->table_course)->where(['is_deleted'=>0,'status'=>1])->select();
+    }
+     */
+    //学位课程
+    private function _degree()
+    {
+        return db($this->table_degree)->field('id,name')->select();
     }
 
     /**
@@ -45,7 +64,7 @@ class Problem extends BasicAdmin
      */
     public function add()
     {
-        $this->assign('course',$this->_course());
+        $this->assign('degree',$this->_degree());
         return $this->_form($this->table, 'form');
     }
 
@@ -54,7 +73,7 @@ class Problem extends BasicAdmin
      */
     public function edit()
     {
-        $this->assign('course',$this->_course());
+        $this->assign('degree',$this->_degree());
         return $this->_form($this->table, 'form');
     }
 

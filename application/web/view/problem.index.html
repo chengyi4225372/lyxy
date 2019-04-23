@@ -57,7 +57,7 @@
                 <input data-none-auto="" data-check-target='.list-check-box' type='checkbox'/>
             </th>
             <th class='text-left nowrap'>问题名</th>
-            <th class='text-left nowrap'>课程类型</th>
+            <th class='text-left nowrap'>关联学位课程</th>
             <th class='text-left nowrap'>状态</th>
             <th class='text-left nowrap'>操作</th>
         </tr>
@@ -72,12 +72,7 @@
                 {$vo.question}
             </td>
             <td class='text-left nowrap'>
-                {switch name='vo.course_type'}
-                {case 1}免费课程{/case}
-                {case 2}学位课程{/case}
-                {case 3}七天课程{/case}
-                {case 4}公开课程{/case}
-                {/switch}
+              {$vo.type_name|default=''}
             </td>
             <td class='text-left nowrap'>
                 {if $vo.status eq 0}

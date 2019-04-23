@@ -1,40 +1,17 @@
 <form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
 
     <div class="layui-form-item">
-        <label class="layui-form-label">课程类型</label>
-        <div class='layui-input-inline'>
-            <select name="course_type" id="course_type">
-                <option value="">请选择课程类型</option>
-                {notempty name='vo.course_type'}
-                <option value="1" {eq name="vo.course_type" value="1"}selected{/eq}>免费课程</option>
-                <option value="2" {eq name="vo.course_type" value="2"}selected{/eq}>学位课程</option>
-                <option value="3" {eq name="vo.course_type" value="3"}selected{/eq}>七天课程</option>
-                <option value="4" {eq name="vo.course_type" value="4"}selected{/eq}>公开课程</option>
-                {/notempty}
-                {empty name='vo.course_type'}
-                <option value="1">免费课程</option>
-                <option value="2">学位课程</option>
-                <option value="3">七天课程</option>
-                <option value="4">公开课程</option>
-                {/empty}
-            </select>
-        </div>
-        <label class="layui-form-label">所属课程</label>
-        <div class='layui-input-inline'>
-            <select name="course_id" id="course_id">
-                <option value="">请选择所属课程(非免费课程可不选)</option>
-                {empty name='course'}<option value="">暂无所属课程</option>{/course}
-                {foreach $course as $val}
-                {notempty name='vo.course_id'}
-                {if condition="$vo.course_id eq $val.id"}
-                <option value="{$val.id}" selected>{$val.name}</option>
-                {else/}<option value="{$val.id}">{$val.name}</option>
+        <label class="layui-form-label">关联学位课程</label>
+        <div class="layui-input-inline">
+            <select name="degree_id">
+                <option value=""></option>
+                {volist name="degree" id="list" }
+                {if isset($vo.degree_id)}
+                <option value="{$list.id}" {if condition="$vo.degree_id eq $list.id"} selected="" {/if}>{$list.name}</option>
+                {else /}
+                <option value="{$list.id}">{$list.name}</option>
                 {/if}
-                {/notempty}
-                {empty name='vo.course_id'}
-                <option value="{$val.id}">{$val.name}</option>
-                {/empty}
-                {/foreach}
+                {/volist}
             </select>
         </div>
     </div>
@@ -42,8 +19,7 @@
     <div class="layui-form-item">
         <label class="layui-form-label">问题</label>
         <div class="layui-input-block">
-            <input name="question" value='{$vo.question|default=""}' required="required"
-                   title="问题" placeholder="问题" class="layui-input">
+            <input name="question" value='{$vo.question|default=""}' required="required" title="问题" placeholder="问题" class="layui-input">
         </div>
     </div>
 
