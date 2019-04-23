@@ -1,13 +1,29 @@
 <form class="layui-form layui-box" style='padding:25px 30px 20px 0' action="__SELF__" data-auto="true" method="post">
 
     <div class="layui-form-item">
+        <label class="layui-form-label">关联学位课程</label>
+        <div class="layui-input-inline">
+            <select name="de_id">
+                <option value=""></option>
+                {volist name="ke" id="list" }
+                   {if isset($list.id)}
+                <option value="{$list.id}" {if condition="$vo.de_id eq $list.id"} selected="">{$list.name}</option>
+                  {else /}
+                <option value="{$list.id}">{$list.name}</option>
+                 {/if}
+                 {/volist}
+            </select>
+        </div>
+    </div>
+
+
+        <div class="layui-form-item">
         <label class="layui-form-label">学员姓名</label>
         <div class="layui-input-block">
             <input name="stu_name" value='{$vo.stu_name|default=""}' required="required"
                    title="学员姓名" placeholder="学员姓名" class="layui-input">
         </div>
     </div>
-
     <div class="layui-form-item">
         <label class="layui-form-label">性别</label>
         <div class="layui-input-block">

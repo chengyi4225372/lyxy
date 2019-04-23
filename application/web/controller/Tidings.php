@@ -15,6 +15,7 @@ use think\Db;
 class Tidings extends BasicAdmin
 {
     public $table = 'member_tidings';
+    public $index_degree = 'index_degree'; //学位课程
 
     public function index()
     {
@@ -31,11 +32,23 @@ class Tidings extends BasicAdmin
         return parent::_list($db);
     }
 
+
+    //关联学位课程
+    protected function _data_filter(&$data)
+    {
+        foreach ($data as &$val){
+            $val['type_name'] = db($this->index_degree)->where(['id'=>$val['de_id']])->value('name');
+        }
+    }
+
+
     /**
      * 喜讯添加
      */
     public function add()
     {
+        $ke = db($this->index_degree)->field('id,name')->select();
+        $this->assign('ke',$ke);
         return $this->_form($this->table, 'form');
     }
 
@@ -44,6 +57,8 @@ class Tidings extends BasicAdmin
      */
     public function edit()
     {
+        $ke = db($this->index_degree)->field('id,name')->select();
+        $this->assign('ke',$ke);
         return $this->_form($this->table, 'form');
     }
 

@@ -20,7 +20,7 @@ class Degree extends BasicAdmin
      * @var string
      */
     public $course = 'index_degree';
-    public $table_type = 'course_type';
+    public $table_type = 'course_type'; //课程类型
     public $table_teacher = 'system_user';
 
     /**
@@ -34,6 +34,7 @@ class Degree extends BasicAdmin
 //        print_r($this->_teacher());exit;
         $get = $this->request->get();
         $db = Db::name($this->course)->where(['is_deleted' => '0']);
+        //搜索
         foreach (['name'] as $key) {
             (isset($get[$key]) && $get[$key] !== '') && $db->whereLike($key, "%{$get[$key]}%");
         }
@@ -43,6 +44,7 @@ class Degree extends BasicAdmin
         return parent::_list($db);
     }
 
+    //关联课程类型
     protected function _data_filter(&$data)
     {
         foreach ($data as &$val){
@@ -50,11 +52,13 @@ class Degree extends BasicAdmin
         }
     }
 
+    //课程类型
     private function _type()
     {
         return db($this->table_type)->where(['is_deleted' => '0','status'=>'1'])->select();
     }
 
+    //师资力量
     private function _teacher()
     {
         return db($this->table_teacher)->where(['is_deleted' => '0','is_teacher'=>'1','status'=>'1'])->select();

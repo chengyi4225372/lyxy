@@ -48,6 +48,7 @@
             <th class='text-left nowrap'>学员</th>
             <th class='text-left nowrap'>薪资</th>
             <th class='text-left nowrap'>福利待遇</th>
+            <th class='text-left nowrap'>关联学位课程</th>
             <th class='text-left nowrap'>状态</th>
             <th class='text-left nowrap'>操作</th>
         </tr>
@@ -73,6 +74,9 @@
             </td>
             <td class='text-left nowrap'>
                 {$vo.welfare}
+            </td>
+            <td class='text-left nowrap'>
+                {$vo.type_name|default=''}
             </td>
             <td class='text-left nowrap'>
                 {if $vo.status eq 0}

@@ -32,9 +32,10 @@ class Micro extends BasicHome {
 		$this->assign('news', $this->_news());
 		$this->assign('pros', $this->_pros());
 		if (isset($_GET['did'])) {
+		    //关联
 			$did = input("get.did");
 		} else {
-                         //查询没有关联
+           //查询没有关联
 			$did = db($this->table)->where(['status' => 1, 'is_deleted' => 0])->value('id');
 		}
 		// print_r($did);exit;
@@ -46,8 +47,6 @@ class Micro extends BasicHome {
 		$this->assign('team', $this->_team());
 		$this->assign('comment', $this->_comment());
 		$this->assign('degree', $this->_degree($did));
-		//        print_r($did);
-		//		 print_r($this->_degree($did));exit;
 		return $this->fetch();
 	}
 
@@ -55,16 +54,18 @@ class Micro extends BasicHome {
 	 * @return 购买课程
 	 */
 	public function buy() {
+	    //判断是否登录
 		if (!session('?member_info')) {
 			redirect('index/login/index')->remember();
 			$this->redirect('index/login/index');
 			exit;
 		}
+		//导航条
 		$this->assign('title', '购买课程');
 		$this->assign('nav', 0);
+
 		if ($this->request->isGet()) {
 			$id = $this->request->get('id');
-
 			$mid = session("member_info.id");
 			$pid = $this->request->get('pid');
 			$order = db($this->order)->where(["member_id" => $mid, 'course_id' => $id, 'course_type' => 2,'package_id'=>$pid])->find();
@@ -75,7 +76,6 @@ class Micro extends BasicHome {
 					$this->redirect("member/order/index");
 				}
 			}
-
 			$row = db($this->table)->where('id', '=', $id)->find();
 			$row['price'] = $this->request->get('price');
 			$row['package_id'] = $pid;
