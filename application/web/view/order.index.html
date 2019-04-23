@@ -2,14 +2,10 @@
 
 {block name="button"}
 <div class="nowrap pull-right" style="margin-top:10px">
-    <div class="layui-form-item layui-inline">
-        <label class="layui-form-label">查询订单时间</label>
-        <div class="layui-input-inline">
-            <input name="create_at" id='range-date' value="{$Think.get.create_at|default=''}" placeholder="请选择时间" class="layui-input">
-        </div>
-    </div>
-        <a class='layui-btn layui-btn-small'><i class='fa fa-plus'></i> 导出订单数据</a>
-
+    <!--<a href='{:url("out")}' class='layui-btn layui-btn-small'>-->
+        <!--<i class='fa fa-plus'></i> 导出近一个月数据-->
+    <!--</a>-->
+        <!--<a class='layui-btn layui-btn-small' data-href="" onclick="out_excel()"><i class='fa fa-plus'></i> 导出订单数据</a>-->
     <button data-update data-field='delete' data-action='{:url("$classuri/del")}' class='layui-btn layui-btn-small layui-btn-danger'>
         <i class='fa fa-remove'></i> 删除订单
     </button>
@@ -29,16 +25,28 @@
     <div class="layui-form-item layui-inline">
         <label class="layui-form-label">下单时间</label>
         <div class="layui-input-inline">
-            <input name="create_at" id='range-dates' value="{$Think.get.create_at|default=''}"
-                   placeholder="请选择下单时间" class="layui-input">
+            <input name="create_at" id='range-dates' value="{$Think.get.create_at|default=''}" placeholder="请选择下单时间" class="layui-input">
         </div>
     </div>
-
     <div class="layui-form-item layui-inline">
         <button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button>
     </div>
 </form>
 <!-- 表单搜索 结束 -->
+
+<!--导出订单-->
+<!--<form class="layui-form layui-form-pane form-search" action="{:url('order/out')}" onsubmit="return false" method="get">-->
+    <!--<div class="layui-form-item layui-inline">-->
+        <!--<label class="layui-form-label">下单时间</label>-->
+        <!--<div class="layui-input-inline">-->
+            <!--<input name="create_order" id='range-date' value="{$Think.post.create_order|default=''}" laceholder="请选择下单时间" class="layui-input">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="layui-form-item layui-inline">-->
+        <!--<button class="layui-btn layui-btn-primary" type="submit"><i class="layui-icon">&#xe615;</i> 导出订单数据</button>-->
+    <!--</div>-->
+<!--</form>-->
+
 
 <form onsubmit="return false;" data-auto="true" method="post">
     {if empty($list)}

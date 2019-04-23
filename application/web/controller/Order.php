@@ -42,30 +42,30 @@ class Order extends BasicAdmin
     protected function _data_filter(&$data)
     {
         foreach ($data as &$val) {
-            $val['create_at'] = date('Y-m-d H:i:s',"{$val['create_at']}");
+            $val['create_at'] = date('Y-m-d H:i:s', "{$val['create_at']}");
 //            if (!empty($val['finish_at'])){
 //                $val['finish_at'] = date('Y-m-d H:i:s',"{$val['finish_at']}");
 //            }
 
-            $val['member_name'] = db($this->table_member)->where('id',$val['member_id'])->value('name');
-            $val['member_real_name'] = db($this->table_member)->where('id',$val['member_id'])->value('real_name');
-            switch ($val['course_type']){
+            $val['member_name'] = db($this->table_member)->where('id', $val['member_id'])->value('name');
+            $val['member_real_name'] = db($this->table_member)->where('id', $val['member_id'])->value('real_name');
+            switch ($val['course_type']) {
                 case 1:
-                    $val['course_name'] = db($this->table_course)->where('id',$val['course_id'])->value('name');
+                    $val['course_name'] = db($this->table_course)->where('id', $val['course_id'])->value('name');
                     $val['course_type'] = '免费课程';
                     break;
                 case 2:
-                    $course = db($this->table_degree)->where('id',$val['course_id'])->find();
+                    $course = db($this->table_degree)->where('id', $val['course_id'])->find();
                     $val['course_name'] = $course['name'];
-                    $val['course_name'] .='-'.db($this->degree_package)->where(['degree_id'=>$course['id'],'id'=>$val['package_id']])->value('name');
+                    $val['course_name'] .= '-' . db($this->degree_package)->where(['degree_id' => $course['id'], 'id' => $val['package_id']])->value('name');
                     $val['course_type'] = '学位课程';
                     break;
                 case 3:
-                    $val['course_name'] = db($this->table_camp)->where('id',$val['course_id'])->value('name');
+                    $val['course_name'] = db($this->table_camp)->where('id', $val['course_id'])->value('name');
                     $val['course_type'] = '七天课程';
                     break;
                 case 4:
-                    $val['course_name'] = db($this->table_open)->where('id',$val['course_id'])->value('name');
+                    $val['course_name'] = db($this->table_open)->where('id', $val['course_id'])->value('name');
                     $val['course_type'] = '公开课';
                     break;
             }
@@ -80,8 +80,8 @@ class Order extends BasicAdmin
         if (request()->isAjax()) {
             if (request()->isPost()) {
                 $id = input("post.id");
-                $msg = db($this->table)->where(["id"=>$id])->value("msg");
-                if (!empty($msg)){
+                $msg = db($this->table)->where(["id" => $id])->value("msg");
+                if (!empty($msg)) {
                     return ['status' => 200, 'msg' => $msg];
                 }
             }
@@ -122,12 +122,13 @@ class Order extends BasicAdmin
         $this->error("订单启用失败, 请稍候再试!");
     }
 
+
     /**
-     * 导出Excel
+     * 导出Excel 方法
      */
+
     public function out()
     {
-
         //导出
         $path = dirname(__FILE__); //找到当前脚本所在路径
         vendor("PHPExcel.PHPExcel.PHPExcel");
@@ -141,20 +142,12 @@ class Order extends BasicAdmin
         $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
 
-        //修改新的查询方式
-         $data = input('post.create_at');
-         if(empty($data)){
-             return false;
-         }
-         $data = explode('-',$data);
-         $begin_time = strtotime($data['0']);
-         $end_time = strtotime($data['1']);
-        //获取上月起始和结束时间
-        //$begin_time = strtotime('-1 month');
-        //$end_time = strtotime(-date('d').'day');
-
+        $data = input('get.create_order');
+        $data = explode('-', $data);
+        $begin_time = strtotime($data['0']);
+        $end_time = strtotime($data['1']);
         // 实例化完了之后就先把数据库里面的数据查出来
-        $sql = db($this->table)->whereBetween('create_at',"$begin_time,$end_time")->select();
+        $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
         foreach ($sql as &$v){
             $member = db($this->table_member)->where('id',$v['member_id'])->find();
             $v['member_name'] = $member['name'];
@@ -213,6 +206,7 @@ class Order extends BasicAdmin
             $objPHPExcel->getActiveSheet()->setCellValue('K' . $i, $sql[$i-2]['course_name']);
         }
 
+
         /*--------------下面是设置其他信息------------------*/
 
         $objPHPExcel->getActiveSheet()->setTitle('order_info');      //设置sheet的名称
@@ -226,4 +220,6 @@ class Order extends BasicAdmin
         $PHPWriter->save("php://output"); //表示在$path路径下面生成demo.xlsx文件
 
     }
+
+
 }
