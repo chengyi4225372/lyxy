@@ -46,7 +46,7 @@ class Micro extends BasicHome {
 		$this->assign('project', $this->_project($did));
 		$this->assign('module', $this->_module($did));
 		$this->assign('stus', $this->_stus());
-		$this->assign('team', $this->_team());
+		$this->assign('team', $this->_team($did));
 		$this->assign('comment', $this->_comment());
 		$this->assign('degree', $this->_degree($did));
         //有登陆并且购买了情况下
@@ -54,6 +54,17 @@ class Micro extends BasicHome {
         //用户 关于学位 课程的订单列表  is_finish 0未支付,1已支付,2超时取消',
         $order = db($this->order)->where(['member_id' => $mid, 'course_id' => $did, 'course_type' => 2,'status'=>1,'is_deleted'=>0])->find();
         $this->assign('order',$order);
+        //常见问题
+        $pros =db($this->pros)->where(['status' => 1, 'is_deleted' => 0,'degree_id'=>$did])->order("create_at desc")->limit(5)->select();
+        $this->assign('pros',$pros);
+        //就业喜报
+        $news = $db = db($this->news)->where(['status' => 1, 'is_deleted' => 0,'de_id'=>$did])->order("create_at desc")->limit(20)->select();
+        foreach ($db as &$v) {
+            $v['stu_name'] = mb_substr($v['stu_name'], 0, 2, 'utf-8') . "**同学";
+            $v['company'] = mb_substr($v['company'], 0, 3, 'utf-8') . "****公司";
+        }
+        $this->assign('news',$news);
+
         return $this->fetch();
 	}
 
@@ -133,6 +144,7 @@ class Micro extends BasicHome {
 		return $db;
 	}
 
+
 	private function _news() {
 		$db = db($this->news)->where(['status' => 1, 'is_deleted' => 0])->order("create_at desc")->limit(20)->select();
 		foreach ($db as &$v) {
@@ -142,8 +154,9 @@ class Micro extends BasicHome {
 		return $db;
 	}
 
+
 	private function _pros() {
-		return db($this->pros)->where(['status' => 1, 'is_deleted' => 0])->order("create_at desc")->limit(5)->select();
+		return db($this->pros)->where(['status' => 1, 'is_deleted' => 0,])->order("create_at desc")->limit(5)->select();
 	}
 
 	private function _module($id) {
@@ -154,8 +167,8 @@ class Micro extends BasicHome {
 		return db($this->student)->where(['status' => 1, 'is_deleted' => 0])->order('sort asc')->limit(4)->select();
 	}
 
-	private function _team() {
-		return db($this->teacher)->where(['status' => 1, 'is_deleted' => 0, 'is_teacher' => 1])->order('sort asc')->limit(4)->select();
+	private function _team($did) {
+		return db($this->teacher)->where(['status' => 1, 'is_deleted' => 0, 'is_teacher' => 1,'degree_id'=>$did])->order('sort asc')->limit(4)->select();
 	}
 
 	private function _comment() {
