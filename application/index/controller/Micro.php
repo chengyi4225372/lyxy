@@ -10,22 +10,23 @@ use think\Controller;
  * @package app\index\controller
  */
 class Micro extends BasicHome {
-	public $table = "index_degree";
-	public $module = "degree_module";
-	public $chapter = "degree_chapter";
-	public $content = "degree_content";
-	public $news = "member_tidings";
-	public $pros = "problem";
-	public $package = "degree_package";
-	public $project = "degree_project";
-	public $student = "member_info";
+	public $table = "index_degree"; //学位课程
+	public $module = "degree_module"; //学位课程模块
+	public $chapter = "degree_chapter"; //学位课程章节
+	public $content = "degree_content"; //学位课程-内容表(章节内容)
+	public $news = "member_tidings"; //就业喜报
+	public $pros = "problem";        //常见问题
+	public $package = "degree_package"; //学位课程-价格套餐
+	public $project = "degree_project";//学位课程-实战项目
+	public $student = "member_info";  //用户信息
 	public $teacher = "system_user"; //教师 表
-	public $comment = "course_comment";
-    public $order = 'member_course';
-    public $coupon = 'index_coupon';
-    public $member_coupon = 'member_coupon';
+	public $comment = "course_comment"; //课程评价表
+    public $order = 'member_course'; //学院购买课程表
+    public $coupon = 'index_coupon'; //优惠券表
+    public $member_coupon = 'member_coupon';//学员拥有优惠券表
 
 	public function index() {
+	    //没有登录 情况下 走默认的
 		$this->assign('title', '学位课程');
 		$this->assign('nav', '3');
 		$this->assign('micro', $this->_micro());
@@ -35,9 +36,10 @@ class Micro extends BasicHome {
 		    //关联
 			$did = input("get.did");
 		} else {
-           //查询没有关联
-			$did = db($this->table)->where(['status' => 1, 'is_deleted' => 0])->value('id');
+            //查询如果没有关联，默认去第一条
+			$did = db($this->table)->where(['status' => 1, 'is_deleted' => 0])->order('id asc')->limit(1)->value('id');
 		}
+
 		// print_r($did);exit;
 		$this->assign('detail', $this->_detail($did));
 		$this->assign('package', $this->_package($did));
@@ -47,7 +49,12 @@ class Micro extends BasicHome {
 		$this->assign('team', $this->_team());
 		$this->assign('comment', $this->_comment());
 		$this->assign('degree', $this->_degree($did));
-		return $this->fetch();
+        //有登陆并且购买了情况下
+        $mid = session("member_info.id");
+        //用户 关于学位 课程的订单列表  is_finish 0未支付,1已支付,2超时取消',
+        $order = db($this->order)->where(['member_id' => $mid, 'course_id' => $did, 'course_type' => 2,'status'=>1,'is_deleted'=>0])->find();
+        $this->assign('order',$order);
+        return $this->fetch();
 	}
 
 	/**
@@ -159,9 +166,9 @@ class Micro extends BasicHome {
 		return $db;
 	}
 
+	//课程章节
 	private function _degree($id) {
 		$row = db($this->table)->where('id', '=', $id)->field('id,name,type_id,position')->find();
-
 		$module = db($this->module)->where(['degree_id' => $row['id'], 'is_deleted' => 0, 'status' => 1])->field('id,name,learn_day')->select();
 		foreach ($module as &$v) {
 			$v['chapter'] = db($this->chapter)->where(['module_id' => $v['id'], 'is_deleted' => 0, 'status' => 1])->select();
@@ -176,6 +183,7 @@ class Micro extends BasicHome {
 
 			}
 		}
+
 		return $module;
 	}
 

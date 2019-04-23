@@ -86,7 +86,7 @@ class Order extends Common {
 	}
 
 	private function _order() {
-		$row = db($this->order)->where(['is_deleted' => '0', 'status' => 1, 'member_id' => session("member_info.id")])->select();
+		$row = db($this->order)->where(['is_deleted' => '0', 'status' => 1, 'member_id' => session("member_info.id")])->order('create_at desc')->select();
 		foreach ($row as &$v) {
 			if ($v['course_type'] == 1) {
 				$v['course_name'] = db($this->course)->where("id", '=', $v['course_id'])->value('name');
