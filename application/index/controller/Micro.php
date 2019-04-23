@@ -39,7 +39,6 @@ class Micro extends BasicHome {
             //查询如果没有关联，默认去第一条
 			$did = db($this->table)->where(['status' => 1, 'is_deleted' => 0])->order('id asc')->limit(1)->value('id');
 		}
-
 		// print_r($did);exit;
 		$this->assign('detail', $this->_detail($did));
 		$this->assign('package', $this->_package($did));

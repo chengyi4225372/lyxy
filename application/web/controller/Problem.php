@@ -53,18 +53,13 @@ class Problem extends BasicAdmin
         return db($this->table_course)->where(['is_deleted'=>0,'status'=>1])->select();
     }
      */
-    //学位课程
-    private function _degree()
-    {
-        return db($this->table_degree)->field('id,name')->select();
-    }
 
     /**
      * 常见问题添加
      */
     public function add()
     {
-        $this->assign('degree',$this->_degree());
+
         return $this->_form($this->table, 'form');
     }
 
@@ -73,7 +68,7 @@ class Problem extends BasicAdmin
      */
     public function edit()
     {
-        $this->assign('degree',$this->_degree());
+
         return $this->_form($this->table, 'form');
     }
 

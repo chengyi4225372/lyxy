@@ -6,7 +6,7 @@
             <select name="degree_id">
                 <option value=""></option>
                 {volist name="degree" id="list" }
-                {if isset($degree_id)}
+                {if isset($vo.degree_id)}
                 <option value="{$list.id}" {if condition="$vo.degree_id eq $list.id"} selected="" {/if}>{$list.name}</option>
                 {else /}
                 <option value="{$list.id}">{$list.name}</option>

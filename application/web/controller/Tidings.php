@@ -47,8 +47,6 @@ class Tidings extends BasicAdmin
      */
     public function add()
     {
-        $ke = db($this->index_degree)->field('id,name')->select();
-        $this->assign('ke',$ke);
         return $this->_form($this->table, 'form');
     }
 
@@ -57,8 +55,6 @@ class Tidings extends BasicAdmin
      */
     public function edit()
     {
-        $ke = db($this->index_degree)->field('id,name')->select();
-        $this->assign('ke',$ke);
         return $this->_form($this->table, 'form');
     }
 

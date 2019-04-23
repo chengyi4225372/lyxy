@@ -4,10 +4,9 @@
         <label class="layui-form-label">关联学位课程</label>
         <div class="layui-input-inline">
             <select name="de_id">
-                <option value=""></option>
                 {volist name="ke" id="list" }
-                   {if isset($de_id)}
-                <option value="{$list.id}" {if condition="$vo.de_id eq $list.id"} selected="" {/if}>{$list.name}</option>
+                   {if isset($vo.de_id)}
+                <option value="{$list.id}" {if condition="$list.id  eq $vo.de_id"} selected="" {/if}>{$list.name}</option>
                   {else /}
                 <option value="{$list.id}">{$list.name}</option>
                  {/if}

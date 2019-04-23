@@ -58,6 +58,9 @@ class BasicAdmin extends Controller
             $vo = ($pkValue !== null) ? array_merge((array)$db->where($pk, $pkValue)->where($where)->find(), $extendData) : $extendData;
             if (false !== $this->_callback('_form_filter', $vo)) {
                 empty($this->title) || $this->assign('title', $this->title);
+                //学位课程
+                $ke = db('index_degree')->field('id,name')->select();
+                $this->assign('ke',$ke);
                 return $this->fetch($tplFile, ['vo' => $vo]);
             }
             return $vo;
