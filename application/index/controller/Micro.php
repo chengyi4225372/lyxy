@@ -19,7 +19,7 @@ class Micro extends BasicHome {
 	public $package = "degree_package";
 	public $project = "degree_project";
 	public $student = "member_info";
-	public $teacher = "system_user";
+	public $teacher = "system_user"; //教师 表
 	public $comment = "course_comment";
     public $order = 'member_course';
     public $coupon = 'index_coupon';

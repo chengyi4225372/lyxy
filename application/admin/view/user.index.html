@@ -76,6 +76,7 @@
                 <th class='text-left nowrap'>登录次数</th>
                 <th class='text-left nowrap'>最后登录</th>
                 <th class='text-left nowrap'>是否老师</th>
+                <th class='text-left nowrap'>关联学位课程</th>
                 <th class='text-left nowrap'>状态</th>
                 <th class='text-left nowrap'>操作</th>
             </tr>
@@ -117,6 +118,9 @@
                     {elseif $vo.is_teacher eq 1}
                     <span style="color:#090">是</span>
                     {/if}
+                </td>
+                <td class='text-left nowrap'>
+                  {$vo.type_name|default=''}
                 </td>
                 <td class='text-left nowrap'>
                     {if $vo.status eq 0}

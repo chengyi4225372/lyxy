@@ -20,6 +20,7 @@ class User extends BasicAdmin {
 	 * @var string
 	 */
 	public $table = 'SystemUser';
+	public $degree = 'index_degree'; //关联学位课程
 
 	/**
 	 * 用户列表
@@ -46,10 +47,26 @@ class User extends BasicAdmin {
 		return $this->_form($this->table, 'auth');
 	}
 
+
+	//index页面 关联 学位课程
+    //关联学位课程
+    protected function _data_filter(&$data)
+    {
+        foreach ($data as &$val){
+            $val['type_name'] = db($this->degree)->where(['id'=>$val['degree_id']])->value('name');
+        }
+    }
+
+	//学位课程列表
+    protected function _degree(){
+	    return  \db($this->degree)->field('id,name')->select();
+    }
+
 	/**
 	 * 用户添加
 	 */
 	public function add() {
+	    $this->assign('degree',$this->_degree());
 		return $this->_form($this->table, 'form');
 	}
 
@@ -57,6 +74,7 @@ class User extends BasicAdmin {
 	 * 用户编辑
 	 */
 	public function edit() {
+        $this->assign('degree',$this->_degree());
 		return $this->_form($this->table, 'form');
 	}
 
