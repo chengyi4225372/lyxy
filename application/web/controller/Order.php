@@ -144,6 +144,7 @@ class Order extends BasicAdmin
 
         $begin_time = input('post.date','','strtotime');
         $end_time = input('post.date1','','strtotime');
+        
         // 实例化完了之后就先把数据库里面的数据查出来
         $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
         foreach ($sql as &$v){
@@ -212,8 +213,9 @@ class Order extends BasicAdmin
 //        $objPHPExcel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_TEXT);
         $objPHPExcel->setActiveSheetIndex(0);                   //设置sheet的起始位置
 
+        $filename= date("Y-m-d").'导出订单信息';
         ob_end_clean();
-        header('Content-Disposition: attachment;filename="订单信息.xlsx"');
+        header('Content-Disposition: attachment;filename="'.$filename.'.xlsx"');
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Cache-Control: max-age=0');
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
