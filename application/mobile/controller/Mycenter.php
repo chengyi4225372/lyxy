@@ -76,7 +76,6 @@ class Mycenter extends BasicMobile
                 $info[$k]['ke_img'] = db('index_open')->where('id',$info[$k]['course_id'])->value('imgurl');
             }
         }
-
         $this->assign('title', '订单中心');
         $this->assign('info',$info);
         return $this->fetch();
