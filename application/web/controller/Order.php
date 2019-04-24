@@ -144,7 +144,7 @@ class Order extends BasicAdmin
 
         $begin_time = input('post.date','','strtotime');
         $end_time = input('post.date1','','strtotime');
-        
+
         // 实例化完了之后就先把数据库里面的数据查出来
         $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
         foreach ($sql as &$v){

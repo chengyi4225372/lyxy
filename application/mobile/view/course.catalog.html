@@ -27,13 +27,10 @@
                 <div data-v-3851df12="" class="left">
                     {eq name='vvo.is_free' value='1'}
                     <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt="" class="play">
+                     {else /}
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt="" class="play" style="display: none;">
                     {/eq}
-                    {neq name='vvo.is_free' value='1'}
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt="" class="play"
-                         style="display: none;">
-                    {/neq}
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play"
-                         style="display: none;">
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play" style="display: none;">
                     <p data-v-3851df12="" class="name">{$vvo.name}</p></div>
                 <div data-v-3851df12="" class="right">
                     {eq name='vvo.is_free' value='1'}
@@ -60,5 +57,13 @@
             $(obj).next("ul").css('display', 'block');
             $(obj).children('.img1').css('transform','rotate(180deg)');
         }
+    }
+
+    function player(video) {
+        var player = '<div id="player">'+
+            '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="550" width="650" autoplay="" preload="'+video+'">'+
+            '<source src="'+video+'" type="video/mp4"></source></video></div>';
+        $(document.body).append(player);
+        toVideo();
     }
 </script>
