@@ -142,10 +142,8 @@ class Order extends BasicAdmin
         $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
 
-        $data = input('get.create_order');
-        $data = explode('-', $data);
-        $begin_time = strtotime($data['0']);
-        $end_time = strtotime($data['1']);
+        $begin_time = input('post.date','','strtotime');
+        $end_time = input('post.date1','','strtotime');
         // 实例化完了之后就先把数据库里面的数据查出来
         $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
         foreach ($sql as &$v){
@@ -153,10 +151,11 @@ class Order extends BasicAdmin
             $v['member_name'] = $member['name'];
             $v['member_real_name'] = $member['real_name'];
             $v['create_at'] = date('Y-m-d H:i:s',$v['create_at']);
+            $v['finish_at'] = date('Y-m-d H:i:s',$v['finish_at']);
             if ($v['is_finish']==1){
                 $v['is_finish'] = '已完成';
             }else{
-                $v['is_finish'] = '';
+                $v['is_finish'] = '未完成';
             }
             switch ($v['course_type']){
                 case 1:
@@ -212,13 +211,15 @@ class Order extends BasicAdmin
         $objPHPExcel->getActiveSheet()->setTitle('order_info');      //设置sheet的名称
 //        $objPHPExcel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_TEXT);
         $objPHPExcel->setActiveSheetIndex(0);                   //设置sheet的起始位置
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
-        $PHPWriter = \PHPExcel_IOFactory::createWriter( $objPHPExcel,"Excel2007");
+
+        ob_end_clean();
         header('Content-Disposition: attachment;filename="订单信息.xlsx"');
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-
+        header('Cache-Control: max-age=0');
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
+        $PHPWriter = \PHPExcel_IOFactory::createWriter( $objPHPExcel,"Excel2007");
         $PHPWriter->save("php://output"); //表示在$path路径下面生成demo.xlsx文件
-
+        exit();
     }
 
 

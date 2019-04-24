@@ -29,23 +29,32 @@
         </div>
     </div>
     <div class="layui-form-item layui-inline">
-        <button class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i> 搜 索</button>
+        <button class="layui-btn layui-btn-primary" ><i class="layui-icon">&#xe615;</i> 搜 索</button>
     </div>
 </form>
 <!-- 表单搜索 结束 -->
 
+
 <!--导出订单-->
-<!--<form class="layui-form layui-form-pane form-search" action="{:url('order/out')}" onsubmit="return false" method="get">-->
-    <!--<div class="layui-form-item layui-inline">-->
-        <!--<label class="layui-form-label">下单时间</label>-->
-        <!--<div class="layui-input-inline">-->
-            <!--<input name="create_order" id='range-date' value="{$Think.post.create_order|default=''}" laceholder="请选择下单时间" class="layui-input">-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="layui-form-item layui-inline">-->
+<form class="layui-form layui-box form-search" action="{:url('order/out')}"  method="post">
+    <div class="layui-form-item layui-inline">
+        <label class="layui-form-label">开始日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="date" id="date" lay-verify="date" placeholder="开始日期"  class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item layui-inline">
+        <label class="layui-form-label">结束日期</label>
+        <div class="layui-input-inline">
+            <input type="text" name="date1" id="date1" lay-verify="date" placeholder="结束日期"  class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-inline">
+        <button class="layui-btn layui-btn-primary" type="submit">导出订单数据</button>
         <!--<button class="layui-btn layui-btn-primary" type="submit"><i class="layui-icon">&#xe615;</i> 导出订单数据</button>-->
-    <!--</div>-->
-<!--</form>-->
+    </div>
+</form>
 
 
 <form onsubmit="return false;" data-auto="true" method="post">
@@ -160,6 +169,20 @@
         }
 
        window.laydate.render({range: true, elem: '#range-dates', format: 'yyyy/MM/dd'});
+        layui.use(['form', 'layedit', 'laydate'], function() {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            //日期
+            laydate.render({
+                elem: '#date'
+            });
+            laydate.render({
+                elem: '#date1'
+            });
+        });
     </script>
 </form>
 {/block}
