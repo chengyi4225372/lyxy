@@ -9,7 +9,7 @@
             <div data-v-4cd57836="" class="return" style="">
                 <img data-v-4cd57836="" src="/static/mobile/frontend/course/back.svg" alt="" style="" onclick="go_back()">
             </div>
-            <span data-v-4cd57836="">路飞学城</span>
+            <span data-v-4cd57836="">爱创课堂</span>
         </div>
         <img data-v-1107b0b2="" src="{$detail.imgurl}" alt="" class="banner">
         <div data-v-3d11ece9="" data-v-1107b0b2="" class="description">
@@ -35,14 +35,15 @@
                     <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,1)">
                         目录
                         <!----></div>
+                    <!--
                     <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,2)">
                         评价
-                        <!----></div>
+                      </div>
                     <div data-v-1107b0b2="" class="vux-tab-item" onclick="go_tab(this,3)">
                         常见问题
-                        <!----></div>
-                    <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-backward"
-                         style="display: block; height: 2px; background-color: rgb(114, 217, 194); left: 0%; right: 75%;">
+                        </div>
+                        -->
+                    <div class="vux-tab-ink-bar vux-tab-ink-bar-transition-backward" style="display: block; height: 2px; background-color: rgb(114, 217, 194); left: 0%; right: 75%;">
                         <!---->
                     </div>
                 </div>
@@ -56,8 +57,8 @@
                 $(obj).siblings("div").removeClass("vux-tab-selected");
 //                console.log($(obj).siblings("div"));
                 $(obj).addClass("vux-tab-selected");
-                var left = 25*id;
-                var right = 75-25*id;
+                var left = 50*id;
+                var right = 50*id;
                 $(".vux-tab-ink-bar").css('left',left+"%");
                 $(".vux-tab-ink-bar").css('right',right+"%");
                 var arr=['detail','catalog','comment','issue'];
@@ -72,12 +73,13 @@
 
         {include file="degree:detail" /}
         {include file="degree:moudel" /}
+        <!--
         {include file="degree:comment" /}
         {include file="degree:problem" /}
+        -->
 
-
-        <div data-v-7e783a0c="" data-v-1107b0b2="" class="box">
-            <div data-v-7e783a0c="" class="buy">
+        <div data-v-7e783a0c="" data-v-1107b0b2="" class="box" >
+            <div data-v-7e783a0c="" class="buy" style="z-index:999999">
                 <button data-v-7e783a0c="">领取优惠券</button>
                 <button data-v-7e783a0c="">立即购买</button>
             </div>

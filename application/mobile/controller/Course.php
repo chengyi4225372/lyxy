@@ -13,7 +13,7 @@ use controller\BasicMobile;
 class Course extends BasicMobile {
 
     public $type = 'course_type';
-    public $course = 'index_course';
+    public $course = 'index_course'; //免费课
     public $c_chapter = 'course_chapter';
     public $c_content = 'chapter_content';
     public $order = 'member_course';
@@ -49,15 +49,16 @@ class Course extends BasicMobile {
     public function detail()
     {
         $cid = input('cid');
+        //如果没有查询到 就返0
         $row = db($this->course)->where('id',$cid)->find();
         if ($row['is_free'] == 1) {
             $row['price'] = '0';
         }
         $mid = session("member_info.id");
         if (db($this->order)->where(["member_id" => $mid, 'course_id' => $cid, 'course_type' => 1, 'is_finish' => 1])->find()) {
-            $is_buy = 1;
+            $is_buy = 1; //已购买
         } else {
-            $is_buy = 2;
+            $is_buy = 2; //没有
         }
         $this->assign('is_buy', $is_buy);
         $this->assign('title', '课程详情-' . $row['name']);

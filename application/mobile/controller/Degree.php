@@ -12,12 +12,13 @@ use controller\BasicMobile;
  */
 class Degree extends BasicMobile {
 
-    public $table = "index_degree";
+    public $table = "index_degree";//免费课程
     public $module = "degree_module";
     public $chapter = "degree_chapter";
     public $content = "degree_content";
-    public $teacher = "system_user";
-    public $package = "degree_package";
+    public $teacher = "system_user"; //教师
+    public $package = "degree_package"; //价格套餐
+    public $order   = 'member_coures'; //订单表
 
 	/**
 	 * 网站入口
@@ -30,15 +31,14 @@ class Degree extends BasicMobile {
 		$this->assign('team', $this->_team());
         $this->assign('package', $this->_package($id));
 		$this->assign('module', $this->_module($id));
-//		$this->assign('course', $this->_course());
-//		print_r($this->_package($id));exit;
 		return $this->fetch();
 	}
 
+	//根据课程查询价格
     private function _detail($id) {
-        $db = db($this->table)->where(['status' => 1, 'is_deleted' => 0, 'id' => $id])->find();
-        $db['price'] = db($this->package)->where(['degree_id' => $id])->order('price asc')->value('price');
-        return $db;
+            $db = db($this->table)->where(['status' => 1, 'is_deleted' => 0, 'id' => $id])->find();
+            $db['price'] = db($this->package)->where(['degree_id' => $id])->order('price asc')->value('price');
+            return $db;
     }
 
     private function _team() {

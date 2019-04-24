@@ -92,6 +92,22 @@
         </div>
     </div>
     <div data-v-5e31dde6="" data-v-28fbf53a="" class="buy">
+        {if condition="$Think.session.member_info eq null"}
+        <button data-v-5e31dde6="">
+            <p data-v-5e31dde6="" class="price">
+                ¥ <span data-v-5e31dde6="">{$vo.price}</span>
+            </p>
+            <!--<p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">立即购买</p>-->
+            <p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/login/login')}">立即登陆</p>
+        </button>
+        {elseif condition="$is_buy eq 1" /}
+        <button data-v-5e31dde6="">
+            <p data-v-5e31dde6="" class="price">
+                ¥ <span data-v-5e31dde6="">{$vo.price}</span>
+            </p>
+            <p data-v-5e31dde6="" class="go">已购买</p>
+        </button>
+        {else /}
         <button data-v-5e31dde6="">
             <p data-v-5e31dde6="" class="price">
                 ¥ <span data-v-5e31dde6="">{$vo.price}</span>
@@ -99,6 +115,7 @@
             <!--<p data-v-5e31dde6="" class="go" onclick="go_buy()">立即购买</p>-->
             <p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">立即购买</p>
         </button>
+        {/if}
     </div>
 </div>
 {/block}
