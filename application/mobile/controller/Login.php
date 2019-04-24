@@ -56,11 +56,15 @@ class Login extends BasicMobile {
 
 	//手机端注册
     public function register(){
+        $this->assign('title', '手机号快捷登录(注册)');
 	    return $this->fetch();
     }
 
 
-    //手机端找回密码
+    //手机端找回密码 todo 没有页面
+    public function  getpassword(){
+	     return $this->fetch();
+    }
 
 
 }

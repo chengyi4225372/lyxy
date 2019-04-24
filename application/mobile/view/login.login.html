@@ -17,7 +17,7 @@
                 </p>
                 <div data-v-ea25c97a="" class="fromRemember">
                     <p data-v-ea25c97a="">忘记密码</p>
-                    <p data-v-ea25c97a="" onlcick="">手机号快捷登录(注册)</p>
+                    <p data-v-ea25c97a="" onclick="register()">手机号快捷登录(注册)</p>
                 </div>
                 <button data-v-ea25c97a id="login-btn" disabled="disabled" class="" onclick="login()">登录</button>
             </div>
@@ -79,5 +79,11 @@
             }
         })
     }
+   function register(){
+        window.location.href="{:url('mobile/login/register')}";
+  }
+
+
+
 </script>
 {/block}
