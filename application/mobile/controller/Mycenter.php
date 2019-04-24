@@ -31,8 +31,7 @@ class Mycenter extends BasicMobile
         $this->assign('nav', '4');
         if (session('member_info')) {
             $coupon_num = db($this->coupon)->where(['member_id'=>session('member_info.id'),'is_used'=>0])->count();
-            $this->assign('coupon_num', $coupon_num);
-//            print_r(session('member_info'));exit;
+            $this->assign('coupon_num', $coupon_num); //检查有几张优惠券
             return $this->fetch();
         } else {
             return $this->fetch('nosign');
@@ -59,7 +58,7 @@ class Mycenter extends BasicMobile
             $this->redirect('mobile/login/login');
         }
         $member_id = session('member_info.id');
-        $info = db($this->order)->where('member_id',$member_id)->select();
+        $info = db($this->order)->where('member_id',$member_id)->where(['status'=>1,'is_deleted'=>0])->select();
         foreach ($info as $k=>$val){
             if($info[$k]['course_type'] ==1){
                 $info[$k]['course_type'] = '免费课程';
@@ -83,6 +82,7 @@ class Mycenter extends BasicMobile
         return $this->fetch();
     }
 
+    //个人优惠券中心
     public function coupon()
     {
         $this->assign('title', '优惠券中心');
