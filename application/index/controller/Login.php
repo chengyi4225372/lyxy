@@ -106,6 +106,7 @@ class Login extends BasicHome {
 		return $this->fetch();
 	}
 
+	//忘记密码
 	public function psd() {
 		if (request()->isAjax()) {
 			if (request()->isPost()) {
@@ -143,6 +144,7 @@ class Login extends BasicHome {
 		return $this->fetch();
 	}
 
+	//修改密码
 	public function change_psd() {
 		if (request()->isAjax()) {
 			if (request()->isPost()) {

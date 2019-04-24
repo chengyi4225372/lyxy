@@ -28,6 +28,11 @@
 {/block}
 {block name="js"}
 <script>
+    //关闭
+    $('.close').on('click',function () {
+        window.history.go(-1);
+    });
+
     function pwd(){
         window.location.href="{:url('mobile/login/login')}"
     }
