@@ -9,13 +9,13 @@
             <div data-v-45e9eafa="" class="cont1">
                 <p data-v-45e9eafa="" class="title">手机号快捷登录</p>
                 <div data-v-45e9eafa="" class="phone-num">
-                    <input data-v-45e9eafa="" type="text" placeholder="请输入手机号" id="phone" autocapitalize="off" style="text-indent: 1rem;" class=""> <!---->
+                    <input data-v-45e9eafa=""  name="phone" type="text" placeholder="请输入手机号" id="phone" autocapitalize="off" style="text-indent: 1rem;" class="">
                 </div>
                 <div data-v-45e9eafa="" class="verify_box">
-                    <input data-v-45e9eafa="" type="text" placeholder="验证码" id="verify" autocapitalize="off">
-                    <button data-v-45e9eafa="" id="getVerify" class="get_verify">获取验证码</button>
+                    <input data-v-45e9eafa="" type="text" placeholder="验证码" id="verify" name="verify" autocapitalize="off">
+                    <button data-v-45e9eafa="" id="getverify" class="get_verify" onclick="getCodeAfter()">获取验证码</button>
                 </div>
-                <button data-v-45e9eafa="" disabled="disabled" class="">登录</button>
+                <button data-v-45e9eafa="" disabled="disabled"  id="tijiao" class="" onclick="next()">登录</button>
                 <p data-v-45e9eafa="" class="gologin" onclick="pwd()">账号密码登录</p>
             </div>
             <p data-v-45e9eafa="" class="foot">
@@ -27,6 +27,9 @@
 </div>
 {/block}
 {block name="js"}
+
+
+
 <script>
     //关闭
     $('.close').on('click',function () {
@@ -35,6 +38,97 @@
 
     function pwd(){
         window.location.href="{:url('mobile/login/login')}"
+    }
+
+</script>
+
+<script>
+    //验证手机号 发送短信验证码
+    function getCodeAfter() {
+        var sec = 60;
+        var intervalQueue;
+        var tel = $("input[name='phone']").val();
+
+
+        if (tel == '' || tel==undefined) {
+            layer.tips('请输入手机号！', '#phone',{tips:[1,'#3595CC'],time: 4000});
+            return false;
+        }
+        reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+        if (!reg.test(tel)) {
+            layer.tips('请输入正确的手机号码', '#phone',{tips:[1,'#3595CC'],time: 4000});
+            return false;
+        }
+        $("#getverify").removeAttr('onclick');
+        $("#getverify").addClass('get_verify_disable');
+        $("#getverify").text('请等待' + sec + '秒');
+
+        $.ajax({
+            url: "{:url('send_sms')}",
+            type: 'post',
+            data: {'tel':tel},
+            dataType: 'json',
+            success: function (msg) {
+                console.log(msg);
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1});
+                    return false;
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                    clearInterval(intervalQueue);
+                    $("#getverify").text("获取验证码");
+                    $("#getverify").removeClass('get_verify_disable');
+                    $("#getverify").attr('onclick', 'getCodeAfter()');
+                    // captchaObj.reset();
+                    return false;
+                }
+            }
+        });
+        intervalQueue = setInterval(function () {
+            sec--;
+            $("#getverify").text('请等待' + sec + '秒');
+            if (sec <= 0) {
+                clearInterval(intervalQueue);
+                $("#getverify").text("获取验证码");
+                $("#getverify").removeClass('get_verify_disable');
+                $("#getverify").attr('onclick', 'getCodeAfter()');
+            }
+        }, 1000);
+    }
+
+    //登陆按钮
+    $('#verify').keyup(function (e) {
+        $("#tijiao").removeAttr('disabled');
+        $("#tijiao").addClass('change');
+        if (e.keyCode == 13) {
+            next();
+        }
+    });
+
+    //登陆注册
+    function next() {
+        var phone = $("input[name='phone']").val();
+        var code = $("input[name='verify']").val();
+        if (code == '') {
+            layer.tips('请输入验证码!', '#verify');
+            return false;
+        }
+        $.ajax({
+            url: "{:url('mobile/login/register')}",
+            type: 'post',
+            data: {phone: phone, code: code},
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                     layer.msg(msg.msg, {icon: 1});
+                     window.location.href="{:url('mobile/mycenter/index')}";
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+        return false;
     }
 </script>
 

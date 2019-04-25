@@ -226,6 +226,7 @@ class Login extends BasicHome {
 		$this->redirect('index');
 	}
 
+	//滑动验证码
 	public function get_verify() {
 		if (request()->isAjax()) {
 			if (request()->isPost()) {
@@ -306,8 +307,8 @@ class Login extends BasicHome {
 			}
 			session('reg_sms_time', time());
 			if ($result >= 0) {
-				session('sms_code', md5($code));
-				session('sms_code_time', time());
+				session('sms_code', md5($code)); //短信验证码
+				session('sms_code_time', time()); //发送短信验证码时间
 				return ['msg' => '短信发送成功', 'status' => 200];
 			} else {
 				return ['msg' => '短信发送失败', 'status' => 404];
