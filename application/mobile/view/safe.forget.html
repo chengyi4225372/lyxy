@@ -3,7 +3,7 @@
 {block name='body'}
 <div id="app" class="">
     <div data-v-5123e823="" class="forgot default_app">
-        <img data-v-5123e823="" src="/static/mobile/frontend/study/back.svg" alt="" class="close"  {if condition="$Think.session"}>
+        <img data-v-5123e823="" src="/static/mobile/frontend/study/back.svg" alt="" class="close" onclick="javascript:history.go(-1)">
         <div data-v-5123e823="" class="reg_box">
             <div data-v-5123e823="" class="vux-toast">
                 <div class="weui-mask_transparent" style="display: none;"></div>
@@ -160,19 +160,20 @@
                     <option data-v-5123e823="" value="56">智利(+56)</option>
                 </select>
                     <img data-v-5123e823="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTRweCIgaGVpZ2h0PSI4cHgiIHZpZXdCb3g9IjAgMCAxNCA4IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA1MS4yICg1NzUxOSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+5LiL5ouJPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9Ik0tIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgICAgIDxnIGlkPSLlv6vmjbfnmbvlvZUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04My4wMDAwMDAsIC0xODguMDAwMDAwKSIgZmlsbC1ydWxlPSJub256ZXJvIiBzdHJva2U9IiM5Nzk3OTciIHN0cm9rZS13aWR0aD0iMS41Ij4KICAgICAgICAgICAgPHBvbHlsaW5lIGlkPSLkuIvmi4kiIHBvaW50cz0iODQgMTg5IDg5Ljg5MDY0ODcgMTk0Ljg5MDY0OSA5NS45Njk2NzU2IDE4OSI+PC9wb2x5bGluZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="" class="down">
-                    <input data-v-5123e823="" type="text" placeholder="请输入手机号" id="phone" autocapitalize="off" style="text-indent: 1rem;">
+                    <input data-v-5123e823="" type="text" placeholder="请输入手机号" id="phone" name="phone" value="" autocapitalize="off" style="text-indent: 1rem;">
                     <img data-v-5123e823="" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT7lhajliKA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iTS0iIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSLlr4bnoIHnmbvlvZUt6I635Y+W54Sm54K5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzIwLjAwMDAwMCwgLTE4NC4wMDAwMDApIiBmaWxsPSIjRDBEMEQwIiBmaWxsLXJ1bGU9Im5vbnplcm8iPgogICAgICAgICAgICA8ZyBpZD0iZ3VhbmJpIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMjAuMDAwMDAwLCAxODQuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNOC4wMDAwMTYwNiwwLjAxMDg5MTU2NjMgQzMuNTg4OTc5OTIsMC4wMTA4OTE1NjYzIDAuMDEzMTcyNjkwOCwzLjU4NjcxNDg2IDAuMDEzMTcyNjkwOCw3Ljk5Nzc1MSBDMC4wMTMxNzI2OTA4LDEyLjQwODc4NzEgMy41ODg5Nzk5MiwxNS45ODQ1NzgzIDgsMTUuOTg0NTc4MyBDMTIuNDExMDIwMSwxNS45ODQ1NzgzIDE1Ljk4NjgyNzMsMTIuNDA4Nzg3MSAxNS45ODY4MjczLDcuOTk3NzUxIEMxNS45ODY4MjczLDMuNTg2NzE0ODYgMTIuNDExMDY4MywwLjAxMDg5MTU2NjMgOC4wMDAwMzIxMywwLjAxMDg5MTU2NjMgTDguMDAwMDE2MDYsMC4wMTA4OTE1NjYzIFogTTExLjQyNTA5MjQsMTAuMzg3Mzg5NiBDMTEuNzExMDA0LDEwLjY3MzM4MTUgMTEuNzExMDA0LDExLjEzNjg5OTYgMTEuNDI1MDkyNCwxMS40MjI4MjczIEMxMS4xMzkxODA3LDExLjcwODcyMjkgMTAuNjc1NTY2MywxMS43MDg3MjI5IDEwLjM4OTY1NDYsMTEuNDIyODI3MyBMOC4wMDAwMTYwNiw5LjAzMzE3MjY5IEw1LjYxMDI5NzE5LDExLjQyMjgxMTIgQzUuMzI0MzY5NDgsMTEuNzA4NzA2OCA0Ljg2MDg2NzQ3LDExLjcwODcwNjggNC41NzQ5NTU4MiwxMS40MjI4MTEyIEM0LjI4ODk0Nzc5LDExLjEzNjg4MzUgNC4yODg5NDc3OSwxMC42NzMzNjU1IDQuNTc0OTU1ODIsMTAuMzg3MzczNSBMNi45NjQ1NzgzMSw3Ljk5Nzc1MSBMNC41NzQ5Mzk3Niw1LjYwODA5NjM5IEM0LjI4ODk0Nzc5LDUuMzIyMTg0NzQgNC4yODg5NDc3OSw0Ljg1ODU4NjM1IDQuNTc0OTM5NzYsNC41NzI2NzQ3IEM0Ljg2MDg2NzQ3LDQuMjg2NzYzMDUgNS4zMjQzNjk0OCw0LjI4Njc2MzA1IDUuNjEwMjgxMTIsNC41NzI2NzQ3IEw4LjAwMDAxNjA2LDYuOTYyMzEzMjUgTDEwLjM4OTY1NDYsNC41NzI2NzQ3IEMxMC42NzU1NjYzLDQuMjg2NzYzMDUgMTEuMTM5MTgwNyw0LjI4Njc2MzA1IDExLjQyNTA5MjQsNC41NzI2NzQ3IEMxMS43MTEwMDQsNC44NTg1ODYzNSAxMS43MTEwMDQsNS4zMjIxODQ3NCAxMS40MjUwOTI0LDUuNjA4MDk2MzkgTDkuMDM1NDM3NzUsNy45OTc3NTEgTDExLjQyNTA5MjQsMTAuMzg3Mzg5NiBaIiBpZD0i5YWo5YigIj48L3BhdGg+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==" alt="" class="delete">
+
                 </div>
                 <div data-v-5123e823="" class="verify_box">
-                    <input data-v-5123e823="" type="text" placeholder="验证码" id="verify" autocapitalize="off">
-                    <button data-v-5123e823="" id="getVerify" class="get_verify geting">获取验证码</button>
+                    <input data-v-5123e823="" type="text" placeholder="验证码" name="verify" id="verify" autocapitalize="off">
+                    <button data-v-5123e823="" id="getVerify" class="get_verify geting" onclick="go_verify()">获取验证码</button>
                 </div>
                 <div data-v-5123e823="" class="fromItem">
-                    <input data-v-5123e823="" type="password" placeholder="密码至少6位且不能全数字" id="newpwd"> <!---->
+                    <input data-v-5123e823="" type="password" placeholder="请填写您的密码！" id="newpwd"> <!---->
                     <img data-v-5123e823="" src="/static/mobile/frontend/study/open-eyes.svg" alt="" class="eyes" style="display: none;">
                     <img data-v-5123e823="" src="/static/mobile/frontend/study/close-eyes.svg" alt="" class="eyes">
                 </div>
-                <button data-v-5123e823="" disabled="disabled" class="">确认</button>
+                <button data-v-5123e823="" disabled="disabled" class="" id="tijiao" onclick="go_change()">确认</button>
             </div>
         </div>
     </div> <!---->
@@ -180,8 +181,30 @@
 {/block}
 {block name="js"}
 <script>
+ /*
     $('.close').on('click', function () {
-        window.location.href = "{:url('login/login')}";
+        window.location.href = history.go(-1);
     })
+    */
+ $('#newpwd').keyup(function (e) {
+     $("#tijiao").removeAttr('disabled');
+     $("#tijiao").addClass('change');
+     if (e.keyCode == 13) {
+         go_change();
+     }
+ });
+
+ //短信 验证码
+ function go_verify(){
+
+ }
+
+
+ //提交修改密码
+ function go_chenge(){
+
+ }
+
+
 </script>
 {/block}

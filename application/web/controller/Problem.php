@@ -47,19 +47,19 @@ class Problem extends BasicAdmin
 
 
 
-    /* 免费课程
-    private function _course()
+
+    // 免费课程
+    public function _course()
     {
-        return db($this->table_course)->where(['is_deleted'=>0,'status'=>1])->select();
+        return db($this->table_degree)->field('id,name')->where(['is_deleted'=>0,'status'=>1])->select();
     }
-     */
 
     /**
      * 常见问题添加
      */
     public function add()
     {
-
+        $this->assign('course',$this->_course());
         return $this->_form($this->table, 'form');
     }
 
@@ -68,7 +68,7 @@ class Problem extends BasicAdmin
      */
     public function edit()
     {
-
+        $this->assign('course',$this->_course());
         return $this->_form($this->table, 'form');
     }
 

@@ -4,7 +4,8 @@ namespace app\mobile\controller;
 
 
 use controller\BasicMobile;
-
+use think\Session;
+use app\mobile\controller\Login;
 /**
  * 网站入口控制器
  * Class Index
@@ -13,14 +14,20 @@ use controller\BasicMobile;
 class Safe extends BasicMobile
 {
     /**
-     * 网站入口
+     * 忘记密码或者修改
      */
     public function forget()
     {
-        $this->assign('title', '更改密码');
-        return $this->fetch();
+        if(request()->isPost()){
+
+        }else{
+            $this->assign('title', '更改密码');
+            return $this->fetch();
+        }
+
     }
 
+    //更换手机号
     public function change()
     {
         $this->assign('title', '更改手机');
