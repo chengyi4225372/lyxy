@@ -169,7 +169,7 @@
                     <button data-v-5123e823="" id="getVerify" class="get_verify geting" onclick="go_verify()">获取验证码</button>
                 </div>
                 <div data-v-5123e823="" class="fromItem">
-                    <input data-v-5123e823="" type="password" placeholder="请填写您的密码！" id="newpwd"> <!---->
+                    <input data-v-5123e823="" type="password" placeholder="密码位数请不要少于6位！" name="pwd" id="newpwd"> <!---->
                     <img data-v-5123e823="" src="/static/mobile/frontend/study/open-eyes.svg" alt="" class="eyes" style="display: none;">
                     <img data-v-5123e823="" src="/static/mobile/frontend/study/close-eyes.svg" alt="" class="eyes">
                 </div>
@@ -196,13 +196,85 @@
 
  //短信 验证码
  function go_verify(){
-
+     var sec = 60;
+     var intervalQueue;
+     var tel = $("input[name='phone']").val();
+     if (tel =='' || tel == undefined) {
+         layer.tips('请输入手机号！', '#phone',{tips:[1,'#3595CC'],time: 4000});
+         return false;
+     }
+     reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+     if (reg.test(tel) == false) {
+         layer.tips('请输入正确的手机号码', '#phone',{tips:[1,'#3595CC'],time: 4000});
+         return false;
+     }
+     $("#getVerify").removeAttr('onclick');
+     $("#getVerify").addClass('get_verify_disable');
+     $("#getVerify").text('请等待' + sec + '秒');
+     $.ajax({
+         url: "{:url('mobile/safe/sendsms')}",
+         type: 'post',
+         data: {'tel':tel},
+         dataType: 'json',
+         success: function (msg) {
+             console.log(msg);
+             if (msg.status == 200) {
+                 layer.msg(msg.msg, {icon: 1});
+                 return false;
+             } else {
+                 layer.msg(msg.msg, {anim: 6, icon: 2});
+                 clearInterval(intervalQueue);
+                 $("#getVerify").text("获取验证码");
+                 $("#getVerify").removeClass('get_verify_disable');
+                 $("#getVerify").attr('onclick', 'go_verify()');
+                 return false;
+             }
+         }
+     });
+     intervalQueue = setInterval(function () {
+         sec--;
+         $("#getVerify").text('请等待' + sec + '秒');
+         if (sec <= 0) {
+             clearInterval(intervalQueue);
+             $("#getVerify").text("获取验证码");
+             $("#getVerify").removeClass('get_verify_disable');
+             $("#getVerify").attr('onclick', 'getCodeAfter()');
+         }
+     }, 1000);
  }
 
 
  //提交修改密码
- function go_chenge(){
+ function go_change(){
+     var phone = $("input[name='phone']").val();
+     var code = $("input[name='verify']").val();
+     var pwd = $("input[name='pwd']").val();
+     if (code == '') {
+         layer.tips('请输入验证码!', '#verify');
+         return false;
+     }
 
+     if(pwd ==''|| pwd.length < 6){
+         layer.tips('密码不能为空切不能少于6位!', '#newpwd');
+         return false;
+     }
+
+     $.ajax({
+         url: "{:url('mobile/safe/forget')}",
+         type: 'post',
+         data: {phone: phone, code: code,pwd:pwd},
+         dataType: 'json',
+         success: function (msg) {
+             if (msg.status == 200) {
+                 layer.msg(msg.msg, {icon: 1});
+                 window.location.href="{:url('mobile/login/login')}";
+             } else {
+                 layer.msg(msg.msg, {anim: 6, icon: 2});
+             }
+             return false;
+         }
+     });
+     return false;
  }
 
 
