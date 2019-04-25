@@ -12,14 +12,14 @@
         <span data-v-4cd57836="">账户安全</span>
     </div>
     <ul data-v-59045368="">
-        <li data-v-59045368="">
+        <li data-v-59045368="" onclick="window.location.href='{:url(\'safe/forget\')}';">
             <p data-v-59045368="" class="left">密码</p>
             <div data-v-59045368="" class="right"><!---->
                 <p data-v-59045368="" class="set">******</p>
-                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" onclick="window.location.href='{:url(\'safe/forget\')}';">
+                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" >
             </div>
         </li>
-        <li data-v-59045368="">
+        <li data-v-59045368="" onclick="window.location.href='{:url(\'safe/change\')}';">
             <p data-v-59045368="" class="left">手机号</p>
             <div data-v-59045368="" class="right">
                 {empty name="phone"}
@@ -27,7 +27,7 @@
                 {else}
                 <p data-v-59045368="" class="set">{$phone|substr_replace='****','4','4'}</p>
                 {/empty}
-                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" onclick="window.location.href='{:url(\'safe/change\')}';">
+                <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" >
             </div>
         </li>
     </ul>

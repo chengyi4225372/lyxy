@@ -3,7 +3,7 @@
 {block name='body'}
 <div id="app" class="">
     <div data-v-f03c724a="" class="change-phone default_app">
-        <img data-v-f03c724a="" src="/static/mobile/frontend/study/back.svg" alt="" class="close">
+        <img data-v-f03c724a="" src="/static/mobile/frontend/study/back.svg" alt="" class="close" onclick="javascript:history.go(-1)">
         <div data-v-f03c724a="" class="reg_box">
             <div data-v-f03c724a="" class="vux-toast">
                 <div class="weui-mask_transparent" style="display: none;"></div>
@@ -161,14 +161,14 @@
                         <option data-v-f03c724a="" value="56">智利(+56)</option>
                     </select>
                         <img data-v-f03c724a="" src="/static/mobile/frontend/course/drop-down.svg" alt="" class="down">
-                        <input data-v-f03c724a="" type="text" placeholder="请输入手机号" id="phone"  name="phone" autocapitalize="off" style="text-indent: 1rem;">
+                        <input data-v-f03c724a="" type="text" placeholder="请输入更换的手机号" id="phone"  name="phone" autocapitalize="off"  style="text-indent: 1rem;">
                         <img data-v-f03c724a="" src="/static/mobile/frontend/study/delete.svg" alt="" class="delete">
                     </div>
                     <div data-v-f03c724a="" class="verify_box">
                         <input data-v-f03c724a="" type="text" placeholder="验证码" name="verify" id="verify" autocapitalize="off">
-                        <button data-v-f03c724a="" id="getVerify" class="get_verify geting" >获取验证码</button>
+                        <button data-v-f03c724a="" id="getVerify" class="get_verify geting" onclick="go_verify()" >获取验证码</button>
                     </div>
-                    <button data-v-f03c724a="" disabled="disabled" class="">下一步</button> <!---->
+                    <button data-v-f03c724a="" disabled="disabled" class="" id="submits" onclick="go_change_phone()">确定</button> <!---->
                 </div>
             </div>
         </div>
@@ -177,8 +177,95 @@
 {/block}
 {block name="js"}
 <script>
-    $('.close').on('click', function () {
-        window.location.href = "{:url('mycenter/safe')}";
-    })
+    //登陆按钮
+    $('#verify').keyup(function (e) {
+        $("#submits").removeAttr('disabled');
+        $("#submits").addClass('change');
+        if (e.keyCode == 13) {
+            next();
+        }
+    });
+
+    function go_verify(){
+        var sec = 60;
+        var intervalQueue;
+        var tel = $("input[name='phone']").val();
+        if (tel == '' || tel==undefined) {
+            layer.tips('请输入手机号！', '#phone',{tips:[1,'#3595CC'],time: 4000});
+            return false;
+        }
+        reg = /^0?1[3|4|5|6|7|8][0-9]\d{8}$/;
+        if (!reg.test(tel)) {
+            layer.tips('请输入正确的手机号码', '#phone',{tips:[1,'#3595CC'],time: 4000});
+            return false;
+        }
+
+        $("#getverify").removeAttr('onclick');
+        $("#getverify").addClass('get_verify_disable');
+        $("#getverify").text('请等待' + sec + '秒');
+
+        $.ajax({
+            url: "{:url('mobile/safe/sendsms')}",
+            type: 'post',
+            data: {'tel':tel},
+            dataType: 'json',
+            success: function (msg) {
+                console.log(msg);
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1});
+                    return false;
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                    clearInterval(intervalQueue);
+                    $("#getverify").text("获取验证码");
+                    $("#getverify").removeClass('get_verify_disable');
+                    $("#getverify").attr('onclick', 'go_verify()');
+                    // captchaObj.reset();
+                    return false;
+                }
+            }
+        });
+        intervalQueue = setInterval(function () {
+            sec--;
+            $("#getverify").text('请等待' + sec + '秒');
+            if (sec <= 0) {
+                clearInterval(intervalQueue);
+                $("#getverify").text("获取验证码");
+                $("#getverify").removeClass('get_verify_disable');
+                $("#getverify").attr('onclick', 'getCodeAfter()');
+            }
+        }, 1000);
+}
+
+
+    function go_change_phone(){
+        var phone = $("input[name='phone']").val();
+        var code = $("input[name='verify']").val();
+        if (code == '') {
+            layer.tips('请输入验证码!', '#verify');
+            return false;
+        }
+        $.ajax({
+            url: "{:url('mobile/safe/change')}",
+            type: 'post',
+            data: {phone: phone, code: code},
+            dataType: 'json',
+            success: function (msg) {
+                if (msg.status == 200) {
+                    layer.msg(msg.msg, {icon: 1,time: 4000});
+                    window.location.href="{:url('mobile/mycenter/index')}";
+                } else {
+                    layer.msg(msg.msg, {anim: 6, icon: 2});
+                }
+                return false;
+            }
+        });
+        return false;
+
+
+    }
+
+
+
 </script>
 {/block}
