@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2019-04-23 18:57:39
+Date: 2019-04-24 17:53:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -95,7 +95,7 @@ CREATE TABLE `chapter_content` (
   `is_free` tinyint(1) DEFAULT '0' COMMENT '是否免费试看0否 1是',
   `class_time` int(11) DEFAULT NULL COMMENT '课时',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='免费课程-内容表(章节内容)';
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='免费课程-内容表(章节内容)';
 
 -- ----------------------------
 -- Records of chapter_content
@@ -117,6 +117,8 @@ INSERT INTO `chapter_content` VALUES ('14', 'huhuhu', '13', '/static/upload/6ef8
 INSERT INTO `chapter_content` VALUES ('15', 'z', '14', '/static/upload/6ef8a7b8160cac45/3a709d28cb4d86f4.mp4', '1', '0', '1', null);
 INSERT INTO `chapter_content` VALUES ('16', 'wqe', '16', '/static/upload/6ef8a7b8160cac45/3a709d28cb4d86f4.mp4', '1', '0', '1', null);
 INSERT INTO `chapter_content` VALUES ('17', 'zzz', '17', '/static/upload/6ef8a7b8160cac45/3a709d28cb4d86f4.mp4', '1', '0', '1', null);
+INSERT INTO `chapter_content` VALUES ('18', '第一节', '15', '/static/upload/498bcf2680149880/b16581be8e707910.mp4', '1', '0', '1', null);
+INSERT INTO `chapter_content` VALUES ('19', '飞翔的荷兰人', '16', '/static/upload/ba20dab1d78a245a/76d8cd069c66388c.mp4', '1', '0', '1', null);
 
 -- ----------------------------
 -- Table structure for `course_chapter`
@@ -504,7 +506,7 @@ INSERT INTO `index_course` VALUES ('11', '123567', '4', '111', '打撒大撒的'
 INSERT INTO `index_course` VALUES ('12', 'vue实战', '4', '009', 'vue从入门到精通', '10003', '1', '5.01', '1', '0', '0', '/static/upload/0e02633accdad2a9/20684d699b71d688.jpg', '', '&lt;p&gt;vue从入门到精通&lt;/p&gt;', '12', '12.0', '0', null);
 INSERT INTO `index_course` VALUES ('17', 'JavaScriptcc', '5', '0077', '1111', '10005', '1', '0.10', '1', '0', '0', '/static/upload/980bed9afe474f78/4cd702e6df52b51c.jpg', '', '&lt;p&gt;&lt;video class=&quot;edui-upload-video  vjs-default-skin video-js&quot; controls=&quot;&quot; preload=&quot;none&quot; width=&quot;420&quot; height=&quot;280&quot; src=&quot;/ueditor/php/upload/video/20190220/1550633466667828.mp4&quot; data-setup=&quot;{}&quot;&gt;&lt;/video&gt;&lt;/p&gt;', '333', '333.0', '0', '1.00');
 INSERT INTO `index_course` VALUES ('13', 'node入门', '4', '009', 'fdsfdsfsdsfds', '10002', '1', '0.01', '1', '0', '0', '/static/upload/7594f4e7a0916df0/e278e99e6d114a52.png', '', '&lt;p&gt;fdsssssssssssssssssssssss&lt;/p&gt;', '220', '1.0', '1', '10.00');
-INSERT INTO `index_course` VALUES ('14', 'JavaScript111', '4', '111', '1111', '10005', '1', '0.00', '1', '0', '0', '/static/upload/980bed9afe474f78/4cd702e6df52b51c.jpg', '', '&lt;p&gt;&lt;video class=&quot;edui-upload-video  vjs-default-skin video-js&quot; controls=&quot;&quot; preload=&quot;none&quot; width=&quot;420&quot; height=&quot;280&quot; src=&quot;/ueditor/php/upload/video/20190219/1550558531712311.mp4&quot; data-setup=&quot;{}&quot;&gt;&lt;/video&gt;&lt;/p&gt;', '10', '200.0', '0', '0.00');
+INSERT INTO `index_course` VALUES ('14', 'JavaScript111', '4', '111', '1111', '10005', '1', '0.00', '1', '0', '0', '/static/upload/980bed9afe474f78/4cd702e6df52b51c.jpg', '', '', '10', '200.0', '0', '0.00');
 INSERT INTO `index_course` VALUES ('15', '测试购买', '5', '001', '112', '10005', '1', '0.00', '1', '0', '0', '/static/upload/8e34a47f89d78914/181e11409803aab0.jpg', '', '&lt;p&gt;&lt;video class=&quot;edui-upload-video  vjs-default-skin video-js&quot; controls=&quot;&quot; preload=&quot;none&quot; width=&quot;420&quot; height=&quot;280&quot; src=&quot;/ueditor/php/upload/video/20190219/1550560492167669.mp4&quot; data-setup=&quot;{}&quot;&gt;&lt;/video&gt;&lt;/p&gt;', '10', '112.0', '0', '0.00');
 INSERT INTO `index_course` VALUES ('16', '测试跳转', '4', '0011', '1122', '10002', '1', '0.01', '1', '0', '0', '', '', '&lt;p&gt;&lt;video class=&quot;edui-upload-video  vjs-default-skin video-js&quot; controls=&quot;&quot; preload=&quot;none&quot; width=&quot;420&quot; height=&quot;280&quot; src=&quot;/ueditor/php/upload/video/20190219/1550560756882248.mp4&quot; data-setup=&quot;{}&quot;&gt;&lt;/video&gt;&lt;/p&gt;', '20', '112.0', '1', '1.00');
 
@@ -703,7 +705,8 @@ CREATE TABLE `member_course` (
   `status` tinyint(1) DEFAULT '1' COMMENT '1启用 0禁用',
   `is_deleted` tinyint(1) DEFAULT '0' COMMENT '0正常 1删除',
   `is_comment` tinyint(1) DEFAULT '0' COMMENT '1已评论,0未评论',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `order_code` (`order_code`)
 ) ENGINE=MyISAM AUTO_INCREMENT=192 DEFAULT CHARSET=utf8 COMMENT='学院购买课程表';
 
 -- ----------------------------
@@ -809,7 +812,7 @@ INSERT INTO `member_info` VALUES ('00000000007', '乐育', '乐育', '1770120163
 INSERT INTO `member_info` VALUES ('00000000008', '发多少啊啊', '', '18811477900', '93785b784ab48093daebffe9a8f448f0', '0.00', '/static/index/static/frontend/default.png', null, '北京市', '北京市市辖区', '1544689679', '115.171.62.122', '1545288191', '1', '0', null, null, null, null, null, null, null, null);
 INSERT INTO `member_info` VALUES ('00000000009', 'admin', '', '17701209221', 'b262fa7e75aa9e3a50b334ea10abfbff', '0.00', '/static/index/static/frontend/default.png', null, '北京市', '北京市市辖区', '1544690961', '115.171.60.88', '1551343439', '1', '0', null, null, null, null, null, null, null, null);
 INSERT INTO `member_info` VALUES ('00000000011', '测试', '', '18256027172', '2420a24ff9e71c49f0e29e838f72ac12', '100.00', '/static/index/static/frontend/default.png', null, '北京市', '北京市市辖区', '1550830578', '27.18.29.223', '1551342206', '1', '0', null, null, null, null, null, null, null, null);
-INSERT INTO `member_info` VALUES ('00000000012', '飞翔的荷兰人', '', '18672536007', '47922b4ca9604fd8f92e1e05c579dc8b', '0.00', '/static/index/static/frontend/default.png', null, '北京市', '北京市市辖区', '1555636754', '127.0.0.1', '1555999262', '1', '0', null, null, null, null, null, null, null, null);
+INSERT INTO `member_info` VALUES ('00000000012', '飞翔的荷兰人', '', '18672536007', '47922b4ca9604fd8f92e1e05c579dc8b', '0.00', '/static/index/static/frontend/default.png', null, '北京市', '北京市市辖区', '1555636754', '127.0.0.1', '1556084714', '1', '0', null, null, null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `member_login`
@@ -1000,7 +1003,7 @@ CREATE TABLE `system_log` (
   `content` text NOT NULL COMMENT '操作内容描述',
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=130 DEFAULT CHARSET=utf8 COMMENT='系统操作日志表';
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8 COMMENT='系统操作日志表';
 
 -- ----------------------------
 -- Records of system_log
@@ -1134,6 +1137,7 @@ INSERT INTO `system_log` VALUES ('126', '27.17.122.190', 'admin/login/index', 'a
 INSERT INTO `system_log` VALUES ('127', '127.0.0.1', 'admin/login/index', 'admin', '系统管理', '用户登录系统成功', '2019-04-18 16:08:49');
 INSERT INTO `system_log` VALUES ('128', '127.0.0.1', 'admin/login/index', 'admin', '系统管理', '用户登录系统成功', '2019-04-23 09:15:30');
 INSERT INTO `system_log` VALUES ('129', '127.0.0.1', 'admin/login/index', 'admin', '系统管理', '用户登录系统成功', '2019-04-23 09:33:35');
+INSERT INTO `system_log` VALUES ('130', '127.0.0.1', 'admin/login/index', 'admin', '系统管理', '用户登录系统成功', '2019-04-24 11:42:02');
 
 -- ----------------------------
 -- Table structure for `system_menu`
@@ -1510,7 +1514,7 @@ CREATE TABLE `system_user` (
 -- ----------------------------
 -- Records of system_user
 -- ----------------------------
-INSERT INTO `system_user` VALUES ('10000', 'admin', '', '21232f297a57a5a743894a0e4a801fc3', '22222222', '123321@qq.com', '13800000000', 'dfgsdfgsfd', '86', '2019-04-23 09:33:34', '1', '1', '0', '0', null, '2015-11-13 15:14:22', '', '', '', '0', '0');
+INSERT INTO `system_user` VALUES ('10000', 'admin', '', '21232f297a57a5a743894a0e4a801fc3', '22222222', '123321@qq.com', '13800000000', 'dfgsdfgsfd', '87', '2019-04-24 11:42:01', '1', '1', '0', '0', null, '2015-11-13 15:14:22', '', '', '', '0', '0');
 INSERT INTO `system_user` VALUES ('10002', 'test2', '李兰波', '', null, '4568@qq.com', '15977778888', '爱创课堂高级讲师。拥有多年前、后端工作经验，性格开朗、认真负责，精通JavaScript、Node等技术，mysql、mongodb等数据库，习惯使用各种设计模式，深入了解jquery，backbone等框架。喜欢使用通俗易懂的例子来引导学生，在教学工作中认真负责，授课思路清晰，实战性强，善于总结分析。', '0', null, '1', '1', '1', '0', null, '2018-10-24 16:34:39', '/static/upload/0d2c898688fab4bb/288ed4fe35674da8.png', '', '爱创课堂讲师', '3', '0');
 INSERT INTO `system_user` VALUES ('10003', 'test1', '冯楠娜', '', null, '', '', '多年前端工作经验，曾参与大型电商网站的移动端开发，项目经验丰富，对移动端开发有深入的研究。精通HTML5、CSS3、JavaScript、 JQuery、 Ajax、Bootstrap等Web前端技术。\r\n教学方面细致耐心，风趣幽默，化繁为简。教学授课逻辑清晰，从学生的角度剖析知识点，帮助学生透彻的理解知识、运用知识，提高学生的项目实战能力！', '0', null, '1', '1', '1', '0', null, '2018-12-01 09:37:18', '/static/upload/285c9582d695f027/4706991f56dee56b.png', '', '爱创课堂讲师', '2', '0');
 INSERT INTO `system_user` VALUES ('10004', 'test3', '彭帅伟', '', null, '', '', '爱创课堂高级讲师。拥有多年前、后端工作经验，性格开朗、认真负责，精通JavaScript、Node等技术，mysql、mongodb等数据库，习惯使用各种设计模式，深入了解jquery，backbone等框架。喜欢使用通俗易懂的例子来引导学生，在教学工作中认真负责，授课思路清晰，实战性强，善于总结分析。', '0', null, '1', '1', '1', '0', null, '2018-12-01 09:38:10', '/static/upload/70129004131ea322/ecb05454ac782086.png', '', '爱创课堂讲师', '4', '0');
