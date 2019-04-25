@@ -22,7 +22,11 @@
         <li data-v-59045368="">
             <p data-v-59045368="" class="left">手机号</p>
             <div data-v-59045368="" class="right">
-                <p data-v-59045368="" class="set">153****9656</p>
+                {empty name="phone"}
+                <p data-v-59045368="" class="set">暂未绑定手机号码</p>
+                {else}
+                <p data-v-59045368="" class="set">{$phone|substr_replace='****','4','4'}</p>
+                {/empty}
                 <img data-v-59045368="" src="/static/mobile/frontend/study/right.png" alt="" onclick="window.location.href='{:url(\'safe/change\')}';">
             </div>
         </li>

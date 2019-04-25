@@ -88,8 +88,13 @@ class Mycenter extends BasicMobile
         return $this->fetch();
     }
 
+    //手机 面膜显示页面
     public function safe()
     {
+        if(session('member_info')){
+            $phone = session('member_info.tel')?session('member_info.tel'):'';
+        }
+        $this->assign('phone',$phone);
         $this->assign('title', '安全中心');
         return $this->fetch();
     }
