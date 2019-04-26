@@ -58,11 +58,7 @@
                 <span data-v-5224e5f4="">下单时间：
                     <br data-v-5224e5f4="">{$vo.finish_at|date="Y-m-d h:i:s",###|default=''}
                 </span>
-                {if condition="$vo.is_finish eq 0 or $vo.is_finish eq 2 " }
-                <button data-v-5224e5f4="" onclick="go_buy('{$vo.course_type}','{$vo.course_id}')">去支付</button>
-                {else /}
                 <button data-v-5224e5f4="" onclick="play_url('{$vo.course_type}','{$vo.course_id}')">去观看</button>
-                {/if}
             </p>
         </div>
     </div>
@@ -91,9 +87,6 @@
          }
     }
 
-    function go_buy(type,cid){
-        window.location.href="{:url('mobile/buy/buy')}?type="+type+"&cid="+cid;
-    }
 
 </script>
 {/block}

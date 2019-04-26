@@ -58,7 +58,7 @@ class Mycenter extends BasicMobile
             $this->redirect('mobile/login/login');
         }
         $member_id = session('member_info.id');
-        $info = db($this->order)->where('member_id',$member_id)->where(['status'=>1,'is_deleted'=>0])->select();
+        $info = db($this->order)->where('member_id',$member_id)->where(['status'=>1,'is_deleted'=>0,'is_finish'=>1])->select();
         foreach ($info as $k=>$val){
             if($info[$k]['course_type'] ==1){
                 $info[$k]['ke_title'] = db($this->course)->where('id',$info[$k]['course_id'])->value('name');
