@@ -67,7 +67,7 @@ class Alipay extends Controller {
                     echo "<script>alert('已购买该课程!请勿重复购买');
                         window.location.href = '" . url('member/order/index') . "';</script>";
                 }
-				exit;
+				return false;
 			}
 			$data['order_code'] = date('YmdHis', $time) . rand(1000, 9999);
 			$data['cost'] = $price;

@@ -74,7 +74,7 @@
                 <span data-v-c343945e="" onclick="go_pay() ">去支付</span>
             </div>
             {/if}
-            <form action="" id="buy_form" method="post">
+            <form action="{:url('alipay/alipay/pay')}" id="buy_form" method="post">
                 <input type="hidden" name="pay_type" value="0">
                 <!--价格-->
                 <input type="hidden" name="price" value="{$course.price}">
