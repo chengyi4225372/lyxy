@@ -79,7 +79,7 @@
         -->
 
         <div data-v-7e783a0c="" data-v-1107b0b2="" class="box" >
-            <div data-v-7e783a0c="" class="buy" style="z-index:999999">
+            <div data-v-7e783a0c="" class="buy" style="z-index:100" >
                 <button data-v-7e783a0c="">领取优惠券</button>
                 {empty name="Think.session.member_info"}
                 <button data-v-7e783a0c="button" onclick="javascript:window.location.href='{:url('mobile/login/login')}'">立即登录</button>
@@ -92,41 +92,43 @@
                     <img data-v-7e783a0c="" src="/static/mobile/frontend/course/packs_close.png" alt="" class="close">
                     <div data-v-7cf76425="" data-v-7e783a0c="" class="empty">
                         <img data-v-7cf76425="" src="/static/mobile/frontend/course/fill1.svg" alt="">
-                        <p data-v-7cf76425="">暂无优惠劵可领</p></div>
+                        <p data-v-7cf76425="">暂无优惠劵可领</p>
+                    </div>
                     <div data-v-7e783a0c="" class="ok">完成</div>
                 </div>
             </div>
-            {notempty name="Think.session.member_info"}
+
             <div data-v-7e783a0c="" class="vux-popup-dialog popup vux-popup-bottom vux-popup-dialog vux-popup-dialog-50701" style="height: 4.1rem; display: none;">
                 <div data-v-7e783a0c="" class="purchase">
                     <img data-v-7e783a0c="" src="/static/mobile/frontend/course/packs_close.png" alt="" class="close">
-
                     <div data-v-7e783a0c="" class="pricemeal">
                         <dl data-v-7e783a0c="">
                             <dt data-v-7e783a0c="">
                                 <img data-v-7e783a0c="" src="{$detail.imgurl}" alt="">
                             </dt>
                             <dd data-v-7e783a0c="" id="pricemeal">
-                                <p data-v-7e783a0c="">¥{$package.0.price}元</p>
+                                {notempty name='package'}
+                                <p data-v-7e783a0c="">¥{$package['0']['price']}元</p>
+                                {else /}
+                                <p data-v-7e783a0c="">暂无价格</p>
+                                {/notempty}
                                 <p data-v-7e783a0c="">已选择
-                                    <span data-v-7e783a0c="">{$package.0.name}</span>
+                                    <span data-v-7e783a0c="">{$package.0.name|default=''}</span>
                                 </p>
                             </dd>
                         </dl>
-
                         <p data-v-7e783a0c="" class="title">价格套餐</p>
                         <div data-v-7e783a0c="" class="packagelist">
                             {foreach name='package' item='vo'}
                             <span data-v-7e783a0c="" class="{eq name='key' value='0'}onSpan{/eq}" onclick="change_package(this,'{$vo.price}','{$vo.name}','{$vo.id}')">{$vo.name}</span>
                             {/foreach}
                         </div>
-                        <input type="hidden" value="{$package.0.id}" id="package_id">
-                        <div data-v-7e783a0c="" class="Confirm">确认购买</div>
+                        <input type="hidden" value="{$package.0.id|default=''}" id="package_id">
+                        <div data-v-7e783a0c="" class="Confirm" style="z-index:101" >确认购买</div>
                     </div>
-
                 </div>
             </div>
-            {/notempty}
+
         </div>
     </div>
 </div>

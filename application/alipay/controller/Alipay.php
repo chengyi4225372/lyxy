@@ -16,7 +16,7 @@ use think\Controller;
 class Alipay extends Controller {
 
 	public $alipay_config;
-	public $table = "member_course";
+	public $table = "member_course"; //订单
 	public $member = "member_info";
     public $coupon = 'index_coupon';
     public $member_coupon = 'member_coupon';
@@ -67,7 +67,6 @@ class Alipay extends Controller {
                     echo "<script>alert('已购买该课程!请勿重复购买');
                         window.location.href = '" . url('member/order/index') . "';</script>";
                 }
-
 				exit;
 			}
 			$data['order_code'] = date('YmdHis', $time) . rand(1000, 9999);

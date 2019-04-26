@@ -14,7 +14,7 @@ class Buy extends BasicMobile
 {
     public $degree = "index_degree";
     public $course = "index_course";
-    public $package = "degree_package";
+    public $package = "degree_package"; //学位课程
 
     /**
      * 网站入口
@@ -22,11 +22,11 @@ class Buy extends BasicMobile
     public function buy()
     {
         $this->assign('title', '购买课程');
-        $type = input('type');
-        $cid = input('cid');
-        $pid = input('pid');
+        $type = input('type'); //课程类型
+        $cid = input('cid');  //所属课程id
+        $pid = input('pid');  //学位课程价格id
         if ($type == 1) {
-            $course = db($this->course)->where('id', $cid)->find();
+            $course = db($this->course)->where('id', $cid)->find(); //免费课程
         } else {
             $course = db($this->degree)->where('id', $cid)->find();
             $package = db($this->package)->where('id', $pid)->find();

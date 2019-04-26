@@ -15,7 +15,7 @@
             <div data-v-c343945e="" class="list">
                 <dl data-v-c343945e="">
                     <dt data-v-c343945e="">
-                        <img data-v-c343945e="" src="{$course.imgurl}"
+                        <img data-v-c343945e="" src="{$course.imgurl|default=''}"
                              alt="">
                     </dt>
                     <dd data-v-c343945e="">
@@ -74,11 +74,15 @@
                 <span data-v-c343945e="" onclick="go_pay() ">去支付</span>
             </div>
             {/if}
-            <form action="{:url('alipay/alipay/pay')}" id="buy_form" method="post">
+            <form action="" id="buy_form" method="post">
                 <input type="hidden" name="pay_type" value="0">
+                <!--价格-->
                 <input type="hidden" name="price" value="{$course.price}">
+
                 <input type="hidden" name="course" value="{$Think.get.cid}">
+                <!--课程类型-->
                 <input type="hidden" name="course_type" value="{$course_type}">
+                <!--学位课程价格id-->
                 {notempty name='vo.package_id'}<input type="hidden" name="package_id" value="{$vo.package_id}">{/notempty}
                 <input type="hidden" name="coupon" id="coupon_id" value="">
             </form>
