@@ -100,27 +100,29 @@
             <div data-v-7e783a0c="" class="vux-popup-dialog popup vux-popup-bottom vux-popup-dialog vux-popup-dialog-50701" style="height: 4.1rem; display: none;">
                 <div data-v-7e783a0c="" class="purchase">
                     <img data-v-7e783a0c="" src="/static/mobile/frontend/course/packs_close.png" alt="" class="close">
-
                     <div data-v-7e783a0c="" class="pricemeal">
                         <dl data-v-7e783a0c="">
                             <dt data-v-7e783a0c="">
                                 <img data-v-7e783a0c="" src="{$detail.imgurl}" alt="">
                             </dt>
                             <dd data-v-7e783a0c="" id="pricemeal">
-                                <p data-v-7e783a0c="">¥{$package.0.price}元</p>
+                                {notempty name='package'}
+                                <p data-v-7e783a0c="">¥{$package['0']['price']}元</p>
+                                {else /}
+                                <p data-v-7e783a0c="">暂无价格</p>
+                                {/notempty}
                                 <p data-v-7e783a0c="">已选择
-                                    <span data-v-7e783a0c="">{$package.0.name}</span>
+                                    <span data-v-7e783a0c="">{$package.0.name|default=''}</span>
                                 </p>
                             </dd>
                         </dl>
-
                         <p data-v-7e783a0c="" class="title">价格套餐</p>
                         <div data-v-7e783a0c="" class="packagelist">
                             {foreach name='package' item='vo'}
                             <span data-v-7e783a0c="" class="{eq name='key' value='0'}onSpan{/eq}" onclick="change_package(this,'{$vo.price}','{$vo.name}','{$vo.id}')">{$vo.name}</span>
                             {/foreach}
                         </div>
-                        <input type="hidden" value="{$package.0.id}" id="package_id">
+                        <input type="hidden" value="{$package.0.id|default=''}" id="package_id">
                         <div data-v-7e783a0c="" class="Confirm">确认购买</div>
                     </div>
 

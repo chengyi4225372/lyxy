@@ -48,9 +48,11 @@ class Degree extends BasicMobile {
     private function _package($id) {
         $package = db($this->package)->where(['degree_id' => $id])->order('price asc')->select();
         foreach ($package as &$val) {
-//            if (!empty($val['content'])){
-            $val['list'] = explode("/", $val['content']);
-//            }
+            //如果没有设置价格
+            if($val['price'] == 0 ||$val['price'] ==null){
+                $val['price'] == '';
+            }
+            $val['list'] =$val['content']?explode("/", $val['content']):'';
         }
         return $package;
     }
