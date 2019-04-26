@@ -17,7 +17,7 @@ class Study extends BasicMobile
     public $msg = 'index_msg';
     public $type = 'course_type';
 
-    public $course = 'index_course';
+    public $course = 'index_course'; //免费课
     public $c_chapter = 'course_chapter';
     public $c_content = 'chapter_content';
 
@@ -46,14 +46,14 @@ class Study extends BasicMobile
     public function cdetail()
     {
         $this->assign('title', '专题课程');
-        if (isset($_GET['id'])){
+            if (isset($_GET['id'])){
             $id = input('get.id');
             $this->assign('course', $this->_course($id));
-//            print_r($this->_course($id));exit;
             return $this->fetch();
         }else{
             $this->error('数据错误','index');
-        }
+         }
+
     }
 
     public function ddetail()
@@ -106,14 +106,20 @@ class Study extends BasicMobile
 
     private function _course($id = 0)
     {
+
         if ($id != 0) {
             $row = db($this->course)->where('id', $id)->find();
-            $row['chapter'] = db($this->c_chapter)->where(['course_id' => $row['id'], 'is_deleted' => 0, 'status' => 1])->select();
-            foreach ($row['chapter'] as &$val) {
-                $val['content'] = db($this->c_content)->where(['chapter_id' => $val['id'], 'is_deleted' => 0, 'status' => 1])->select();
+            $row['chapter'] = db($this->c_chapter)->where(['course_id' => $row['id'], 'is_deleted' => 0, 'status' => 1])->select(); //课程章节
+            //当视频和章节没有时候
+            if(!empty($row['chapter'])){
+                foreach ($row['chapter'] as &$val) {
+                    $val['content'] = db($this->c_content)->where(['chapter_id' => $val['id'], 'is_deleted' => 0, 'status' => 1])->select(); //课程章节标题和视频
+                }
+                $row['video_content'] = $row['chapter'][0]['content'][0];
+                return $row;
+            }else{
+                return $row['chapter'] == '';
             }
-            $row['video_content'] = $row['chapter'][0]['content'][0];
-            return $row;
         }
 
         $mid = session("member_info.id");
