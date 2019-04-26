@@ -1,0 +1,33 @@
+{extend name="public/mobile" /}
+
+{block name='body'}
+<div data-v-6702b84a="" class="CourseProblem subPage_app">
+    <div data-v-4cd57836="" data-v-6702b84a="" class="header">
+        <div data-v-4cd57836="" style="display: none;"></div>
+        <div data-v-4cd57836="" class="return" style="">
+            <img data-v-4cd57836="" src="/static/mobile/frontend/study/back.svg" alt="" style="">
+        </div>
+        <span data-v-4cd57836="">常见问题</span></div>
+    <div data-v-6702b84a="" class="cont">
+        <p data-v-6702b84a="" class="title">版权声明</p>
+        <ul data-v-6702b84a="">
+            <li data-v-6702b84a="">
+                <p data-v-6702b84a="">
+                    1、本站所有课程内容及付费服务都归属于乐育学院学习平台，拥有独家版权和最终解释权。
+                    <hr/>
+                    2、如发现任何有损乐育学院及广大用户合法权益的行为（包括但不仅限于未授权使用乐育学院Logo及设计内容；非法录制课程视频；非法上传课程到其他平台；非法在除官方平台外的平台进行交易等）乐育学院将永久冻结账户，并积极对不法分子进行法律和经济上的追究和诉讼，严惩不贷。
+                    <hr/>
+                    3、希望广大用户积极配合，主动完善个人信息，遵守【用户付费协议】内容，共同维护乐育学院良好学习环境。
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.return').on('click', function () {
+        window.location.href = "{:url('mycenter/ques')}";
+    });
+</script>
+{/block}

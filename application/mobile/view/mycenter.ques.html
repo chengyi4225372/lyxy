@@ -11,20 +11,20 @@
     <div data-v-859663b0="" class="list">
         <ul data-v-859663b0="">
 
-            <li data-v-859663b0="" class="" onclick="detail(2)">
+            <li data-v-859663b0="" class="" onclick="javascript:window.location.href='{:url('ques/detail_1')}'">
                 <div data-v-859663b0="">
                     <p data-v-859663b0="">如何购买观看</p>
                     <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="" >
                 </div>
             </li>
-            <li data-v-859663b0="" class="margin" onclick="detail(3)">
+            <li data-v-859663b0="" class="margin" onclick="javascript:window.location.href='{:url('ques/detail_2')}'">
                 <div data-v-859663b0="">
                     <p data-v-859663b0="">学位作业要求</p>
                     <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="" >
                 </div>
             </li>
 
-            <li data-v-859663b0="" class=""  onclick="detail(4)">
+            <li data-v-859663b0="" class=""  onclick="javascript:window.location.href='{:url('ques/detail_3')}'" >
                 <div data-v-859663b0="">
                     <p data-v-859663b0="">版权提示</p>
                     <img data-v-859663b0="" src="/static/mobile/frontend/study/right.png" alt="">
@@ -39,8 +39,8 @@
     $('.return').on('click', function () {
         window.location.href = "{:url('index')}";
     });
-    function detail(id) {
-        window.location.href = "{:url('ques/detail')}?id="+id;
-    }
+    // function detail(id) {
+    //     window.location.href = "{:url('ques/detail_'+'id')}";
+    // }
 </script>
 {/block}
