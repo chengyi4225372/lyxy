@@ -126,7 +126,6 @@ class Order extends BasicAdmin
     /**
      * 导出Excel 方法
      */
-
     public function out()
     {
         //导出
@@ -142,87 +141,85 @@ class Order extends BasicAdmin
         $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
         $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
 
-        $begin_time = input('post.date','','strtotime');
-        $end_time = input('post.date1','','strtotime');
+        $begin_time = input('post.date', '', 'strtotime');
+        $end_time = input('post.date1', '', 'strtotime');
 
         // 实例化完了之后就先把数据库里面的数据查出来
-        $sql = db($this->table)->whereBetween('create_at',"{$begin_time},{$end_time}")->select();
-        foreach ($sql as &$v){
-            $member = db($this->table_member)->where('id',$v['member_id'])->find();
+        $sql = db($this->table)->whereBetween('create_at', "{$begin_time},{$end_time}")->where('is_finish', 1)->select();
+        foreach ($sql as &$v) {
+            $member = db($this->table_member)->where('id', $v['member_id'])->find();
             $v['member_name'] = $member['name'];
             $v['member_real_name'] = $member['real_name'];
-            $v['create_at'] = date('Y-m-d H:i:s',$v['create_at']);
-            $v['finish_at'] = date('Y-m-d H:i:s',$v['finish_at']);
-            if ($v['is_finish']==1){
+            $v['create_at'] = date('Y-m-d H:i:s', $v['create_at']);
+            $v['finish_at'] = date('Y-m-d H:i:s', $v['finish_at']);
+            if ($v['is_finish'] == 1) {
                 $v['is_finish'] = '已完成';
-            }else{
-                $v['is_finish'] = '未完成';
             }
-            switch ($v['course_type']){
+            switch ($v['course_type']) {
                 case 1:
                     $v['course_type'] = '免费课程';
-                    $v['course_name'] = db($this->table_course)->where('id',$v['course_id'])->value('name');
+                    $v['course_name'] = db($this->table_course)->where('id', $v['course_id'])->value('name');
                     break;
                 case 2:
                     $v['course_type'] = '学位课程';
-                    $v['course_name'] = db($this->table_degree)->where('id',$v['course_id'])->value('name');
+                    $v['course_name'] = db($this->table_degree)->where('id', $v['course_id'])->value('name');
                     break;
                 case 3:
                     $v['course_type'] = '七天课程';
-                    $v['course_name'] = db($this->table_camp)->where('id',$v['course_id'])->value('name');
+                    $v['course_name'] = db($this->table_camp)->where('id', $v['course_id'])->value('name');
                     break;
             }
         }
-
+        $objActSheet = $objPHPExcel->getActiveSheet();
         // 设置表头信息
-        $objPHPExcel->setActiveSheetIndex(0)
-            ->setCellValue('A1', 'ID')
-            ->setCellValue('B1', '订单号')
-            ->setCellValue('C1', '支付宝订单号')
-            ->setCellValue('D1', '学员账号')
-            ->setCellValue('E1', '学员姓名')
-            ->setCellValue('F1', '订单创建时间')
-            ->setCellValue('G1', '订单金额')
-            ->setCellValue('H1', '订单是否已完成')
-            ->setCellValue('I1', '订单完成时间')
-            ->setCellValue('J1', '课程类型')
-            ->setCellValue('K1', '课程名称');
+       // $objPHPExcel->setActiveSheetIndex(0)
+         $objActSheet->setCellValue('A1', 'ID');
+         $objActSheet->setCellValue('B1', '订单号');
+         $objActSheet->setCellValue('C1', '支付宝订单号');
+         $objActSheet->setCellValue('D1', '学员账号');
+         $objActSheet->setCellValue('E1', '学员姓名');
+         $objActSheet->setCellValue('F1', '订单创建时间');
+         $objActSheet->setCellValue('G1', '订单金额');
+         $objActSheet->setCellValue('H1', '订单已完成');
+         $objActSheet->setCellValue('I1', '订单完成时间');
+         $objActSheet->setCellValue('J1', '课程类型');
+         $objActSheet->setCellValue('K1', '课程名称');
 
         /*--------------开始从数据库提取信息插入Excel表中------------------*/
 
-        $i=2;  //定义一个i变量，目的是在循环输出数据是控制行数
-        $count = count($sql);  //计算有多少条数据
-        for ($i = 2; $i <= $count+1; $i++) {
-            $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, $sql[$i-2]['id']);
-            $objPHPExcel->getActiveSheet()->setCellValue('B' . $i, ' '.$sql[$i-2]['order_code']);
-            $objPHPExcel->getActiveSheet()->setCellValue('C' . $i, $sql[$i-2]['alipay_code']);
-            $objPHPExcel->getActiveSheet()->setCellValue('D' . $i, $sql[$i-2]['member_name']);
-            $objPHPExcel->getActiveSheet()->setCellValue('E' . $i, $sql[$i-2]['member_real_name']);
-            $objPHPExcel->getActiveSheet()->setCellValue('F' . $i, $sql[$i-2]['create_at']);
-            $objPHPExcel->getActiveSheet()->setCellValue('G' . $i, $sql[$i-2]['cost']);
-            $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, $sql[$i-2]['is_finish']);
-            $objPHPExcel->getActiveSheet()->setCellValue('I' . $i, $sql[$i-2]['finish_at']);
-            $objPHPExcel->getActiveSheet()->setCellValue('J' . $i, $sql[$i-2]['course_type']);
-            $objPHPExcel->getActiveSheet()->setCellValue('K' . $i, $sql[$i-2]['course_name']);
-        }
+        //$i=2;  //定义一个i变量，目的是在循环输出数据是控制行数
 
+        $count = count($sql);  //计算有多少条数据
+        for ($i = 2; $i <= $count + 1; $i++) {
+            $objActSheet->setCellValue('A' . $i, $sql[$i - 2]['id']);
+            $objActSheet->setCellValue('B' . $i, ' ' . $sql[$i - 2]['order_code']);
+            $objActSheet->setCellValue('C' . $i, $sql[$i - 2]['alipay_code']);
+            $objActSheet->setCellValue('D' . $i, $sql[$i - 2]['member_name']);
+            $objActSheet->setCellValue('E' . $i, $sql[$i - 2]['member_real_name']);
+            $objActSheet->setCellValue('F' . $i, $sql[$i - 2]['create_at']);
+            $objActSheet->setCellValue('G' . $i, $sql[$i - 2]['cost']);
+            $objActSheet->setCellValue('H' . $i, $sql[$i - 2]['is_finish']);
+            $objActSheet->setCellValue('I' . $i, $sql[$i - 2]['finish_at']);
+            $objActSheet->setCellValue('J' . $i, $sql[$i - 2]['course_type']);
+            $objActSheet->setCellValue('K' . $i, $sql[$i - 2]['course_name']);
+        }
 
         /*--------------下面是设置其他信息------------------*/
 
-        $objPHPExcel->getActiveSheet()->setTitle('order_info');      //设置sheet的名称
+        $objActSheet->setTitle('订单列表');      //设置sheet的名称
 //        $objPHPExcel->getActiveSheet()->getStyle('B')->getNumberFormat()->setFormatCode(\PHPExcel_Style_NumberFormat::FORMAT_TEXT);
         $objPHPExcel->setActiveSheetIndex(0);                   //设置sheet的起始位置
-
-        $filename= date("Y-m-d").'导出订单信息';
-        ob_end_clean();
-        header('Content-Disposition: attachment;filename="'.$filename.'.xlsx"');
+        $filename = date("Y-m-d") . '导出订单信息';
+        //ob_end_clean();
+        header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Cache-Control: max-age=0');
-        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
-        $PHPWriter = \PHPExcel_IOFactory::createWriter( $objPHPExcel,"Excel2007");
+        // $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');   //通过PHPExcel_IOFactory的写函数将上面数据写出来
+        $PHPWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, "Excel2007");
         $PHPWriter->save("php://output"); //表示在$path路径下面生成demo.xlsx文件
-        exit();
+        //exit();
     }
+
 
 
 }

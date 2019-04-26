@@ -263,4 +263,5 @@ function isMobile()
         }
     }
     return false;
+
 }
