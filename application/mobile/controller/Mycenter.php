@@ -61,17 +61,13 @@ class Mycenter extends BasicMobile
         $info = db($this->order)->where('member_id',$member_id)->where(['status'=>1,'is_deleted'=>0])->select();
         foreach ($info as $k=>$val){
             if($info[$k]['course_type'] ==1){
-                $info[$k]['course_type'] = '免费课程';
                 $info[$k]['ke_title'] = db($this->course)->where('id',$info[$k]['course_id'])->value('name');
                 $info[$k]['ke_img'] = db($this->course)->where('id',$info[$k]['course_id'])->value('imgurl');
             }else if($info[$k]['course_type'] ==2){
-                $info[$k]['course_type'] = '学位课程';
                 $info[$k]['ke_title'] = db($this->degree)->field('name')->where('id',$info[$k]['course_id'])->value('name');
             }else if($info[$k]['course_type'] ==3){
-                $info[$k]['course_type'] = '七天课程';
                 $info[$k]['ke_title'] = db($this->c_chapter)->field('name')->where('id',$info[$k]['course_id'])->value('name');
             }else{
-                $info[$k]['course_type'] ='公开课';
                 $info[$k]['ke_title'] = db('index_open')->field('name')->where('id',$info[$k]['course_id'])->value('name');
                 $info[$k]['ke_img'] = db('index_open')->where('id',$info[$k]['course_id'])->value('imgurl');
             }

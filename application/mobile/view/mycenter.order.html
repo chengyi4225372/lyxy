@@ -37,7 +37,7 @@
                 {/empty}
                 <dd data-v-5224e5f4="">
                     <p data-v-5224e5f4="">
-                        <span data-v-5224e5f4="">{$vo.course_type}-{$vo.ke_title}</span>
+                        <span data-v-5224e5f4="">{$vo.ke_title}</span>
                         <span data-v-5224e5f4="" class="original">¥ {$vo.cost?$vo.cost:''}</span>
                     </p>
                     <p data-v-5224e5f4="">
@@ -59,7 +59,7 @@
                     <br data-v-5224e5f4="">{$vo.finish_at|date="Y-m-d h:i:s",###|default=''}
                 </span>
                 {if condition="$vo.is_finish eq 0 or $vo.is_finish eq 2 " }
-
+                <button data-v-5224e5f4="" onclick="go_buy('{$vo.course_type}','{$vo.course_id}')">去支付</button>
                 {else /}
                 <button data-v-5224e5f4="" onclick="play_url('{$vo.course_type}','{$vo.course_id}')">去观看</button>
                 {/if}
@@ -83,12 +83,16 @@
 
     function play_url(type_id,course_id){
          if(type_id ==1){
-           window.location.href="{:url('mobile/course/detail')}?cid="+course_id;
+           window.location.href="{:url('mobile/study/cdetail')}?id="+course_id;
          }else if(type_id ==2){
-          window.location.href="{:url('mobile/degree/index')}?id="+course_id;
+          window.location.href="{:url('mobile/study/ddetail')}?id="+course_id;
          }else{
-          window.location.href="{:url('mobile/course/detail')}?cid="+course_id;
+          window.location.href="{:url('mobile/study/cdetail')}?id="+course_id;
          }
+    }
+
+    function go_buy(type,cid){
+        window.location.href="{:url('mobile/buy/buy')}?type="+type+"&cid="+cid;
     }
 
 </script>

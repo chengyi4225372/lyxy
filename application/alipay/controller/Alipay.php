@@ -58,7 +58,7 @@ class Alipay extends Controller {
 			$mid = session("member_info.id");
 			$package =input("post.package_id")?input("post.package_id"):'';
 			$time = time();
-			if (db($this->table)->where(["member_id" => $mid, 'course_id' => $course, 'course_type' => $course_type, 'package_id'=>$package])->find()) {
+			if (db($this->table)->where(["member_id" => $mid, 'course_id' => $course,'is_finish'=>1, 'course_type' => $course_type, 'package_id'=>$package])->find()) {
 //                return ['status' => 404, 'msg' => '已购买该课程!请勿重复购买!'];
                 if(isMobile()){
                     echo "<script>alert('已购买该课程!请勿重复购买');
