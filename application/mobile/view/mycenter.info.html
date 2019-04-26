@@ -18,32 +18,41 @@
             </li>
             <li data-v-0889b102="">
                 <span data-v-0889b102="" class="type">用户名</span>
-                <span data-v-0889b102="" class="user">{$Think.session.member_info.real_name}</span>
+                <span data-v-0889b102="" class="user">
+                    {if condition="$Think.session.member_info.real_name neq null"}
+                        {$Think.session.real_name}
+                    {elseif condition="$Think.session.member_info.name neq null "}
+                        {$Think.session.member_info.name}
+                    {else /}
+                        {$Think.session.member_info.tel}
+                    {/if}
+                </span>
             </li>
             <li data-v-0889b102="">
                 <span data-v-0889b102="" class="type">性别</span>
                 <span data-v-0889b102="" class="user">保密</span>
             </li>
-            <li data-v-0889b102=""><span data-v-0889b102="" class="type">生日</span>
-                <span data-v-0889b102="" class="user"> - - </span>
+            <li data-v-0889b102="">
+                <span data-v-0889b102="" class="type">曾工作地点</span>
+                <span data-v-0889b102="" class="user"> {$member.work_place|default=''} </span>
             </li>
         </ul>
         <ul data-v-0889b102="" class="cont auto">
             <li data-v-0889b102="">
-                <span data-v-0889b102="" class="type">Q Q</span>
-                <span data-v-0889b102="" class="user"></span>
+                <span data-v-0889b102="" class="type">联系方式</span>
+                <span data-v-0889b102="" class="user">{$member.tel|default=''}</span>
             </li>
             <li data-v-0889b102="">
-                <span data-v-0889b102="" class="type">微信</span>
-                <span data-v-0889b102="" class="user"></span>
+                <span data-v-0889b102="" class="type">原岗位</span>
+                <span data-v-0889b102="" class="user">{$member.position|default=''}</span>
             </li>
             <li data-v-0889b102="">
                 <span data-v-0889b102="" class="type">现居</span>
-                <span data-v-0889b102="" class="user"> 省 |  市</span>
+                <span data-v-0889b102="" class="user"> {$member.province|default=''} |{$member.city|default=''}</span>
             </li>
             <li data-v-0889b102="">
-                <span data-v-0889b102="" class="type">学历</span>
-                <span data-v-0889b102="" class="user">学历</span>
+                <span data-v-0889b102="" class="type">转行前工作</span>
+                <span data-v-0889b102="" class="user">{$membr.before|default=''}</span>
             </li>
         </ul>
         <div data-v-0889b102="" class="exit">

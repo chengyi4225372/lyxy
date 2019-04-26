@@ -21,6 +21,7 @@ class Mycenter extends BasicMobile
     public $c_chapter = 'course_chapter'; //学位课
     public $c_content = 'chapter_content';
     public $order ='member_course'; //订单表
+    public $member = 'member_info';
 
     /**
      * 网站入口
@@ -48,6 +49,9 @@ class Mycenter extends BasicMobile
 
     public function info()
     {
+        $member_id = session('member_info.id');
+        $member = db($this->member)->where(['id'=>$member_id,'status'=>1,'is_deleted'=>0])->find();
+        $this->assign('member',$member);
         $this->assign('title', '个人中心');
         return $this->fetch();
     }
