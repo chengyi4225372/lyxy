@@ -56,7 +56,10 @@
             </div>
             <p data-v-5224e5f4="" class="down-time">
                 <span data-v-5224e5f4="">下单时间：
-                    <br data-v-5224e5f4="">{$vo.finish_at|date="Y-m-d h:i:s",###|default=''}
+                    <br data-v-5224e5f4="">
+                      {notempty name="vo.finish_at"}
+                       {$vo.finish_at|date="Y-m-d h:i:s",###|default=''}
+                      {/notempty}
                 </span>
                 <button data-v-5224e5f4="" onclick="play_url('{$vo.course_type}','{$vo.course_id}')">去观看</button>
             </p>

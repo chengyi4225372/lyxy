@@ -62,9 +62,9 @@
             <p data-v-28fbf53a="" class="" onclick="go_tab(this,3)">
                 评价
             </p>
-            <p data-v-28fbf53a="" class="" onclick="go_tab(this,4)">
-                常见问题
-            </p>
+            <!--<p data-v-28fbf53a="" class="" onclick="go_tab(this,4)">-->
+                <!--常见问题-->
+            <!--</p>-->
         </div>
 
         <div data-v-09c7809a="" data-v-28fbf53a="" class="item">
@@ -82,8 +82,9 @@
 
         {include file="course:catalog" /}
         {include file="course:comment" /}
+        <!--
         {include file="course:issue" /}
-
+        -->
         <div data-v-28fbf53a="" class="vux-toast">
             <div class="weui-mask_transparent" style="display: none;"></div>
             <div class="weui-toast weui-toast_text vux-toast-middle" style="width: 2rem; display: none;"><i
@@ -93,12 +94,12 @@
     </div>
     <div data-v-5e31dde6="" data-v-28fbf53a="" class="buy">
         {if condition="$Think.session.member_info eq null"}
-        <button data-v-5e31dde6="">
+        <button data-v-5e31dde6="" onclick="JavaScript:window.location.href = '{:url('mobile/login/login')}'">
             <p data-v-5e31dde6="" class="price">
                 ¥ <span data-v-5e31dde6="">{$vo.price}</span>
             </p>
             <!--<p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">立即购买</p>-->
-            <p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/login/login')}">立即登陆</p>
+            <p data-v-5e31dde6="" class="go" >立即登陆</p>
         </button>
         {elseif condition="$is_buy eq 1" /}
         <button data-v-5e31dde6="">
@@ -108,12 +109,12 @@
             <p data-v-5e31dde6="" class="go">已购买</p>
         </button>
         {else /}
-        <button data-v-5e31dde6="">
+        <button data-v-5e31dde6="" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">
             <p data-v-5e31dde6="" class="price">
                 ¥ <span data-v-5e31dde6="">{$vo.price}</span>
             </p>
             <!--<p data-v-5e31dde6="" class="go" onclick="go_buy()">立即购买</p>-->
-            <p data-v-5e31dde6="" class="go" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">立即购买</p>
+            <p data-v-5e31dde6="" class="go" >立即购买</p>
         </button>
         {/if}
     </div>
