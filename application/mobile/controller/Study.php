@@ -18,8 +18,8 @@ class Study extends BasicMobile
     public $type = 'course_type';
 
     public $course = 'index_course'; //免费课
-    public $c_chapter = 'course_chapter';
-    public $c_content = 'chapter_content';
+    public $c_chapter = 'course_chapter'; //课程章节
+    public $c_content = 'chapter_content'; //课程内容
 
     public $degree = 'index_degree';
     public $module = 'degree_module';
@@ -48,8 +48,20 @@ class Study extends BasicMobile
         $this->assign('title', '专题课程');
             if (isset($_GET['id'])){
             $id = input('get.id');
-            $this->assign('course', $this->_course($id));
-            return $this->fetch();
+                //需要取出第一条播放视频 只有没有才去播放默
+                $url = db($this->c_chapter)->field('id,course_id')->where('course_id',$id)->select();
+                //如果课程章节都没有 直接结束
+                if(!is_array($url)){
+                   $url = '';
+                }else{
+                    foreach($url as $k =>$val){
+                        $url['video'] = db($this->c_content)->where(['chapter_id'=>$url[$k]['id'],'status'=>1,'is_deleted'=>0])->order('id desc')->find();
+                    }
+                   $url? $url:'';
+                }
+                $this->assign('url',$url);
+                $this->assign('course', $this->_course($id));
+                return $this->fetch();
         }else{
             $this->error('数据错误','index');
          }
@@ -84,7 +96,6 @@ class Study extends BasicMobile
             $row['video_content'] = $row['module'][0]['chapter'][0]['content'][0];
             return $row;
         }
-
         $mid = session("member_info.id");
         $cid = db("member_course")->where(['is_finish' => 1, 'status' => 1, 'is_deleted' => 0, 'member_id' => $mid, 'course_type' => 2])->column('course_id');
         if (!empty($cid)) {

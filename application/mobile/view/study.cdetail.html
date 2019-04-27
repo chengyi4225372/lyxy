@@ -57,6 +57,7 @@
 </div>
 {/block}
 {block name="js"}
+
 <script>
     $('.title img').on('click', function () {
         window.location.href = "{:url('index')}";
@@ -64,12 +65,13 @@
     var options = {
         engineOrder : ['html5','flash'],
         controls: true,
-        url: "/static/upload/60fc24bbbfea0dd2/eb0e56ae47d914af.MP4",
+        url: "{$url.video.video_url?$url.video.video_url:'/static/upload/60fc24bbbfea0dd2/eb0e56ae47d914af.MP4'}",
         poster: "{$course.imgurl}",
         type: 'mp4',
         autoplay: true // 如为 true，则视频将会自动播放
     };
     var player = new QiniuPlayer('video-player', options);
+
 
     function play_video(video,obj) {
         player.src({type: 'video/mp4', src: video}, function () {
