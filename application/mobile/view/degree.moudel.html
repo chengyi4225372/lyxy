@@ -7,13 +7,13 @@
             <p data-v-62f03312="" class="Stagep1">第{$key+1}阶段 - 学习目标</p>
             {$vo.content|html_entity_decode=###}
 
-            <p data-v-62f03312="" class="Stagep3">{$vo.chapter_num}个章节 <span data-v-62f03312="">查看更多</span></p>
-            <ul data-v-62f03312="">
+            <p data-v-62f03312="" class="Stagep3">{$vo.chapter_num}个章节 <span data-v-62f03312="" onclick="show_url(this,'{$vo.id}');">查看更多</span></p>
+            <ul data-v-62f03312="" id="{$vo.id}">
                 {foreach name='vo.chapter' item='voo' key="k"}
                 <li data-v-62f03312="" class="section">
                     <p data-v-62f03312="" class="SectionList">
                         <span data-v-62f03312="">第{$k+1}章：{$voo.name}</span>
-                        <span data-v-62f03312=""></span>
+                        <span data-v-62f03312="" onclick="zhang_url(this);"></span>
                     </p>
                     <div data-v-62f03312="" class="SectionCont">
                         {foreach name='voo.content' item='val'}
@@ -30,5 +30,24 @@
 </div>
 
 <script>
+    //显示章节
+    function show_url(obj,id){
+        if($("#"+id).css("display")=="none") {
+            $('#' + id).show();
+            $(obj).text('收起');
+        }else{
+            $('#' + id).hide();
+            $(obj).text('查看更多');
+        }
+    }
+
+    //显示章节内容
+    function zhang_url(obj){
+         if($(obj).parents('p').next('div').css("display") == 'none'){
+             $(obj).parents('p').next('div').show();
+         }else{
+             $(obj).parents('p').next('div').hide();
+         }
+    }
 
 </script>

@@ -59,13 +59,15 @@ class Degree extends BasicMobile {
 
     private function _module($id) {
 //        $row = db($this->table)->where('id', '=', $id)->field('id,name,type_id,position')->find();
-
+        //课程标题
         $module = db($this->module)->where(['degree_id' => $id, 'is_deleted' => 0, 'status' => 1])->select();
         foreach ($module as &$v) {
+            //章节
             $v['chapter'] = db($this->chapter)->where(['module_id' => $v['id'], 'is_deleted' => 0, 'status' => 1])->select();
             $v['chapter_num'] = count($v['chapter']);
             foreach ($v['chapter'] as &$val) {
                 $val['has_free'] = 0;
+                //课程内容
                 $val['content'] = db($this->content)->where(['chapter_id' => $val['id'], 'is_deleted' => 0, 'status' => 1])->select();
                 foreach ($val['content'] as &$vv) {
                     if ($vv['is_free'] == 1) {
@@ -77,4 +79,5 @@ class Degree extends BasicMobile {
         }
         return $module;
     }
+
 }
