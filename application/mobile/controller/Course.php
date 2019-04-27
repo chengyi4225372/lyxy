@@ -14,8 +14,8 @@ class Course extends BasicMobile {
 
     public $type = 'course_type'; //免费课关联类型
     public $course = 'index_course'; //免费课
-    public $c_chapter = 'course_chapter';
-    public $c_content = 'chapter_content';
+    public $c_chapter = 'course_chapter'; //课程章节
+    public $c_content = 'chapter_content'; //课程链接视频
     public $order = 'member_course';
     public $teacher = 'system_user';
     public $problem = 'problem';
@@ -71,8 +71,7 @@ class Course extends BasicMobile {
         $this->assign('chapter', $db);
         $this->assign('chapter_num', count($db));
         $this->assign('comment', $this->_comment());
-//        print_r($this->_comment());
-//        exit;
+
         return $this->fetch();
 	}
 

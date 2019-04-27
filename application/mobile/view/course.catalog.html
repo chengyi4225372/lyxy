@@ -25,16 +25,23 @@
             {foreach name='vv.content' item='vvo'}
             <li data-v-3851df12="">
                 <div data-v-3851df12="" class="left">
+                     <!-- 1 =》免费-->
                     {eq name='vvo.is_free' value='1'}
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt="" class="play">
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt=""  onclick="player('{$vvo.video_url|default=null}')" class="play">
                      {else /}
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt="" class="play" style="display: none;">
-                    {/eq}
+                         <!-- 客户购买-->
+                      {if condition="$is_buy eq 1" }
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt=""  onclick="player('{$vvo.video_url|default=null}')" class="play" style="display: none;">
+                       {else /}
                     <img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play" style="display: none;">
-                    <p data-v-3851df12="" class="name">{$vvo.name}</p></div>
+                      {/if}
+                    {/eq}
+                    <!--<img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play" style="display: none;">-->
+                    <p data-v-3851df12="" class="name">{$vvo.name}</p>
+                </div>
                 <div data-v-3851df12="" class="right">
                     {eq name='vvo.is_free' value='1'}
-                    <span data-v-3851df12="" class="try">试学</span>
+                    <span data-v-3851df12="" class="try" onclick="player('{$vvo.video_url|default=null}')">试学</span>
                     {/eq}
                     {neq name='vvo.is_free' value='1'}
                     <img data-v-3851df12="" src="/static/mobile/frontend/course/lock.svg" alt="">
@@ -61,9 +68,11 @@
 
     function player(video) {
         var player = '<div id="player">'+
-            '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="550" width="650" autoplay="" preload="'+video+'">'+
+            '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="240" width="100%" autoplay="" preload="'+video+'">'+
             '<source src="'+video+'" type="video/mp4"></source></video></div>';
-        $(document.body).append(player);
+       // $(document.body).append(player);
+        $("#tryVideo").append(player);
         toVideo();
+        $("tryVideo_component").hide();
     }
 </script>
