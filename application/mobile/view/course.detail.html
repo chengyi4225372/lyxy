@@ -103,9 +103,9 @@
         {elseif condition="$is_buy eq 1" /}
         <button data-v-5e31dde6="">
             <p data-v-5e31dde6="" class="price">
-                ¥ <span data-v-5e31dde6="">{$vo.price}</span>
+               <!-- ¥ <span data-v-5e31dde6="">{$vo.price}</span> -->
             </p>
-            <p data-v-5e31dde6="" class="go">已购买</p>
+            <p data-v-5e31dde6="" class="go" onclick="play_url('{$info.course_type}','{$info.course_id}')">已购买</p>
         </button>
         {else /}
         <button data-v-5e31dde6="" style="position:fixed;z-index:99999;width: 100%;bottom:0;left:0;" onclick="JavaScript:window.location.href = '{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}'">
@@ -156,5 +156,16 @@
     function go_buy() {
         window.location.href = "{:url('mobile/buy/buy')}?type=1&cid={$Think.get.cid}";
     }
+
+    function play_url(type_id,course_id){
+        if(type_id ==1){
+            window.location.href="{:url('mobile/study/cdetail')}?id="+course_id;
+        }else if(type_id ==2){
+            window.location.href="{:url('mobile/study/ddetail')}?id="+course_id;
+        }else{
+            window.location.href="{:url('mobile/study/cdetail')}?id="+course_id;
+        }
+    }
+
 </script>
 {/block}

@@ -55,11 +55,14 @@ class Course extends BasicMobile {
             $row['price'] = '0';
         }
         $mid = session("member_info.id");
-        if (db($this->order)->where(["member_id" => $mid, 'course_id' => $cid, 'course_type' => 1, 'is_finish' => 1])->find()) {
+        $info =db($this->order)->where(["member_id" => $mid, 'course_id' => $cid, 'course_type' => 1, 'is_finish' => 1])->find();
+        if ($info) {
             $is_buy = 1; //已购买
         } else {
             $is_buy = 2; //没有
         }
+        //返回订单信息
+        $this->assign('info',$info);
         $this->assign('is_buy', $is_buy);
         $this->assign('title', '课程详情-' . $row['name']);
         $this->assign('vo', $row);
