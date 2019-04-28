@@ -71,7 +71,6 @@ class Course extends BasicMobile {
         $this->assign('chapter', $db);
         $this->assign('chapter_num', count($db));
         $this->assign('comment', $this->_comment());
-
         return $this->fetch();
 	}
 
