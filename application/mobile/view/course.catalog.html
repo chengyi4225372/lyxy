@@ -27,11 +27,11 @@
                 <div data-v-3851df12="" class="left">
                      <!-- 1 =》免费-->
                     {eq name='vvo.is_free' value='1'}
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt=""  onclick="player('{$vvo.video_url|default=null}','{$vvo.id}')" class="play">
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_free.svg" alt=""  onclick="players('{$vvo.video_url|default=null}',this)" class="play">
                      {else /}
                          <!-- 客户购买-->
                       {if condition="$is_buy eq 1" }
-                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt=""  onclick="player('{$vvo.video_url|default=null}','{$vvo.id}')" class="play" style="display: none;">
+                    <img data-v-3851df12="" src="/static/mobile/frontend/course/play_notfree.svg" alt=""  onclick="players('{$vvo.video_url|default=null}',this)" class="play" style="display: none;">
                        {else /}
                     <img data-v-3851df12="" src="/static/mobile/frontend/course/playing.svg" alt="" class="play" style="display: none;">
                       {/if}
@@ -41,7 +41,7 @@
                 </div>
                 <div data-v-3851df12="" class="right">
                     {eq name='vvo.is_free' value='1'}
-                    <span data-v-3851df12="" class="try" onclick="player('{$vvo.video_url|default=null}','{$vvo.id}')">试学</span>
+                    <span data-v-3851df12="" class="try" onclick="players('{$vvo.video_url|default=null}',this)">试学</span>
                     {/eq}
                     {neq name='vvo.is_free' value='1'}
                     <img data-v-3851df12="" src="/static/mobile/frontend/course/lock.svg" alt="">
@@ -55,6 +55,7 @@
     {/foreach}
 
 </div>
+<script type="text/javascript" src="__STATIC__/index/static/js/player.js"></script>
 <script>
     function look_list(obj) {
         if ($(obj).next("ul").css('display') == 'block') {
@@ -66,6 +67,7 @@
         }
     }
 
+    /*
     function player(video,id) {
             var player = '<div id="'+id+'">'+
                 '<video id="video" class="video-js vjs-default-skin" controls="true" controlslist="nodownload" height="240" width="100%" autoplay="" preload="'+video+'">'+
@@ -76,5 +78,34 @@
             toVideo();
             $("#tryVideo_component").hide();
             
-    }
+    }*/
+</script>
+
+<script>
+   function players(video,obj){
+       $("#tryVideo_component").hide();
+       var player ='<video id="my-player" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" poster="" style="width:100%;height:240px;">'+
+               +'</video>';
+       $("#tryVideo").append(player);
+       var myPlayer = videojs("my-player");
+       videojs("my-player", {}, function(){
+           // Player (this) is initialized and ready.
+           myPlayer.src(video);
+           myPlayer.load(video);
+           myPlayer.play();
+           $(obj).show();
+           $("#my-player").siblings('').hide();
+       });
+
+       /*
+       var myPlayer = videojs("my-player");
+       myPlayer.ready(function(){
+           this.src(video);
+           this.load(video);
+           this.play();
+       })
+       $("#my-player").show();
+       */
+   }
+
 </script>

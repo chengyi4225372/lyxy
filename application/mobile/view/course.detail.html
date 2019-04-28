@@ -1,6 +1,9 @@
 {extend name="public/mobile" /}
 
 {block name='body'}
+<script src="__STATIC__/mobile/js/video.min.js"></script>
+<link rel="stylesheet" href="__STATIC__/mobile/js/video-js.min.css">
+
 <div data-v-28fbf53a="" class="CourseBox subPage_app">
     <div data-v-28fbf53a="" id="CourseItem" class="CourseItem">
         <div data-v-28fbf53a="" class="back">
@@ -8,7 +11,7 @@
         </div>
         <div data-v-28fbf53a="" class="video">
             <div data-v-28fbf53a="" id="tryVideo" class="tryVideo prism-player">
-                <div class="prism-cover" id="tryVideo_component" style="background-image: url({$vo.imgurl});height: 240px;"></div>
+                <div class="prism-cover" id="tryVideo_component" style="background-image: url({$vo.imgurl});height: 240px; display:block;"></div>
             </div>
         </div>
         <div data-v-745847a6="" data-v-28fbf53a="" class="infomation">
@@ -168,4 +171,5 @@
     }
 
 </script>
+
 {/block}
